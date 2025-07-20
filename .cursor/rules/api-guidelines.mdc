@@ -1,16 +1,19 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: false
 ---
- # API 使用指南
+
+# API 使用指南
 
 ## GitHub API
+
 - 使用 @octokit/core 进行 GitHub API 调用
 - 使用 GitHub Personal Access Token 进行认证
 - 遵循 GitHub API 速率限制
 
 ## 配置项
+
 - 使用 VSCode 配置系统存储用户设置
 - 主要配置项：
   - github-blogger.token: GitHub 个人访问令牌
@@ -19,11 +22,13 @@ alwaysApply: false
   - github-blogger.branch: 仓库分支名称
 
 ## 错误处理
+
 - 实现统一的错误处理机制
 - 提供友好的错误提示
 - 记录错误日志
 
 ## 数据缓存
+
 - 使用 React Query 进行数据缓存
 - 设置合理的缓存过期时间
 - 实现数据预加载

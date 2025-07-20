@@ -50,10 +50,7 @@ export default function Editor() {
     <Stack className="app-editor" gap="condensed" padding="condensed">
       {isErrorRepo && (
         <Stack.Item>
-          <FlashWithRetry
-            message="Uh oh! Failed to load repository."
-            onRetry={() => refetchRepo()}
-          />
+          <FlashWithRetry message="Failed to load repository" onRetry={() => refetchRepo()} />
         </Stack.Item>
       )}
       <Stack.Item sx={{flexShrink: 0}}>
@@ -67,7 +64,7 @@ export default function Editor() {
             />
           </Stack.Item>
           {isUploadingImages ? (
-            <Tooltip text="Uploading images...">
+            <Tooltip text="Uploading images">
               <Button loading variant="invisible" size="small" />
             </Tooltip>
           ) : issue.number > -1 ? (
@@ -80,10 +77,7 @@ export default function Editor() {
       <Stack.Item sx={{flexShrink: 0}}>
         <>
           {isErrorLabels ? (
-            <FlashWithRetry
-              message="Uh oh! Failed to load labels."
-              onRetry={() => refetchLabels()}
-            />
+            <FlashWithRetry message="Failed to load labels" onRetry={() => refetchLabels()} />
           ) : isLoadingLabels ? (
             <SkeletonText className="labels-skeleton" />
           ) : (

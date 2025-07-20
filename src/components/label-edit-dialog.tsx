@@ -110,14 +110,14 @@ export default function LabelEditDialog({
       setNameError('Label name is required.')
       isValid = false
     } else if (allLabelName.includes(formattedName)) {
-      setNameError('Name has already been taken.')
+      setNameError('Label name has already been taken')
       isValid = false
     } else {
       setNameError(null)
     }
 
     if (color.trim() && !HEX_COLOR_REGEX.test(color)) {
-      setColorError('Color must be a 6-character hex code (e.g. FF0000).')
+      setColorError('Color must be a 6-character hex code (e.g. FF0000)')
       isValid = false
     } else {
       setColorError(null)
@@ -311,7 +311,7 @@ export default function LabelEditDialog({
             {colorError ? (
               <FormControl.Validation variant="error">{colorError}</FormControl.Validation>
             ) : (
-              <FormControl.Caption>A 6-character hex code (e.g. FF0000).</FormControl.Caption>
+              <FormControl.Caption>A 6-character hex code (e.g. FF0000)</FormControl.Caption>
             )}
             <Stack direction="horizontal" gap="condensed" align="center">
               <Stack.Item>
@@ -322,7 +322,7 @@ export default function LabelEditDialog({
                   onChange={handleColorInputChange}
                   placeholder={DEFAULT_LABEL_COLOR}
                   maxLength={6}
-                  aria-label="Hex color code for Color input"
+                  aria-label="Hex color code"
                   sx={{width: '100px'}}
                 />
               </Stack.Item>

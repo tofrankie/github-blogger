@@ -15,7 +15,7 @@ export function activate(context: ExtensionContext) {
     EditPanel.render(context)
   })
 
-  const disposableConfig = vscode.commands.registerCommand(EXTENSION_COMMAND.CONFIG, () => {
+  const disposableConfig = vscode.commands.registerCommand(EXTENSION_COMMAND.CONFIGURE, () => {
     MultiSelectInput(context)
   })
 

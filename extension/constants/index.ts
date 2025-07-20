@@ -4,7 +4,7 @@ export const EXTENSION_NAME = 'github-blogger'
 
 export const EXTENSION_COMMAND = {
   OPEN: `${EXTENSION_NAME}.open`,
-  CONFIG: `${EXTENSION_NAME}.config`,
+  CONFIGURE: `${EXTENSION_NAME}.configure`,
 } as const
 
 export const DEFAULT_PAGINATION_SIZE = 20

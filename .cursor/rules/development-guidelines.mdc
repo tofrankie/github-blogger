@@ -3,25 +3,29 @@ description:
 globs:
 alwaysApply: false
 ---
+
 # 开发规范指南
 
 ## 代码风格
+
 - 使用 ESLint 和 Prettier 进行代码格式化
 - 使用 TypeScript 进行类型检查
 - 使用 Stylelint 进行 CSS 样式检查
 
 ## Git 提交规范
+
 - 使用 Commitlint 规范提交信息
 - 提交前运行 `pnpm lint` 确保代码质量
 - 使用 Husky 进行提交前检查
 
 ## 构建和发布
+
 - 使用 Vite 进行项目构建
 - 使用 `pnpm build` 构建项目
 - 使用 `pnpm package` 打包 VSCode 扩展
 
 ## 依赖管理
+
 - 使用 pnpm 作为包管理器
 - 所有依赖都使用固定版本
 - 开发依赖和运行时依赖分开管理
-

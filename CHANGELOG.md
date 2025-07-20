@@ -2,41 +2,51 @@
 
 All notable changes will be documented in this file.
 
-## v2.2.1
+## v2.3.0
 
-### Fixed
-
-- Ensure hyperlinks can be triggered reliably.
-
-## v2.2.0
-
-> June 8, 2025
-
-### Added
-
-- Open issues dialog by default.
-- Support multiple image uploads.
-
-### Fixed
-
-- Add loading indicator for image uploads.
-
-## v2.1.0
-
-> June 3, 2025
+> Jul 21, 2025
 
 ### Changed
 
-- Update Label Group.
+- Rename `config` command to `configure`
 
-## v2.0.0
+## v2.2.1
 
-> June 1, 2025
+> Jun 9, 2025
+
+### Fixed
+
+- Ensure hyperlinks can be triggered reliably
+
+## v2.2.0
+
+> Jun 8, 2025
 
 ### Added
 
-- GitHub-like interaction experience.
-- Improved error handling.
+- Open issues dialog by default
+- Support multiple image uploads
+
+### Fixed
+
+- Add loading indicator for image uploads
+
+## v2.1.0
+
+> Jun 3, 2025
+
+### Changed
+
+- Update Label Group
+
+## v2.0.0
+
+> Jun 1, 2025
+
+### Added
+
+- GitHub-native interaction experience
+- Improved error handling
 
 ## v1.0.0
 
@@ -52,75 +62,75 @@ No functional changes.
 
 ## v0.0.8
 
-> April 4, 2024
+> Apr 4, 2024
 
 ### Added
 
-- Supported copy issue URL to clipboard.
+- Support copy issue URL to clipboard
 
 ### Changed
 
-- When submitting an issue update, it will check for changes to reduce unnecessary commit logs.
+- When submitting an issue update, check for changes to reduce unnecessary commit logs
 
 ## v0.0.7
 
-> December 17, 2023
+> Dec 17, 2023
 
 ### Fixed
 
-- Improved code block syntax highlight.
+- Improved code block syntax highlighting
 - Fixed a bug where spaces could not be entered at the end of the title
 
 ## v0.0.6
 
-> November 27, 2023
+> Nov 27, 2023
 
 ### Fixed
 
-- Improved code block syntax highlight.
+- Improved code block syntax highlighting
 
 ## v0.0.5
 
-> November 26, 2023
+> Nov 26, 2023
 
 ### Fixed
 
-- Fixed a bug where it was not possible to remove an added label.
+- Fixed a bug where it was not possible to remove an added label
 
 ## v0.0.4
 
-> November 26, 2023
+> Nov 26, 2023
 
 ### Fixed
 
-- Fixed an issue with the file archive path, which was using the wrong month.
+- Fixed an issue with the file archive path, which was using the wrong month
 
 ## v0.0.3
 
-> November 25, 2023
+> Nov 25, 2023
 
 ### Added
 
-- When creating or updating an issue, it will be archived in the repository.
+- When creating or updating an issue, it will be archived in the repository
 
 ## v0.0.2
 
-> November 12, 2023
+> Nov 12, 2023
 
 ### Added
 
-- Enabled the FindWidget
-- Maintained context when the Blogger panel was hidden
-- Supported filtering by multiple labels
-- Supported title filtering
-- Supported opening an issue in the default browser
+- Enable the FindWidget
+- Maintain context when the Blogger panel was hidden
+- Support filtering by multiple labels
+- Support title filtering
+- Support opening an issue in the default browser
 
 ### Changed
 
-- Optimized UI styles
+- Optimize UI styles
 
 ## v0.0.1
 
-> November 5, 2023
+> Nov 5, 2023
 
 - Initial version

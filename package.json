@@ -1,8 +1,8 @@
 {
   "name": "github-blogger",
   "displayName": "GitHub Blogger",
-  "description": "Create and manage blog posts with GitHub Issues.",
-  "version": "2.2.1",
+  "description": "Writing and managing blog posts via GitHub Issue",
+  "version": "2.3.0",
   "publisher": "Frankie",
   "engines": {
     "vscode": "^1.88.0"
@@ -23,7 +23,7 @@
       "properties": {
         "github-blogger.token": {
           "type": "string",
-          "description": "Your GitHub Personal Access Token",
+          "description": "Your GitHub Personal Access Token (classic)",
           "default": ""
         },
         "github-blogger.user": {
@@ -49,8 +49,8 @@
         "title": "Open GitHub Blogger"
       },
       {
-        "command": "github-blogger.config",
-        "title": "Config GitHub Blogger"
+        "command": "github-blogger.configure",
+        "title": "Configure GitHub Blogger"
       }
     ]
   },

@@ -1,31 +1,37 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: false
 ---
+
 # 组件开发指南
 
 ## 组件结构
+
 - 使用函数式组件
 - 使用 TypeScript 类型定义
 - 使用 styled-components 进行样式管理
 
 ## 状态管理
+
 - 使用 React Query 进行数据获取和缓存
 - 使用 React Context 进行全局状态管理
 - 避免过度使用状态管理
 
 ## UI 组件库
+
 - 主要使用 Primer React 组件库
 - 使用 Ant Design 作为补充组件库
 - 保持 UI 风格一致性
 
 ## Markdown 编辑器
+
 - 使用 ByteMD 作为 Markdown 编辑器
 - 支持多种 Markdown 插件
 - 确保良好的编辑体验
 
 ## 性能优化
+
 - 使用 React.memo 优化渲染
 - 合理使用 useMemo 和 useCallback
 - 避免不必要的重渲染
