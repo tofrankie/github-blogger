@@ -1,6 +1,6 @@
 # GitHub Blogger
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/toFrankie/github-blogger)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/tofrankie/github-blogger)
 
 [English](README.md) | 中文
 
@@ -56,7 +56,7 @@
 
 ## 📚 相关项目
 
-- [github-issue-toc](https://github.com/toFrankie/github-issue-toc) – 为 GitHub Issue 生成目录
+- [github-issue-toc](https://github.com/tofrankie/github-issue-toc) – 为 GitHub Issue 生成目录
 
 ## 📝 License
 

@@ -1,6 +1,6 @@
 # GitHub Blogger
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/toFrankie/github-blogger)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/tofrankie/github-blogger)
 
 English | [中文](README-CN.md)
 
@@ -56,7 +56,7 @@ This project is built upon and inspired by the open-source community, including:
 
 ## 📚 Related Projects
 
-- [github-issue-toc](https://github.com/toFrankie/github-issue-toc) – Generate a table of contents for GitHub Issue
+- [github-issue-toc](https://github.com/tofrankie/github-issue-toc) – Generate a table of contents for GitHub Issue
 
 ## 📝 License
 
