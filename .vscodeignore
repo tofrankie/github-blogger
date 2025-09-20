@@ -8,6 +8,7 @@ index.html
 pnpm-lock.yaml
 
 .DS_Store
+.github/**
 .git/**
 .gitignore
 .npmrc

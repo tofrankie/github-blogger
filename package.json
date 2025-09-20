@@ -68,6 +68,7 @@
     "package:pre": "vsce package --pre-release --no-dependencies",
     "prepackage": "pnpm build",
     "prepackage:pre": "pnpm build",
+    "ext:publish": "vsxpub --no-dependencies --exclude git",
     "lint": "run-s lint:eslint lint:prettier lint:stylelint tsc",
     "lint:eslint": "eslint 'src/**/*.{js,ts,tsx}' --cache --fix",
     "lint:prettier": "prettier . '!**/pnpm-lock.yaml' --cache --write",
@@ -109,7 +110,8 @@
     "simple-git-hooks": "2.13.1",
     "stylelint": "16.24.0",
     "typescript": "5.9.2",
-    "vite": "6.3.5"
+    "vite": "6.3.5",
+    "vsxpub": "0.1.1"
   },
   "dependencies": {
     "@bytemd/plugin-breaks": "1.22.0",
