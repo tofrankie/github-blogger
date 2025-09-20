@@ -6,11 +6,11 @@ alwaysApply: true
 
 # 项目概述
 
-这是一个使用 GitHub Issue 作为博客系统的 VSCode WebView Extension。
+这是一个使用 GitHub issue 作为博客系统的 VSCode WebView Extension。
 
 ## 主要功能
 
-- 使用 GitHub Issue 作为博客内容存储
+- 使用 GitHub issue 作为博客内容存储
 - 支持 Markdown 编辑和预览
 - 支持多种 Markdown 插件（数学公式、Mermaid 图表等）
 - 使用 React 和 TypeScript 开发
@@ -42,5 +42,5 @@ alwaysApply: true
 - ESLint
 - Prettier
 - Stylelint
-- Husky (Git hooks)
+- simple-git-hooks
 - Commitlint

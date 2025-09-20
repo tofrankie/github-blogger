@@ -1,8 +1,5 @@
-out
 dist
 node_modules
 .eslintcache
 .stylelintcache
-.vscode-test/
 *.vsix
-.husky/

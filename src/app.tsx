@@ -1,7 +1,6 @@
-import 'github-markdown-css'
-
 import {useState} from 'react'
 import {ActionBar, Editor, Issues, Labels} from '@/components'
+import 'github-markdown-css'
 
 import '@/app.css'
 

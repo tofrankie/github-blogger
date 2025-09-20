@@ -61,7 +61,10 @@ export const useEditorStore = create<EditorStoreState & EditorStoreActions>(set 
 
   addLabel: label => {
     set(state => {
-      const newIssue = {...state.issue, labels: state.issue.labels.concat(label)}
+      const newIssue = {
+        ...state.issue,
+        labels: state.issue.labels.concat(label),
+      }
       return {
         issue: newIssue,
         isChanged: compareIssue(newIssue, state.issueSnapshot),

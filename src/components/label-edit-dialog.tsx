@@ -1,9 +1,9 @@
+import type {DialogButtonProps} from '@primer/react'
 import {SparkleFillIcon, SyncIcon} from '@primer/octicons-react'
 import {
   ActionMenu,
   Box,
   Dialog,
-  type DialogButtonProps,
   FormControl,
   IssueLabelToken,
   Stack,
@@ -17,7 +17,7 @@ import {useCreateLabel, useDeleteLabel, useUpdateLabel} from '@/hooks'
 
 const CYCLE_COLORS = [...PRESET_LABEL_COLORS, ...PRESET_ISSUE_TYPE_COLORS, DEFAULT_LABEL_COLOR]
 
-const HEX_COLOR_REGEX = /^[0-9A-Fa-f]{6}$/
+const HEX_COLOR_REGEX = /^[0-9A-F]{6}$/i
 
 interface LabelEditDialogProps {
   label?: MinimalLabel | null
@@ -181,7 +181,7 @@ export default function LabelEditDialog({
     if (newColorValue.startsWith('#')) {
       newColorValue = newColorValue.substring(1)
     }
-    newColorValue = newColorValue.replace(/[^0-9A-Fa-f]/g, '').slice(0, 6)
+    newColorValue = newColorValue.replace(/[^0-9A-F]/gi, '').slice(0, 6)
     setColor(newColorValue)
 
     if (newColorValue.trim() === '') {

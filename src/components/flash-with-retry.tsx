@@ -1,6 +1,8 @@
+import type {FlashProps} from '@primer/react'
+import type {InlineMessageProps} from '@primer/react/experimental'
 import {SyncIcon} from '@primer/octicons-react'
-import {Flash, type FlashProps, IconButton, Stack} from '@primer/react'
-import {InlineMessage, type InlineMessageProps} from '@primer/react/experimental'
+import {Flash, IconButton, Stack} from '@primer/react'
+import {InlineMessage} from '@primer/react/experimental'
 import {useCallback, useState} from 'react'
 
 interface FlashWithRetryProps {

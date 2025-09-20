@@ -1,14 +1,12 @@
 # GitHub Blogger
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/tofrankie/github-blogger)
-
 English | [中文](README-CN.md)
 
-**GitHub Blogger** is a VS Code extension for writing and managing blog posts via GitHub Issue. It supports Markdown editing, live preview, and seamless publishing — all powered by GitHub.
+**GitHub Blogger** is a VS Code extension for writing and managing blog posts via GitHub issue. It supports Markdown editing, live preview, and seamless publishing — all powered by GitHub.
 
 ## ✨ Features
 
-- Manage and publish blog posts via GitHub Issue
+- Manage and publish blog posts via GitHub issue
 - GitHub-native interaction experience
 - Markdown editing with live preview and plugin support (Math, Mermaid, etc.)
 - Images stored in your repository with jsDelivr CDN for display
@@ -56,7 +54,7 @@ This project is built upon and inspired by the open-source community, including:
 
 ## 📚 Related Projects
 
-- [github-issue-toc](https://github.com/tofrankie/github-issue-toc) – Generate a table of contents for GitHub Issue
+- [github-issue-toc](https://github.com/tofrankie/github-issue-toc) – Generate a table of contents for GitHub issue
 
 ## 📝 License
 

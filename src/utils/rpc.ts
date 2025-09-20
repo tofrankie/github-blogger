@@ -14,6 +14,7 @@ async function rpcEmit<T, A extends any[] = any[]>(
 ): Promise<T> {
   const response = (await rpc.emit(type, args)) as ApiResponse<T>
   if (!response.success) {
+    // eslint-disable-next-line no-console
     console.log('🚀 ~ client ~ rpcEmit ~ error ~ detail:', response.error?.detail)
     throw new Error(`${ERROR_TYPE_MAP[response.error.type]}: ${response.error.message}`)
   }

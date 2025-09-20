@@ -1,3 +1,4 @@
+import type {ActionListItemInput} from '@primer/react/deprecated'
 import {
   ChevronRightIcon,
   GearIcon,
@@ -29,7 +30,6 @@ import {
   Truncate,
   useConfirm,
 } from '@primer/react'
-import {type ActionListItemInput} from '@primer/react/deprecated'
 import {Blankslate} from '@primer/react/experimental'
 import {debounce, intersect, unique} from 'licia'
 import {useCallback, useMemo, useState} from 'react'
@@ -126,18 +126,6 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
 
   const selectedItemsSortedFirst = sortBySelected<ActionListItemInput>(filteredItems, selected)
 
-  const handleSelectedChange = (items: ActionListItemInput[]) => {
-    setSelected(items)
-    const labelNames = items.map(item => item.text).filter(Boolean) as string[]
-    searchByLabel(labelNames)
-  }
-
-  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const title = e.target.value
-    setTitleValue(title)
-    searchByTitle(title.trim())
-  }
-
   const searchByTitle = useCallback(
     debounce((title: string) => {
       setFilterTitle(title)
@@ -155,6 +143,18 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
     }, 500),
     [labels]
   )
+
+  const handleSelectedChange = (items: ActionListItemInput[]) => {
+    setSelected(items)
+    const labelNames = items.map(item => item.text).filter(Boolean) as string[]
+    searchByLabel(labelNames)
+  }
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const title = e.target.value
+    setTitleValue(title)
+    searchByTitle(title.trim())
+  }
 
   const handleIssueClick = async (e: React.MouseEvent<HTMLAnchorElement>, issue: MinimalIssue) => {
     e.preventDefault()
@@ -311,14 +311,24 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
                                     </Stack.Item>
                                     <Stack.Item sx={{flexShrink: 0}}>
                                       <Text
-                                        sx={{color: 'fg.muted', fontSize: 0, fontWeight: 'normal'}}
+                                        sx={{
+                                          color: 'fg.muted',
+                                          fontSize: 0,
+                                          fontWeight: 'normal',
+                                        }}
                                       >
                                         #{item.number}
                                       </Text>
                                     </Stack.Item>
                                   </Stack>
                                 </Stack.Item>
-                                <Stack.Item sx={{flexShrink: 0, flexGrow: 0, color: 'fg.muted'}}>
+                                <Stack.Item
+                                  sx={{
+                                    flexShrink: 0,
+                                    flexGrow: 0,
+                                    color: 'fg.muted',
+                                  }}
+                                >
                                   <ChevronRightIcon size={16} />
                                 </Stack.Item>
                               </Stack>
@@ -452,7 +462,7 @@ function WithoutIssue({onActionClick}: {onActionClick: () => void}) {
         <SparkleFillIcon size="medium" />
       </Blankslate.Visual>
       <Blankslate.Heading>Welcome to GitHub Blogger</Blankslate.Heading>
-      <Blankslate.Description>Create and manage blog posts via GitHub Issue</Blankslate.Description>
+      <Blankslate.Description>Create and manage blog posts via GitHub issue</Blankslate.Description>
       <Blankslate.PrimaryAction onClick={onActionClick}>
         Create your first issue
       </Blankslate.PrimaryAction>

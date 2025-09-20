@@ -198,7 +198,10 @@ export default class Service {
   private async getIssueCount() {
     const res = await to(
       this.octokit.graphql<GraphqlIssueCountResponse>(
-        graphqlQuery.getIssueCount({username: this.config.user, repository: this.config.repo})
+        graphqlQuery.getIssueCount({
+          username: this.config.user,
+          repository: this.config.repo,
+        })
       )
     )
 

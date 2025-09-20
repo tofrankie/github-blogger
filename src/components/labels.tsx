@@ -105,7 +105,13 @@ export default function Labels({visible, onLabelsVisible}: LabelsProps) {
             ))}
             {!isLoadingLabels && !isErrorLabels && (
               <Stack.Item onClick={openCreateDialog}>
-                <CounterLabel sx={{color: 'white', bg: 'success.emphasis', cursor: 'pointer'}}>
+                <CounterLabel
+                  sx={{
+                    color: 'white',
+                    bg: 'success.emphasis',
+                    cursor: 'pointer',
+                  }}
+                >
                   <PlusIcon size={16} />
                 </CounterLabel>
               </Stack.Item>

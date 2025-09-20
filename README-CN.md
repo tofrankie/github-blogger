@@ -1,14 +1,12 @@
 # GitHub Blogger
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/tofrankie/github-blogger)
-
 [English](README.md) | 中文
 
-**GitHub Blogger** 是一款基于 VS Code 的扩展，通过 GitHub Issue 编写和管理博客文章。支持 Markdown 编辑、实时预览和无缝发布，这一切都由 GitHub 驱动。
+**GitHub Blogger** 是一款基于 VS Code 的扩展，通过 GitHub issue 编写和管理博客文章。支持 Markdown 编辑、实时预览和无缝发布，这一切都由 GitHub 驱动。
 
 ## ✨ 功能特性
 
-- 通过 GitHub Issue 管理和发布博客文章
+- 通过 GitHub issue 管理和发布博客文章
 - 原生 GitHub 交互体验
 - 支持实时预览和插件的 Markdown 编辑器（数学公式、Mermaid 图表等）
 - 图片存储在的仓库，通过 jsDelivr CDN 提供显示服务
@@ -32,7 +30,7 @@
 }
 ```
 
-## ⚠️ 重要说明
+## ⚠️ 说明
 
 - **你的仓库必须为公开仓库**，以便 jsDelivr CDN 正常工作（[原因](https://github.com/jsdelivr/jsdelivr/issues/18243#issuecomment-857512289)）
 - 你可以使用任何现有仓库或创建新仓库
@@ -56,7 +54,7 @@
 
 ## 📚 相关项目
 
-- [github-issue-toc](https://github.com/tofrankie/github-issue-toc) – 为 GitHub Issue 生成目录
+- [github-issue-toc](https://github.com/tofrankie/github-issue-toc) – 为 GitHub issue 生成目录
 
 ## 📝 License
 

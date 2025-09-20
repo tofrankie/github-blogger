@@ -33,7 +33,10 @@ export class WebviewHelper {
 
           case MESSAGE_TYPE.GET_SETTINGS: {
             const settings = getSettings()
-            webview.postMessage({command: MESSAGE_TYPE.GET_SETTINGS, payload: settings})
+            webview.postMessage({
+              command: MESSAGE_TYPE.GET_SETTINGS,
+              payload: settings,
+            })
 
             break
           }

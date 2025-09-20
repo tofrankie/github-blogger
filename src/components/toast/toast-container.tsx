@@ -48,7 +48,11 @@ export default function ToastContainer({
               transition: 'transform 0.3s ease-out',
             }}
           >
-            <div ref={el => (itemRefs.current[index] = el)}>
+            <div
+              ref={el => {
+                itemRefs.current[index] = el
+              }}
+            >
               <ToastItem toast={toast} onClose={() => onDismiss(toast.id)} />
             </div>
           </Box>

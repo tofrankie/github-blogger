@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file.
 
+## v2.4.0
+
+> Sep 20, 2025
+
+- Update project dependencies
+
 ## v2.3.0
 
 > Jul 21, 2025

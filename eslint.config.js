@@ -1,11 +1,3 @@
-const eslint = require('@tomjs/eslint')
+import {defineConfig} from '@tomjs/eslint'
 
-module.exports = [
-  ...eslint.configs.react,
-  {
-    files: ['**/*.{js,jsx,ts,tsx}'],
-    rules: {
-      'react/prop-types': 'off',
-    },
-  },
-]
+export default defineConfig()

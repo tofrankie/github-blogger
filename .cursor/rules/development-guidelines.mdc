@@ -16,7 +16,7 @@ alwaysApply: false
 
 - 使用 Commitlint 规范提交信息
 - 提交前运行 `pnpm lint` 确保代码质量
-- 使用 Husky 进行提交前检查
+- 使用 simple-git-hooks + lint-staged 进行提交前检查
 
 ## 构建和发布
 
