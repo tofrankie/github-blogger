@@ -4,7 +4,7 @@
   "description": "Writing and managing blog posts via GitHub issue",
   "version": "2.4.0",
   "packageManager": "pnpm@10.17.0",
-  "publisher": "Frankie",
+  "publisher": "frankie",
   "author": {
     "name": "Frankie",
     "email": "1426203851@qq.com"
