@@ -14,10 +14,10 @@ pnpm-lock.yaml
 .npmrc
 .eslintcache
 .stylelintcache
-eslint.config.js
-prettier.config.js
-stylelint.config.js
-commitlint.config.js
+eslint.config.mjs
+prettier.config.mjs
+stylelint.config.mjs
+commitlint.config.mjs
 vite.config.ts
 tsconfig.json
 tsconfig.node.json
