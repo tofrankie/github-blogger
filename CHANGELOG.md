@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file.
 
+## v2.4.1
+
+> Sep 24, 2025
+
+- Fix the problem of command not found
+
 ## v2.4.0
 
 > Sep 20, 2025

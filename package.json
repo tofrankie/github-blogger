@@ -2,14 +2,13 @@
   "name": "github-blogger",
   "displayName": "GitHub Blogger",
   "description": "Writing and managing blog posts via GitHub issue",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "packageManager": "pnpm@10.17.0",
   "publisher": "frankie",
   "author": {
     "name": "Frankie",
     "email": "1426203851@qq.com"
   },
-  "type": "module",
   "engines": {
     "vscode": "^1.88.0"
   },
@@ -71,7 +70,7 @@
     "ext:publish": "vsxpub --no-dependencies --exclude git",
     "lint": "run-s lint:eslint lint:prettier lint:stylelint tsc",
     "lint:eslint": "eslint 'src/**/*.{js,ts,tsx}' --cache --fix",
-    "lint:prettier": "prettier . '!**/pnpm-lock.yaml' --cache --write",
+    "lint:prettier": "prettier . '!**/pnpm-lock.yaml' --cache --write --log-level silent",
     "lint:stylelint": "stylelint 'src/**/*.css' --cache --fix",
     "tsc": "tsc --noEmit",
     "check": "run-s tsc lint",
