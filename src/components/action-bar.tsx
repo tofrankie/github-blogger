@@ -5,27 +5,27 @@ import {
   PlusIcon,
   TagIcon,
 } from '@primer/octicons-react'
-import {IconButton, Stack, useConfirm} from '@primer/react'
-import {cloneDeep} from 'licia'
-import {useMemo, useState} from 'react'
-import {EMPTY_ISSUE} from '@/constants'
-import {useCreateIssue, useUpdateIssue} from '@/hooks'
-import {useEditorStore} from '@/stores/use-editor-store'
-import {openExternalLink} from '@/utils'
+import { IconButton, Stack, useConfirm } from '@primer/react'
+import { cloneDeep } from 'licia'
+import { useMemo, useState } from 'react'
+import { EMPTY_ISSUE } from '@/constants'
+import { useCreateIssue, useUpdateIssue } from '@/hooks'
+import { useEditorStore } from '@/stores/use-editor-store'
+import { openExternalLink } from '@/utils'
 
 interface ActionBoxProps {
   onLabelsVisible: (visible: boolean) => void
   onIssuesVisible: (visible: boolean) => void
 }
 
-export default function ActionBar({onLabelsVisible, onIssuesVisible}: ActionBoxProps) {
+export default function ActionBar({ onLabelsVisible, onIssuesVisible }: ActionBoxProps) {
   const issue = useEditorStore(state => state.issue)
   const isChanged = useEditorStore(state => state.isChanged)
   const canSubmit = useEditorStore(state => state.canSubmit)
   const setIssue = useEditorStore(state => state.setIssue)
 
-  const {mutateAsync: createIssue} = useCreateIssue()
-  const {mutateAsync: updateIssue} = useUpdateIssue()
+  const { mutateAsync: createIssue } = useCreateIssue()
+  const { mutateAsync: updateIssue } = useUpdateIssue()
 
   const confirm = useConfirm()
 

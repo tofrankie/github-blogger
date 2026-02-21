@@ -1,9 +1,9 @@
-import type {FlashProps} from '@primer/react'
-import type {InlineMessageProps} from '@primer/react/experimental'
-import {SyncIcon} from '@primer/octicons-react'
-import {Flash, IconButton, Stack} from '@primer/react'
-import {InlineMessage} from '@primer/react/experimental'
-import {useCallback, useState} from 'react'
+import type { FlashProps } from '@primer/react'
+import type { InlineMessageProps } from '@primer/react/experimental'
+import { SyncIcon } from '@primer/octicons-react'
+import { Flash, IconButton, Stack } from '@primer/react'
+import { InlineMessage } from '@primer/react/experimental'
+import { useCallback, useState } from 'react'
 
 interface FlashWithRetryProps {
   flashVariant?: FlashProps['variant']
@@ -31,14 +31,14 @@ export function FlashWithRetry({
   }, [isLoading, onRetry])
 
   return (
-    <Flash variant={flashVariant} sx={{'& svg': {mr: 0}}}>
+    <Flash variant={flashVariant} sx={{ '& svg': { mr: 0 } }}>
       <Stack direction="horizontal" align="center" justify="space-between" gap="condensed">
         <Stack.Item grow>
           <InlineMessage variant={messageVariant}>{message}</InlineMessage>
         </Stack.Item>
-        <Stack.Item sx={{flexShrink: 0}}>
+        <Stack.Item sx={{ flexShrink: 0 }}>
           <IconButton
-            sx={{'& svg': {color: 'fg.muted'}}}
+            sx={{ '& svg': { color: 'fg.muted' } }}
             onClick={handleRetry}
             icon={SyncIcon}
             aria-label="Retry"

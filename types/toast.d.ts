@@ -16,7 +16,7 @@ declare global {
   }
 
   interface ToastContextType {
-    addToast: (description: string, options: ToastOptions & {type: ToastType}) => void
+    addToast: (description: string, options: ToastOptions & { type: ToastType }) => void
   }
 
   type ToastMethodMap = {

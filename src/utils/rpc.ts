@@ -1,8 +1,8 @@
 import dayjs from 'dayjs'
-import {encode} from 'js-base64'
-import {WebviewRPC} from 'vscode-webview-rpc'
-import {DEFAULT_PAGINATION_SIZE, ERROR_TYPE_MAP, MESSAGE_TYPE, SUBMIT_TYPE} from '@/constants'
-import {checkFileSize, generateMarkdown, getVscode} from '@/utils'
+import { encode } from 'js-base64'
+import { WebviewRPC } from 'vscode-webview-rpc'
+import { DEFAULT_PAGINATION_SIZE, ERROR_TYPE_MAP, MESSAGE_TYPE, SUBMIT_TYPE } from '@/constants'
+import { checkFileSize, generateMarkdown, getVscode } from '@/utils'
 
 const vscode = getVscode()
 
@@ -14,7 +14,6 @@ async function rpcEmit<T, A extends any[] = any[]>(
 ): Promise<T> {
   const response = (await rpc.emit(type, args)) as ApiResponse<T>
   if (!response.success) {
-    // eslint-disable-next-line no-console
     console.log('🚀 ~ client ~ rpcEmit ~ error ~ detail:', response.error?.detail)
     throw new Error(`${ERROR_TYPE_MAP[response.error.type]}: ${response.error.message}`)
   }
@@ -107,7 +106,7 @@ export async function updateIssue(params: MinimalIssue) {
 type SubmitType = ValueOf<typeof SUBMIT_TYPE>
 
 export async function archiveIssue(issue: MinimalIssue, type: SubmitType) {
-  const {number: issueNumber, createdAt} = issue
+  const { number: issueNumber, createdAt } = issue
 
   if (!Number.isInteger(issueNumber)) return
 
@@ -181,7 +180,7 @@ export async function uploadImages(files: File[]) {
             return
           }
           rpcEmit<string, UploadImageRpcArgs>(MESSAGE_TYPE.UPLOAD_IMAGE, [content, path])
-            .then(url => resolve({url}))
+            .then(url => resolve({ url }))
             .catch(reject)
         }
       })

@@ -1,5 +1,5 @@
-import type {DialogButtonProps} from '@primer/react'
-import {SparkleFillIcon, SyncIcon} from '@primer/octicons-react'
+import type { DialogButtonProps } from '@primer/react'
+import { SparkleFillIcon, SyncIcon } from '@primer/octicons-react'
 import {
   ActionMenu,
   Box,
@@ -11,9 +11,9 @@ import {
   TextInput,
   useConfirm,
 } from '@primer/react'
-import {useEffect, useState} from 'react'
-import {DEFAULT_LABEL_COLOR, PRESET_ISSUE_TYPE_COLORS, PRESET_LABEL_COLORS} from '@/constants'
-import {useCreateLabel, useDeleteLabel, useUpdateLabel} from '@/hooks'
+import { useEffect, useState } from 'react'
+import { DEFAULT_LABEL_COLOR, PRESET_ISSUE_TYPE_COLORS, PRESET_LABEL_COLORS } from '@/constants'
+import { useCreateLabel, useDeleteLabel, useUpdateLabel } from '@/hooks'
 
 const CYCLE_COLORS = [...PRESET_LABEL_COLORS, ...PRESET_ISSUE_TYPE_COLORS, DEFAULT_LABEL_COLOR]
 
@@ -45,9 +45,9 @@ export default function LabelEditDialog({
   const [isDeleting, setIsDeleting] = useState(false)
   const isEditMode = !!originalLabel
 
-  const {mutateAsync: createLabelAsync} = useCreateLabel()
-  const {mutateAsync: updateLabelAsync} = useUpdateLabel()
-  const {mutateAsync: deleteLabelAsync} = useDeleteLabel()
+  const { mutateAsync: createLabelAsync } = useCreateLabel()
+  const { mutateAsync: updateLabelAsync } = useUpdateLabel()
+  const { mutateAsync: deleteLabelAsync } = useDeleteLabel()
 
   const confirm = useConfirm()
 
@@ -323,7 +323,7 @@ export default function LabelEditDialog({
                   placeholder={DEFAULT_LABEL_COLOR}
                   maxLength={6}
                   aria-label="Hex color code"
-                  sx={{width: '100px'}}
+                  sx={{ width: '100px' }}
                 />
               </Stack.Item>
               <Stack.Item>
@@ -331,16 +331,18 @@ export default function LabelEditDialog({
                   <ActionMenu.Button
                     aria-label="Open color picker"
                     variant="default"
-                    sx={{paddingLeft: 'condensed', paddingRight: 'condensed'}}
+                    sx={{ paddingLeft: 'condensed', paddingRight: 'condensed' }}
                   >
                     Colors
                   </ActionMenu.Button>
-                  <ActionMenu.Overlay width="medium" sx={{p: 2}}>
+                  <ActionMenu.Overlay width="medium" sx={{ p: 2 }}>
                     <Stack direction="vertical" gap="condensed">
-                      <Text sx={{fontSize: 0, color: 'fg.muted'}}>Choose from default colors:</Text>
+                      <Text sx={{ fontSize: 0, color: 'fg.muted' }}>
+                        Choose from default colors:
+                      </Text>
                       <Stack direction="horizontal" gap="condensed" wrap="wrap">
                         {CYCLE_COLORS.map(color => (
-                          <Stack.Item key={color} sx={{position: 'relative'}}>
+                          <Stack.Item key={color} sx={{ position: 'relative' }}>
                             <IssueLabelToken
                               text={<SparkleFillIcon size={16} />}
                               size="large"
@@ -365,7 +367,7 @@ export default function LabelEditDialog({
                   </ActionMenu.Overlay>
                 </ActionMenu>
               </Stack.Item>
-              <Stack.Item sx={{position: 'relative'}}>
+              <Stack.Item sx={{ position: 'relative' }}>
                 <IssueLabelToken
                   text={<SyncIcon size={16} />}
                   size="large"

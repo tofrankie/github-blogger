@@ -1,8 +1,8 @@
-import {PlusIcon} from '@primer/octicons-react'
-import {Box, CounterLabel, Dialog, IssueLabelToken, SkeletonBox, Stack} from '@primer/react'
-import {useMemo, useState} from 'react'
-import {useLabels} from '@/hooks'
-import {FlashWithRetry} from './flash-with-retry'
+import { PlusIcon } from '@primer/octicons-react'
+import { Box, CounterLabel, Dialog, IssueLabelToken, SkeletonBox, Stack } from '@primer/react'
+import { useMemo, useState } from 'react'
+import { useLabels } from '@/hooks'
+import { FlashWithRetry } from './flash-with-retry'
 import LabelEditDialog from './label-edit-dialog'
 
 const LABEL_SKELETON_COUNT = 12
@@ -12,7 +12,7 @@ interface LabelsProps {
   onLabelsVisible: (visible: boolean) => void
 }
 
-export default function Labels({visible, onLabelsVisible}: LabelsProps) {
+export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
   const [hoveredId, setHoveredId] = useState<string>('')
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
   const [editingLabel, setEditingLabel] = useState<MinimalLabel | null>(null)
@@ -60,7 +60,7 @@ export default function Labels({visible, onLabelsVisible}: LabelsProps) {
             <Stack.Item>Labels</Stack.Item>
             {labels.length > 0 && (
               <Stack.Item>
-                <CounterLabel sx={{color: 'fg.muted'}}>{labels.length}</CounterLabel>
+                <CounterLabel sx={{ color: 'fg.muted' }}>{labels.length}</CounterLabel>
               </Stack.Item>
             )}
           </Stack>
@@ -68,7 +68,7 @@ export default function Labels({visible, onLabelsVisible}: LabelsProps) {
       >
         {isLoadingLabels ? (
           <Stack gap="condensed" direction="horizontal" wrap="wrap">
-            {Array.from({length: LABEL_SKELETON_COUNT}).map((_, index) => (
+            {Array.from({ length: LABEL_SKELETON_COUNT }).map((_, index) => (
               <SkeletonBox key={index} width="48px" height="24px" className="label-skeleton" />
             ))}
           </Stack>
@@ -79,7 +79,7 @@ export default function Labels({visible, onLabelsVisible}: LabelsProps) {
             {labels.map(label => (
               <Stack.Item
                 key={label.id}
-                sx={{position: 'relative'}}
+                sx={{ position: 'relative' }}
                 onClick={() => openEditDialog(label)}
               >
                 <IssueLabelToken

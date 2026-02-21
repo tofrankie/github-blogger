@@ -1,5 +1,5 @@
-import {useQuery} from '@tanstack/react-query'
-import {getRepo} from '@/utils/rpc'
+import { useQuery } from '@tanstack/react-query'
+import { getRepo } from '@/utils/rpc'
 
 export function useRepo() {
   return useQuery({

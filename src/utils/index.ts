@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import matter from 'gray-matter'
-import {MESSAGE_TYPE, VITE_DEV} from '@/constants'
+import { MESSAGE_TYPE, VITE_DEV } from '@/constants'
 
 export function cdnURL({
   user,
@@ -44,7 +44,7 @@ export async function getSettings() {
 
     window.addEventListener('message', onMessage)
 
-    vscode.postMessage({command: MESSAGE_TYPE.GET_SETTINGS})
+    vscode.postMessage({ command: MESSAGE_TYPE.GET_SETTINGS })
   })
 }
 
@@ -71,7 +71,7 @@ export function generateMarkdown(issue: MinimalIssue) {
     link: issue.url,
     created_at: dayjs(issue.createdAt).format('YYYY-MM-DD HH:mm:ss'),
     updated_at: dayjs(issue.updatedAt).format('YYYY-MM-DD HH:mm:ss'),
-    labels: issue.labels.map(({name}) => name),
+    labels: issue.labels.map(({ name }) => name),
   })
 }
 

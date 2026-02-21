@@ -1,12 +1,12 @@
-import {Octokit} from '@octokit/core'
-import {ExtensionRPC} from 'vscode-webview-rpc'
-import {isEmpty} from 'licia'
+import { Octokit } from '@octokit/core'
+import { ExtensionRPC } from 'vscode-webview-rpc'
+import { isEmpty } from 'licia'
 import * as vscode from 'vscode'
 
-import {MESSAGE_TYPE} from '../constants'
-import {APIS, DEFAULT_PAGINATION_SIZE} from '../constants'
-import {getSettings, to, cdnURL} from '../utils'
-import {createResponse} from '../utils/response'
+import { MESSAGE_TYPE } from '../constants'
+import { APIS, DEFAULT_PAGINATION_SIZE } from '../constants'
+import { getSettings, to, cdnURL } from '../utils'
+import { createResponse } from '../utils/response'
 import {
   normalizeIssueFromGraphql,
   normalizeIssueFromRest,
@@ -30,7 +30,7 @@ export default class Service {
 
   private async init() {
     this.config = getSettings()
-    this.octokit = new Octokit({auth: this.config.token})
+    this.octokit = new Octokit({ auth: this.config.token })
     this.registerRpcListener()
   }
 
@@ -274,7 +274,7 @@ export default class Service {
   private async createTree(...args: CreateTreeRpcArgs) {
     const params: CreateTreeParams = {
       base_tree: args[0],
-      tree: [{path: args[1], mode: '100644', type: 'blob', sha: args[2]}],
+      tree: [{ path: args[1], mode: '100644', type: 'blob', sha: args[2] }],
     }
     const res = await to(
       this.octokit.request(APIS.CREATE_TREE, {

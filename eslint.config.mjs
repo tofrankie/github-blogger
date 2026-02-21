@@ -1,3 +1,3 @@
-import {defineConfig} from '@tomjs/eslint'
+import { defineConfig } from '@tofrankie/eslint'
 
 export default defineConfig()

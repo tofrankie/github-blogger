@@ -1,8 +1,8 @@
 // eslint-disable-next-line unicorn/prefer-node-protocol
-import {Buffer} from 'buffer'
-import {createRoot} from 'react-dom/client'
+import { Buffer } from 'buffer'
+import { createRoot } from 'react-dom/client'
 import AppProvider from '@/app-provider'
-import {setupExternalLinkInterceptor} from '@/utils'
+import { setupExternalLinkInterceptor } from '@/utils'
 
 // for gray-matter
 // eslint-disable-next-line node/prefer-global/buffer

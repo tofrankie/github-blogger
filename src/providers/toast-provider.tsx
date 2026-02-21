@@ -1,5 +1,5 @@
-import {uuid} from 'licia'
-import {createContext, useCallback, useContext, useState} from 'react'
+import { uuid } from 'licia'
+import { createContext, useCallback, useContext, useState } from 'react'
 import ToastContainer from '@/components/toast/toast-container'
 
 const ToastContext = createContext<ToastContextType | undefined>(undefined)
@@ -25,7 +25,7 @@ const TYPE_TITLE_MAP: Record<ToastType, string> = {
   warning: 'Warning',
 }
 
-export function ToastProvider({children}: {children: React.ReactNode}) {
+export function ToastProvider({ children }: { children: React.ReactNode }) {
   const [toasts, setToasts] = useState<Toast[]>([])
 
   const addToast: ToastContextType['addToast'] = useCallback((description, options) => {
@@ -52,7 +52,7 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
   }, [])
 
   return (
-    <ToastContext.Provider value={{addToast}}>
+    <ToastContext.Provider value={{ addToast }}>
       {children}
       <ToastContainer toasts={toasts} onDismiss={removeToast} />
     </ToastContext.Provider>

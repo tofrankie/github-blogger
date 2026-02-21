@@ -6,12 +6,12 @@ import highlight from '@bytemd/plugin-highlight'
 import math from '@bytemd/plugin-math'
 import mediumZoom from '@bytemd/plugin-medium-zoom'
 import mermaid from '@bytemd/plugin-mermaid'
-import {Editor as BytemdEditor} from '@bytemd/react'
-import {Button, Label, LabelGroup, Stack, TextInput, Tooltip} from '@primer/react'
-import {SkeletonText} from '@primer/react/experimental'
-import {useLabels, useRepo, useUploadImages} from '@/hooks'
-import {useEditorStore} from '@/stores/use-editor-store'
-import {FlashWithRetry} from '../flash-with-retry'
+import { Editor as BytemdEditor } from '@bytemd/react'
+import { Button, Label, LabelGroup, Stack, TextInput, Tooltip } from '@primer/react'
+import { SkeletonText } from '@primer/react/experimental'
+import { useLabels, useRepo, useUploadImages } from '@/hooks'
+import { useEditorStore } from '@/stores/use-editor-store'
+import { FlashWithRetry } from '../flash-with-retry'
 import Info from './info'
 
 import 'bytemd/dist/index.min.css'
@@ -35,9 +35,9 @@ export default function Editor() {
   const removeLabel = useEditorStore(state => state.removeLabel)
   const isIssueChanged = useEditorStore(state => state.isChanged)
 
-  const {mutateAsync: handleUploadImages, isPending: isUploadingImages} = useUploadImages()
+  const { mutateAsync: handleUploadImages, isPending: isUploadingImages } = useUploadImages()
 
-  const {isError: isErrorRepo, refetch: refetchRepo} = useRepo()
+  const { isError: isErrorRepo, refetch: refetchRepo } = useRepo()
 
   const {
     data: labels,
@@ -53,7 +53,7 @@ export default function Editor() {
           <FlashWithRetry message="Failed to load repository" onRetry={() => refetchRepo()} />
         </Stack.Item>
       )}
-      <Stack.Item sx={{flexShrink: 0}}>
+      <Stack.Item sx={{ flexShrink: 0 }}>
         <Stack direction="horizontal" align="center" gap="condensed">
           <Stack.Item grow>
             <TextInput
@@ -74,7 +74,7 @@ export default function Editor() {
           ) : null}
         </Stack>
       </Stack.Item>
-      <Stack.Item sx={{flexShrink: 0}}>
+      <Stack.Item sx={{ flexShrink: 0 }}>
         <>
           {isErrorLabels ? (
             <FlashWithRetry message="Failed to load labels" onRetry={() => refetchLabels()} />
@@ -90,7 +90,7 @@ export default function Editor() {
                     size="small"
                     variant={checked ? 'accent' : 'secondary'}
                     onClick={() => (!checked ? addLabel(label) : removeLabel(label))}
-                    sx={{cursor: 'pointer'}}
+                    sx={{ cursor: 'pointer' }}
                   >
                     {label.name}
                   </Label>

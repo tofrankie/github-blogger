@@ -1,4 +1,4 @@
-import {useToastContext} from '@/providers/toast-provider'
+import { useToastContext } from '@/providers/toast-provider'
 
 const TOAST_TYPES: readonly ToastType[] = [
   'info',
@@ -9,12 +9,12 @@ const TOAST_TYPES: readonly ToastType[] = [
 ] as const
 
 export function useToast() {
-  const {addToast} = useToastContext()
+  const { addToast } = useToastContext()
 
   const toastMethods = {} as ToastMethodMap
   TOAST_TYPES.forEach(type => {
     toastMethods[type] = (description: string, options?: ToastOptions) =>
-      addToast(description, {...options, type})
+      addToast(description, { ...options, type })
   })
   return toastMethods
 }

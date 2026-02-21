@@ -1,6 +1,6 @@
-import {cloneDeep} from 'licia'
-import {create} from 'zustand'
-import {EMPTY_ISSUE} from '@/constants'
+import { cloneDeep } from 'licia'
+import { create } from 'zustand'
+import { EMPTY_ISSUE } from '@/constants'
 
 interface EditorStoreState {
   issue: MinimalIssue
@@ -39,7 +39,7 @@ export const useEditorStore = create<EditorStoreState & EditorStoreActions>(set 
 
   setTitle: title => {
     set(state => {
-      const newIssue = {...state.issue, title}
+      const newIssue = { ...state.issue, title }
       return {
         issue: newIssue,
         isChanged: compareIssue(newIssue, state.issueSnapshot),
@@ -50,7 +50,7 @@ export const useEditorStore = create<EditorStoreState & EditorStoreActions>(set 
 
   setBody: body => {
     set(state => {
-      const newIssue = {...state.issue, body}
+      const newIssue = { ...state.issue, body }
       return {
         issue: newIssue,
         isChanged: compareIssue(newIssue, state.issueSnapshot),
@@ -100,7 +100,7 @@ function compareIssue(newIssue: MinimalIssue, oldIssue: MinimalIssue) {
   if (newIssue.labels.length !== oldIssue.labels.length) return true
 
   for (const label of newIssue.labels) {
-    if (oldIssue.labels.findIndex(({id}) => id === label.id) === -1) return true
+    if (oldIssue.labels.findIndex(({ id }) => id === label.id) === -1) return true
   }
 
   if (newIssue.body.length !== oldIssue.body.length) return true

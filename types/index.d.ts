@@ -1,4 +1,4 @@
-import type {EditorProps} from '@bytemd/react'
+import type { EditorProps } from '@bytemd/react'
 
 export {}
 

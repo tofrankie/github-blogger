@@ -1,5 +1,5 @@
 html {
-  scrollbar-color: rgba(121, 121, 121, 0.4) transparent !important;
+  scrollbar-color: rgb(121 121 121 / 40%) transparent !important;
 }
 
 body {
@@ -60,18 +60,15 @@ code {
 }
 
 .app-bytemd .bytemd .bytemd-toolbar {
+  background-color: var(--bgColor-muted, var(--color-canvas-subtle));
+  border-color: var(--borderColor-default);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
 /* 编辑器内容有变化时，添加高亮 */
 .app-bytemd-changed .bytemd {
-  border-color: var(--borderColor-accent-muted, var(--color-accent-muted, rgba(84, 174, 255, 0.4)));
-}
-
-.app-bytemd .bytemd .bytemd-toolbar {
-  background-color: var(--bgColor-muted, var(--color-canvas-subtle));
-  border-color: var(--borderColor-default);
+  border-color: var(--borderColor-accent-muted, var(--color-accent-muted, rgb(84 174 255 / 40%)));
 }
 
 .app-bytemd .bytemd .bytemd-status,
@@ -82,7 +79,7 @@ code {
 
 .app-bytemd-changed .bytemd .bytemd-toolbar {
   background-color: var(--bgColor-accent-muted, var(--color-accent-subtle, #ddf4ff));
-  border-color: var(--borderColor-accent-muted, var(--color-accent-muted, rgba(84, 174, 255, 0.4)));
+  border-color: var(--borderColor-accent-muted, var(--color-accent-muted, rgb(84 174 255 / 40%)));
 }
 
 .app-bytemd .bytemd .bytemd-toolbar .bytemd-toolbar-icon {

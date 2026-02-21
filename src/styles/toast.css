@@ -7,23 +7,23 @@
 .fade-in-right {
   opacity: 0;
   transform: translateX(-100%);
-  animation: fadeInRight 0.2s forwards;
+  animation: fade-in-right 0.2s forwards;
 }
 
 .fade-out-left {
   opacity: 1;
   transform: translateX(0);
-  animation: fadeOutLeft 0.2s forwards;
+  animation: fade-out-left 0.2s forwards;
 }
 
-@keyframes fadeInRight {
+@keyframes fade-in-right {
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-@keyframes fadeOutLeft {
+@keyframes fade-out-left {
   to {
     opacity: 0;
     transform: translateX(-100%);

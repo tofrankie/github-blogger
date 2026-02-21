@@ -1,6 +1,6 @@
-import {Uri, workspace} from 'vscode'
+import { Uri, workspace } from 'vscode'
 
-import {EXTENSION_NAME} from '../constants'
+import { EXTENSION_NAME } from '../constants'
 
 /**
  * A helper function that returns a unique alphanumeric identifier called a nonce.
@@ -57,7 +57,7 @@ export function getSettings(): Settings {
   const repo = getSettingValue('repo')
   const branch = getSettingValue('branch') || DEFAULT_BRANCH
 
-  settings = {token, user, repo, branch}
+  settings = { token, user, repo, branch }
   return settings
 }
 

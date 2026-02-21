@@ -9,7 +9,7 @@ import {
 } from 'vscode'
 
 import Server from '../server'
-import {WebviewHelper} from '../utils/helper'
+import { WebviewHelper } from '../utils/helper'
 
 export function getWebviewOptions(extensionUri: Uri) {
   return {
@@ -82,7 +82,7 @@ export default class EditPanel {
    * @param context A reference to the extension context
    */
   static render(context: ExtensionContext) {
-    const {extensionUri} = context
+    const { extensionUri } = context
 
     // If the webview panel already exists reveal it
     if (EditPanel.currentPanel) {

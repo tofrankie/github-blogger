@@ -1,6 +1,6 @@
-import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query'
-import {createLabel, deleteLabel, getLabels, updateLabel} from '@/utils/rpc'
-import {useToast} from './use-toast'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { createLabel, deleteLabel, getLabels, updateLabel } from '@/utils/rpc'
+import { useToast } from './use-toast'
 
 export function useLabels() {
   return useQuery({
@@ -17,7 +17,7 @@ export function useCreateLabel() {
   return useMutation({
     mutationFn: (label: Omit<MinimalLabel, 'id'>) => createLabel(label),
     onSuccess: issue => {
-      queryClient.invalidateQueries({queryKey: ['labels']})
+      queryClient.invalidateQueries({ queryKey: ['labels'] })
       toast.success(`Label (${issue.name}) created.`)
     },
     onError: (error, variables) => {
@@ -43,7 +43,7 @@ export function useUpdateLabel() {
       oldLabel: MinimalLabel
     }) => updateLabel(newLabel, oldLabel),
     onSuccess: () => {
-      queryClient.invalidateQueries({queryKey: ['labels']})
+      queryClient.invalidateQueries({ queryKey: ['labels'] })
     },
     onError: (error, variables) => {
       if (error.message.includes('already_exists')) {
@@ -62,7 +62,7 @@ export function useDeleteLabel() {
   return useMutation({
     mutationFn: deleteLabel,
     onSuccess: (_res, variables) => {
-      queryClient.invalidateQueries({queryKey: ['labels']})
+      queryClient.invalidateQueries({ queryKey: ['labels'] })
       toast.success(`Label (${variables}) deleted.`)
     },
     onError: error => {

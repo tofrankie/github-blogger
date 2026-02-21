@@ -1,6 +1,6 @@
-import {SkeletonBox, Stack} from '@primer/react'
-import {SkeletonAvatar, SkeletonText} from '@primer/react/experimental'
-import {useMemo} from 'react'
+import { SkeletonBox, Stack } from '@primer/react'
+import { SkeletonAvatar, SkeletonText } from '@primer/react/experimental'
+import { useMemo } from 'react'
 
 const SKELETON_ITEM_HEIGHT = 32
 
@@ -8,7 +8,7 @@ const SKELETON_ITEM_HEIGHT = 32
 
 export function IssueSkeleton() {
   return (
-    <Stack padding="normal" sx={{height: '100%', overflow: 'hidden'}}>
+    <Stack padding="normal" sx={{ height: '100%', overflow: 'hidden' }}>
       <Stack.Item>
         <HeaderSkeleton />
       </Stack.Item>
@@ -33,7 +33,7 @@ export function HeaderSkeleton() {
 }
 
 export function ListSkeleton() {
-  const list = useMemo(() => Array.from({length: 3}, () => 1), [])
+  const list = useMemo(() => Array.from({ length: 3 }, () => 1), [])
   return (
     <Stack gap="normal">
       {list.map((_, index) => (

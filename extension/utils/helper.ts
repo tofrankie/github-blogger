@@ -1,6 +1,6 @@
-import {Uri, env, type Disposable, type ExtensionContext, type Webview} from 'vscode'
-import {getSettings} from './index'
-import {MESSAGE_TYPE} from '@/constants'
+import { Uri, env, type Disposable, type ExtensionContext, type Webview } from 'vscode'
+import { getSettings } from './index'
+import { MESSAGE_TYPE } from '@/constants'
 
 export class WebviewHelper {
   /**
@@ -24,7 +24,7 @@ export class WebviewHelper {
   public static setupWebviewHooks(webview: Webview, disposables: Disposable[]) {
     webview.onDidReceiveMessage(
       (message: any) => {
-        const {command, externalLink} = message
+        const { command, externalLink } = message
 
         switch (command) {
           case MESSAGE_TYPE.OPEN_EXTERNAL_LINK:

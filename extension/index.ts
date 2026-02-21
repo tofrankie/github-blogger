@@ -1,10 +1,10 @@
 import * as vscode from 'vscode'
-import type {ExtensionContext} from 'vscode'
+import type { ExtensionContext } from 'vscode'
 
-import EditPanel, {getWebviewOptions} from './panels/edit-panel'
+import EditPanel, { getWebviewOptions } from './panels/edit-panel'
 import MultiSelectInput from './panels/multi-select-input'
-import {checkSettings} from './utils'
-import {EXTENSION_COMMAND} from './constants'
+import { checkSettings } from './utils'
+import { EXTENSION_COMMAND } from './constants'
 
 export function activate(context: ExtensionContext) {
   const disposableOpen = vscode.commands.registerCommand(EXTENSION_COMMAND.OPEN, async () => {

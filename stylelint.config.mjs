@@ -1,3 +1,6 @@
 export default {
-  extends: ['@tomjs/stylelint'],
+  extends: ['@tofrankie/stylelint'],
+  rules: {
+    'custom-property-pattern': null,
+  },
 }

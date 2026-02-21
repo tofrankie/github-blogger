@@ -1,5 +1,4 @@
-import type {RequestError} from '@octokit/request-error'
-import {ERROR_TYPE} from '@/constants'
+import { ERROR_TYPE } from '@/constants'
 
 export {}
 

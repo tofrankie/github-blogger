@@ -1,13 +1,13 @@
-import {Box} from '@primer/react'
-import {Banner} from '@primer/react/experimental'
-import {useEffect, useState} from 'react'
+import { Box } from '@primer/react'
+import { Banner } from '@primer/react/experimental'
+import { useEffect, useState } from 'react'
 
 interface ToastItemProps {
   toast: Toast
   onClose: () => void
 }
 
-export default function ToastItem({toast, onClose}: ToastItemProps) {
+export default function ToastItem({ toast, onClose }: ToastItemProps) {
   const [isVisible, setIsVisible] = useState(false)
   const [isExiting, setIsExiting] = useState(false)
 

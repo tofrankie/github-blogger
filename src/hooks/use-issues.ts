@@ -1,8 +1,8 @@
-import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query'
-import {sleep} from 'licia'
-import {useMemo} from 'react'
-import {SUBMIT_TYPE} from '@/constants'
-import {useEditorStore} from '@/stores/use-editor-store'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { sleep } from 'licia'
+import { useMemo } from 'react'
+import { SUBMIT_TYPE } from '@/constants'
+import { useEditorStore } from '@/stores/use-editor-store'
 import {
   archiveIssue,
   createIssue,
@@ -11,7 +11,7 @@ import {
   getIssues,
   updateIssue,
 } from '@/utils/rpc'
-import {useToast} from './use-toast'
+import { useToast } from './use-toast'
 
 interface UseIssuesParams {
   page?: number
@@ -19,7 +19,7 @@ interface UseIssuesParams {
   title?: string
 }
 
-export function useIssues({page = 1, labelNames = [], title = ''}: UseIssuesParams) {
+export function useIssues({ page = 1, labelNames = [], title = '' }: UseIssuesParams) {
   return useQuery({
     queryKey: ['issues', 'list', page, title, labelNames.join(',')],
     queryFn: () => getIssues(page, labelNames, title),
@@ -71,7 +71,7 @@ export function useCreateIssue() {
 
       // 创建完马上查询可能会查不到，延迟一下
       await sleep(1000)
-      queryClient.invalidateQueries({queryKey: ['issues']})
+      queryClient.invalidateQueries({ queryKey: ['issues'] })
     },
     onError: () => {
       toast.critical('Issue Create Failed.')
@@ -96,7 +96,7 @@ export function useUpdateIssue() {
 
       // 更新完马上查询可能会查不到，延迟一下
       await sleep(1000)
-      queryClient.invalidateQueries({queryKey: ['issues']})
+      queryClient.invalidateQueries({ queryKey: ['issues'] })
     },
     onError: () => {
       toast.critical('Issue Update Failed.')

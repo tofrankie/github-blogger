@@ -5,14 +5,14 @@ interface IssueCountParams {
   repository: string
 }
 
-interface IssueCountParamsWithFilter extends IssueCountParams {
+interface _IssueCountParamsWithFilter extends IssueCountParams {
   /** 标签名称，多个标签用逗号分隔 */
   labels?: string
   /** 标题关键词 */
   title?: string
 }
 
-interface IssueParamsWithFilter extends IssueCountParams {
+interface _IssueParamsWithFilter extends IssueCountParams {
   /** 每页数量 */
   first?: number
   /** 标签名称，多个标签用逗号分隔 */
@@ -23,7 +23,7 @@ interface IssueParamsWithFilter extends IssueCountParams {
   cursor?: string
 }
 
-export function getIssueCount({username, repository}: IssueCountParams) {
+export function getIssueCount({ username, repository }: IssueCountParams) {
   return `
     query {
       repository(

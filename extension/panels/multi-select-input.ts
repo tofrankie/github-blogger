@@ -1,9 +1,9 @@
 import * as vscode from 'vscode'
-import {window, QuickInputButtons, type ExtensionContext} from 'vscode'
-import {Octokit} from '@octokit/core'
+import { window, QuickInputButtons, type ExtensionContext } from 'vscode'
+import { Octokit } from '@octokit/core'
 
-import {APIS, EXTENSION_NAME} from '../constants'
-import {getSettings} from '../utils'
+import { APIS, EXTENSION_NAME } from '../constants'
+import { getSettings } from '../utils'
 
 interface State {
   title: string
@@ -111,7 +111,7 @@ export default async function multiStepInput(context: ExtensionContext) {
     .getConfiguration(EXTENSION_NAME)
     .update('repo', state.repo, vscode.ConfigurationTarget.Global)
 
-  const octokit = new Octokit({auth: state.token})
+  const octokit = new Octokit({ auth: state.token })
 
   vscode.window.withProgress(
     {
@@ -120,12 +120,12 @@ export default async function multiStepInput(context: ExtensionContext) {
       title: 'Creating the issue blog',
     },
     async progress => {
-      progress.report({increment: 0})
+      progress.report({ increment: 0 })
 
       const repoName = state.repo!
 
       try {
-        await octokit.request(APIS.CREATE_REPO, {name: repoName})
+        await octokit.request(APIS.CREATE_REPO, { name: repoName })
         window.showInformationMessage('GitHub Blogger initialization completed')
       } catch (e: unknown) {
         const errorMsg = e instanceof Error ? e.message : 'Unknown error'
@@ -141,7 +141,7 @@ export default async function multiStepInput(context: ExtensionContext) {
           `GitHub Blogger initialization failed. Please check your configuration.\n${errorMsg}`
         )
       }
-      progress.report({increment: 100})
+      progress.report({ increment: 100 })
     }
   )
 }
@@ -192,7 +192,7 @@ class MultiStepInput {
     }
   }
 
-  async showInputBox({title, step, totalSteps, value, prompt, validate, buttons, shouldResume}) {
+  async showInputBox({ title, step, totalSteps, value, prompt, validate, buttons, shouldResume }) {
     const disposables: any = []
     try {
       return await new Promise((resolve, reject) => {
@@ -216,7 +216,7 @@ class MultiStepInput {
             }
           }),
           input.onDidAccept(async () => {
-            const {value} = input
+            const { value } = input
             input.enabled = false
             input.busy = true
             if (!(await validate(value))) {

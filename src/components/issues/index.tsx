@@ -1,4 +1,4 @@
-import type {ActionListItemInput} from '@primer/react/deprecated'
+import type { ActionListItemInput } from '@primer/react/deprecated'
 import {
   ChevronRightIcon,
   GearIcon,
@@ -30,15 +30,15 @@ import {
   Truncate,
   useConfirm,
 } from '@primer/react'
-import {Blankslate} from '@primer/react/experimental'
-import {debounce, intersect, unique} from 'licia'
-import {useCallback, useMemo, useState} from 'react'
-import {DEFAULT_PAGINATION_SIZE, MESSAGE_TYPE} from '@/constants'
-import {useIssueCount, useIssueCountWithFilter, useIssues, useLabels, useRepo} from '@/hooks'
-import {useEditorStore} from '@/stores/use-editor-store'
-import {getVscode} from '@/utils'
-import {FlashWithRetry} from '../flash-with-retry'
-import {IssueSkeleton, ListSkeleton} from './skeleton'
+import { Blankslate } from '@primer/react/experimental'
+import { debounce, intersect, unique } from 'licia'
+import { useCallback, useMemo, useState } from 'react'
+import { DEFAULT_PAGINATION_SIZE, MESSAGE_TYPE } from '@/constants'
+import { useIssueCount, useIssueCountWithFilter, useIssues, useLabels, useRepo } from '@/hooks'
+import { useEditorStore } from '@/stores/use-editor-store'
+import { getVscode } from '@/utils'
+import { FlashWithRetry } from '../flash-with-retry'
+import { IssueSkeleton, ListSkeleton } from './skeleton'
 
 const SELECT_PANEL_PLACEHOLDER = 'Filter by labels'
 
@@ -61,7 +61,7 @@ interface IssuesProps {
   onIssuesVisible: (visible: boolean) => void
 }
 
-export default function Issues({visible, onIssuesVisible}: IssuesProps) {
+export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
   const [currentPage, setCurrentPage] = useState(1)
   const [filterTitle, setFilterTitle] = useState('')
   const [filterLabelNames, setFilterLabelNames] = useState<string[]>([])
@@ -80,7 +80,7 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
     refetch: refetchRepo,
   } = useRepo()
 
-  const {data: labels = []} = useLabels()
+  const { data: labels = [] } = useLabels()
 
   const {
     data: issues,
@@ -94,9 +94,9 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
     title: filterTitle,
   })
 
-  const {data: issueCount, isFetched: isFetchedIssueCount} = useIssueCount()
+  const { data: issueCount, isFetched: isFetchedIssueCount } = useIssueCount()
 
-  const {data: issueCountWithFilter} = useIssueCountWithFilter({
+  const { data: issueCountWithFilter } = useIssueCountWithFilter({
     labelNames: filterLabelNames,
     title: filterTitle,
   })
@@ -115,7 +115,7 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
   const setIssue = useEditorStore(state => state.setIssue)
 
   const items = useMemo(() => {
-    return labels.map(item => ({text: item.name}))
+    return labels.map(item => ({ text: item.name }))
   }, [labels])
 
   const filteredItems = items.filter(
@@ -192,11 +192,11 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
         <Stack align="center" gap="condensed" direction="horizontal">
           <Stack.Item>Issues</Stack.Item>
           {issueCount && withFilter && issueCountWithFilter ? (
-            <CounterLabel sx={{color: 'fg.muted'}}>
+            <CounterLabel sx={{ color: 'fg.muted' }}>
               {issueCountWithFilter}/{issueCount}
             </CounterLabel>
           ) : issueCount ? (
-            <CounterLabel sx={{color: 'fg.muted'}}>{issueCount}</CounterLabel>
+            <CounterLabel sx={{ color: 'fg.muted' }}>{issueCount}</CounterLabel>
           ) : null}
         </Stack>
       }
@@ -212,14 +212,14 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
         if (isLoadingRepo || !repo) return <IssueSkeleton />
 
         return (
-          <Box sx={{height: '100%'}}>
-            <Stack sx={{height: '100%'}}>
-              <Stack.Item sx={{flexShrink: 0}}>
-                <Box sx={{px: 3, pt: 3}}>
+          <Box sx={{ height: '100%' }}>
+            <Stack sx={{ height: '100%' }}>
+              <Stack.Item sx={{ flexShrink: 0 }}>
+                <Box sx={{ px: 3, pt: 3 }}>
                   <Stack>
                     <HeaderIssues repo={repo} />
                     <TextInput
-                      sx={{width: '100%'}}
+                      sx={{ width: '100%' }}
                       placeholder="Filter by title"
                       onChange={handleTitleChange}
                       value={titleValue}
@@ -239,10 +239,10 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
                       }
                     />
                     <SelectPanel
-                      renderAnchor={({children, ...anchorProps}) => (
+                      renderAnchor={({ children, ...anchorProps }) => (
                         <Button
                           {...anchorProps}
-                          sx={{width: '100%'}}
+                          sx={{ width: '100%' }}
                           alignContent="start"
                           trailingAction={TriangleDownIcon}
                           aria-haspopup="dialog"
@@ -253,7 +253,7 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
                       )}
                       footer={
                         <Button
-                          style={{width: '100%'}}
+                          style={{ width: '100%' }}
                           onClick={() => {
                             setFilter('')
                             setSelected([])
@@ -276,7 +276,7 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
                   </Stack>
                 </Box>
               </Stack.Item>
-              <Stack.Item grow sx={{px: 3, overflow: 'auto'}}>
+              <Stack.Item grow sx={{ px: 3, overflow: 'auto' }}>
                 <>
                   {isLoadingIssues || isPendingIssues ? (
                     <ListSkeleton />
@@ -290,26 +290,26 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
                   ) : withFilter && !isPendingIssues && !issues.length ? (
                     <NoFilterResult />
                   ) : (
-                    <NavList sx={{mx: -2, '&>ul': {pt: 0}}}>
-                      <Stack sx={{gap: 1}}>
+                    <NavList sx={{ mx: -2, '&>ul': { pt: 0 } }}>
+                      <Stack sx={{ gap: 1 }}>
                         {issues.map(item => {
                           const isCurrent = item.number === currentIssueNumber
                           return (
                             <NavList.Item
                               key={item.id}
-                              sx={{width: '100%'}}
+                              sx={{ width: '100%' }}
                               aria-current={isCurrent ? 'page' : undefined}
                               onClick={e => handleIssueClick(e, item)}
                             >
                               <Stack direction="horizontal" gap="condensed" align="center">
-                                <Stack.Item sx={{minWidth: 0, flexGrow: 1}}>
+                                <Stack.Item sx={{ minWidth: 0, flexGrow: 1 }}>
                                   <Stack direction="horizontal" align="baseline" gap="condensed">
-                                    <Stack.Item sx={{fontWeight: 'semibold'}}>
+                                    <Stack.Item sx={{ fontWeight: 'semibold' }}>
                                       <Truncate title={item.title} maxWidth="100%">
                                         {item.title}
                                       </Truncate>
                                     </Stack.Item>
-                                    <Stack.Item sx={{flexShrink: 0}}>
+                                    <Stack.Item sx={{ flexShrink: 0 }}>
                                       <Text
                                         sx={{
                                           color: 'fg.muted',
@@ -347,12 +347,12 @@ export default function Issues({visible, onIssuesVisible}: IssuesProps) {
       renderFooter={() => {
         const count = withFilter ? issueCountWithFilter : issueCount
         return (
-          <Box sx={{borderTop: '1px solid', borderColor: 'border.default'}}>
+          <Box sx={{ borderTop: '1px solid', borderColor: 'border.default' }}>
             <Pagination
               currentPage={currentPage}
               pageCount={Math.ceil((count ?? 0) / DEFAULT_PAGINATION_SIZE)}
               surroundingPageCount={1}
-              showPages={{narrow: false}}
+              showPages={{ narrow: false }}
               onPageChange={(_event, number) => setCurrentPage(number)}
             />
           </Box>
@@ -366,7 +366,7 @@ interface HeaderIssuesProps {
   repo: RestRepo
 }
 
-function HeaderIssues({repo}: HeaderIssuesProps) {
+function HeaderIssues({ repo }: HeaderIssuesProps) {
   const openExternalLink = (type: LinkType) => {
     if (!type) return
 
@@ -397,7 +397,7 @@ function HeaderIssues({repo}: HeaderIssuesProps) {
                 size={32}
                 src={repo.owner.avatar_url}
                 onClick={() => openExternalLink(LINK_TYPE.PROFILE)}
-                sx={{cursor: 'pointer'}}
+                sx={{ cursor: 'pointer' }}
               />
             ) : (
               <MarkGithubIcon size={32} />
@@ -455,7 +455,7 @@ function HeaderIssues({repo}: HeaderIssuesProps) {
   )
 }
 
-function WithoutIssue({onActionClick}: {onActionClick: () => void}) {
+function WithoutIssue({ onActionClick }: { onActionClick: () => void }) {
   return (
     <Blankslate spacious>
       <Blankslate.Visual>
@@ -482,7 +482,7 @@ function NoFilterResult() {
   )
 }
 
-function sortBySelected<T extends {text?: string}>(allItem: T[], selectedItems: T[]) {
+function sortBySelected<T extends { text?: string }>(allItem: T[], selectedItems: T[]) {
   return [...allItem].sort((a, b) => {
     const aIsSelected = selectedItems.some(i => i.text === a.text)
     const bIsSelected = selectedItems.some(i => i.text === b.text)

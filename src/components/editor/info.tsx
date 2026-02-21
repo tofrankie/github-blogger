@@ -5,15 +5,15 @@ import {
   LinkExternalIcon,
   LinkIcon,
 } from '@primer/octicons-react'
-import {ActionList, ActionMenu, IconButton, RelativeTime} from '@primer/react'
-import {useToast} from '@/hooks'
-import {openExternalLink} from '@/utils'
+import { ActionList, ActionMenu, IconButton, RelativeTime } from '@primer/react'
+import { useToast } from '@/hooks'
+import { openExternalLink } from '@/utils'
 
 interface InfoProps {
   issue: MinimalIssue
 }
 
-export default function Info({issue}: InfoProps) {
+export default function Info({ issue }: InfoProps) {
   const toast = useToast()
 
   const copyLink = () => {
