@@ -1,5 +1,5 @@
 import type { Endpoints } from '@octokit/types'
-import { APIS } from '@/constants'
+import type { APIS } from '@/constants'
 
 export {}
 

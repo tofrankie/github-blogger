@@ -53,7 +53,7 @@ export default function Editor() {
           <FlashWithRetry message="Failed to load repository" onRetry={() => refetchRepo()} />
         </Stack.Item>
       )}
-      <Stack.Item sx={{ flexShrink: 0 }}>
+      <Stack.Item style={{ flexShrink: 0 }}>
         <Stack direction="horizontal" align="center" gap="condensed">
           <Stack.Item grow>
             <TextInput
@@ -74,7 +74,7 @@ export default function Editor() {
           ) : null}
         </Stack>
       </Stack.Item>
-      <Stack.Item sx={{ flexShrink: 0 }}>
+      <Stack.Item style={{ flexShrink: 0 }}>
         <>
           {isErrorLabels ? (
             <FlashWithRetry message="Failed to load labels" onRetry={() => refetchLabels()} />
@@ -90,7 +90,7 @@ export default function Editor() {
                     size="small"
                     variant={checked ? 'accent' : 'secondary'}
                     onClick={() => (!checked ? addLabel(label) : removeLabel(label))}
-                    sx={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer' }}
                   >
                     {label.name}
                   </Label>

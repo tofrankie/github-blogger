@@ -14,7 +14,6 @@ import {
 } from '@primer/octicons-react'
 import {
   Avatar,
-  Box,
   Button,
   CounterLabel,
   Dialog,
@@ -192,11 +191,11 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
         <Stack align="center" gap="condensed" direction="horizontal">
           <Stack.Item>Issues</Stack.Item>
           {issueCount && withFilter && issueCountWithFilter ? (
-            <CounterLabel sx={{ color: 'fg.muted' }}>
+            <CounterLabel style={{ color: 'var(--fgColor-muted)' }}>
               {issueCountWithFilter}/{issueCount}
             </CounterLabel>
           ) : issueCount ? (
-            <CounterLabel sx={{ color: 'fg.muted' }}>{issueCount}</CounterLabel>
+            <CounterLabel style={{ color: 'var(--fgColor-muted)' }}>{issueCount}</CounterLabel>
           ) : null}
         </Stack>
       }
@@ -212,14 +211,20 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
         if (isLoadingRepo || !repo) return <IssueSkeleton />
 
         return (
-          <Box sx={{ height: '100%' }}>
-            <Stack sx={{ height: '100%' }}>
-              <Stack.Item sx={{ flexShrink: 0 }}>
-                <Box sx={{ px: 3, pt: 3 }}>
+          <div style={{ height: '100%' }}>
+            <Stack style={{ height: '100%' }}>
+              <Stack.Item style={{ flexShrink: 0 }}>
+                <div
+                  style={{
+                    paddingTop: 'var(--base-size-16)',
+                    paddingRight: 'var(--base-size-16)',
+                    paddingLeft: 'var(--base-size-16)',
+                  }}
+                >
                   <Stack>
                     <HeaderIssues repo={repo} />
                     <TextInput
-                      sx={{ width: '100%' }}
+                      style={{ width: '100%' }}
                       placeholder="Filter by title"
                       onChange={handleTitleChange}
                       value={titleValue}
@@ -242,7 +247,7 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
                       renderAnchor={({ children, ...anchorProps }) => (
                         <Button
                           {...anchorProps}
-                          sx={{ width: '100%' }}
+                          style={{ width: '100%' }}
                           alignContent="start"
                           trailingAction={TriangleDownIcon}
                           aria-haspopup="dialog"
@@ -265,7 +270,7 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
                       }
                       title="Select labels"
                       placeholder={SELECT_PANEL_PLACEHOLDER}
-                      placeholderText="Filter label"
+                      placeholderText="Filter labels"
                       open={open}
                       onOpenChange={setOpen}
                       items={selectedItemsSortedFirst}
@@ -274,9 +279,16 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
                       onFilterChange={setFilter}
                     />
                   </Stack>
-                </Box>
+                </div>
               </Stack.Item>
-              <Stack.Item grow sx={{ px: 3, overflow: 'auto' }}>
+              <Stack.Item
+                grow
+                style={{
+                  paddingLeft: 'var(--base-size-16)',
+                  paddingRight: 'var(--base-size-16)',
+                  overflow: 'auto',
+                }}
+              >
                 <>
                   {isLoadingIssues || isPendingIssues ? (
                     <ListSkeleton />
@@ -290,31 +302,33 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
                   ) : withFilter && !isPendingIssues && !issues.length ? (
                     <NoFilterResult />
                   ) : (
-                    <NavList sx={{ mx: -2, '&>ul': { pt: 0 } }}>
-                      <Stack sx={{ gap: 1 }}>
+                    <NavList className="issues-nav-list">
+                      <Stack style={{ gap: 'var(--base-size-4)' }}>
                         {issues.map(item => {
                           const isCurrent = item.number === currentIssueNumber
                           return (
                             <NavList.Item
                               key={item.id}
-                              sx={{ width: '100%' }}
+                              style={{ width: '100%' }}
                               aria-current={isCurrent ? 'page' : undefined}
                               onClick={e => handleIssueClick(e, item)}
                             >
                               <Stack direction="horizontal" gap="condensed" align="center">
-                                <Stack.Item sx={{ minWidth: 0, flexGrow: 1 }}>
+                                <Stack.Item style={{ minWidth: 0, flexGrow: 1 }}>
                                   <Stack direction="horizontal" align="baseline" gap="condensed">
-                                    <Stack.Item sx={{ fontWeight: 'semibold' }}>
+                                    <Stack.Item
+                                      style={{ fontWeight: 'var(--base-text-weight-semibold)' }}
+                                    >
                                       <Truncate title={item.title} maxWidth="100%">
                                         {item.title}
                                       </Truncate>
                                     </Stack.Item>
-                                    <Stack.Item sx={{ flexShrink: 0 }}>
+                                    <Stack.Item style={{ flexShrink: 0 }}>
                                       <Text
-                                        sx={{
-                                          color: 'fg.muted',
-                                          fontSize: 0,
-                                          fontWeight: 'normal',
+                                        style={{
+                                          color: 'var(--fgColor-muted)',
+                                          fontSize: 'var(--text-body-size-small)',
+                                          fontWeight: 'var(--base-text-weight-normal)',
                                         }}
                                       >
                                         #{item.number}
@@ -323,10 +337,10 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
                                   </Stack>
                                 </Stack.Item>
                                 <Stack.Item
-                                  sx={{
+                                  style={{
                                     flexShrink: 0,
                                     flexGrow: 0,
-                                    color: 'fg.muted',
+                                    color: 'var(--fgColor-muted)',
                                   }}
                                 >
                                   <ChevronRightIcon size={16} />
@@ -341,13 +355,17 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
                 </>
               </Stack.Item>
             </Stack>
-          </Box>
+          </div>
         )
       }}
       renderFooter={() => {
         const count = withFilter ? issueCountWithFilter : issueCount
         return (
-          <Box sx={{ borderTop: '1px solid', borderColor: 'border.default' }}>
+          <div
+            style={{
+              borderTop: '1px solid var(--borderColor-default)',
+            }}
+          >
             <Pagination
               currentPage={currentPage}
               pageCount={Math.ceil((count ?? 0) / DEFAULT_PAGINATION_SIZE)}
@@ -355,7 +373,7 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
               showPages={{ narrow: false }}
               onPageChange={(_event, number) => setCurrentPage(number)}
             />
-          </Box>
+          </div>
         )
       }}
     />
@@ -397,23 +415,12 @@ function HeaderIssues({ repo }: HeaderIssuesProps) {
                 size={32}
                 src={repo.owner.avatar_url}
                 onClick={() => openExternalLink(LINK_TYPE.PROFILE)}
-                sx={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer' }}
               />
             ) : (
               <MarkGithubIcon size={32} />
             )}
-            <Link
-              sx={{
-                color: 'fg.default',
-                cursor: 'pointer',
-                textDecoration: 'none',
-                '&:hover': {
-                  color: 'fg.default',
-                  textDecoration: 'underline',
-                },
-              }}
-              onClick={() => openExternalLink(LINK_TYPE.REPO)}
-            >
+            <Link className="issues-header-link" onClick={() => openExternalLink(LINK_TYPE.REPO)}>
               {repo.name}
             </Link>
           </Stack>

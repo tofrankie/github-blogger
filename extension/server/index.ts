@@ -1,26 +1,25 @@
+import type { Webview } from 'vscode'
 import { Octokit } from '@octokit/core'
-import { ExtensionRPC } from 'vscode-webview-rpc'
 import { isEmpty } from 'licia'
-import * as vscode from 'vscode'
+import { ExtensionRPC } from 'vscode-webview-rpc'
 
-import { MESSAGE_TYPE } from '../constants'
-import { APIS, DEFAULT_PAGINATION_SIZE } from '../constants'
-import { getSettings, to, cdnURL } from '../utils'
-import { createResponse } from '../utils/response'
+import { APIS, DEFAULT_PAGINATION_SIZE, MESSAGE_TYPE } from '@/constants'
+import * as graphqlQuery from '@/server/graphql'
+import { cdnURL, getSettings, to } from '@/utils'
 import {
   normalizeIssueFromGraphql,
   normalizeIssueFromRest,
   normalizeLabelFromRest,
-} from '../utils/normalize'
-import * as graphqlQuery from './graphql'
+} from '@/utils/normalize'
+import { createResponse } from '@/utils/response'
 
 export default class Service {
   public config: Settings
   public octokit: Octokit
-  public webview: vscode.Webview
+  public webview: Webview
   public rpc: ExtensionRPC
 
-  constructor(webview: vscode.Webview) {
+  constructor(webview: Webview) {
     this.webview = webview
     this.config = {} as Settings
     this.octokit = {} as Octokit

@@ -13,7 +13,7 @@ declare global {
     [K in SettingKey]: string
   }
 
-  type MinimalLabel = {
+  interface MinimalLabel {
     id: string // node id
     name: string
     color: string
@@ -22,7 +22,7 @@ declare global {
 
   type MinimalLabels = MinimalLabel[]
 
-  type MinimalIssue = {
+  interface MinimalIssue {
     id: string // node id
     number: number
     url: string

@@ -1,5 +1,4 @@
-import { Box } from '@primer/react'
-import { Banner } from '@primer/react/experimental'
+import { Banner } from '@primer/react'
 import { useEffect, useState } from 'react'
 
 interface ToastItemProps {
@@ -21,15 +20,15 @@ export default function ToastItem({ toast, onClose }: ToastItemProps) {
   }, [toast.duration, onClose])
 
   return (
-    <Box
-      sx={{
+    <div
+      style={{
         position: 'relative',
         width: '100%',
         transform: `translateX(${isVisible ? '0' : '100%'})`,
         opacity: isExiting ? 0 : 1,
         transition: isExiting
           ? 'opacity 0.3s ease-out'
-          : 'transform 0.5s cubic-bezier(0.51, 1.39, 0.64, 1.00)',
+          : 'transform 0.5s cubic-bezier(0.51, 1.39, 0.64, 1)',
         transformOrigin: 'right',
         willChange: 'transform, opacity',
       }}
@@ -42,6 +41,6 @@ export default function ToastItem({ toast, onClose }: ToastItemProps) {
         onDismiss={toast.withDismiss ? onClose : undefined}
         description={toast.description}
       />
-    </Box>
+    </div>
   )
 }

@@ -63,10 +63,10 @@ export function useCreateIssue() {
     mutationFn: createIssue,
     onSuccess: async newIssue => {
       setIssue(newIssue)
-      toast.success('Issue Created.')
+      toast.success('Issue created.')
 
       archiveIssue(newIssue, SUBMIT_TYPE.CREATE).catch(() => {
-        toast.warning('Issue Archive Failed.')
+        toast.warning('Issue archive failed.')
       })
 
       // 创建完马上查询可能会查不到，延迟一下
@@ -74,7 +74,7 @@ export function useCreateIssue() {
       queryClient.invalidateQueries({ queryKey: ['issues'] })
     },
     onError: () => {
-      toast.critical('Issue Create Failed.')
+      toast.critical('Issue creation failed.')
     },
   })
 }
@@ -88,10 +88,10 @@ export function useUpdateIssue() {
     mutationFn: updateIssue,
     onSuccess: async newIssue => {
       setIssue(newIssue)
-      toast.success('Issue Updated.')
+      toast.success('Issue updated.')
 
       archiveIssue(newIssue, SUBMIT_TYPE.UPDATE).catch(() => {
-        toast.warning('Issue Archive Failed.')
+        toast.warning('Issue archive failed.')
       })
 
       // 更新完马上查询可能会查不到，延迟一下
@@ -99,7 +99,7 @@ export function useUpdateIssue() {
       queryClient.invalidateQueries({ queryKey: ['issues'] })
     },
     onError: () => {
-      toast.critical('Issue Update Failed.')
+      toast.critical('Issue update failed.')
     },
   })
 }

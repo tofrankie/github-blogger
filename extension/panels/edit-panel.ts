@@ -1,15 +1,8 @@
-import {
-  window,
-  Uri,
-  ViewColumn,
-  commands,
-  type ExtensionContext,
-  type Disposable,
-  type WebviewPanel,
-} from 'vscode'
+import type { Disposable, ExtensionContext, WebviewPanel } from 'vscode'
+import { commands, Uri, ViewColumn, window } from 'vscode'
 
-import Server from '../server'
-import { WebviewHelper } from '../utils/helper'
+import Server from '@/server'
+import { WebviewHelper } from '@/utils/helper'
 
 export function getWebviewOptions(extensionUri: Uri) {
   return {
@@ -49,7 +42,6 @@ export default class EditPanel {
 
   /**
    * The EditPanel class private constructor (called only from the render method).
-   *
    * @param panel A reference to the webview panel
    * @param context A reference to the extension context
    */
@@ -78,7 +70,6 @@ export default class EditPanel {
   /**
    * Renders the current webview panel if it exists otherwise a new webview panel
    * will be created and displayed.
-   *
    * @param context A reference to the extension context
    */
   static render(context: ExtensionContext) {

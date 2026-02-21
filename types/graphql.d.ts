@@ -7,7 +7,7 @@ declare global {
 
   type GraphqlDataItem<T> = T extends Array<infer U> ? U : never
 
-  type GraphqlIssueCountResponse = {
+  interface GraphqlIssueCountResponse {
     repository: {
       issues: {
         totalCount: number
@@ -15,13 +15,13 @@ declare global {
     }
   }
 
-  type GraphqlIssueCountWithFilterResponse = {
+  interface GraphqlIssueCountWithFilterResponse {
     search: {
       issueCount: number
     }
   }
 
-  type GraphqlIssuesResponse = {
+  interface GraphqlIssuesResponse {
     search: {
       issueCount: number
       edges: Array<{
@@ -30,7 +30,7 @@ declare global {
     }
   }
 
-  type GraphqlIssue = {
+  interface GraphqlIssue {
     id: string
     number: number
     url: string

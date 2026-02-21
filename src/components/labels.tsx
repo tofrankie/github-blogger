@@ -1,5 +1,5 @@
 import { PlusIcon } from '@primer/octicons-react'
-import { Box, CounterLabel, Dialog, IssueLabelToken, SkeletonBox, Stack } from '@primer/react'
+import { CounterLabel, Dialog, IssueLabelToken, SkeletonBox, Stack } from '@primer/react'
 import { useMemo, useState } from 'react'
 import { useLabels } from '@/hooks'
 import { FlashWithRetry } from './flash-with-retry'
@@ -60,7 +60,9 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
             <Stack.Item>Labels</Stack.Item>
             {labels.length > 0 && (
               <Stack.Item>
-                <CounterLabel sx={{ color: 'fg.muted' }}>{labels.length}</CounterLabel>
+                <CounterLabel style={{ color: 'var(--fgColor-muted)' }}>
+                  {labels.length}
+                </CounterLabel>
               </Stack.Item>
             )}
           </Stack>
@@ -79,7 +81,7 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
             {labels.map(label => (
               <Stack.Item
                 key={label.id}
-                sx={{ position: 'relative' }}
+                style={{ position: 'relative' }}
                 onClick={() => openEditDialog(label)}
               >
                 <IssueLabelToken
@@ -89,14 +91,14 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
                   size="large"
                   isSelected={hoveredId === label.id}
                 />
-                <Box
-                  sx={{
-                    cursor: 'pointer',
+                <div
+                  style={{
                     position: 'absolute',
                     top: 0,
                     left: 0,
                     width: '100%',
                     height: '100%',
+                    cursor: 'pointer',
                   }}
                   onMouseEnter={() => setHoveredId(label.id)}
                   onMouseLeave={() => setHoveredId('')}
@@ -106,9 +108,9 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
             {!isLoadingLabels && !isErrorLabels && (
               <Stack.Item onClick={openCreateDialog}>
                 <CounterLabel
-                  sx={{
+                  style={{
                     color: 'white',
-                    bg: 'success.emphasis',
+                    backgroundColor: 'var(--bgColor-success-emphasis)',
                     cursor: 'pointer',
                   }}
                 >

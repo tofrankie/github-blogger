@@ -1,16 +1,19 @@
-import { Uri, env, type Disposable, type ExtensionContext, type Webview } from 'vscode'
-import { getSettings } from './index'
+import type { Disposable, ExtensionContext, Webview } from 'vscode'
+import { getWebviewHtml } from 'virtual:vscode'
+import { env, Uri } from 'vscode'
 import { MESSAGE_TYPE } from '@/constants'
+import { getSettings } from '@/utils'
 
 export class WebviewHelper {
   /**
    * Defines and returns the HTML that should be rendered within the webview panel.
-   *
+   * @param webview
+   * @param context
    * @remarks This is also the place where references to the React webview build files
    * are created and inserted into the webview HTML.
    */
   public static setupHtml(webview: Webview, context: ExtensionContext) {
-    return __getWebviewHtml__({
+    return getWebviewHtml({
       serverUrl: process.env.VITE_DEV_SERVER_URL,
       webview,
       context,
@@ -20,6 +23,8 @@ export class WebviewHelper {
   /**
    * Sets up an event listener to listen for messages passed from the webview context and
    * executes code based on the message that is recieved.
+   * @param webview
+   * @param disposables
    */
   public static setupWebviewHooks(webview: Webview, disposables: Disposable[]) {
     webview.onDidReceiveMessage(

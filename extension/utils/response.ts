@@ -1,4 +1,4 @@
-import { RequestError } from '@octokit/request-error'
+import type { RequestError } from '@octokit/request-error'
 import { ERROR_TYPE } from '@/constants'
 
 type Transform<T, R> = (data: T) => R

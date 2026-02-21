@@ -18,11 +18,11 @@ export function useCreateLabel() {
     mutationFn: (label: Omit<MinimalLabel, 'id'>) => createLabel(label),
     onSuccess: issue => {
       queryClient.invalidateQueries({ queryKey: ['labels'] })
-      toast.success(`Label (${issue.name}) created.`)
+      toast.success(`Label "${issue.name}" created.`)
     },
     onError: (error, variables) => {
       if (error.message.includes('already_exists')) {
-        toast.critical(`Label (${variables.name}) has already been taken.`)
+        toast.critical(`Label "${variables.name}" has already been taken.`)
         return
       }
       toast.critical(error.message)
@@ -47,7 +47,7 @@ export function useUpdateLabel() {
     },
     onError: (error, variables) => {
       if (error.message.includes('already_exists')) {
-        toast.critical(`Label (${variables.newLabel.name}) has already been taken.`)
+        toast.critical(`Label "${variables.newLabel.name}" has already been taken.`)
         return
       }
       toast.critical(error.message)
@@ -63,7 +63,7 @@ export function useDeleteLabel() {
     mutationFn: deleteLabel,
     onSuccess: (_res, variables) => {
       queryClient.invalidateQueries({ queryKey: ['labels'] })
-      toast.success(`Label (${variables}) deleted.`)
+      toast.success(`Label "${variables}" deleted.`)
     },
     onError: error => {
       toast.critical(error.message)

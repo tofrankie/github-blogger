@@ -1,27 +1,27 @@
 {
+  "publisher": "frankie",
   "name": "github-blogger",
   "displayName": "GitHub Blogger",
-  "description": "Writing and managing blog posts via GitHub issue",
-  "version": "2.4.1",
-  "packageManager": "pnpm@10.17.0",
-  "publisher": "frankie",
+  "version": "2.5.0",
+  "packageManager": "pnpm@10.28.0",
+  "description": "Write and manage blog posts via GitHub issues",
   "author": {
     "name": "Frankie",
     "email": "1426203851@qq.com"
   },
-  "engines": {
-    "vscode": "^1.88.0"
-  },
-  "categories": [
-    "Notebooks"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/tofrankie/github-blogger.git"
   },
-  "activationEvents": [],
+  "categories": [
+    "Notebooks"
+  ],
   "main": "./dist/extension/index.js",
   "icon": "./images/icon.png",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "activationEvents": [],
   "contributes": {
     "configuration": {
       "title": "GitHub Blogger",
@@ -69,48 +69,12 @@
     "prepackage:pre": "pnpm build",
     "ext:publish": "vsxpub --no-dependencies --exclude git",
     "lint": "run-s lint:eslint lint:prettier lint:stylelint tsc",
-    "lint:eslint": "eslint 'src/**/*.{js,ts,tsx}' --cache --fix",
+    "lint:eslint": "eslint . --cache --fix",
     "lint:prettier": "prettier . '!**/pnpm-lock.yaml' --cache --write --log-level silent",
     "lint:stylelint": "stylelint 'src/**/*.css' --cache --fix",
     "tsc": "tsc --noEmit",
     "check": "run-s tsc lint",
     "prepare": "simple-git-hooks"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
-  },
-  "lint-staged": {
-    "*": "sh -c 'pnpm lint'"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "20.4.2",
-    "@octokit/request-error": "7.0.0",
-    "@octokit/types": "15.0.0",
-    "@tanstack/eslint-plugin-query": "5.89.0",
-    "@tofrankie/commitlint": "0.0.2",
-    "@tofrankie/eslint": "0.0.7",
-    "@tofrankie/prettier": "0.0.2",
-    "@tofrankie/stylelint": "0.0.2",
-    "@tomjs/tsconfig": "2.0.0",
-    "@tomjs/vite-plugin-vscode": "5.0.0",
-    "@types/node": "24.5.2",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
-    "@types/styled-components": "5.1.34",
-    "@types/vscode": "1.88.0",
-    "@types/vscode-webview": "1.57.5",
-    "@vitejs/plugin-react": "5.0.3",
-    "@vitejs/plugin-react-swc": "4.1.0",
-    "@vscode/vsce": "3.6.0",
-    "eslint": "9.39.3",
-    "lint-staged": "16.2.7",
-    "npm-run-all2": "8.0.4",
-    "prettier": "3.8.1",
-    "simple-git-hooks": "2.13.1",
-    "stylelint": "17.3.0",
-    "typescript": "5.9.3",
-    "vite": "6.3.5",
-    "vsxpub": "0.1.3"
   },
   "dependencies": {
     "@bytemd/plugin-breaks": "1.22.0",
@@ -122,17 +86,17 @@
     "@bytemd/plugin-medium-zoom": "1.22.0",
     "@bytemd/plugin-mermaid": "1.22.0",
     "@bytemd/react": "1.22.0",
-    "@octokit/core": "7.0.4",
-    "@primer/css": "22.0.2",
-    "@primer/octicons-react": "19.18.0",
-    "@primer/primitives": "11.1.0",
-    "@primer/react": "37.31.0",
-    "@tanstack/react-query": "5.89.0",
-    "@tanstack/react-query-devtools": "5.89.0",
+    "@octokit/core": "7.0.6",
+    "@primer/css": "22.1.0",
+    "@primer/octicons-react": "19.22.0",
+    "@primer/primitives": "11.4.0",
+    "@primer/react": "38.13.0",
+    "@tanstack/react-query": "5.90.21",
+    "@tanstack/react-query-devtools": "5.91.3",
     "@vscode/webview-ui-toolkit": "1.4.0",
     "buffer": "6.0.3",
     "bytemd": "1.22.0",
-    "core-js": "3.45.1",
+    "core-js": "3.48.0",
     "dayjs": "1.11.19",
     "github-markdown-css": "5.9.0",
     "gray-matter": "4.0.3",
@@ -141,8 +105,41 @@
     "licia": "1.48.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "styled-components": "5.3.11",
     "vscode-webview-rpc": "0.0.4",
     "zustand": "5.0.11"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "20.4.2",
+    "@octokit/request-error": "7.1.0",
+    "@octokit/types": "16.0.0",
+    "@tanstack/eslint-plugin-query": "5.91.4",
+    "@tofrankie/commitlint": "0.0.2",
+    "@tofrankie/eslint": "link:/Users/frankie/Web/Git/config/packages/eslint",
+    "@tofrankie/prettier": "0.0.2",
+    "@tofrankie/stylelint": "0.0.2",
+    "@tomjs/tsconfig": "3.2.0",
+    "@tomjs/vite-plugin-vscode": "7.1.1",
+    "@types/node": "25.3.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@types/vscode": "1.88.0",
+    "@types/vscode-webview": "1.57.5",
+    "@vitejs/plugin-react-swc": "4.2.3",
+    "@vscode/vsce": "3.7.1",
+    "eslint": "9.39.3",
+    "lint-staged": "16.2.7",
+    "npm-run-all2": "8.0.4",
+    "prettier": "3.8.1",
+    "simple-git-hooks": "2.13.1",
+    "stylelint": "17.3.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.1",
+    "vsxpub": "0.1.4"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "sh -c 'pnpm lint'"
   }
 }

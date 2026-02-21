@@ -116,3 +116,33 @@ code {
 .app-labels .label-skeleton {
   border-radius: 12px;
 }
+
+/* Issues: sx → CSS Variables (hover / descendant selectors) */
+.issues-header-link {
+  color: var(--fgColor-default);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.issues-header-link:hover {
+  color: var(--fgColor-default);
+  text-decoration: underline;
+}
+
+.issues-nav-list {
+  margin-right: calc(var(--base-size-8) * -1);
+  margin-left: calc(var(--base-size-8) * -1);
+}
+
+.issues-nav-list > ul {
+  padding-top: 0;
+}
+
+/* Flash retry: icon margin + svg color (descendant) */
+.flash-retry svg {
+  margin-right: 0;
+}
+
+.flash-retry-icon svg {
+  color: var(--fgColor-muted);
+}

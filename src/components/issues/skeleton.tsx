@@ -8,7 +8,7 @@ const SKELETON_ITEM_HEIGHT = 32
 
 export function IssueSkeleton() {
   return (
-    <Stack padding="normal" sx={{ height: '100%', overflow: 'hidden' }}>
+    <Stack padding="normal" style={{ height: '100%', overflow: 'hidden' }}>
       <Stack.Item>
         <HeaderSkeleton />
       </Stack.Item>

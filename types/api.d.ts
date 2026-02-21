@@ -1,4 +1,4 @@
-import { ERROR_TYPE } from '@/constants'
+import type { ERROR_TYPE } from '@/constants'
 
 export {}
 
@@ -11,13 +11,13 @@ declare global {
     detail?: unknown
   }
 
-  type ApiSuccessResponse<T> = {
+  interface ApiSuccessResponse<T> {
     success: true
     data: T
     error: null
   }
 
-  type ApiErrorResponse = {
+  interface ApiErrorResponse {
     success: false
     data: null
     error: ApiError

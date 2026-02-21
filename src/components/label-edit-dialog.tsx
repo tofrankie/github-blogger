@@ -2,7 +2,6 @@ import type { DialogButtonProps } from '@primer/react'
 import { SparkleFillIcon, SyncIcon } from '@primer/octicons-react'
 import {
   ActionMenu,
-  Box,
   Dialog,
   FormControl,
   IssueLabelToken,
@@ -110,7 +109,7 @@ export default function LabelEditDialog({
       setNameError('Label name is required.')
       isValid = false
     } else if (allLabelName.includes(formattedName)) {
-      setNameError('Label name has already been taken')
+      setNameError('Label name has already been taken.')
       isValid = false
     } else {
       setNameError(null)
@@ -157,7 +156,7 @@ export default function LabelEditDialog({
     if (!originalLabel) return
 
     const result = await confirm({
-      title: 'Tips',
+      title: 'Confirm',
       content: 'Are you sure? Deleting a label will remove it from all issues and pull requests.',
       cancelButtonContent: 'Cancel',
       confirmButtonContent: 'Delete',
@@ -323,7 +322,7 @@ export default function LabelEditDialog({
                   placeholder={DEFAULT_LABEL_COLOR}
                   maxLength={6}
                   aria-label="Hex color code"
-                  sx={{ width: '100px' }}
+                  style={{ width: '100px' }}
                 />
               </Stack.Item>
               <Stack.Item>
@@ -331,33 +330,49 @@ export default function LabelEditDialog({
                   <ActionMenu.Button
                     aria-label="Open color picker"
                     variant="default"
-                    sx={{ paddingLeft: 'condensed', paddingRight: 'condensed' }}
+                    style={{
+                      paddingLeft: 'var(--base-size-8)',
+                      paddingRight: 'var(--base-size-8)',
+                    }}
                   >
                     Colors
                   </ActionMenu.Button>
-                  <ActionMenu.Overlay width="medium" sx={{ p: 2 }}>
+                  <ActionMenu.Overlay width="medium" style={{ padding: 'var(--base-size-8)' }}>
                     <Stack direction="vertical" gap="condensed">
-                      <Text sx={{ fontSize: 0, color: 'fg.muted' }}>
+                      <Text
+                        style={{
+                          fontSize: 'var(--text-body-size-small)',
+                          color: 'var(--fgColor-muted)',
+                        }}
+                      >
                         Choose from default colors:
                       </Text>
                       <Stack direction="horizontal" gap="condensed" wrap="wrap">
                         {CYCLE_COLORS.map(color => (
-                          <Stack.Item key={color} sx={{ position: 'relative' }}>
+                          <Stack.Item key={color} style={{ position: 'relative' }}>
                             <IssueLabelToken
                               text={<SparkleFillIcon size={16} />}
                               size="large"
                               fillColor={`#${color}`}
                             />
-                            <Box
-                              aria-label={`Select color ${color}`}
-                              onClick={() => onPresetColorSelect(color)}
-                              sx={{
+                            <div
+                              style={{
                                 position: 'absolute',
                                 top: 0,
                                 left: 0,
                                 width: '100%',
                                 height: '100%',
                                 cursor: 'pointer',
+                              }}
+                              aria-label={`Select color ${color}`}
+                              onClick={() => onPresetColorSelect(color)}
+                              role="button"
+                              tabIndex={0}
+                              onKeyDown={e => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                  e.preventDefault()
+                                  onPresetColorSelect(color)
+                                }
                               }}
                             />
                           </Stack.Item>
@@ -367,21 +382,29 @@ export default function LabelEditDialog({
                   </ActionMenu.Overlay>
                 </ActionMenu>
               </Stack.Item>
-              <Stack.Item sx={{ position: 'relative' }}>
+              <Stack.Item style={{ position: 'relative' }}>
                 <IssueLabelToken
                   text={<SyncIcon size={16} />}
                   size="large"
                   fillColor={`#${displayColorForToken || DEFAULT_LABEL_COLOR}`}
                 />
-                <Box
-                  onClick={handleCycleColor}
-                  sx={{
+                <div
+                  style={{
                     position: 'absolute',
                     top: 0,
                     left: 0,
                     width: '100%',
                     height: '100%',
                     cursor: 'pointer',
+                  }}
+                  onClick={handleCycleColor}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      handleCycleColor()
+                    }
                   }}
                 />
               </Stack.Item>

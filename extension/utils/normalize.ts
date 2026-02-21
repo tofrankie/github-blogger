@@ -1,5 +1,5 @@
 export function normalizeIssueFromRest(issue: RestIssue): MinimalIssue {
-  let newIssue = issue.labels.map(item => {
+  const newIssue = issue.labels.map(item => {
     if (typeof item === 'string') {
       return {
         id: item,

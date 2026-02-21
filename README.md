@@ -2,11 +2,11 @@
 
 English | [中文](README-CN.md)
 
-**GitHub Blogger** is a VS Code extension for writing and managing blog posts via GitHub issue. It supports Markdown editing, live preview, and seamless publishing — all powered by GitHub.
+**GitHub Blogger** is a VS Code extension for writing and managing blog posts via GitHub issues. It supports Markdown editing, live preview, and seamless publishing — all powered by GitHub.
 
 ## ✨ Features
 
-- Manage and publish blog posts via GitHub issue
+- Manage and publish blog posts via GitHub issues
 - GitHub-native interaction experience
 - Markdown editing with live preview and plugin support (Math, Mermaid, etc.)
 - Images stored in your repository with jsDelivr CDN for display

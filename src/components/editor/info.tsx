@@ -18,7 +18,7 @@ export default function Info({ issue }: InfoProps) {
 
   const copyLink = () => {
     navigator.clipboard.writeText(issue.url)
-    toast.success('copied.')
+    toast.success('Copied.')
   }
 
   return (

@@ -1,4 +1,4 @@
-import { Box, Portal } from '@primer/react'
+import { Portal } from '@primer/react'
 import { useLayoutEffect, useRef, useState } from 'react'
 import ToastItem from './toast-item'
 
@@ -27,25 +27,25 @@ export default function ToastContainer({
 
   return (
     <Portal>
-      <Box
-        sx={{
+      <div
+        style={{
           position: 'fixed',
-          top: '8px',
-          right: '8px',
-          width: TOAST_CONTAINER_WIDTH,
+          top: 'var(--base-size-8)',
+          right: 'var(--base-size-8)',
           zIndex: 500,
+          width: TOAST_CONTAINER_WIDTH,
         }}
       >
         {toasts.map((toast, index) => (
-          <Box
+          <div
             key={toast.id}
-            sx={{
+            style={{
               position: 'absolute',
-              width: '100%',
               top: 0,
               right: 0,
-              transform: `translateY(${getTranslateY(index)}px)`,
+              width: '100%',
               transition: 'transform 0.3s ease-out',
+              transform: `translateY(${getTranslateY(index)}px)`,
             }}
           >
             <div
@@ -55,9 +55,9 @@ export default function ToastContainer({
             >
               <ToastItem toast={toast} onClose={() => onDismiss(toast.id)} />
             </div>
-          </Box>
+          </div>
         ))}
-      </Box>
+      </div>
     </Portal>
   )
 }

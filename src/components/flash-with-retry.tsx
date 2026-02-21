@@ -31,14 +31,14 @@ export function FlashWithRetry({
   }, [isLoading, onRetry])
 
   return (
-    <Flash variant={flashVariant} sx={{ '& svg': { mr: 0 } }}>
+    <Flash variant={flashVariant} className="flash-retry">
       <Stack direction="horizontal" align="center" justify="space-between" gap="condensed">
         <Stack.Item grow>
           <InlineMessage variant={messageVariant}>{message}</InlineMessage>
         </Stack.Item>
-        <Stack.Item sx={{ flexShrink: 0 }}>
+        <Stack.Item style={{ flexShrink: 0 }}>
           <IconButton
-            sx={{ '& svg': { color: 'fg.muted' } }}
+            className="flash-retry-icon"
             onClick={handleRetry}
             icon={SyncIcon}
             aria-label="Retry"

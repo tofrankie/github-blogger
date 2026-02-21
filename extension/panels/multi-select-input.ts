@@ -1,9 +1,9 @@
-import * as vscode from 'vscode'
-import { window, QuickInputButtons, type ExtensionContext } from 'vscode'
+import type { ExtensionContext, QuickInput } from 'vscode'
 import { Octokit } from '@octokit/core'
+import { ConfigurationTarget, ProgressLocation, QuickInputButtons, window, workspace } from 'vscode'
 
-import { APIS, EXTENSION_NAME } from '../constants'
-import { getSettings } from '../utils'
+import { APIS, EXTENSION_NAME } from '@/constants'
+import { getSettings } from '@/utils'
 
 interface State {
   title: string
@@ -17,7 +17,7 @@ interface State {
 
 interface PartialState extends Partial<State> {}
 
-export default async function multiStepInput(context: ExtensionContext) {
+export default async function multiStepInput(_context: ExtensionContext) {
   async function collectInputs() {
     const state: PartialState = await getSettings()
     await MultiStepInput.run(input => inputToken(input, state))
@@ -72,8 +72,7 @@ export default async function multiStepInput(context: ExtensionContext) {
       step: 4,
       totalSteps: 4,
       value: state.repo || '',
-      prompt:
-        'Create an empty GitHub repository for your issue blog. Enter the repository name. If the repository already exists, it will not be recreated',
+      prompt: 'Enter the repository name. If it already exists, it will not be recreated.',
       validate: validateNameIsUnique,
       shouldResume,
     })
@@ -83,7 +82,7 @@ export default async function multiStepInput(context: ExtensionContext) {
     // Could show a notification with the option to resume.
     return new Promise((_resolve, _reject) => {
       // noop
-      // @ts-ignore
+      // @ts-expect-error - This is a noop function
       _resolve()
     })
   }
@@ -95,27 +94,27 @@ export default async function multiStepInput(context: ExtensionContext) {
 
   const state: PartialState = await collectInputs()
 
-  await vscode.workspace
+  await workspace
     .getConfiguration(EXTENSION_NAME)
-    .update('token', state.token, vscode.ConfigurationTarget.Global)
+    .update('token', state.token, ConfigurationTarget.Global)
 
-  await vscode.workspace
+  await workspace
     .getConfiguration(EXTENSION_NAME)
-    .update('user', state.user, vscode.ConfigurationTarget.Global)
+    .update('user', state.user, ConfigurationTarget.Global)
 
-  await vscode.workspace
+  await workspace
     .getConfiguration(EXTENSION_NAME)
-    .update('branch', state.branch, vscode.ConfigurationTarget.Global)
+    .update('branch', state.branch, ConfigurationTarget.Global)
 
-  await vscode.workspace
+  await workspace
     .getConfiguration(EXTENSION_NAME)
-    .update('repo', state.repo, vscode.ConfigurationTarget.Global)
+    .update('repo', state.repo, ConfigurationTarget.Global)
 
   const octokit = new Octokit({ auth: state.token })
 
-  vscode.window.withProgress(
+  window.withProgress(
     {
-      location: vscode.ProgressLocation.Window,
+      location: ProgressLocation.Window,
       cancellable: false,
       title: 'Creating the issue blog',
     },
@@ -155,16 +154,16 @@ class InputFlowAction {
 type InputStep = (input: MultiStepInput) => Thenable<InputStep | void>
 
 class MultiStepInput {
-  static async run<T>(start: InputStep) {
+  static async run(start: InputStep) {
     const input = new MultiStepInput()
     return input.stepThrough(start)
   }
 
-  private current?: vscode.QuickInput
+  private current?: QuickInput
 
   private steps: InputStep[] = []
 
-  async stepThrough<T>(start: InputStep) {
+  async stepThrough(start: InputStep) {
     let step: InputStep | void = start
     while (step) {
       this.steps.push(step)

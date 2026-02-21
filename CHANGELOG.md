@@ -2,17 +2,27 @@
 
 All notable changes will be documented in this file.
 
+## v2.5.0
+
+> Feb 21, 2026
+
+### Changed
+
+- Updated project dependencies
+- Removed deprecated Primer Box component
+- Migrated Primer sx props to CSS variables
+
 ## v2.4.1
 
 > Sep 24, 2025
 
-- Fix the problem of command not found
+- Fixed command not found
 
 ## v2.4.0
 
 > Sep 20, 2025
 
-- Update project dependencies
+- Updated project dependencies
 
 ## v2.3.0
 
@@ -36,12 +46,12 @@ All notable changes will be documented in this file.
 
 ### Added
 
-- Open issues dialog by default
+- Open the issues dialog by default
 - Support multiple image uploads
 
 ### Fixed
 
-- Add loading indicator for image uploads
+- Added loading indicator for image uploads
 
 ## v2.1.0
 
@@ -49,7 +59,7 @@ All notable changes will be documented in this file.
 
 ### Changed
 
-- Update Label Group
+- Updated label group UI
 
 ## v2.0.0
 
@@ -132,14 +142,14 @@ No functional changes.
 ### Added
 
 - Enable the FindWidget
-- Maintain context when the Blogger panel was hidden
+- Maintain context when the Blogger panel is hidden
 - Support filtering by multiple labels
 - Support title filtering
 - Support opening an issue in the default browser
 
 ### Changed
 
-- Optimize UI styles
+- Optimized UI styles
 
 ## v0.0.1
 
