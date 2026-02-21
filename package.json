@@ -114,7 +114,7 @@
     "@octokit/types": "16.0.0",
     "@tanstack/eslint-plugin-query": "5.91.4",
     "@tofrankie/commitlint": "0.0.2",
-    "@tofrankie/eslint": "link:/Users/frankie/Web/Git/config/packages/eslint",
+    "@tofrankie/eslint": "0.0.8",
     "@tofrankie/prettier": "0.0.2",
     "@tofrankie/stylelint": "0.0.2",
     "@tomjs/tsconfig": "3.2.0",
