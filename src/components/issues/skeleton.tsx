@@ -33,7 +33,7 @@ export function HeaderSkeleton() {
 }
 
 export function ListSkeleton() {
-  const list = useMemo(() => Array.from({ length: 3 }, () => 1), [])
+  const list = useMemo(() => Array.from({ length: 3 }).fill(1), [])
   return (
     <Stack gap="normal">
       {list.map((_, index) => (
