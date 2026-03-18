@@ -1,5 +1,9 @@
 # GitHub Blogger
 
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/frankie.github-blogger.svg?label=Marketplace&color=4d9375)
+](https://marketplace.visualstudio.com/items?itemName=frankie.github-blogger) [![Open VSX Version](https://img.shields.io/open-vsx/v/frankie/github-blogger.svg?label=Open%20VSX&color=a60ee5)
+](https://open-vsx.org/extension/frankie/github-blogger)
+
 [English](README.md) | 中文
 
 **GitHub Blogger** 是一款基于 VS Code 的扩展，通过 GitHub issue 编写和管理博客文章。支持 Markdown 编辑、实时预览和无缝发布，这一切都由 GitHub 驱动。
@@ -14,7 +18,7 @@
 
 ## 🚀 快速开始
 
-1. 从 [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Frankie.github-blogger) 或 [Open VSX](https://open-vsx.org/extension/frankie/github-blogger) 安装
+1. 从 [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=frankie.github-blogger) 或 [Open VSX](https://open-vsx.org/extension/frankie/github-blogger) 安装
 2. 生成你的 [GitHub Personal Access Token (classic)](https://github.com/settings/tokens)
 3. 在命令面板输入 `Configure GitHub Blogger` 完成必要配置（命令面板快捷键 `Cmd + Shift + P` / `Ctrl + Shift + P`）
 4. 在命令面板输入 `Open GitHub Blogger` 打开编辑器，开始写作！

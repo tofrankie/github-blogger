@@ -1,5 +1,9 @@
 # GitHub Blogger
 
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/frankie.github-blogger.svg?label=Marketplace&color=4d9375)
+](https://marketplace.visualstudio.com/items?itemName=frankie.github-blogger) [![Open VSX Version](https://img.shields.io/open-vsx/v/frankie/github-blogger.svg?label=Open%20VSX&color=a60ee5)
+](https://open-vsx.org/extension/frankie/github-blogger)
+
 English | [中文](README-CN.md)
 
 **GitHub Blogger** is a VS Code extension for writing and managing blog posts via GitHub issues. It supports Markdown editing, live preview, and seamless publishing — all powered by GitHub.
@@ -14,7 +18,7 @@ English | [中文](README-CN.md)
 
 ## 🚀 Quick Start
 
-1. Install from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Frankie.github-blogger) or [Open VSX](https://open-vsx.org/extension/frankie/github-blogger)
+1. Install from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=frankie.github-blogger) or [Open VSX](https://open-vsx.org/extension/frankie/github-blogger)
 2. Generate your [GitHub Personal Access Token (classic)](https://github.com/settings/tokens)
 3. Open the command palette (Cmd + Shift + P / Ctrl + Shift + P), search for `Configure GitHub Blogger` to set up
 4. Then run `Open GitHub Blogger` and start writing!
