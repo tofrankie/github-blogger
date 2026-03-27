@@ -118,11 +118,11 @@ importers:
         specifier: 0.0.16
         version: 0.0.16(@typescript-eslint/rule-tester@8.56.1(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/typescript-estree@8.57.2(typescript@5.9.3))(@typescript-eslint/utils@8.57.2(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-sfc@3.5.28)(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
       '@tofrankie/prettier':
-        specifier: 0.0.7
-        version: 0.0.7(prettier@3.8.1)
+        specifier: 0.0.8
+        version: 0.0.8(prettier@3.8.1)
       '@tofrankie/stylelint':
-        specifier: 0.0.11
-        version: 0.0.11(stylelint@17.6.0(typescript@5.9.3))
+        specifier: 0.0.12
+        version: 0.0.12(stylelint@17.6.0(typescript@5.9.3))
       '@tomjs/tsconfig':
         specifier: 3.2.0
         version: 3.2.0
@@ -1656,14 +1656,14 @@ packages:
     peerDependencies:
       prettier: '>=3.0.0'
 
-  '@tofrankie/prettier@0.0.7':
-    resolution: {integrity: sha512-OrawmzK1pAH5klIsw79Dc3vkuzLRfLE5whHxVFtuMbU+EPc5AXuLfTZXtTa/LhlFTHOyTtpd/tdxNWB99VZjmQ==}
+  '@tofrankie/prettier@0.0.8':
+    resolution: {integrity: sha512-mD1wxOgXBevL6GPzvvx4sG9vahPu742/PhbAL+wT0Qlkno0RqTKGVeLWTcKeD/2wFgU+fDYGiDQGzJp189c4Tg==}
     engines: {node: '>=18'}
     peerDependencies:
       prettier: '>=3.0.0'
 
-  '@tofrankie/stylelint@0.0.11':
-    resolution: {integrity: sha512-5cAjvJV6XoJSIzBI5DG0YDVhL6jKL3gWA5rBv66m+b+hLY5j6/s8Z2WA4cD4m0XXN4oa7vpM6zu6GFKzC1AJLQ==}
+  '@tofrankie/stylelint@0.0.12':
+    resolution: {integrity: sha512-KbDf0eiqjLIoBs4xJSu8CEW6ebTGweh2huhrO9ENhCOyFoAKq/eXMWIbPsCn3d/Ld2zOWVpdElEQSjthNSsDzw==}
     engines: {node: '>=18'}
     peerDependencies:
       stylelint: ^17.6.0
@@ -6872,13 +6872,13 @@ snapshots:
       p-limit: 7.3.0
       prettier: 3.8.1
 
-  '@tofrankie/prettier@0.0.7(prettier@3.8.1)':
+  '@tofrankie/prettier@0.0.8(prettier@3.8.1)':
     dependencies:
       '@tofrankie/prettier-plugin-wxml': 0.0.5(prettier@3.8.1)
       prettier: 3.8.1
       prettier-plugin-organize-attributes: 1.0.0(prettier@3.8.1)
 
-  '@tofrankie/stylelint@0.0.11(stylelint@17.6.0(typescript@5.9.3))':
+  '@tofrankie/stylelint@0.0.12(stylelint@17.6.0(typescript@5.9.3))':
     dependencies:
       '@stylistic/stylelint-plugin': 5.0.1(stylelint@17.6.0(typescript@5.9.3))
       deepmerge: 4.3.1
