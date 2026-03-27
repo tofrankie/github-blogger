@@ -122,7 +122,7 @@
     "@tofrankie/commitlint": "0.0.3",
     "@tofrankie/eslint": "0.0.16",
     "@tofrankie/prettier": "0.0.7",
-    "@tofrankie/stylelint": "0.0.10",
+    "@tofrankie/stylelint": "0.0.11",
     "@tomjs/tsconfig": "3.2.0",
     "@tomjs/vite-plugin-vscode": "7.1.1",
     "@types/node": "25.5.0",
@@ -137,7 +137,7 @@
     "npm-run-all2": "8.0.4",
     "prettier": "3.8.1",
     "simple-git-hooks": "2.13.1",
-    "stylelint": "17.5.0",
+    "stylelint": "17.6.0",
     "typescript": "5.9.3",
     "vite": "7.3.1",
     "vsxpub": "0.1.4"

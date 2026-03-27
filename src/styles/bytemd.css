@@ -1,5 +1,5 @@
-@import url(bytemd/dist/index.min.css);
-@import url(@/styles/github.custom.css);
+@import url('bytemd/dist/index.min.css');
+@import url('@/styles/github.custom.css');
 
 code {
   color: var(--color-fg-default);

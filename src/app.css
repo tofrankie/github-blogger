@@ -1,6 +1,6 @@
-@import url(@/styles/bytemd.css);
-@import url(@/styles/primer.css);
-@import url(@/styles/toast.css);
+@import url('@/styles/bytemd.css');
+@import url('@/styles/primer.css');
+@import url('@/styles/toast.css');
 
 /* 放在最后以覆盖上述一些样式 */
-@import url(@/styles/base.css);
+@import url('@/styles/base.css');
