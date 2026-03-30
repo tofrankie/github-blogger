@@ -118,14 +118,14 @@ importers:
         specifier: 0.0.17
         version: 0.0.17(@typescript-eslint/rule-tester@8.56.1(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/typescript-estree@8.57.2(typescript@5.9.3))(@typescript-eslint/utils@8.57.2(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-sfc@3.5.28)(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
       '@tofrankie/prettier':
-        specifier: 0.0.9
-        version: 0.0.9(prettier@3.8.1)
+        specifier: 0.0.11
+        version: 0.0.11(prettier@3.8.1)
       '@tofrankie/stylelint':
-        specifier: 0.0.13
-        version: 0.0.13(stylelint@17.6.0(typescript@5.9.3))
+        specifier: 0.0.14
+        version: 0.0.14(stylelint@17.6.0(typescript@5.9.3))
       '@tofrankie/tsconfig':
-        specifier: 0.0.1
-        version: 0.0.1(typescript@5.9.3)
+        specifier: 0.0.4
+        version: 0.0.4(typescript@5.9.3)
       '@tomjs/vite-plugin-vscode':
         specifier: 7.1.1
         version: 7.1.1(@types/vscode@1.88.0)(synckit@0.11.12)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(yaml@2.8.3))
@@ -1650,26 +1650,26 @@ packages:
     peerDependencies:
       eslint: ^9.10.0 || ^10.0.0
 
-  '@tofrankie/prettier-plugin-wxml@0.0.5':
-    resolution: {integrity: sha512-BO00nG/cbNsAIziNByTCaqsxq674nRzhGKHPbyYAtrNTuvpvZLaSzwLRNbHblYOem42RTw8jJ85Xs55ZkoYElQ==}
+  '@tofrankie/prettier-plugin-wxml@0.0.7':
+    resolution: {integrity: sha512-Onzcz3o6F0ZZWXg8MwTe3e8a7cnOEptCVJi4uUc6ALvaCn7mp031INFCad5HxMFKbc6EtVRnDVzpkx8L8TTWrQ==}
     engines: {node: '>=18'}
     peerDependencies:
       prettier: '>=3.0.0'
 
-  '@tofrankie/prettier@0.0.9':
-    resolution: {integrity: sha512-xFJusI29yhY1MCLmuhiIntUqh/UDowPlZPn0ks3ZPnjet8gq1R5aMsQRw9sWMaKif4CbIznyMfIbtFi/ygJ8Xg==}
+  '@tofrankie/prettier@0.0.11':
+    resolution: {integrity: sha512-KbwU7Tx5pMxo6hnM6308fV3AfiycZ0Ut5DGW2T9ruUxfnyxfp+Q66SFvZgmN4235MxncVsBYtZJnV5ek/Zc3dQ==}
     engines: {node: '>=18'}
     peerDependencies:
       prettier: '>=3.0.0'
 
-  '@tofrankie/stylelint@0.0.13':
-    resolution: {integrity: sha512-yzR77eZuiaxwKjZB10ndBeRlGeOZy6ljZ5iO0ucKQujwUgfChRe9rV34EiI3Hk+cda6C5zxfkbX9JeLI9xgKhA==}
+  '@tofrankie/stylelint@0.0.14':
+    resolution: {integrity: sha512-XxuhvWpPVQEVwwqZ37pkJ0ic6Bm+fpjXyxuI0b/exPfwDsRn4D9/xqxhb76zPMUkw91glZGUhu1n0HiKyUuwBw==}
     engines: {node: '>=18'}
     peerDependencies:
       stylelint: ^17.6.0
 
-  '@tofrankie/tsconfig@0.0.1':
-    resolution: {integrity: sha512-9rsJs9uS+9w20yHRRGHmCWB6mWPLE7vx554gBR3w35E0u7AKld7iEfv/kzR820JywlEx9J48Lzfc1TZVSnvJbw==}
+  '@tofrankie/tsconfig@0.0.4':
+    resolution: {integrity: sha512-p6EN/xIAT+Pz2AYKUCFLv96oYlIzJEgqcF5Z+D+U8Vx4FQZwWzI1+Zd7JiLMb8ZmR6topfH8ZtxzBxnFmWzy3w==}
     engines: {node: ^20.0.0 || ^22.0.0 || ^24.0.0}
     peerDependencies:
       typescript: '>=5.0.0'
@@ -4118,6 +4118,10 @@ packages:
 
   minimatch@10.2.4:
     resolution: {integrity: sha512-oRjTw/97aTBN0RHbYCdtF1MQfvusSIBQM0IZEgzl6426+8jSC0nF1a/GmnVLpfB9yyr6g6FTqWqiZVbxrtaCIg==}
+    engines: {node: 18 || 20 || >=22}
+
+  minimatch@10.2.5:
+    resolution: {integrity: sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg==}
     engines: {node: 18 || 20 || >=22}
 
   minimatch@3.1.2:
@@ -6874,20 +6878,21 @@ snapshots:
       - typescript
       - vitest
 
-  '@tofrankie/prettier-plugin-wxml@0.0.5(prettier@3.8.1)':
+  '@tofrankie/prettier-plugin-wxml@0.0.7(prettier@3.8.1)':
     dependencies:
       '@babel/parser': 7.29.2
       angular-html-parser: 10.4.0
       p-limit: 7.3.0
       prettier: 3.8.1
+      prettier-plugin-organize-attributes: 1.0.0(prettier@3.8.1)
 
-  '@tofrankie/prettier@0.0.9(prettier@3.8.1)':
+  '@tofrankie/prettier@0.0.11(prettier@3.8.1)':
     dependencies:
-      '@tofrankie/prettier-plugin-wxml': 0.0.5(prettier@3.8.1)
+      '@tofrankie/prettier-plugin-wxml': 0.0.7(prettier@3.8.1)
       prettier: 3.8.1
       prettier-plugin-organize-attributes: 1.0.0(prettier@3.8.1)
 
-  '@tofrankie/stylelint@0.0.13(stylelint@17.6.0(typescript@5.9.3))':
+  '@tofrankie/stylelint@0.0.14(stylelint@17.6.0(typescript@5.9.3))':
     dependencies:
       '@stylistic/stylelint-plugin': 5.1.0(stylelint@17.6.0(typescript@5.9.3))
       deepmerge: 4.3.1
@@ -6902,7 +6907,7 @@ snapshots:
       stylelint-config-standard-vue: 1.0.0(postcss-html@1.8.1)(stylelint@17.6.0(typescript@5.9.3))
       stylelint-order: 8.1.1(stylelint@17.6.0(typescript@5.9.3))
 
-  '@tofrankie/tsconfig@0.0.1(typescript@5.9.3)':
+  '@tofrankie/tsconfig@0.0.4(typescript@5.9.3)':
     optionalDependencies:
       typescript: 5.9.3
 
@@ -7081,8 +7086,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.56.1(typescript@5.9.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.57.2(typescript@5.9.3)
-      '@typescript-eslint/types': 8.57.2
+      '@typescript-eslint/tsconfig-utils': 8.56.1(typescript@5.9.3)
+      '@typescript-eslint/types': 8.56.1
       debug: 4.4.3
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -7178,7 +7183,7 @@ snapshots:
       '@typescript-eslint/types': 8.56.1
       '@typescript-eslint/visitor-keys': 8.56.1
       debug: 4.4.3
-      minimatch: 10.2.4
+      minimatch: 10.2.5
       semver: 7.7.4
       tinyglobby: 0.2.15
       ts-api-utils: 2.5.0(typescript@5.9.3)
@@ -10016,6 +10021,10 @@ snapshots:
     optional: true
 
   minimatch@10.2.4:
+    dependencies:
+      brace-expansion: 5.0.5
+
+  minimatch@10.2.5:
     dependencies:
       brace-expansion: 5.0.5
 
