@@ -6,11 +6,7 @@ import { ExtensionRPC } from 'vscode-webview-rpc'
 import { APIS, DEFAULT_PAGINATION_SIZE, MESSAGE_TYPE } from '@/constants'
 import * as graphqlQuery from '@/server/graphql'
 import { cdnURL, getSettings, to } from '@/utils'
-import {
-  normalizeIssueFromGraphql,
-  normalizeIssueFromRest,
-  normalizeLabelFromRest,
-} from '@/utils/normalize'
+import { normalizeIssueFromGraphql, normalizeIssueFromRest, normalizeLabelFromRest } from '@/utils/normalize'
 import { createResponse } from '@/utils/response'
 
 export default class Service {
@@ -43,9 +39,7 @@ export default class Service {
       })
     )
 
-    return createResponse(res, octokitRes =>
-      octokitRes.data.map(label => normalizeLabelFromRest(label))
-    )
+    return createResponse(res, octokitRes => octokitRes.data.map(label => normalizeLabelFromRest(label)))
   }
 
   private async createLabel(...args: CreateLabelRpcArgs) {
@@ -103,9 +97,7 @@ export default class Service {
       })
     )
 
-    return createResponse(res, octokitRes =>
-      octokitRes.data.map(issue => normalizeIssueFromRest(issue))
-    )
+    return createResponse(res, octokitRes => octokitRes.data.map(issue => normalizeIssueFromRest(issue)))
   }
 
   private async getIssuesWithFilter(...args: GetIssuesWithFilterRpcArgs) {
@@ -124,9 +116,7 @@ export default class Service {
       queryStr: Object.values(queryParts).filter(Boolean).join(' '),
     }
 
-    const res = await to(
-      this.octokit.graphql<GraphqlIssuesResponse>(graphqlQuery.getIssuesWithFilter(), variables)
-    )
+    const res = await to(this.octokit.graphql<GraphqlIssuesResponse>(graphqlQuery.getIssuesWithFilter(), variables))
 
     const repoNameWithOwner = `${this.config.user}/${this.config.repo}`
 

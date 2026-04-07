@@ -8,10 +8,9 @@ declare global {
 
   type APIUrl = APIMap[keyof APIMap]
 
-  type RestApiType<
-    T extends APIUrl,
-    K extends keyof Endpoints[keyof Endpoints],
-  > = T extends keyof Endpoints ? Endpoints[T][K] : never
+  type RestApiType<T extends APIUrl, K extends keyof Endpoints[keyof Endpoints]> = T extends keyof Endpoints
+    ? Endpoints[T][K]
+    : never
 
   type RestApiResponseType<T extends APIUrl> = RestApiType<T, 'response'>
 
@@ -51,10 +50,7 @@ declare global {
 
   type CreateTreeParams = Omit<RestApiParametersType<typeof APIS.CREATE_TREE>, 'owner' | 'repo'>
 
-  type UpdateRefParams = Omit<
-    RestApiParametersType<typeof APIS.UPDATE_REF>,
-    'owner' | 'repo' | 'ref'
-  >
+  type UpdateRefParams = Omit<RestApiParametersType<typeof APIS.UPDATE_REF>, 'owner' | 'repo' | 'ref'>
 
   type GetIssuesParams = Omit<RestApiParametersType<typeof APIS.GET_ISSUES>, 'owner' | 'repo'>
 

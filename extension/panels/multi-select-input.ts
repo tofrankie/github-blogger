@@ -58,8 +58,7 @@ export default async function multiStepInput(_context: ExtensionContext) {
       step: 3,
       totalSteps: 4,
       value: state.branch || '',
-      prompt:
-        'Enter your GitHub branch name. Used for image and issue archives, usually the default branch',
+      prompt: 'Enter your GitHub branch name. Used for image and issue archives, usually the default branch',
       validate: validateNameIsUnique,
       shouldResume,
     })
@@ -94,21 +93,13 @@ export default async function multiStepInput(_context: ExtensionContext) {
 
   const state: PartialState = await collectInputs()
 
-  await workspace
-    .getConfiguration(EXTENSION_NAME)
-    .update('token', state.token, ConfigurationTarget.Global)
+  await workspace.getConfiguration(EXTENSION_NAME).update('token', state.token, ConfigurationTarget.Global)
 
-  await workspace
-    .getConfiguration(EXTENSION_NAME)
-    .update('user', state.user, ConfigurationTarget.Global)
+  await workspace.getConfiguration(EXTENSION_NAME).update('user', state.user, ConfigurationTarget.Global)
 
-  await workspace
-    .getConfiguration(EXTENSION_NAME)
-    .update('branch', state.branch, ConfigurationTarget.Global)
+  await workspace.getConfiguration(EXTENSION_NAME).update('branch', state.branch, ConfigurationTarget.Global)
 
-  await workspace
-    .getConfiguration(EXTENSION_NAME)
-    .update('repo', state.repo, ConfigurationTarget.Global)
+  await workspace.getConfiguration(EXTENSION_NAME).update('repo', state.repo, ConfigurationTarget.Global)
 
   const octokit = new Octokit({ auth: state.token })
 
@@ -136,9 +127,7 @@ export default async function multiStepInput(_context: ExtensionContext) {
           return
         }
 
-        window.showErrorMessage(
-          `GitHub Blogger initialization failed. Please check your configuration.\n${errorMsg}`
-        )
+        window.showErrorMessage(`GitHub Blogger initialization failed. Please check your configuration.\n${errorMsg}`)
       }
       progress.report({ increment: 100 })
     }
@@ -201,10 +190,7 @@ class MultiStepInput {
         input.totalSteps = totalSteps
         input.value = value || ''
         input.prompt = prompt
-        input.buttons = [
-          ...(this.steps.length > 1 ? [QuickInputButtons.Back] : []),
-          ...(buttons || []),
-        ]
+        input.buttons = [...(this.steps.length > 1 ? [QuickInputButtons.Back] : []), ...(buttons || [])]
         let validating = validate('')
         disposables.push(
           input.onDidTriggerButton(item => {
@@ -234,11 +220,7 @@ class MultiStepInput {
           }),
           input.onDidHide(() => {
             ;(async () => {
-              reject(
-                shouldResume && (await shouldResume())
-                  ? InputFlowAction.resume
-                  : InputFlowAction.cancel
-              )
+              reject(shouldResume && (await shouldResume()) ? InputFlowAction.resume : InputFlowAction.cancel)
             })().catch(reject)
           })
         )

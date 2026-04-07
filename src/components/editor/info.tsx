@@ -1,10 +1,4 @@
-import {
-  ClockIcon,
-  InfoIcon,
-  IssueOpenedIcon,
-  LinkExternalIcon,
-  LinkIcon,
-} from '@primer/octicons-react'
+import { ClockIcon, InfoIcon, IssueOpenedIcon, LinkExternalIcon, LinkIcon } from '@primer/octicons-react'
 import { ActionList, ActionMenu, IconButton, RelativeTime } from '@primer/react'
 import { useToast } from '@/hooks'
 import { openExternalLink } from '@/utils'

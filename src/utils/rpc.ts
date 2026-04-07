@@ -8,10 +8,7 @@ const vscode = getVscode()
 
 export const rpc = new WebviewRPC(window, vscode)
 
-async function rpcEmit<T, A extends any[] = any[]>(
-  type: string,
-  args: A = [] as unknown as A
-): Promise<T> {
+async function rpcEmit<T, A extends any[] = any[]>(type: string, args: A = [] as unknown as A): Promise<T> {
   const response = (await rpc.emit(type, args)) as ApiResponse<T>
   if (!response.success) {
     console.log('🚀 ~ client ~ rpcEmit ~ error ~ detail:', response.error?.detail)
@@ -39,12 +36,7 @@ export async function deleteLabel(name: string) {
 
 export async function updateLabel(newLabel: Omit<MinimalLabel, 'id'>, oldLabel: MinimalLabel) {
   const newLabelName = newLabel.name !== oldLabel.name ? newLabel.name : undefined
-  const args: UpdateLabelRpcArgs = [
-    newLabelName,
-    oldLabel.name,
-    newLabel.color,
-    newLabel.description ?? undefined,
-  ]
+  const args: UpdateLabelRpcArgs = [newLabelName, oldLabel.name, newLabel.color, newLabel.description ?? undefined]
   return rpcEmit<MinimalLabel, UpdateLabelRpcArgs>(MESSAGE_TYPE.UPDATE_LABEL, args)
 }
 
@@ -52,10 +44,7 @@ export async function getIssueCount() {
   return rpcEmit<number>(MESSAGE_TYPE.GET_ISSUE_COUNT)
 }
 
-export async function getIssueCountWithFilter(
-  filterTitle: string,
-  filterLabelNames: string[] = []
-) {
+export async function getIssueCountWithFilter(filterTitle: string, filterLabelNames: string[] = []) {
   if (!filterTitle && filterLabelNames.length === 0) {
     return getIssueCount()
   }
@@ -77,10 +66,7 @@ export async function getIssues(page: number = 1, labels: string[] = [], title: 
     const offset = (page - 1) * DEFAULT_PAGINATION_SIZE
     const after = page > 1 ? encode(`cursor:${offset}`) : null
     const args: GetIssuesWithFilterRpcArgs = [after, labels, title]
-    res = await rpcEmit<MinimalIssues, GetIssuesWithFilterRpcArgs>(
-      MESSAGE_TYPE.GET_ISSUES_WITH_FILTER,
-      args
-    )
+    res = await rpcEmit<MinimalIssues, GetIssuesWithFilterRpcArgs>(MESSAGE_TYPE.GET_ISSUES_WITH_FILTER, args)
   }
 
   return res
@@ -94,12 +80,7 @@ export async function createIssue(params: MinimalIssue) {
 
 export async function updateIssue(params: MinimalIssue) {
   const labelNames = params.labels.map(label => label.name)
-  const args: UpdateIssueRpcArgs = [
-    params.number,
-    params.title,
-    params.body,
-    JSON.stringify(labelNames),
-  ]
+  const args: UpdateIssueRpcArgs = [params.number, params.title, params.body, JSON.stringify(labelNames)]
   return rpcEmit<MinimalIssue, UpdateIssueRpcArgs>(MESSAGE_TYPE.UPDATE_ISSUE, args)
 }
 
@@ -126,21 +107,21 @@ export async function archiveIssue(issue: MinimalIssue, type: SubmitType) {
   // 4. 生成 Tree
   const year = dayjs(createdAt).year()
   const filePath = `archives/${year}/${issueNumber}.md`
-  const newTreeResult = await rpcEmit<RestTree, [string, string, string]>(
-    MESSAGE_TYPE.CREATE_TREE,
-    [treeSha, filePath, blobSha]
-  )
+  const newTreeResult = await rpcEmit<RestTree, [string, string, string]>(MESSAGE_TYPE.CREATE_TREE, [
+    treeSha,
+    filePath,
+    blobSha,
+  ])
   const newTreeSha = newTreeResult.sha
 
   // 5. 生成 Commit
   const commitMessage =
-    type === SUBMIT_TYPE.CREATE
-      ? `docs: create issue ${issueNumber}`
-      : `docs: update issue ${issueNumber}`
-  const newCommitResult = await rpcEmit<RestCommit, [string, string, string]>(
-    MESSAGE_TYPE.CREATE_COMMIT,
-    [commitSha, newTreeSha, commitMessage]
-  )
+    type === SUBMIT_TYPE.CREATE ? `docs: create issue ${issueNumber}` : `docs: update issue ${issueNumber}`
+  const newCommitResult = await rpcEmit<RestCommit, [string, string, string]>(MESSAGE_TYPE.CREATE_COMMIT, [
+    commitSha,
+    newTreeSha,
+    commitMessage,
+  ])
   const newCommitSha = newCommitResult.sha
 
   // 6. 更新 Ref

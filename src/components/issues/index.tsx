@@ -72,12 +72,7 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
 
   const confirm = useConfirm()
 
-  const {
-    data: repo,
-    isLoading: isLoadingRepo,
-    isError: isErrorRepo,
-    refetch: refetchRepo,
-  } = useRepo()
+  const { data: repo, isLoading: isLoadingRepo, isError: isErrorRepo, refetch: refetchRepo } = useRepo()
 
   const { data: labels = [] } = useLabels()
 
@@ -100,10 +95,7 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
     title: filterTitle,
   })
 
-  const withoutIssue = useMemo(
-    () => isFetchedIssueCount && issueCount === 0,
-    [isFetchedIssueCount, issueCount]
-  )
+  const withoutIssue = useMemo(() => isFetchedIssueCount && issueCount === 0, [isFetchedIssueCount, issueCount])
 
   const withFilter = useMemo(() => {
     return !!filterTitle || filterLabelNames.length > 0
@@ -293,10 +285,7 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
                   {isLoadingIssues || isPendingIssues ? (
                     <ListSkeleton />
                   ) : isErrorIssues ? (
-                    <FlashWithRetry
-                      message="Failed to load issues"
-                      onRetry={() => refetchIssues()}
-                    />
+                    <FlashWithRetry message="Failed to load issues" onRetry={() => refetchIssues()} />
                   ) : withoutIssue ? (
                     <WithoutIssue onActionClick={() => onIssuesVisible(false)} />
                   ) : withFilter && !isPendingIssues && !issues.length ? (
@@ -316,9 +305,7 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
                               <Stack direction="horizontal" gap="condensed" align="center">
                                 <Stack.Item style={{ minWidth: 0, flexGrow: 1 }}>
                                   <Stack direction="horizontal" align="baseline" gap="condensed">
-                                    <Stack.Item
-                                      style={{ fontWeight: 'var(--base-text-weight-semibold)' }}
-                                    >
+                                    <Stack.Item style={{ fontWeight: 'var(--base-text-weight-semibold)' }}>
                                       <Truncate title={item.title} maxWidth="100%">
                                         {item.title}
                                       </Truncate>
@@ -470,9 +457,7 @@ function WithoutIssue({ onActionClick }: { onActionClick: () => void }) {
       </Blankslate.Visual>
       <Blankslate.Heading>Welcome to GitHub Blogger</Blankslate.Heading>
       <Blankslate.Description>Create and manage blog posts via GitHub issue</Blankslate.Description>
-      <Blankslate.PrimaryAction onClick={onActionClick}>
-        Create your first issue
-      </Blankslate.PrimaryAction>
+      <Blankslate.PrimaryAction onClick={onActionClick}>Create your first issue</Blankslate.PrimaryAction>
     </Blankslate>
   )
 }

@@ -1,10 +1,4 @@
-import {
-  CloudIcon,
-  LinkExternalIcon,
-  ListUnorderedIcon,
-  PlusIcon,
-  TagIcon,
-} from '@primer/octicons-react'
+import { CloudIcon, LinkExternalIcon, ListUnorderedIcon, PlusIcon, TagIcon } from '@primer/octicons-react'
 import { IconButton, Stack, useConfirm } from '@primer/react'
 import { cloneDeep } from 'licia'
 import { useMemo, useState } from 'react'
@@ -31,10 +25,7 @@ export default function ActionBar({ onLabelsVisible, onIssuesVisible }: ActionBo
 
   const [isSaving, setIsSaving] = useState(false)
 
-  const saveBtnEnabled = useMemo(
-    () => canSubmit && isChanged && !isSaving,
-    [canSubmit, isChanged, isSaving]
-  )
+  const saveBtnEnabled = useMemo(() => canSubmit && isChanged && !isSaving, [canSubmit, isChanged, isSaving])
 
   const onSave = async () => {
     setIsSaving(true)

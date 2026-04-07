@@ -16,16 +16,7 @@ import Info from './info'
 
 import 'bytemd/dist/index.min.css'
 
-const plugins = [
-  frontmatter(),
-  breaks(),
-  gfm(),
-  highlight(),
-  gemoji(),
-  math(),
-  mediumZoom(),
-  mermaid(),
-]
+const plugins = [frontmatter(), breaks(), gfm(), highlight(), gemoji(), math(), mediumZoom(), mermaid()]
 
 export default function Editor() {
   const issue = useEditorStore(state => state.issue)
@@ -39,12 +30,7 @@ export default function Editor() {
 
   const { isError: isErrorRepo, refetch: refetchRepo } = useRepo()
 
-  const {
-    data: labels,
-    isLoading: isLoadingLabels,
-    isError: isErrorLabels,
-    refetch: refetchLabels,
-  } = useLabels()
+  const { data: labels, isLoading: isLoadingLabels, isError: isErrorLabels, refetch: refetchLabels } = useLabels()
 
   return (
     <Stack className="app-editor" gap="condensed" padding="condensed">
@@ -56,12 +42,7 @@ export default function Editor() {
       <Stack.Item style={{ flexShrink: 0 }}>
         <Stack direction="horizontal" align="center" gap="condensed">
           <Stack.Item grow>
-            <TextInput
-              block
-              placeholder="Title"
-              value={issue.title}
-              onChange={e => setTitle(e.target.value)}
-            />
+            <TextInput block placeholder="Title" value={issue.title} onChange={e => setTitle(e.target.value)} />
           </Stack.Item>
           {isUploadingImages ? (
             <Tooltip text="Uploading images">

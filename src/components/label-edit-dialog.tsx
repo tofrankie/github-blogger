@@ -1,15 +1,6 @@
 import type { DialogButtonProps } from '@primer/react'
 import { SparkleFillIcon, SyncIcon } from '@primer/octicons-react'
-import {
-  ActionMenu,
-  Dialog,
-  FormControl,
-  IssueLabelToken,
-  Stack,
-  Text,
-  TextInput,
-  useConfirm,
-} from '@primer/react'
+import { ActionMenu, Dialog, FormControl, IssueLabelToken, Stack, Text, TextInput, useConfirm } from '@primer/react'
 import { useEffect, useState } from 'react'
 import { DEFAULT_LABEL_COLOR, PRESET_ISSUE_TYPE_COLORS, PRESET_LABEL_COLORS } from '@/constants'
 import { useCreateLabel, useDeleteLabel, useUpdateLabel } from '@/hooks'
@@ -24,11 +15,7 @@ interface LabelEditDialogProps {
   onClose: () => void
 }
 
-export default function LabelEditDialog({
-  label: originalLabel,
-  allLabelName,
-  onClose,
-}: LabelEditDialogProps) {
+export default function LabelEditDialog({ label: originalLabel, allLabelName, onClose }: LabelEditDialogProps) {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [color, setColor] = useState('')
@@ -61,9 +48,7 @@ export default function LabelEditDialog({
       setColor('')
       setDisplayColorForToken(DEFAULT_LABEL_COLOR)
       setCurrentColorIndex(
-        CYCLE_COLORS.findIndex(
-          color => color.toUpperCase() === DEFAULT_LABEL_COLOR.toUpperCase()
-        ) || 0
+        CYCLE_COLORS.findIndex(color => color.toUpperCase() === DEFAULT_LABEL_COLOR.toUpperCase()) || 0
       )
 
       return
@@ -77,25 +62,19 @@ export default function LabelEditDialog({
     if (labelColor && HEX_COLOR_REGEX.test(labelColor)) {
       setColor(labelColor)
       setDisplayColorForToken(labelColor)
-      const foundIndex = CYCLE_COLORS.findIndex(
-        color => color.toUpperCase() === labelColor.toUpperCase()
-      )
+      const foundIndex = CYCLE_COLORS.findIndex(color => color.toUpperCase() === labelColor.toUpperCase())
       setCurrentColorIndex(foundIndex !== -1 ? foundIndex : -1)
     } else if (labelColor) {
       setColor(labelColor)
       setDisplayColorForToken(DEFAULT_LABEL_COLOR)
       setCurrentColorIndex(
-        CYCLE_COLORS.findIndex(
-          color => color.toUpperCase() === DEFAULT_LABEL_COLOR.toUpperCase()
-        ) || 0
+        CYCLE_COLORS.findIndex(color => color.toUpperCase() === DEFAULT_LABEL_COLOR.toUpperCase()) || 0
       )
     } else {
       setColor('')
       setDisplayColorForToken(DEFAULT_LABEL_COLOR)
       setCurrentColorIndex(
-        CYCLE_COLORS.findIndex(
-          color => color.toUpperCase() === DEFAULT_LABEL_COLOR.toUpperCase()
-        ) || 0
+        CYCLE_COLORS.findIndex(color => color.toUpperCase() === DEFAULT_LABEL_COLOR.toUpperCase()) || 0
       )
     }
   }, [originalLabel])
@@ -187,16 +166,12 @@ export default function LabelEditDialog({
       setDisplayColorForToken(DEFAULT_LABEL_COLOR)
       setColorError(null)
       setCurrentColorIndex(
-        CYCLE_COLORS.findIndex(
-          color => color.toUpperCase() === DEFAULT_LABEL_COLOR.toUpperCase()
-        ) || 0
+        CYCLE_COLORS.findIndex(color => color.toUpperCase() === DEFAULT_LABEL_COLOR.toUpperCase()) || 0
       )
     } else if (HEX_COLOR_REGEX.test(newColorValue)) {
       setDisplayColorForToken(newColorValue)
       setColorError(null)
-      const foundIndex = CYCLE_COLORS.findIndex(
-        color => color.toUpperCase() === newColorValue.toUpperCase()
-      )
+      const foundIndex = CYCLE_COLORS.findIndex(color => color.toUpperCase() === newColorValue.toUpperCase())
       setCurrentColorIndex(foundIndex !== -1 ? foundIndex : -1)
     } else {
       setDisplayColorForToken(DEFAULT_LABEL_COLOR)
@@ -209,9 +184,7 @@ export default function LabelEditDialog({
     const newColorValue = selectedColorFromGrid
     setColor(newColorValue)
     setDisplayColorForToken(newColorValue)
-    const foundIndex = CYCLE_COLORS.findIndex(
-      color => color.toUpperCase() === newColorValue.toUpperCase()
-    )
+    const foundIndex = CYCLE_COLORS.findIndex(color => color.toUpperCase() === newColorValue.toUpperCase())
     setCurrentColorIndex(foundIndex !== -1 ? foundIndex : -1)
     setColorError(null)
     setIsColorGridOpen(false)
@@ -231,11 +204,9 @@ export default function LabelEditDialog({
     setColorError(null)
   }
 
-  const isColorFieldValidForSubmission =
-    !color.trim() || (color.trim() && HEX_COLOR_REGEX.test(color))
+  const isColorFieldValidForSubmission = !color.trim() || (color.trim() && HEX_COLOR_REGEX.test(color))
 
-  const canSubmit =
-    name.trim() && isColorFieldValidForSubmission && !nameError && !isSaving && !isDeleting
+  const canSubmit = name.trim() && isColorFieldValidForSubmission && !nameError && !isSaving && !isDeleting
 
   const footerButtons: DialogButtonProps[] = [
     ...(isEditMode
@@ -264,11 +235,7 @@ export default function LabelEditDialog({
   ]
 
   return (
-    <Dialog
-      title={isEditMode ? 'Edit label' : 'Create new label'}
-      onClose={onClose}
-      footerButtons={footerButtons}
-    >
+    <Dialog title={isEditMode ? 'Edit label' : 'Create new label'} onClose={onClose} footerButtons={footerButtons}>
       <Stack as="form">
         <Stack.Item>
           <FormControl required>
@@ -284,9 +251,7 @@ export default function LabelEditDialog({
                 if (nameError && e.target.value.trim()) setNameError(null)
               }}
             />
-            {nameError && (
-              <FormControl.Validation variant="error">{nameError}</FormControl.Validation>
-            )}
+            {nameError && <FormControl.Validation variant="error">{nameError}</FormControl.Validation>}
           </FormControl>
         </Stack.Item>
 

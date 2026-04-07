@@ -26,9 +26,7 @@ export default function ToastItem({ toast, onClose }: ToastItemProps) {
         width: '100%',
         transform: `translateX(${isVisible ? '0' : '100%'})`,
         opacity: isExiting ? 0 : 1,
-        transition: isExiting
-          ? 'opacity 0.3s ease-out'
-          : 'transform 0.5s cubic-bezier(0.51, 1.39, 0.64, 1)',
+        transition: isExiting ? 'opacity 0.3s ease-out' : 'transform 0.5s cubic-bezier(0.51, 1.39, 0.64, 1)',
         transformOrigin: 'right',
         willChange: 'transform, opacity',
       }}

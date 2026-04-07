@@ -5,13 +5,7 @@ import ToastItem from './toast-item'
 const TOAST_CONTAINER_WIDTH = 300
 const GAP_HEIGHT = 8
 
-export default function ToastContainer({
-  toasts,
-  onDismiss,
-}: {
-  toasts: Toast[]
-  onDismiss: (id: string) => void
-}) {
+export default function ToastContainer({ toasts, onDismiss }: { toasts: Toast[]; onDismiss: (id: string) => void }) {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
   const [heights, setHeights] = useState<number[]>([])
 
