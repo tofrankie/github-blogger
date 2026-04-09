@@ -3,7 +3,14 @@ import { sleep } from 'licia'
 import { useMemo } from 'react'
 import { SUBMIT_TYPE } from '@/constants'
 import { useEditorStore } from '@/stores/use-editor-store'
-import { archiveIssue, createIssue, getIssueCount, getIssueCountWithFilter, getIssues, updateIssue } from '@/utils/rpc'
+import {
+  archiveIssue,
+  createIssue,
+  getIssueCount,
+  getIssueCountWithFilter,
+  getIssues,
+  updateIssue,
+} from '@/utils/rpc'
 import { useToast } from './use-toast'
 
 interface UseIssuesParams {
@@ -30,7 +37,10 @@ export function useIssueCount() {
   })
 }
 
-export function useIssueCountWithFilter({ labelNames = [], title = '' }: Omit<UseIssuesParams, 'page'>) {
+export function useIssueCountWithFilter({
+  labelNames = [],
+  title = '',
+}: Omit<UseIssuesParams, 'page'>) {
   const withFilter = useMemo(() => {
     return !!title || labelNames.length > 0
   }, [title, labelNames])

@@ -72,7 +72,10 @@ export function cdnURL({
   return `https://cdn.jsdelivr.net/gh/${user}/${repo}${tag}/${filePath}`
 }
 
-export async function to<T, U = Error>(promise: Promise<T>, errorExt?: object): Promise<ResultTuple<T, U>> {
+export async function to<T, U = Error>(
+  promise: Promise<T>,
+  errorExt?: object
+): Promise<ResultTuple<T, U>> {
   try {
     const data = await promise
     const result: [null, T] = [null, data]

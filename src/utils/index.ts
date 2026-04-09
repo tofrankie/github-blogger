@@ -2,7 +2,17 @@ import dayjs from 'dayjs'
 import matter from 'gray-matter'
 import { MESSAGE_TYPE, VITE_DEV } from '@/constants'
 
-export function cdnURL({ user, repo, branch, file }: { user: string; repo: string; branch: string; file: string }) {
+export function cdnURL({
+  user,
+  repo,
+  branch,
+  file,
+}: {
+  user: string
+  repo: string
+  branch: string
+  file: string
+}) {
   const tag = branch ? `@${branch}` : ''
   return `https://cdn.jsdelivr.net/gh/${user}/${repo}${tag}/${file}`
 }

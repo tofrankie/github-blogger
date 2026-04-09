@@ -35,8 +35,13 @@ export function useUpdateLabel() {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: ({ newLabel, oldLabel }: { newLabel: Omit<MinimalLabel, 'id'>; oldLabel: MinimalLabel }) =>
-      updateLabel(newLabel, oldLabel),
+    mutationFn: ({
+      newLabel,
+      oldLabel,
+    }: {
+      newLabel: Omit<MinimalLabel, 'id'>
+      oldLabel: MinimalLabel
+    }) => updateLabel(newLabel, oldLabel),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['labels'] })
     },

@@ -3,7 +3,10 @@ import { ERROR_TYPE } from '@/constants'
 
 type Transform<T, R> = (data: T) => R
 
-export function createResponse<T, R>(result: ResultTuple<T>, transform?: Transform<T, R>): ApiResponse<R> {
+export function createResponse<T, R>(
+  result: ResultTuple<T>,
+  transform?: Transform<T, R>
+): ApiResponse<R> {
   const [err, data] = result
   if (err) {
     return {

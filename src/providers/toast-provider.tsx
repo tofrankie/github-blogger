@@ -32,7 +32,9 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
     const id = uuid()
 
     const title =
-      options?.title || TYPE_TITLE_MAP[options.type] || options.type.charAt(0).toUpperCase() + options.type.slice(1)
+      options?.title ||
+      TYPE_TITLE_MAP[options.type] ||
+      options.type.charAt(0).toUpperCase() + options.type.slice(1)
 
     const newItem = {
       ...TOAST_DEFAULT_OPTIONS,

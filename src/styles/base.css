@@ -91,11 +91,17 @@ code {
 }
 
 .app-bytemd .bytemd .bytemd-toolbar .bytemd-toolbar-icon:hover {
-  background-color: var(--button-invisible-bgColor-hover, var(--color-action-list-item-default-hover-bg));
+  background-color: var(
+    --button-invisible-bgColor-hover,
+    var(--color-action-list-item-default-hover-bg)
+  );
 }
 
 .app-bytemd-changed .bytemd .bytemd-toolbar .bytemd-toolbar-icon:hover {
-  background-color: var(--button-invisible-bgColor-hover, var(--color-action-list-item-default-hover-bg));
+  background-color: var(
+    --button-invisible-bgColor-hover,
+    var(--color-action-list-item-default-hover-bg)
+  );
 }
 
 /* 编辑器全屏时，去掉圆角 */

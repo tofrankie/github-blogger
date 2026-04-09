@@ -17,11 +17,18 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
   const [editingLabel, setEditingLabel] = useState<MinimalLabel | null>(null)
 
-  const { data: labels = [], isLoading: isLoadingLabels, isError: isErrorLabels, refetch: refetchLabels } = useLabels()
+  const {
+    data: labels = [],
+    isLoading: isLoadingLabels,
+    isError: isErrorLabels,
+    refetch: refetchLabels,
+  } = useLabels()
 
   const allLabelName = useMemo(() => {
     if (!labels) return []
-    return labels.filter(label => !editingLabel || label.id !== editingLabel.id).map(label => label.name)
+    return labels
+      .filter(label => !editingLabel || label.id !== editingLabel.id)
+      .map(label => label.name)
   }, [labels, editingLabel])
 
   const openEditDialog = (label: MinimalLabel) => {
@@ -53,7 +60,9 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
             <Stack.Item>Labels</Stack.Item>
             {labels.length > 0 && (
               <Stack.Item>
-                <CounterLabel style={{ color: 'var(--fgColor-muted)' }}>{labels.length}</CounterLabel>
+                <CounterLabel style={{ color: 'var(--fgColor-muted)' }}>
+                  {labels.length}
+                </CounterLabel>
               </Stack.Item>
             )}
           </Stack>
@@ -70,7 +79,11 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
         ) : (
           <Stack gap="condensed" direction="horizontal" wrap="wrap">
             {labels.map(label => (
-              <Stack.Item key={label.id} style={{ position: 'relative' }} onClick={() => openEditDialog(label)}>
+              <Stack.Item
+                key={label.id}
+                style={{ position: 'relative' }}
+                onClick={() => openEditDialog(label)}
+              >
                 <IssueLabelToken
                   id={label.id}
                   text={label.name}
@@ -110,7 +123,11 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
       </Dialog>
 
       {isEditDialogOpen && (
-        <LabelEditDialog onClose={closeEditDialog} label={editingLabel} allLabelName={allLabelName} />
+        <LabelEditDialog
+          onClose={closeEditDialog}
+          label={editingLabel}
+          allLabelName={allLabelName}
+        />
       )}
     </>
   )
