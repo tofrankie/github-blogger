@@ -108,6 +108,7 @@
     "gray-matter": "4.0.3",
     "highlight.js": "11.11.1",
     "js-base64": "3.7.8",
+    "katex": "0.16.45",
     "licia": "1.48.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",

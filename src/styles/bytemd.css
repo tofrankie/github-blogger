@@ -1,4 +1,5 @@
 @import url('bytemd/dist/index.min.css');
+@import url('katex/dist/katex.css');
 @import url('@/styles/github.custom.css');
 
 code {
