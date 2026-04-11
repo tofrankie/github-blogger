@@ -2,6 +2,15 @@
 
 All notable changes will be documented in this file.
 
+## v2.5.1
+
+> Apr 12, 2026
+
+### Fixed
+
+- Fixed katex formula display anomaly
+- Updated project dependencies
+
 ## v2.5.0
 
 > Feb 21, 2026
