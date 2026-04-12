@@ -18,7 +18,7 @@
 
 ## 🚀 快速开始
 
-1. 从 [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=frankie.github-blogger) 或 [Open VSX](https://open-vsx.org/extension/frankie/github-blogger) 安装
+1. 从 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=frankie.github-blogger) 或 [Open VSX](https://open-vsx.org/extension/frankie/github-blogger) 安装
 2. 生成你的 [GitHub Personal Access Token (classic)](https://github.com/settings/tokens)
 3. 在命令面板输入 `Configure GitHub Blogger` 完成必要配置（命令面板快捷键 `Cmd + Shift + P` / `Ctrl + Shift + P`）
 4. 在命令面板输入 `Open GitHub Blogger` 打开编辑器，开始写作！
