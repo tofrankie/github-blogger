@@ -2,16 +2,19 @@
   "publisher": "frankie",
   "name": "github-blogger",
   "displayName": "GitHub Blogger",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "packageManager": "pnpm@10.28.0",
   "description": "Write and manage blog posts via GitHub issues",
-  "author": {
-    "name": "Frankie",
-    "email": "1426203851@qq.com"
-  },
+  "author": "Frankie <1426203851@qq.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/tofrankie/github-blogger",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tofrankie/github-blogger.git"
+    "url": "git+https://github.com/tofrankie/github-blogger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tofrankie/github-blogger/issues",
+    "email": "1426203851@qq.com"
   },
   "keywords": [
     "github",

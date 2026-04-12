@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file.
 
+## v2.5.2
+
+> Apr 13, 2026
+
+- No functional changes
+
 ## v2.5.1
 
 > Apr 12, 2026
@@ -89,7 +95,7 @@ Enjoy it. ❤️
 
 > May 12, 2024
 
-No functional changes.
+No functional changes
 
 ## v0.0.8
 
