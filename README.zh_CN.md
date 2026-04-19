@@ -62,4 +62,4 @@
 
 ## 📝 License
 
-MIT
+[MIT](./LICENSE) License © [Frankie](https://github.com/tofrankie)

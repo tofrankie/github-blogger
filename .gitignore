@@ -1,5 +1,32 @@
-dist
-node_modules
+# Dependency
+node_modules/
+dist/
+.pnpm-store
+
+# Logs
+logs
+*.log
+
+# OS
+.DS_Store
+desktop.ini
+
+# Cache
+*.tsbuildinfo
 .eslintcache
 .stylelintcache
+
+# Test
+coverage/
+
+# Agents
+.agents/
+.codex/
+.cursor/
+
+# Local
+.env
+.env.*
+!.env.example
+*.tgz
 *.vsix

@@ -62,4 +62,4 @@ This project is built upon and inspired by the open-source community, including:
 
 ## 📝 License
 
-MIT
+[MIT](./LICENSE) License © [Frankie](https://github.com/tofrankie)

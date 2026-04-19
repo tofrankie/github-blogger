@@ -97,11 +97,11 @@
     "@bytemd/react": "1.22.0",
     "@octokit/core": "7.0.6",
     "@primer/css": "22.1.1",
-    "@primer/octicons-react": "19.23.1",
-    "@primer/primitives": "11.6.0",
-    "@primer/react": "38.19.0",
-    "@tanstack/react-query": "5.99.0",
-    "@tanstack/react-query-devtools": "5.99.0",
+    "@primer/octicons-react": "19.24.1",
+    "@primer/primitives": "11.7.0",
+    "@primer/react": "38.20.0",
+    "@tanstack/react-query": "5.99.2",
+    "@tanstack/react-query-devtools": "5.99.2",
     "@vscode/webview-ui-toolkit": "1.4.0",
     "buffer": "6.0.3",
     "bytemd": "1.22.0",
@@ -122,11 +122,11 @@
     "@commitlint/cli": "20.5.0",
     "@octokit/request-error": "7.1.0",
     "@octokit/types": "16.0.0",
-    "@tanstack/eslint-plugin-query": "5.99.0",
-    "@tofrankie/commitlint": "0.0.5",
+    "@tanstack/eslint-plugin-query": "5.99.2",
+    "@tofrankie/commitlint": "0.0.6",
     "@tofrankie/eslint": "0.2.1",
     "@tofrankie/prettier": "0.2.0",
-    "@tofrankie/stylelint": "0.1.1",
+    "@tofrankie/stylelint": "0.2.0",
     "@tofrankie/tsconfig": "0.0.5",
     "@tomjs/vite-plugin-vscode": "7.1.1",
     "@types/node": "25.6.0",
@@ -135,11 +135,11 @@
     "@types/vscode": "1.88.0",
     "@types/vscode-webview": "1.57.5",
     "@vitejs/plugin-react-swc": "4.3.0",
-    "@vscode/vsce": "3.7.1",
-    "eslint": "10.2.0",
+    "@vscode/vsce": "3.9.1",
+    "eslint": "10.2.1",
     "lint-staged": "16.4.0",
     "npm-run-all2": "8.0.4",
-    "prettier": "3.8.2",
+    "prettier": "3.8.3",
     "simple-git-hooks": "2.13.1",
     "stylelint": "17.6.0",
     "typescript": "5.9.3",
@@ -147,9 +147,7 @@
     "vsxpub": "0.1.4"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
-  },
-  "lint-staged": {
-    "*": "sh -c 'pnpm lint'"
+    "pre-commit": "pnpm lint-staged",
+    "commit-msg": "pnpm exec commitlint --edit $1"
   }
 }
