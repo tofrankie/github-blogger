@@ -9,7 +9,7 @@ interface FlashWithRetryProps {
   flashVariant?: FlashProps['variant']
   messageVariant?: InlineMessageProps['variant']
   message: string
-  onRetry: (...args: any[]) => Promise<unknown>
+  onRetry: () => Promise<unknown>
 }
 
 export function FlashWithRetry({

@@ -1,3 +1,4 @@
+import type { MinimalLabel } from '~/types'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { createLabel, deleteLabel, getLabels, updateLabel } from '@/utils/rpc'
 import { useToast } from './use-toast'
@@ -15,7 +16,7 @@ export function useCreateLabel() {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: (label: Omit<MinimalLabel, 'id'>) => createLabel(label),
+    mutationFn: async (label: Omit<MinimalLabel, 'id'>) => createLabel(label),
     onSuccess: issue => {
       queryClient.invalidateQueries({ queryKey: ['labels'] })
       toast.success(`Label "${issue.name}" created.`)
@@ -35,7 +36,7 @@ export function useUpdateLabel() {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: ({
+    mutationFn: async ({
       newLabel,
       oldLabel,
     }: {

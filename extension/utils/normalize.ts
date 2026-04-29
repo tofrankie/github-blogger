@@ -1,3 +1,6 @@
+import type { GraphqlIssue } from '@/types'
+import type { MinimalIssue, MinimalLabel, RestIssue, RestLabel } from '~/types'
+
 export function normalizeIssueFromRest(issue: RestIssue): MinimalIssue {
   const newIssue = issue.labels.map(item => {
     if (typeof item === 'string') {

@@ -1,3 +1,4 @@
+import type { ClientUploadImagesResult } from '@/types'
 import { useMutation } from '@tanstack/react-query'
 import { uploadImages } from '@/utils/rpc'
 import { useToast } from './use-toast'

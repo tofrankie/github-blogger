@@ -1,3 +1,4 @@
+import type { Toast } from '@/types'
 import { Portal } from '@primer/react'
 import { useLayoutEffect, useRef, useState } from 'react'
 import ToastItem from './toast-item'

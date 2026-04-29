@@ -22,7 +22,7 @@ interface UseIssuesParams {
 export function useIssues({ page = 1, labelNames = [], title = '' }: UseIssuesParams) {
   return useQuery({
     queryKey: ['issues', 'list', page, title, labelNames.join(',')],
-    queryFn: () => getIssues(page, labelNames, title),
+    queryFn: async () => getIssues(page, labelNames, title),
     gcTime: Infinity,
     staleTime: Infinity,
   })
@@ -31,7 +31,7 @@ export function useIssues({ page = 1, labelNames = [], title = '' }: UseIssuesPa
 export function useIssueCount() {
   return useQuery({
     queryKey: ['issues', 'count', 'total'],
-    queryFn: () => getIssueCount(),
+    queryFn: async () => getIssueCount(),
     gcTime: Infinity,
     staleTime: Infinity,
   })
@@ -47,7 +47,7 @@ export function useIssueCountWithFilter({
 
   return useQuery({
     queryKey: ['issues', 'count', 'filtered', title, labelNames.join(',')],
-    queryFn: () => getIssueCountWithFilter(title, labelNames),
+    queryFn: async () => getIssueCountWithFilter(title, labelNames),
     gcTime: Infinity,
     staleTime: Infinity,
     enabled: withFilter,

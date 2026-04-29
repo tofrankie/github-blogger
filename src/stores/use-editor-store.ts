@@ -1,3 +1,4 @@
+import type { MinimalIssue, MinimalLabel } from '~/types'
 import { cloneDeep } from 'licia'
 import { create } from 'zustand'
 import { EMPTY_ISSUE } from '@/constants'

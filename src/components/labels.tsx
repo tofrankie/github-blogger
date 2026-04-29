@@ -1,3 +1,4 @@
+import type { MinimalLabel } from '~/types'
 import { PlusIcon } from '@primer/octicons-react'
 import { CounterLabel, Dialog, IssueLabelToken, SkeletonBox, Stack } from '@primer/react'
 import { useMemo, useState } from 'react'
@@ -75,7 +76,7 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
             ))}
           </Stack>
         ) : isErrorLabels ? (
-          <FlashWithRetry message="Failed to load labels" onRetry={() => refetchLabels()} />
+          <FlashWithRetry message="Failed to load labels" onRetry={async () => refetchLabels()} />
         ) : (
           <Stack gap="condensed" direction="horizontal" wrap="wrap">
             {labels.map(label => (

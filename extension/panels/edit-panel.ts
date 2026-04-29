@@ -114,7 +114,7 @@ export default class EditPanel {
 
     // Dispose of all disposables (i.e. commands) for the current webview panel
     while (this._disposables.length > 0) {
-      const disposable: any = this._disposables.pop()
+      const disposable = this._disposables.pop()
       if (disposable) {
         disposable.dispose()
       }

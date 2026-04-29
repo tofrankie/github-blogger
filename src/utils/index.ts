@@ -1,6 +1,15 @@
+import type { MinimalIssue, Settings } from '~/types'
 import dayjs from 'dayjs'
 import matter from 'gray-matter'
-import { MESSAGE_TYPE, VITE_DEV } from '@/constants'
+import { VITE_DEV } from '@/constants'
+import { MESSAGE_TYPE } from '~/constants'
+
+type VSCodeApi = ReturnType<typeof acquireVsCodeApi>
+
+interface GetSettingsMessage {
+  type?: string
+  payload?: Settings
+}
 
 export function cdnURL({
   user,
@@ -12,30 +21,29 @@ export function cdnURL({
   repo: string
   branch: string
   file: string
-}) {
+}): string {
   const tag = branch ? `@${branch}` : ''
   return `https://cdn.jsdelivr.net/gh/${user}/${repo}${tag}/${file}`
 }
 
 declare global {
   interface Window {
-    __vscode__: any
-    __settings__: Settings
+    __vscode__?: VSCodeApi
   }
 }
 
 let settings: Settings
 
-export async function getSettings() {
+export async function getSettings(): Promise<Settings> {
   if (settings) return settings
 
   const vscode = getVscode()
 
   return new Promise<Settings>(resolve => {
-    const onMessage = (event: MessageEvent) => {
+    const onMessage = (event: MessageEvent<GetSettingsMessage>) => {
       const message = event.data
 
-      if (message.type === MESSAGE_TYPE.GET_SETTINGS) {
+      if (message.type === MESSAGE_TYPE.GET_SETTINGS && message.payload) {
         window.removeEventListener('message', onMessage)
         settings = message.payload
         resolve(settings)
@@ -44,17 +52,11 @@ export async function getSettings() {
 
     window.addEventListener('message', onMessage)
 
-    vscode.postMessage({ command: MESSAGE_TYPE.GET_SETTINGS })
+    vscode.postMessage({ type: MESSAGE_TYPE.GET_SETTINGS })
   })
 }
 
-declare global {
-  interface Window {
-    __vscode__: any
-  }
-}
-
-export function getVscode() {
+export function getVscode(): VSCodeApi {
   if (window.__vscode__) {
     return window.__vscode__
   }
@@ -64,7 +66,7 @@ export function getVscode() {
   return vscode
 }
 
-export function generateMarkdown(issue: MinimalIssue) {
+export function generateMarkdown(issue: MinimalIssue): string {
   return matter.stringify(issue.body, {
     title: issue.title,
     number: `#${issue.number}`,
@@ -75,20 +77,20 @@ export function generateMarkdown(issue: MinimalIssue) {
   })
 }
 
-export function checkFileSize(file: File) {
+export function checkFileSize(file: File): boolean {
   const isLt2M = file.size / 1024 / 1024 < 2
   return isLt2M
 }
 
-export function openExternalLink(url: string) {
+export function openExternalLink(url: string): void {
   const vscode = getVscode()
   vscode.postMessage({
-    command: MESSAGE_TYPE.OPEN_EXTERNAL_LINK,
+    type: MESSAGE_TYPE.OPEN_EXTERNAL_LINK,
     externalLink: url,
   })
 }
 
-export function setupExternalLinkInterceptor() {
+export function setupExternalLinkInterceptor(): void {
   const originalWindowOpen = window.open
 
   const httpRegex = /^https?:\/\//
@@ -107,8 +109,8 @@ export function setupExternalLinkInterceptor() {
   // 开发环境下点击连接，避免打开新页面
   if (VITE_DEV) {
     document.addEventListener('click', event => {
-      const anchor = (event.target as HTMLElement).closest?.('a[href]') as HTMLAnchorElement | null
-      if (anchor && httpRegex.test(anchor.href)) {
+      const anchor = (event.target as HTMLElement).closest('a[href]')
+      if (anchor instanceof HTMLAnchorElement && httpRegex.test(anchor.href)) {
         event.preventDefault()
         openExternalLink(anchor.href)
       }

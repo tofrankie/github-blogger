@@ -5,6 +5,7 @@ interface IssueCountParams {
   repository: string
 }
 
+// @ts-expect-error - 暂时保留
 interface _IssueCountParamsWithFilter extends IssueCountParams {
   /** 标签名称，多个标签用逗号分隔 */
   labels?: string
@@ -12,6 +13,7 @@ interface _IssueCountParamsWithFilter extends IssueCountParams {
   title?: string
 }
 
+// @ts-expect-error - 暂时保留
 interface _IssueParamsWithFilter extends IssueCountParams {
   /** 每页数量 */
   first?: number

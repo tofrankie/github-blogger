@@ -1,3 +1,4 @@
+import type { Toast, ToastContextType, ToastType } from '@/types'
 import { uuid } from 'licia'
 import { createContext, useCallback, useContext, useState } from 'react'
 import ToastContainer from '@/components/toast/toast-container'

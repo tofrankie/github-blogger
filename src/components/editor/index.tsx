@@ -50,7 +50,7 @@ export default function Editor() {
     <Stack className="app-editor" gap="condensed" padding="condensed">
       {isErrorRepo && (
         <Stack.Item>
-          <FlashWithRetry message="Failed to load repository" onRetry={() => refetchRepo()} />
+          <FlashWithRetry message="Failed to load repository" onRetry={async () => refetchRepo()} />
         </Stack.Item>
       )}
       <Stack.Item style={{ flexShrink: 0 }}>
@@ -77,7 +77,7 @@ export default function Editor() {
       <Stack.Item style={{ flexShrink: 0 }}>
         <>
           {isErrorLabels ? (
-            <FlashWithRetry message="Failed to load labels" onRetry={() => refetchLabels()} />
+            <FlashWithRetry message="Failed to load labels" onRetry={async () => refetchLabels()} />
           ) : isLoadingLabels ? (
             <SkeletonText className="labels-skeleton" />
           ) : (
@@ -105,7 +105,7 @@ export default function Editor() {
           placeholder="Leave your thought here..."
           plugins={plugins}
           previewDebounce={50}
-          uploadImages={files => handleUploadImages(files).catch(() => [])}
+          uploadImages={async files => handleUploadImages(files).catch(() => [])}
           value={issue.body}
           onChange={setBody}
         />

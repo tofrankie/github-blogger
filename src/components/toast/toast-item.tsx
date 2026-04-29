@@ -1,3 +1,4 @@
+import type { Toast } from '@/types'
 import { Banner } from '@primer/react'
 import { useEffect, useState } from 'react'
 

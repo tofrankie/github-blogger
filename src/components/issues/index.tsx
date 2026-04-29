@@ -1,4 +1,5 @@
 import type { ActionListItemInput } from '@primer/react/deprecated'
+import type { MinimalIssue, RestRepo, ValueOf } from '~/types'
 import {
   ChevronRightIcon,
   GearIcon,
@@ -32,10 +33,10 @@ import {
 import { Blankslate } from '@primer/react/experimental'
 import { debounce, intersect, unique } from 'licia'
 import { useCallback, useMemo, useState } from 'react'
-import { DEFAULT_PAGINATION_SIZE, MESSAGE_TYPE } from '@/constants'
 import { useIssueCount, useIssueCountWithFilter, useIssues, useLabels, useRepo } from '@/hooks'
 import { useEditorStore } from '@/stores/use-editor-store'
 import { getVscode } from '@/utils'
+import { DEFAULT_PAGINATION_SIZE, MESSAGE_TYPE } from '~/constants'
 import { FlashWithRetry } from '../flash-with-retry'
 import { IssueSkeleton, ListSkeleton } from './skeleton'
 
@@ -104,6 +105,8 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
     () => isFetchedIssueCount && issueCount === 0,
     [isFetchedIssueCount, issueCount]
   )
+  const hasTotalIssueCount = issueCount !== undefined
+  const hasFilteredIssueCount = issueCountWithFilter !== undefined
 
   const withFilter = useMemo(() => {
     return !!filterTitle || filterLabelNames.length > 0
@@ -136,7 +139,9 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
   const searchByLabel = useCallback(
     debounce((labelNames: string[]) => {
       const allName = labels.map(l => l.name)
-      const filteredNames: string[] = intersect(allName, labelNames)
+      const filteredNames = intersect(allName, labelNames).filter(
+        (name): name is string => typeof name === 'string'
+      )
       setCurrentPage(1)
       setFilterLabelNames(filteredNames)
     }, 500),
@@ -190,11 +195,11 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
       title={
         <Stack align="center" gap="condensed" direction="horizontal">
           <Stack.Item>Issues</Stack.Item>
-          {issueCount && withFilter && issueCountWithFilter ? (
+          {hasTotalIssueCount && withFilter && hasFilteredIssueCount ? (
             <CounterLabel style={{ color: 'var(--fgColor-muted)' }}>
               {issueCountWithFilter}/{issueCount}
             </CounterLabel>
-          ) : issueCount ? (
+          ) : hasTotalIssueCount ? (
             <CounterLabel style={{ color: 'var(--fgColor-muted)' }}>{issueCount}</CounterLabel>
           ) : null}
         </Stack>
@@ -203,7 +208,10 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
         if (isErrorRepo) {
           return (
             <Stack padding="normal">
-              <FlashWithRetry message="Failed to load repository" onRetry={() => refetchRepo()} />
+              <FlashWithRetry
+                message="Failed to load repository"
+                onRetry={async () => refetchRepo()}
+              />
             </Stack>
           )
         }
@@ -295,7 +303,7 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
                   ) : isErrorIssues ? (
                     <FlashWithRetry
                       message="Failed to load issues"
-                      onRetry={() => refetchIssues()}
+                      onRetry={async () => refetchIssues()}
                     />
                   ) : withoutIssue ? (
                     <WithoutIssue onActionClick={() => onIssuesVisible(false)} />
@@ -311,7 +319,7 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
                               key={item.id}
                               style={{ width: '100%' }}
                               aria-current={isCurrent ? 'page' : undefined}
-                              onClick={e => handleIssueClick(e, item)}
+                              onClick={async e => handleIssueClick(e, item)}
                             >
                               <Stack direction="horizontal" gap="condensed" align="center">
                                 <Stack.Item style={{ minWidth: 0, flexGrow: 1 }}>
@@ -400,7 +408,7 @@ function HeaderIssues({ repo }: HeaderIssuesProps) {
     }
 
     vscode.postMessage({
-      command: MESSAGE_TYPE.OPEN_EXTERNAL_LINK,
+      type: MESSAGE_TYPE.OPEN_EXTERNAL_LINK,
       externalLink: links[type],
     })
   }

@@ -1,9 +1,9 @@
-import type { ExtensionContext, QuickInput } from 'vscode'
+import type { Disposable, ExtensionContext, QuickInput, QuickInputButton } from 'vscode'
 import { Octokit } from '@octokit/core'
 import { ConfigurationTarget, ProgressLocation, QuickInputButtons, window, workspace } from 'vscode'
 
 import { APIS, EXTENSION_NAME } from '@/constants'
-import { getSettings } from '@/utils'
+import { getSettings, invalidateSettingsCache } from '@/utils'
 
 interface State {
   title: string
@@ -17,42 +17,55 @@ interface State {
 
 interface PartialState extends Partial<State> {}
 
+type InputValidator = (value: string) => string | undefined | Promise<string | undefined>
+
+interface ShowInputBoxParams {
+  title: string
+  step: number
+  totalSteps: number
+  value: string
+  prompt: string
+  validate: InputValidator
+  buttons?: QuickInputButton[]
+  shouldResume?: () => Promise<boolean>
+}
+
 export default async function multiStepInput(_context: ExtensionContext) {
   async function collectInputs() {
     const state: PartialState = await getSettings()
-    await MultiStepInput.run(input => inputToken(input, state))
+    await MultiStepInput.run(async input => inputToken(input, state))
     return state
   }
 
   const title = 'GitHub Blogger Initialization'
 
-  async function inputToken(input: any, state: any) {
+  async function inputToken(input: MultiStepInput, state: PartialState) {
     state.token = await input.showInputBox({
       title,
       step: 1,
       totalSteps: 4,
       value: state.token || '',
       prompt: 'Enter your GitHub Personal Access Token (classic)',
-      validate: validateNameIsUnique,
+      validate: validateRequired,
       shouldResume,
     })
-    return input => inputUser(input, state)
+    return async (nextInput: MultiStepInput) => inputUser(nextInput, state)
   }
 
-  async function inputUser(input: any, state: any) {
+  async function inputUser(input: MultiStepInput, state: PartialState) {
     state.user = await input.showInputBox({
       title,
       step: 2,
       totalSteps: 4,
       value: state.user || '',
       prompt: 'Enter your GitHub username (owner)',
-      validate: validateNameIsUnique,
+      validate: validateRequired,
       shouldResume,
     })
-    return input => inputBranch(input, state)
+    return async (nextInput: MultiStepInput) => inputBranch(nextInput, state)
   }
 
-  async function inputBranch(input: any, state: any) {
+  async function inputBranch(input: MultiStepInput, state: PartialState) {
     state.branch = await input.showInputBox({
       title,
       step: 3,
@@ -60,57 +73,52 @@ export default async function multiStepInput(_context: ExtensionContext) {
       value: state.branch || '',
       prompt:
         'Enter your GitHub branch name. Used for image and issue archives, usually the default branch',
-      validate: validateNameIsUnique,
+      validate: validateRequired,
       shouldResume,
     })
-    return input => inputRepoForIssue(input, state)
+    return async (nextInput: MultiStepInput) => inputRepoForIssue(nextInput, state)
   }
 
-  async function inputRepoForIssue(input: any, state: any) {
+  async function inputRepoForIssue(input: MultiStepInput, state: PartialState) {
     state.repo = await input.showInputBox({
       title,
       step: 4,
       totalSteps: 4,
       value: state.repo || '',
       prompt: 'Enter the repository name. If it already exists, it will not be recreated.',
-      validate: validateNameIsUnique,
+      validate: validateRequired,
       shouldResume,
     })
   }
 
-  function shouldResume() {
-    // Could show a notification with the option to resume.
-    return new Promise((_resolve, _reject) => {
-      // noop
-      // @ts-expect-error - This is a noop function
-      _resolve()
-    })
+  async function shouldResume() {
+    return Promise.resolve(false)
   }
 
-  async function validateNameIsUnique(name: any) {
-    // ...validate...
+  async function validateRequired(name: string) {
     return !name ? 'Cannot be empty' : undefined
   }
 
   const state: PartialState = await collectInputs()
+  const token = state.token ?? ''
+  const user = state.user ?? ''
+  const branch = state.branch ?? ''
+  const repo = state.repo ?? ''
 
   await workspace
     .getConfiguration(EXTENSION_NAME)
-    .update('token', state.token, ConfigurationTarget.Global)
+    .update('token', token, ConfigurationTarget.Global)
+
+  await workspace.getConfiguration(EXTENSION_NAME).update('user', user, ConfigurationTarget.Global)
 
   await workspace
     .getConfiguration(EXTENSION_NAME)
-    .update('user', state.user, ConfigurationTarget.Global)
+    .update('branch', branch, ConfigurationTarget.Global)
 
-  await workspace
-    .getConfiguration(EXTENSION_NAME)
-    .update('branch', state.branch, ConfigurationTarget.Global)
+  await workspace.getConfiguration(EXTENSION_NAME).update('repo', repo, ConfigurationTarget.Global)
+  invalidateSettingsCache()
 
-  await workspace
-    .getConfiguration(EXTENSION_NAME)
-    .update('repo', state.repo, ConfigurationTarget.Global)
-
-  const octokit = new Octokit({ auth: state.token })
+  const octokit = new Octokit({ auth: token })
 
   window.withProgress(
     {
@@ -121,7 +129,7 @@ export default async function multiStepInput(_context: ExtensionContext) {
     async progress => {
       progress.report({ increment: 0 })
 
-      const repoName = state.repo!
+      const repoName = repo
 
       try {
         await octokit.request(APIS.CREATE_REPO, { name: repoName })
@@ -191,10 +199,19 @@ class MultiStepInput {
     }
   }
 
-  async showInputBox({ title, step, totalSteps, value, prompt, validate, buttons, shouldResume }) {
-    const disposables: any = []
+  async showInputBox({
+    title,
+    step,
+    totalSteps,
+    value,
+    prompt,
+    validate,
+    buttons,
+    shouldResume,
+  }: ShowInputBoxParams) {
+    const disposables: Disposable[] = []
     try {
-      return await new Promise((resolve, reject) => {
+      return await new Promise<string>((resolve, reject) => {
         const input = window.createInputBox()
         input.title = title
         input.step = step
@@ -211,7 +228,7 @@ class MultiStepInput {
             if (item === QuickInputButtons.Back) {
               reject(InputFlowAction.back)
             } else {
-              resolve(item)
+              resolve(input.value)
             }
           }),
           input.onDidAccept(async () => {
@@ -249,7 +266,9 @@ class MultiStepInput {
         this.current.show()
       })
     } finally {
-      disposables.forEach(d => d.dispose())
+      disposables.forEach(disposable => {
+        disposable.dispose()
+      })
     }
   }
 }

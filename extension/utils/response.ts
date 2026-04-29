@@ -1,12 +1,13 @@
-import type { RequestError } from '@octokit/request-error'
-import { ERROR_TYPE } from '@/constants'
+import type { ApiError, ApiRequestErrorDetail, ApiResponse, ResultTuple } from '~/types'
+import { ERROR_TYPE } from '~/constants'
 
 type Transform<T, R> = (data: T) => R
+type RequestErrorLike = ApiRequestErrorDetail & { message: string }
 
 export function createResponse<T, R>(
   result: ResultTuple<T>,
   transform?: Transform<T, R>
-): ApiResponse<R> {
+): ApiResponse<T | R> {
   const [err, data] = result
   if (err) {
     return {
@@ -16,9 +17,17 @@ export function createResponse<T, R>(
     }
   }
 
+  if (transform) {
+    return {
+      success: true,
+      data: transform(data),
+      error: null,
+    }
+  }
+
   return {
     success: true,
-    data: transform ? transform(data) : (data as unknown as R),
+    data,
     error: null,
   }
 }
@@ -31,7 +40,13 @@ function createApiError(error: unknown): ApiError {
     return {
       type,
       message: error.message,
-      detail: error,
+      detail: {
+        status: error.status,
+        request: {
+          url: error.request.url,
+          method: error.request.method,
+        },
+      },
     }
   }
 
@@ -49,13 +64,20 @@ function createApiError(error: unknown): ApiError {
 }
 
 // https://github.com/octokit/request-error.js#usage-with-octokit
-function isRequestError(error: any): error is RequestError {
-  return (
-    error &&
-    typeof error === 'object' &&
-    typeof error.message === 'string' &&
-    typeof error.status === 'number' &&
-    error.request &&
-    typeof error.request.url === 'string'
-  )
+function isRequestError(error: unknown): error is RequestErrorLike {
+  if (!isRecord(error)) {
+    return false
+  }
+
+  const { message, status, request } = error
+  if (typeof message !== 'string' || typeof status !== 'number' || !isRecord(request)) {
+    return false
+  }
+
+  const { url, method } = request
+  return typeof url === 'string' && (method === undefined || typeof method === 'string')
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null
 }

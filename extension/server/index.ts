@@ -1,9 +1,38 @@
 import type { Webview } from 'vscode'
+import type {
+  GraphqlIssueCountResponse,
+  GraphqlIssueCountWithFilterResponse,
+  GraphqlIssuesResponse,
+} from '@/types'
+import type {
+  CreateBlobParams,
+  CreateBlobRpcArgs,
+  CreateCommitParams,
+  CreateCommitRpcArgs,
+  CreateIssueParams,
+  CreateIssueRpcArgs,
+  CreateLabelRpcArgs,
+  CreateTreeParams,
+  CreateTreeRpcArgs,
+  DeleteLabelRpcArgs,
+  GetCommitParams,
+  GetCommitRpcArgs,
+  GetIssueCountWithFilterRpcArgs,
+  GetIssuesRpcArgs,
+  GetIssuesWithFilterRpcArgs,
+  Settings,
+  UpdateIssueParams,
+  UpdateIssueRpcArgs,
+  UpdateLabelParams,
+  UpdateLabelRpcArgs,
+  UpdateRefParams,
+  UpdateRefRpcArgs,
+} from '~/types'
+
 import { Octokit } from '@octokit/core'
 import { isEmpty } from 'licia'
 import { ExtensionRPC } from 'vscode-webview-rpc'
-
-import { APIS, DEFAULT_PAGINATION_SIZE, MESSAGE_TYPE } from '@/constants'
+import { APIS } from '@/constants'
 import * as graphqlQuery from '@/server/graphql'
 import { cdnURL, getSettings, to } from '@/utils'
 import {
@@ -12,6 +41,7 @@ import {
   normalizeLabelFromRest,
 } from '@/utils/normalize'
 import { createResponse } from '@/utils/response'
+import { DEFAULT_PAGINATION_SIZE, MESSAGE_TYPE } from '~/constants'
 
 export default class Service {
   public config: Settings
@@ -28,7 +58,7 @@ export default class Service {
   }
 
   private async init() {
-    this.config = getSettings()
+    this.config = getSettings({ fresh: true })
     this.octokit = new Octokit({ auth: this.config.token })
     this.registerRpcListener()
   }
@@ -49,13 +79,15 @@ export default class Service {
   }
 
   private async createLabel(...args: CreateLabelRpcArgs) {
+    const [name, color, description] = args
+
     const res = await to(
       this.octokit.request(APIS.CREATE_LABEL, {
         owner: this.config.user,
         repo: this.config.repo,
-        name: args[0],
-        color: args[1],
-        description: args[2] ?? '',
+        name,
+        color,
+        description: description ?? '',
       })
     )
 
@@ -63,11 +95,13 @@ export default class Service {
   }
 
   private async deleteLabel(...args: DeleteLabelRpcArgs) {
+    const [name] = args
+
     const res = await to(
       this.octokit.request(APIS.DELETE_LABEL, {
         owner: this.config.user,
         repo: this.config.repo,
-        name: args[0],
+        name,
       })
     )
 
@@ -75,11 +109,13 @@ export default class Service {
   }
 
   private async updateLabel(...args: UpdateLabelRpcArgs) {
+    const [newName, name, color, description] = args
+
     const params: UpdateLabelParams = {
-      new_name: args[0],
-      name: args[1],
-      color: args[2],
-      description: args[3],
+      new_name: newName,
+      name,
+      color,
+      description,
     }
     const res = await to(
       this.octokit.request(APIS.UPDATE_LABEL, {
@@ -93,13 +129,15 @@ export default class Service {
   }
 
   private async getIssues(...args: GetIssuesRpcArgs) {
+    const [page, labels] = args
+
     const res = await to(
       this.octokit.request(APIS.GET_ISSUES, {
         owner: this.config.user,
         repo: this.config.repo,
         per_page: DEFAULT_PAGINATION_SIZE,
-        page: args[0],
-        labels: args[1].join(',') || undefined,
+        page,
+        labels: labels.join(',') || undefined,
       })
     )
 
@@ -109,18 +147,20 @@ export default class Service {
   }
 
   private async getIssuesWithFilter(...args: GetIssuesWithFilterRpcArgs) {
+    const [after, labels, title] = args
+
     const queryParts = {
       sort: 'sort:created-desc',
       user: `user:${this.config.user}`,
       repo: `repo:${this.config.repo}`,
       state: 'state:open',
-      label: isEmpty(args[1]) ? undefined : `label:${args[1].join(',')}`,
-      title: args[2] ? `in:title ${args[2]}` : '',
+      label: isEmpty(labels) ? undefined : `label:${labels.join(',')}`,
+      title: title ? `in:title ${title}` : '',
     }
 
     const variables = {
       first: DEFAULT_PAGINATION_SIZE,
-      after: args[0] || undefined,
+      after: after || undefined,
       queryStr: Object.values(queryParts).filter(Boolean).join(' '),
     }
 
@@ -138,11 +178,13 @@ export default class Service {
   }
 
   private async updateIssue(...args: UpdateIssueRpcArgs) {
+    const [issueNumber, title, body, labelsJson] = args
+
     const params: UpdateIssueParams = {
-      issue_number: args[0],
-      title: args[1],
-      body: args[2],
-      labels: JSON.parse(args[3]),
+      issue_number: issueNumber,
+      title,
+      body,
+      labels: parseLabelNames(labelsJson),
     }
     const res = await to(
       this.octokit.request(APIS.UPDATE_ISSUE, {
@@ -156,10 +198,12 @@ export default class Service {
   }
 
   private async createIssue(...args: CreateIssueRpcArgs) {
+    const [title, body, labelsJson] = args
+
     const params: CreateIssueParams = {
-      title: args[0],
-      body: args[1],
-      labels: JSON.parse(args[2]),
+      title,
+      body,
+      labels: parseLabelNames(labelsJson),
     }
     const res = await to(
       this.octokit.request(APIS.CREATE_ISSUE, {
@@ -208,13 +252,15 @@ export default class Service {
   }
 
   private async getIssueCountWithFilter(...args: GetIssueCountWithFilterRpcArgs) {
+    const [title, labels] = args
+
     const queryParts = {
       sort: 'sort:created-desc',
       user: `user:${this.config.user}`,
       repo: `repo:${this.config.repo}`,
       state: 'state:open',
-      label: isEmpty(args[1]) ? undefined : `label:${args[1].join(',')}`,
-      title: args[0] ? `in:title ${args[0]}` : '',
+      label: isEmpty(labels) ? undefined : `label:${labels.join(',')}`,
+      title: title ? `in:title ${title}` : '',
     }
 
     const variables = {
@@ -241,8 +287,10 @@ export default class Service {
   }
 
   private async getCommit(...args: GetCommitRpcArgs) {
+    const [commitSha] = args
+
     const params: GetCommitParams = {
-      commit_sha: args[0],
+      commit_sha: commitSha,
     }
     const res = await to(
       this.octokit.request(APIS.GET_COMMIT, {
@@ -256,8 +304,10 @@ export default class Service {
   }
 
   private async createBlob(...args: CreateBlobRpcArgs) {
+    const [content] = args
+
     const params: CreateBlobParams = {
-      content: args[0],
+      content,
     }
     const res = await to(
       this.octokit.request(APIS.CREATE_BLOB, {
@@ -271,9 +321,11 @@ export default class Service {
   }
 
   private async createTree(...args: CreateTreeRpcArgs) {
+    const [baseTree, treePath, treeSha] = args
+
     const params: CreateTreeParams = {
-      base_tree: args[0],
-      tree: [{ path: args[1], mode: '100644', type: 'blob', sha: args[2] }],
+      base_tree: baseTree,
+      tree: [{ path: treePath, mode: '100644', type: 'blob', sha: treeSha }],
     }
     const res = await to(
       this.octokit.request(APIS.CREATE_TREE, {
@@ -287,10 +339,12 @@ export default class Service {
   }
 
   private async createCommit(...args: CreateCommitRpcArgs) {
+    const [parentCommitSha, treeSha, message] = args
+
     const params: CreateCommitParams = {
-      parents: [args[0]],
-      tree: args[1],
-      message: args[2],
+      parents: [parentCommitSha],
+      tree: treeSha,
+      message,
     }
     const res = await to(
       this.octokit.request(APIS.CREATE_COMMIT, {
@@ -304,8 +358,10 @@ export default class Service {
   }
 
   private async updateRef(...args: UpdateRefRpcArgs) {
+    const [sha] = args
+
     const params: UpdateRefParams = {
-      sha: args[0],
+      sha,
     }
     const res = await to(
       this.octokit.request(APIS.UPDATE_REF, {
@@ -370,4 +426,13 @@ export default class Service {
       this.rpc.on(type, handler.bind(this))
     })
   }
+}
+
+function parseLabelNames(raw: string): string[] {
+  const parsed: unknown = JSON.parse(raw)
+  if (!Array.isArray(parsed)) {
+    return []
+  }
+
+  return parsed.filter((item): item is string => typeof item === 'string')
 }

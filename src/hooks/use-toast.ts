@@ -1,3 +1,4 @@
+import type { ToastMethodMap, ToastOptions, ToastType } from '@/types'
 import { useToastContext } from '@/providers/toast-provider'
 
 const TOAST_TYPES: readonly ToastType[] = [

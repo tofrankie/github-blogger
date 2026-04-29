@@ -1,4 +1,5 @@
 import type { DialogButtonProps } from '@primer/react'
+import type { MinimalLabel } from '~/types'
 import { SparkleFillIcon, SyncIcon } from '@primer/octicons-react'
 import {
   ActionMenu,

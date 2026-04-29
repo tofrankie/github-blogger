@@ -4,7 +4,7 @@ import { getRepo } from '@/utils/rpc'
 export function useRepo() {
   return useQuery({
     queryKey: ['repos'],
-    queryFn: () => getRepo(),
+    queryFn: async () => getRepo(),
     gcTime: Infinity,
     staleTime: Infinity,
   })

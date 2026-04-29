@@ -1,3 +1,4 @@
+import type { MinimalIssue } from '~/types'
 import {
   ClockIcon,
   InfoIcon,
