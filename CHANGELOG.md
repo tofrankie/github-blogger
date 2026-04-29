@@ -2,6 +2,13 @@
 
 All notable changes will be documented in this file.
 
+## v2.6.0
+
+> Apr 30, 2026
+
+- Update Documentation
+- Updated project dependencies
+
 ## v2.5.2
 
 > Apr 13, 2026
