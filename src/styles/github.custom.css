@@ -1,7 +1,54 @@
 /* stylelint-disable */
 
 .markdown-body code {
-  color: var(--color-fg-default);
+  color: var(--fgColor-default);
+}
+
+.markdown-body a code {
+  color: var(--fgColor-accent);
+}
+
+.markdown-body a {
+  text-decoration: underline;
+}
+
+.markdown-body .task-list-item > input[type='checkbox'] {
+  margin: 0 0.2em 0.25em -1.4em;
+  vertical-align: middle;
+}
+
+.markdown-body a[aria-describedby='footnote-label']:before {
+  content: '[';
+}
+
+.markdown-body a[aria-describedby='footnote-label']:after {
+  content: ']';
+}
+
+.markdown-body #user-content-footnote-label {
+  position: relative !important;
+  visibility: hidden !important;
+  width: 100% !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  border: none !important;
+  clip: auto !important;
+  clip-path: none !important;
+}
+
+.markdown-body #user-content-footnote-label::before {
+  display: block;
+  visibility: visible !important;
+  width: 100%;
+  margin-block-end: var(--base-size-16);
+  content: '';
+  border-top: 1px solid var(--borderColor-default);
+}
+
+.markdown-body .bytemd-mermaid {
+  margin-block-end: var(--base-size-16);
 }
 
 pre code.hljs {
