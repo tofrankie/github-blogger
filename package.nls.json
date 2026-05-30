@@ -1,0 +1,8 @@
+{
+  "github-blogger.configuration.token.description": "Your GitHub Personal Access Token (classic)",
+  "github-blogger.configuration.user.description": "Your GitHub Username",
+  "github-blogger.configuration.repo.description": "Your Blog Repository Name",
+  "github-blogger.configuration.branch.description": "Your Blog Repository Branch Name",
+  "github-blogger.command.open": "Open GitHub Blogger",
+  "github-blogger.command.configure": "Configure GitHub Blogger"
+}

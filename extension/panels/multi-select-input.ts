@@ -1,6 +1,13 @@
 import type { Disposable, ExtensionContext, QuickInput, QuickInputButton } from 'vscode'
 import { Octokit } from '@octokit/core'
-import { ConfigurationTarget, ProgressLocation, QuickInputButtons, window, workspace } from 'vscode'
+import {
+  ConfigurationTarget,
+  l10n,
+  ProgressLocation,
+  QuickInputButtons,
+  window,
+  workspace,
+} from 'vscode'
 
 import { APIS, EXTENSION_NAME } from '@/constants'
 import { getSettings, invalidateSettingsCache } from '@/utils'
@@ -33,46 +40,32 @@ interface ShowInputBoxParams {
 export default async function multiStepInput(_context: ExtensionContext) {
   async function collectInputs() {
     const state: PartialState = await getSettings()
-    await MultiStepInput.run(async input => inputToken(input, state))
+    await MultiStepInput.run(async input => inputUser(input, state))
     return state
   }
 
-  const title = 'GitHub Blogger Initialization'
-
-  async function inputToken(input: MultiStepInput, state: PartialState) {
-    state.token = await input.showInputBox({
-      title,
-      step: 1,
-      totalSteps: 4,
-      value: state.token || '',
-      prompt: 'Enter your GitHub Personal Access Token (classic)',
-      validate: validateRequired,
-      shouldResume,
-    })
-    return async (nextInput: MultiStepInput) => inputUser(nextInput, state)
-  }
+  const title = l10n.t('GitHub Blogger Initialization')
 
   async function inputUser(input: MultiStepInput, state: PartialState) {
     state.user = await input.showInputBox({
       title,
-      step: 2,
+      step: 1,
       totalSteps: 4,
       value: state.user || '',
-      prompt: 'Enter your GitHub username (owner)',
+      prompt: l10n.t('Enter your GitHub username'),
       validate: validateRequired,
       shouldResume,
     })
-    return async (nextInput: MultiStepInput) => inputBranch(nextInput, state)
+    return async (nextInput: MultiStepInput) => inputToken(nextInput, state)
   }
 
-  async function inputBranch(input: MultiStepInput, state: PartialState) {
-    state.branch = await input.showInputBox({
+  async function inputToken(input: MultiStepInput, state: PartialState) {
+    state.token = await input.showInputBox({
       title,
-      step: 3,
+      step: 2,
       totalSteps: 4,
-      value: state.branch || '',
-      prompt:
-        'Enter your GitHub branch name. Used for image and issue archives, usually the default branch',
+      value: state.token || '',
+      prompt: l10n.t('Enter your GitHub Personal Access Token (classic)'),
       validate: validateRequired,
       shouldResume,
     })
@@ -82,10 +75,27 @@ export default async function multiStepInput(_context: ExtensionContext) {
   async function inputRepoForIssue(input: MultiStepInput, state: PartialState) {
     state.repo = await input.showInputBox({
       title,
-      step: 4,
+      step: 3,
       totalSteps: 4,
       value: state.repo || '',
-      prompt: 'Enter the repository name. If it already exists, it will not be recreated.',
+      prompt: l10n.t(
+        'Enter your blog repository name. It will be created automatically if it does not exist.'
+      ),
+      validate: validateRequired,
+      shouldResume,
+    })
+    return async (nextInput: MultiStepInput) => inputBranch(nextInput, state)
+  }
+
+  async function inputBranch(input: MultiStepInput, state: PartialState) {
+    state.branch = await input.showInputBox({
+      title,
+      step: 4,
+      totalSteps: 4,
+      value: state.branch || '',
+      prompt: l10n.t(
+        'Enter your blog repository branch name. Used for post/image storage, usually the default branch'
+      ),
       validate: validateRequired,
       shouldResume,
     })
@@ -96,7 +106,7 @@ export default async function multiStepInput(_context: ExtensionContext) {
   }
 
   async function validateRequired(name: string) {
-    return !name ? 'Cannot be empty' : undefined
+    return !name ? l10n.t('Cannot be empty') : undefined
   }
 
   const state: PartialState = await collectInputs()
@@ -124,7 +134,7 @@ export default async function multiStepInput(_context: ExtensionContext) {
     {
       location: ProgressLocation.Window,
       cancellable: false,
-      title: 'Creating the issue blog',
+      title: l10n.t('Initializing GitHub Blogger'),
     },
     async progress => {
       progress.report({ increment: 0 })
@@ -133,19 +143,29 @@ export default async function multiStepInput(_context: ExtensionContext) {
 
       try {
         await octokit.request(APIS.CREATE_REPO, { name: repoName })
-        window.showInformationMessage('GitHub Blogger initialization completed')
+        window.showInformationMessage(
+          l10n.t(
+            'GitHub Blogger initialization completed. Repository "{0}" has been created. You can now run "Open GitHub Blogger" from the command palette to start writing your blog.',
+            repoName
+          )
+        )
       } catch (e: unknown) {
-        const errorMsg = e instanceof Error ? e.message : 'Unknown error'
+        const errorMsg = e instanceof Error ? e.message : l10n.t('Unknown error')
 
         if (errorMsg.includes('already exists')) {
           window.showInformationMessage(
-            `GitHub Blogger initialization completed. The ${repoName} repository already exists, skipping creation. You can now type "Open GitHub Blogger" in the command palette to start writing your blog.`
+            l10n.t(
+              'GitHub Blogger initialization completed. You can now run "Open GitHub Blogger" from the command palette to start writing your blog.'
+            )
           )
           return
         }
 
         window.showErrorMessage(
-          `GitHub Blogger initialization failed. Please check your configuration.\n${errorMsg}`
+          l10n.t(
+            'GitHub Blogger initialization failed. Please check your configuration.\n{0}',
+            errorMsg
+          )
         )
       }
       progress.report({ increment: 100 })

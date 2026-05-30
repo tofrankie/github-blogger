@@ -1,0 +1,8 @@
+{
+  "github-blogger.configuration.token.description": "你的 GitHub Personal Access Token（classic）",
+  "github-blogger.configuration.user.description": "你的 GitHub 用户名",
+  "github-blogger.configuration.repo.description": "你的博客仓库名",
+  "github-blogger.configuration.branch.description": "你的博客仓库分支名",
+  "github-blogger.command.open": "打开 GitHub Blogger",
+  "github-blogger.command.configure": "配置 GitHub Blogger"
+}

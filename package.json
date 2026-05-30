@@ -30,6 +30,7 @@
   "engines": {
     "vscode": "^1.88.0"
   },
+  "l10n": "./l10n",
   "activationEvents": [],
   "contributes": {
     "configuration": {
@@ -37,22 +38,22 @@
       "properties": {
         "github-blogger.token": {
           "type": "string",
-          "description": "Your GitHub Personal Access Token (classic)",
+          "description": "%github-blogger.configuration.token.description%",
           "default": ""
         },
         "github-blogger.user": {
           "type": "string",
-          "description": "Your GitHub Username",
+          "description": "%github-blogger.configuration.user.description%",
           "default": ""
         },
         "github-blogger.repo": {
           "type": "string",
-          "description": "Your Blog Repository Name",
+          "description": "%github-blogger.configuration.repo.description%",
           "default": ""
         },
         "github-blogger.branch": {
           "type": "string",
-          "description": "Your Blog Repository Branch Name",
+          "description": "%github-blogger.configuration.branch.description%",
           "default": "main"
         }
       }
@@ -60,11 +61,11 @@
     "commands": [
       {
         "command": "github-blogger.open",
-        "title": "Open GitHub Blogger"
+        "title": "%github-blogger.command.open%"
       },
       {
         "command": "github-blogger.configure",
-        "title": "Configure GitHub Blogger"
+        "title": "%github-blogger.command.configure%"
       }
     ]
   },

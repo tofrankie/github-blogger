@@ -1,0 +1,13 @@
+{
+  "GitHub Blogger Initialization": "GitHub Blogger 初始化",
+  "Enter your GitHub Personal Access Token (classic)": "输入你的 GitHub Personal Access Token（classic）",
+  "Enter your GitHub username": "输入你的 GitHub 用户名",
+  "Enter your blog repository branch name. Used for post/image storage, usually the default branch": "输入你的博客仓库分支名，用于文章和图片存储，通常为默认分支",
+  "Enter your blog repository name. It will be created automatically if it does not exist.": "输入你的博客仓库名。若仓库不存在，会自动创建。",
+  "Cannot be empty": "不能为空",
+  "Initializing GitHub Blogger": "正在初始化 GitHub Blogger",
+  "GitHub Blogger initialization completed. Repository \"{0}\" has been created. You can now run \"Open GitHub Blogger\" from the command palette to start writing your blog.": "GitHub Blogger 初始化完成。仓库“{0}”已创建。现在你可以在命令面板运行“Open GitHub Blogger”开始写博客。",
+  "Unknown error": "未知错误",
+  "GitHub Blogger initialization completed. You can now run \"Open GitHub Blogger\" from the command palette to start writing your blog.": "GitHub Blogger 初始化完成。现在你可以在命令面板运行“Open GitHub Blogger”开始写博客。",
+  "GitHub Blogger initialization failed. Please check your configuration.\n{0}": "GitHub Blogger 初始化失败，请检查配置\n{0}"
+}

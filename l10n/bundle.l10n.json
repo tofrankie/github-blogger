@@ -1,0 +1,13 @@
+{
+  "GitHub Blogger Initialization": "GitHub Blogger Initialization",
+  "Enter your GitHub Personal Access Token (classic)": "Enter your GitHub Personal Access Token (classic)",
+  "Enter your GitHub username": "Enter your GitHub username",
+  "Enter your blog repository branch name. Used for post/image storage, usually the default branch": "Enter your blog repository branch name. Used for post/image storage, usually the default branch",
+  "Enter your blog repository name. It will be created automatically if it does not exist.": "Enter your blog repository name. It will be created automatically if it does not exist.",
+  "Cannot be empty": "Cannot be empty",
+  "Initializing GitHub Blogger": "Initializing GitHub Blogger",
+  "GitHub Blogger initialization completed. Repository \"{0}\" has been created. You can now run \"Open GitHub Blogger\" from the command palette to start writing your blog.": "GitHub Blogger initialization completed. Repository \"{0}\" has been created. You can now run \"Open GitHub Blogger\" from the command palette to start writing your blog.",
+  "Unknown error": "Unknown error",
+  "GitHub Blogger initialization completed. You can now run \"Open GitHub Blogger\" from the command palette to start writing your blog.": "GitHub Blogger initialization completed. You can now run \"Open GitHub Blogger\" from the command palette to start writing your blog.",
+  "GitHub Blogger initialization failed. Please check your configuration.\n{0}": "GitHub Blogger initialization failed. Please check your configuration.\n{0}"
+}
