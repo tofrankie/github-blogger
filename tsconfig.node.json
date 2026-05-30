@@ -1,5 +1,5 @@
 {
-  "extends": "@tofrankie/tsconfig/node.json",
+  "extends": "@tofrankie/tsconfig/node.app.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "baseUrl": "./",
