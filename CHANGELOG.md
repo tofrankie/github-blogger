@@ -2,6 +2,13 @@
 
 All notable changes will be documented in this file.
 
+## v2.7.0
+
+> May 30, 2026
+
+- Add l10n support for English and Chinese
+- Update GFM preview style
+
 ## v2.6.0
 
 > Apr 30, 2026
