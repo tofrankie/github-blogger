@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file.
 
+## v2.8.0
+
+> Jun 1, 2026
+
+- Support GitHub Alerts
+
 ## v2.7.0
 
 > May 30, 2026
