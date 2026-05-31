@@ -9,6 +9,7 @@ import mermaid from '@bytemd/plugin-mermaid'
 import { Editor as BytemdEditor } from '@bytemd/react'
 import { Button, Label, LabelGroup, Stack, TextInput, Tooltip } from '@primer/react'
 import { SkeletonText } from '@primer/react/experimental'
+import alerts from 'bytemd-plugin-github-alerts'
 import { useLabels, useRepo, useUploadImages } from '@/hooks'
 import { useEditorStore } from '@/stores/use-editor-store'
 import { FlashWithRetry } from '../flash-with-retry'
@@ -18,6 +19,7 @@ import 'bytemd/dist/index.min.css'
 
 const plugins = [
   frontmatter(),
+  alerts(), // must be placed before breaks
   breaks(),
   gfm(),
   highlight(),

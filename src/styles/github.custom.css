@@ -51,6 +51,10 @@
   margin-block-end: var(--base-size-16);
 }
 
+.markdown-body .markdown-alert .markdown-alert-title {
+  gap: var(--base-size-8, 8px);
+}
+
 pre code.hljs {
   display: inline !important;
   padding: 0 !important;

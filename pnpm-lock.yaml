@@ -65,6 +65,9 @@ importers:
       bytemd:
         specifier: 1.22.0
         version: 1.22.0
+      bytemd-plugin-github-alerts:
+        specifier: 0.0.1
+        version: 0.0.1(bytemd@1.22.0)
       core-js:
         specifier: 3.49.0
         version: 3.49.0
@@ -2299,6 +2302,11 @@ packages:
   bundle-name@4.1.0:
     resolution: {integrity: sha512-tjwM5exMg6BGRI+kNmTntNsvdZS1X8BFYS6tnJ2hdH0kVxM6/eVZ2xy+FqStSWvYmtfFMDLIxurorHwDKfDz5Q==}
     engines: {node: '>=18'}
+
+  bytemd-plugin-github-alerts@0.0.1:
+    resolution: {integrity: sha512-jjcSlQH7K4h7zO7C9duxfAYHIN4H0hV74d2kcsvqw0CW6WrwMC06tCW4AMdsWOAmgs4Ar9pTU1516qK8PwCwmg==}
+    peerDependencies:
+      bytemd: ^1.5.0
 
   bytemd@1.22.0:
     resolution: {integrity: sha512-2vmegXnnsOxNufRrrQGHYKwgTmx6H+h40ZZs3DAw/SS5O4mBzO9evc1HD39CqW9wglGNBJxMg257pv9pgAGl+A==}
@@ -7756,7 +7764,7 @@ snapshots:
 
   '@typescript-eslint/project-service@8.56.1(typescript@5.9.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.56.1(typescript@5.9.3)
+      '@typescript-eslint/tsconfig-utils': 8.60.0(typescript@5.9.3)
       '@typescript-eslint/types': 8.60.0
       debug: 4.4.3
       typescript: 5.9.3
@@ -8320,6 +8328,10 @@ snapshots:
   bundle-name@4.1.0:
     dependencies:
       run-applescript: 7.1.0
+
+  bytemd-plugin-github-alerts@0.0.1(bytemd@1.22.0):
+    dependencies:
+      bytemd: 1.22.0
 
   bytemd@1.22.0:
     dependencies:
