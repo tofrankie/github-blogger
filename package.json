@@ -4,7 +4,7 @@
   "displayName": "GitHub Blogger",
   "version": "2.8.0",
   "packageManager": "pnpm@10.28.0",
-  "description": "Write and manage blog posts via GitHub issues",
+  "description": "Write and manage blog posts via GitHub issue",
   "author": "Frankie <1426203851@qq.com>",
   "license": "MIT",
   "homepage": "https://github.com/tofrankie/github-blogger",

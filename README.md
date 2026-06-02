@@ -5,13 +5,13 @@
 
 English | [中文](README.zh_CN.md)
 
-**GitHub Blogger** is a VS Code extension for writing and managing blog posts via GitHub issues. It supports Markdown editing, live preview, and seamless publishing — all powered by GitHub.
+**GitHub Blogger** is a VS Code extension for writing and managing blog posts via GitHub issue. It supports Markdown editing, live preview, and seamless publishing — all powered by GitHub.
 
 In principle, it works with all VSCodium-based editors, such as Cursor, TRAE, Kiro and Google Antigravity.
 
 ## ✨ Features
 
-- Manage and publish blog posts via GitHub issues
+- Manage and publish blog posts via GitHub issue
 - GitHub-native interaction experience
 - Markdown editing with live preview and plugin support (Math, Mermaid, etc.)
 - Free image hosting support: images are stored in your blog repository and served via jsDelivr CDN
@@ -56,9 +56,11 @@ This extension requires a [GitHub Personal Access Token (classic)](https://githu
 
 ## 📷 Screenshots
 
-![](./images/screenshot-1.png) ![](./images/screenshot-2.png) ![](./images/screenshot-3.png)
+![](./images/screenshot-1.png)
+![](./images/screenshot-2.png)
+![](./images/screenshot-3.png)
 
-## 🙏 Acknowledgements
+## ❤️ Acknowledgements
 
 This project is built upon and inspired by the open-source community, including:
 
@@ -66,7 +68,7 @@ This project is built upon and inspired by the open-source community, including:
 - [@octokit/core](https://github.com/octokit/core.js) – GitHub's official SDKs
 - [@primer/react](https://primer.style/react) – GitHub's official UI components
 - [@tomjs/vite-plugin-vscode](https://github.com/tomjs/vite-plugin-vscode) – VS Code extension tooling
-- [bytemd](https://github.com/bytedance/bytemd) – Markdown editor
+- [bytemd](https://github.com/pd4d10/bytemd) – Markdown editor
 - [jsDelivr](https://www.jsdelivr.com/?docs=gh) – Free CDN service
 
 ## 📚 Related Projects
@@ -75,4 +77,4 @@ This project is built upon and inspired by the open-source community, including:
 
 ## 📝 License
 
-[MIT](./LICENSE) License © [Frankie](https://github.com/tofrankie)
+MIT License © [Frankie](https://github.com/tofrankie)

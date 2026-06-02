@@ -56,9 +56,11 @@
 
 ## 📷 截图
 
-![](./images/screenshot-1.png) ![](./images/screenshot-2.png) ![](./images/screenshot-3.png)
+![](./images/screenshot-1.png)
+![](./images/screenshot-2.png)
+![](./images/screenshot-3.png)
 
-## 🙏 致谢
+## ❤️ 致谢
 
 本项目基于开源社区的工作构建和启发，包括但不限于：
 
@@ -66,7 +68,7 @@
 - [@octokit/core](https://github.com/octokit/core.js) – GitHub 官方 SDK
 - [@primer/react](https://primer.style/react) – GitHub 官方 UI 组件
 - [@tomjs/vite-plugin-vscode](https://github.com/tomjs/vite-plugin-vscode) – VS Code 扩展工具
-- [bytemd](https://github.com/bytedance/bytemd) – Markdown 编辑器
+- [bytemd](https://github.com/pd4d10/bytemd) – Markdown 编辑器
 - [jsDelivr](https://www.jsdelivr.com/?docs=gh) – 免费 CDN 服务
 
 ## 📚 相关项目
@@ -75,4 +77,4 @@
 
 ## 📝 License
 
-[MIT](./LICENSE) License © [Frankie](https://github.com/tofrankie)
+MIT License © [Frankie](https://github.com/tofrankie)
