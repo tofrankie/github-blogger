@@ -2,6 +2,13 @@
 
 All notable changes will be documented in this file.
 
+## v2.8.1
+
+> Jul 17, 2026
+
+- Fix blockquote color
+- Updated project dependencies
+
 ## v2.8.0
 
 > Jun 1, 2026
