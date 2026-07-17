@@ -8,6 +8,10 @@
   color: var(--fgColor-accent);
 }
 
+.markdown-body blockquote code {
+  color: var(--fgColor-muted);
+}
+
 .markdown-body a {
   text-decoration: underline;
 }
