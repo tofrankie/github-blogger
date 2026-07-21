@@ -2,7 +2,7 @@
   "publisher": "frankie",
   "name": "github-blogger",
   "displayName": "GitHub Blogger",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "packageManager": "pnpm@10.34.0",
   "description": "Write and manage blog posts via GitHub issue",
   "author": "Frankie <1426203851@qq.com>",

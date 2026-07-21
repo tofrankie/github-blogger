@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file.
 
+## v2.8.2
+
+> Jul 21, 2026
+
+- Fix the background color issue for the bytemd viewer in Cursor's dark mode
+
 ## v2.8.1
 
 > Jul 17, 2026
