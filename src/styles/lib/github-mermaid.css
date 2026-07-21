@@ -1,0 +1,392 @@
+#diagram {
+  font-family: 'trebuchet ms', verdana, arial, sans-serif;
+  font-size: 16px;
+  fill: #ccc;
+}
+
+@keyframes edge-animation-frame {
+  from {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+#diagram .edge-animation-slow {
+  stroke-linecap: round;
+  stroke-dasharray: 9, 5 !important;
+  stroke-dashoffset: 900;
+  animation: dash 50s linear infinite;
+}
+
+#diagram .edge-animation-fast {
+  stroke-linecap: round;
+  stroke-dasharray: 9, 5 !important;
+  stroke-dashoffset: 900;
+  animation: dash 20s linear infinite;
+}
+
+#diagram .error-icon {
+  fill: #a44141;
+}
+
+#diagram .error-text {
+  fill: #ddd;
+  stroke: #ddd;
+}
+
+#diagram .edge-thickness-normal {
+  stroke-width: 1px;
+}
+
+#diagram .edge-thickness-thick {
+  stroke-width: 3.5px;
+}
+
+#diagram .edge-pattern-solid {
+  stroke-dasharray: 0;
+}
+
+#diagram .edge-thickness-invisible {
+  fill: none;
+  stroke-width: 0;
+}
+
+#diagram .edge-pattern-dashed {
+  stroke-dasharray: 3;
+}
+
+#diagram .edge-pattern-dotted {
+  stroke-dasharray: 2;
+}
+
+#diagram .marker {
+  fill: lightgrey;
+  stroke: lightgrey;
+}
+
+#diagram .marker.cross {
+  stroke: lightgrey;
+}
+
+#diagram svg {
+  font-family: 'trebuchet ms', verdana, arial, sans-serif;
+  font-size: 16px;
+}
+
+#diagram p {
+  margin: 0;
+}
+
+#diagram .mermaid-main-font {
+  font-family: 'trebuchet ms', verdana, arial, sans-serif;
+}
+
+#diagram .exclude-range {
+  fill: hsl(52.9411764706deg 28.813559322% 48.431372549%);
+}
+
+#diagram .section {
+  opacity: 0.2;
+  stroke: none;
+}
+
+#diagram .section0 {
+  fill: hsl(52.9411764706deg 28.813559322% 58.431372549%);
+}
+
+#diagram .section2 {
+  fill: #eae8d9;
+}
+
+#diagram .section1,
+#diagram .section3 {
+  opacity: 0.2;
+  fill: #333;
+}
+
+#diagram .sectionTitle0 {
+  fill: #f9fffe;
+}
+
+#diagram .sectionTitle1 {
+  fill: #f9fffe;
+}
+
+#diagram .sectionTitle2 {
+  fill: #f9fffe;
+}
+
+#diagram .sectionTitle3 {
+  fill: #f9fffe;
+}
+
+#diagram .sectionTitle {
+  font-family: 'trebuchet ms', verdana, arial, sans-serif;
+  text-anchor: start;
+}
+
+#diagram .grid .tick {
+  opacity: 0.8;
+  stroke: lightgrey;
+  shape-rendering: crispedges;
+}
+
+#diagram .grid .tick text {
+  font-family: 'trebuchet ms', verdana, arial, sans-serif;
+  fill: #ccc;
+}
+
+#diagram .grid path {
+  stroke-width: 0;
+}
+
+#diagram .today {
+  fill: none;
+  stroke: #db5757;
+  stroke-width: 2px;
+}
+
+#diagram .task {
+  stroke-width: 2;
+}
+
+#diagram .taskText {
+  font-family: 'trebuchet ms', verdana, arial, sans-serif;
+  text-anchor: middle;
+}
+
+#diagram .taskTextOutsideRight {
+  font-family: 'trebuchet ms', verdana, arial, sans-serif;
+  text-anchor: start;
+  fill: #2c2c2c;
+}
+
+#diagram .taskTextOutsideLeft {
+  text-anchor: end;
+  fill: #2c2c2c;
+}
+
+#diagram .task.clickable {
+  cursor: pointer;
+}
+
+#diagram .taskText.clickable {
+  font-weight: bold;
+  cursor: pointer;
+  fill: #003163 !important;
+}
+
+#diagram .taskTextOutsideLeft.clickable {
+  font-weight: bold;
+  cursor: pointer;
+  fill: #003163 !important;
+}
+
+#diagram .taskTextOutsideRight.clickable {
+  font-weight: bold;
+  cursor: pointer;
+  fill: #003163 !important;
+}
+
+#diagram .taskText0,
+#diagram .taskText1,
+#diagram .taskText2,
+#diagram .taskText3 {
+  fill: hsl(28.5714285714deg 17.3553719008% 86.2745098039%);
+}
+
+#diagram .task0,
+#diagram .task1,
+#diagram .task2,
+#diagram .task3 {
+  fill: hsl(180deg 1.5873015873% 35.3529411765%);
+  stroke: #fff;
+}
+
+#diagram .taskTextOutside0,
+#diagram .taskTextOutside2 {
+  fill: lightgrey;
+}
+
+#diagram .taskTextOutside1,
+#diagram .taskTextOutside3 {
+  fill: lightgrey;
+}
+
+#diagram .active0,
+#diagram .active1,
+#diagram .active2,
+#diagram .active3 {
+  fill: #81b1db;
+  stroke: #fff;
+}
+
+#diagram .activeText0,
+#diagram .activeText1,
+#diagram .activeText2,
+#diagram .activeText3 {
+  fill: #2c2c2c !important;
+}
+
+#diagram .done0,
+#diagram .done1,
+#diagram .done2,
+#diagram .done3 {
+  fill: lightgrey;
+  stroke: grey;
+  stroke-width: 2;
+}
+
+#diagram .doneText0,
+#diagram .doneText1,
+#diagram .doneText2,
+#diagram .doneText3 {
+  fill: #2c2c2c !important;
+}
+
+#diagram .doneText0.taskTextOutsideLeft,
+#diagram .doneText0.taskTextOutsideRight,
+#diagram .doneText1.taskTextOutsideLeft,
+#diagram .doneText1.taskTextOutsideRight,
+#diagram .doneText2.taskTextOutsideLeft,
+#diagram .doneText2.taskTextOutsideRight,
+#diagram .doneText3.taskTextOutsideLeft,
+#diagram .doneText3.taskTextOutsideRight {
+  fill: lightgrey !important;
+}
+
+#diagram .crit0,
+#diagram .crit1,
+#diagram .crit2,
+#diagram .crit3 {
+  fill: #e83737;
+  stroke: #e83737;
+  stroke-width: 2;
+}
+
+#diagram .activeCrit0,
+#diagram .activeCrit1,
+#diagram .activeCrit2,
+#diagram .activeCrit3 {
+  fill: #81b1db;
+  stroke: #e83737;
+  stroke-width: 2;
+}
+
+#diagram .doneCrit0,
+#diagram .doneCrit1,
+#diagram .doneCrit2,
+#diagram .doneCrit3 {
+  cursor: pointer;
+  fill: lightgrey;
+  stroke: #e83737;
+  stroke-width: 2;
+  shape-rendering: crispedges;
+}
+
+#diagram .milestone {
+  transform: rotate(45deg) scale(0.8, 0.8);
+}
+
+#diagram .milestoneText {
+  font-style: italic;
+}
+
+#diagram .doneCritText0,
+#diagram .doneCritText1,
+#diagram .doneCritText2,
+#diagram .doneCritText3 {
+  fill: #2c2c2c !important;
+}
+
+#diagram .doneCritText0.taskTextOutsideLeft,
+#diagram .doneCritText0.taskTextOutsideRight,
+#diagram .doneCritText1.taskTextOutsideLeft,
+#diagram .doneCritText1.taskTextOutsideRight,
+#diagram .doneCritText2.taskTextOutsideLeft,
+#diagram .doneCritText2.taskTextOutsideRight,
+#diagram .doneCritText3.taskTextOutsideLeft,
+#diagram .doneCritText3.taskTextOutsideRight {
+  fill: lightgrey !important;
+}
+
+#diagram .vert {
+  stroke: #00bfff;
+}
+
+#diagram .vertText {
+  font-size: 15px;
+  text-anchor: middle;
+  fill: #00bfff !important;
+}
+
+#diagram .activeCritText0,
+#diagram .activeCritText1,
+#diagram .activeCritText2,
+#diagram .activeCritText3 {
+  fill: #2c2c2c !important;
+}
+
+#diagram .titleText {
+  font-family: 'trebuchet ms', verdana, arial, sans-serif;
+  font-size: 18px;
+  text-anchor: middle;
+  fill: #f9fffe;
+}
+
+#diagram .node .neo-node {
+  stroke: #ccc;
+}
+
+#diagram [data-look='neo'].node rect,
+#diagram [data-look='neo'].cluster rect,
+#diagram [data-look='neo'].node polygon {
+  filter: drop-shadow(1px 2px 2px rgb(185 185 185 / 100%));
+  stroke: url('#diagram-gradient');
+}
+
+#diagram [data-look='neo'].swimlane.cluster rect {
+  filter: none;
+}
+
+#diagram [data-look='neo'].node path {
+  stroke: url('#diagram-gradient');
+  stroke-width: 1px;
+}
+
+#diagram [data-look='neo'].node .outer-path {
+  filter: drop-shadow(1px 2px 2px rgb(185 185 185 / 100%));
+}
+
+#diagram [data-look='neo'].node .neo-line path {
+  filter: none;
+  stroke: #ccc;
+}
+
+#diagram [data-look='neo'].node circle {
+  filter: drop-shadow(1px 2px 2px rgb(185 185 185 / 100%));
+  stroke: url('#diagram-gradient');
+}
+
+#diagram [data-look='neo'].node circle .state-start {
+  fill: #000;
+}
+
+#diagram [data-look='neo'].icon-shape .icon {
+  filter: drop-shadow(1px 2px 2px rgb(185 185 185 / 100%));
+  fill: url('#diagram-gradient');
+}
+
+#diagram [data-look='neo'].icon-shape .icon-neo path {
+  filter: drop-shadow(1px 2px 2px rgb(185 185 185 / 100%));
+  stroke: url('#diagram-gradient');
+}
+
+#diagram :root {
+  --mermaid-font-family: 'trebuchet ms', verdana, arial, sans-serif;
+}

@@ -2,15 +2,73 @@
 @import url('katex/dist/katex.css');
 @import url('@/styles/github.custom.css');
 
-code {
+/* ------------------ Viewer ----------------- */
+
+.bytemd-body > .bytemd-preview code {
   color: var(--color-fg-default);
 }
 
-a code {
+.bytemd-body > .bytemd-preview a code {
   color: var(--color-accent-fg);
 }
 
-blockquote {
+.bytemd-body > .bytemd-preview blockquote {
   background: none !important;
   border-color: var(--color-border-default);
+}
+
+/* ------------------ Editor ----------------- */
+.bytemd-body > .bytemd-editor {
+  background-color: var(--bgColor-default, var(--color-canvas-default));
+}
+
+.bytemd-body > .bytemd-editor .CodeMirror {
+  color: var(--fgColor-default, var(--color-fg-default));
+  background-color: var(--bgColor-default, var(--color-canvas-default));
+}
+
+.bytemd-body > .bytemd-editor .CodeMirror-cursor,
+.bytemd-body > .bytemd-editor div.CodeMirror-secondarycursor {
+  border-left-color: var(--fgColor-default, var(--color-fg-default));
+}
+
+.bytemd-body > .bytemd-editor .CodeMirror-gutters,
+.bytemd-body > .bytemd-editor .CodeMirror-scrollbar-filler,
+.bytemd-body > .bytemd-editor .CodeMirror-gutter-filler {
+  background-color: var(--bgColor-muted);
+  border-color: var(--borderColor-default, var(--color-border-default));
+}
+
+.bytemd-body > .bytemd-editor .CodeMirror-linenumber,
+.bytemd-body > .bytemd-editor .CodeMirror-guttermarker-subtle,
+.bytemd-body > .bytemd-editor .CodeMirror pre.CodeMirror-placeholder {
+  color: var(--fgColor-muted, var(--color-fg-muted));
+}
+
+.bytemd-body > .bytemd-editor .CodeMirror-guttermarker {
+  color: var(--fgColor-default, var(--color-fg-default));
+}
+
+.bytemd-body > .bytemd-editor .CodeMirror-selected,
+.bytemd-body > .bytemd-editor .CodeMirror-focused .CodeMirror-selected,
+.bytemd-body > .bytemd-editor .CodeMirror-line::selection,
+.bytemd-body > .bytemd-editor .CodeMirror-line > span::selection,
+.bytemd-body > .bytemd-editor .CodeMirror-line > span > span::selection {
+  background: var(--bgColor-neutral-muted, var(--color-neutral-muted));
+}
+
+.bytemd-body > .bytemd-editor .CodeMirror-activeline-background {
+  background: var(--bgColor-muted);
+}
+
+/* ----------- Scrollbar ------------  */
+
+.app-bytemd .CodeMirror-vscrollbar {
+  width: var(--app-scrollbar-size) !important;
+  background-color: transparent !important;
+}
+
+.app-bytemd .CodeMirror-hscrollbar {
+  height: var(--app-scrollbar-size) !important;
+  background-color: transparent !important;
 }

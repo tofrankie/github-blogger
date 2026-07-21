@@ -1,0 +1,32 @@
+.bytemd-editor {
+  .cm-s-default .cm-header {
+    color: var(--fgColor-default);
+  }
+
+  .cm-s-default .cm-link {
+    color: var(--fgColor-accent);
+  }
+
+  .cm-s-default .cm-builtin {
+    color: var(--fgColor-accent);
+  }
+
+  /* 命中链接地址 */
+  .cm-s-default .cm-string {
+    color: var(--fgColor-muted);
+  }
+
+  /* 命中代码块 */
+  .cm-s-default .cm-comment {
+    color: var(--color-prettylights-syntax-keyword);
+  }
+
+  .cm-s-default .cm-quote {
+    color: var(--fgColor-muted);
+  }
+
+  /* 命中有序列表、无需列表 */
+  .cm-s-default .cm-variable-2 {
+    color: var(--fgColor-accent);
+  }
+}

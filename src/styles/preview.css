@@ -1,0 +1,106 @@
+.markdown-body {
+  /* #region-start 甘特图 */
+  [id^='bytemd-mermaid-'] .section0 {
+    fill: hsl(52.9411764706deg 28.813559322% 58.431372549%);
+  }
+
+  [id^='bytemd-mermaid-'] .section1,
+  [id^='bytemd-mermaid-'] .section3 {
+    opacity: 0.2 !important;
+    fill: #333 !important;
+  }
+
+  [id^='bytemd-mermaid-'] .section2 {
+    fill: #eae8d9 !important;
+  }
+  /* #endregion */
+
+  /* #region-start 流程图 */
+  /* 节点外观 */
+  [id^='bytemd-mermaid-'] .node rect,
+  [id^='bytemd-mermaid-'] .node circle,
+  [id^='bytemd-mermaid-'] .node polygon,
+  [id^='bytemd-mermaid-'] .node path {
+    fill: #1f2020 !important;
+    stroke: #ccc !important;
+    stroke-width: 1px !important;
+  }
+
+  /* 包含块？ */
+  [id^='bytemd-mermaid-'] .cluster rect {
+    fill: hsl(180deg 1.5873015873% 28.3529411765%) !important;
+    stroke: rgb(255 255 255 / 25%) !important;
+    stroke-width: 1px !important;
+  }
+
+  [id^='bytemd-mermaid-'] .cluster-label .nodeLabel {
+    color: #f9fffe !important;
+  }
+
+  /* 节点文本 */
+  [id^='bytemd-mermaid-'] .label text,
+  [id^='bytemd-mermaid-'] span,
+  [id^='bytemd-mermaid-'] p {
+    color: #ccc !important;
+    fill: #ccc !important;
+  }
+
+  /* 节点之间的连线 */
+  [id^='bytemd-mermaid-'] .flowchart-link {
+    fill: none;
+    stroke: lightgrey !important;
+  }
+
+  /* 连线上的箭头 */
+  [id^='bytemd-mermaid-'] .marker {
+    fill: lightgrey !important;
+    stroke: lightgrey !important;
+  }
+
+  /* 连线上的文字 */
+  [id^='bytemd-mermaid-'] .edgeLabel {
+    background-color: hsl(0deg 0% 34.4117647059%) !important;
+  }
+  /* #endregion */
+
+  /* #region-start 时序图 */
+  /* 节点外观 */
+  [id^='bytemd-mermaid-'] .actor {
+    fill: #1f2020 !important;
+    stroke: #ccc !important;
+    stroke-width: 1 !important;
+  }
+
+  /* 节点文字 */
+  [id^='bytemd-mermaid-'] text.actor > tspan {
+    fill: lightgrey !important;
+    stroke: none !important;
+  }
+
+  /* 连线上的文字 */
+  [id^='bytemd-mermaid-'] .messageText {
+    fill: lightgrey !important;
+    stroke: none !important;
+  }
+
+  /* 连线上的箭头 */
+  [id^='bytemd-mermaid-'] #arrowhead path {
+    fill: lightgrey !important;
+    stroke: lightgrey !important;
+  }
+
+  /* 实线 */
+  [id^='bytemd-mermaid-'] .messageLine0 {
+    stroke: lightgrey !important;
+    stroke-width: 1.5 !important;
+    stroke-dasharray: none !important;
+  }
+
+  /* 虚线 */
+  [id^='bytemd-mermaid-'] .messageLine1 {
+    stroke: lightgrey !important;
+    stroke-width: 1.5 !important;
+    stroke-dasharray: 2, 2;
+  }
+  /* #endregion */
+}

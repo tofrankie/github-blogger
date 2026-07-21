@@ -68,6 +68,9 @@ code.hljs {
   padding: 3px 5px;
 }
 
+.markdown-body {
+}
+
 /*!
   Theme: GitHub
   Description: Light theme as seen on github.com
@@ -145,7 +148,7 @@ code.hljs {
 .hljs-selector-tag,
 .hljs-selector-pseudo {
   /* prettylights-syntax-entity-tag */
-  color: #22863a;
+  color: var(--color-prettylights-syntax-entity-tag);
 }
 
 .hljs-subst {
@@ -156,36 +159,36 @@ code.hljs {
 .hljs-section {
   font-weight: bold;
   /* prettylights-syntax-markup-heading */
-  color: #005cc5;
+  color: var(--color-prettylights-syntax-markup-heading);
 }
 
 .hljs-bullet {
   /* prettylights-syntax-markup-list */
-  color: #735c0f;
+  color: var(--color-prettylights-syntax-markup-list);
 }
 
 .hljs-emphasis {
   font-style: italic;
   /* prettylights-syntax-markup-italic */
-  color: #24292e;
+  color: var(--color-prettylights-syntax-markup-italic);
 }
 
 .hljs-strong {
   font-weight: bold;
   /* prettylights-syntax-markup-bold */
-  color: #24292e;
+  color: var(--color-prettylights-syntax-markup-bold);
 }
 
 .hljs-addition {
   /* prettylights-syntax-markup-inserted */
-  color: #22863a;
-  background-color: #f0fff4;
+  color: var(--color-prettylights-syntax-markup-inserted-text);
+  background-color: var(--color-prettylights-syntax-markup-inserted-bg);
 }
 
 .hljs-deletion {
   /* prettylights-syntax-markup-deleted */
-  color: #b31d28;
-  background-color: #ffeef0;
+  color: var(--color-prettylights-syntax-markup-deleted-text);
+  background-color: var(--color-prettylights-syntax-markup-deleted-bg);
 }
 
 .hljs-char.escape_,

@@ -3,6 +3,7 @@
   "github-blogger.configuration.user.description": "你的 GitHub 用户名",
   "github-blogger.configuration.repo.description": "你的博客仓库名",
   "github-blogger.configuration.branch.description": "你的博客仓库分支名",
+  "github-blogger.configuration.color-mode.description": "编辑器颜色模式：system 表示跟随当前 Editor 颜色模式，light 使用浅色模式，dark 使用深色模式",
   "github-blogger.command.open": "打开 GitHub Blogger",
   "github-blogger.command.configure": "配置 GitHub Blogger"
 }

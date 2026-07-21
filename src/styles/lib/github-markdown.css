@@ -1,0 +1,2953 @@
+.markdown-body {
+  --base-size-16: 1rem;
+  --base-size-24: 1.5rem;
+  --base-size-4: 0.25rem;
+  --base-size-40: 2.5rem;
+  --base-size-8: 0.5rem;
+  --base-text-weight-medium: 500;
+  --base-text-weight-normal: 400;
+  --base-text-weight-semibold: 600;
+  --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --fgColor-accent: Highlight;
+}
+
+
+
+body:has(#root > div[data-color-mode="dark"]),
+body.vscode-dark:has(#root > div[data-color-mode="auto"]) {
+  .markdown-body, [data-theme="dark"], [data-tippy-root] {
+    /* dark */
+    color-scheme: dark;
+    --button-danger-fgColor-rest: #fa5e55;
+    --button-primary-bgColor-active: #2e9a40;
+    --button-primary-bgColor-disabled: #105823;
+    --button-primary-bgColor-hover: #29903b;
+    --button-primary-borderColor-disabled: #105823;
+    --color-ansi-cyan: #39c5cf;
+    --color-ansi-cyan-bright: #56d4dd;
+    --control-checked-bgColor-active: #3685f3;
+    --control-checked-bgColor-hover: #2a7aef;
+    --fgColor-accent: #4493f8; /** Accent text for links and interactive elements */
+    --reactionButton-selected-bgColor-hover: #3a8cfd5c;
+    --avatar-shadow: 0 0 0 2px #0d1117;
+    --avatarStack-fade-bgColor-default: #3d444d;
+    --avatarStack-fade-bgColor-muted: #2a313c;
+    --bgColor-accent-emphasis: #1f6feb; /** Strong accent background for active states and focused states */
+    --bgColor-accent-muted: #388bfd1a; /** Subtle accent background for informational or selected elements */
+    --bgColor-attention-emphasis: #9e6a03; /** Strong attention background for prominent warnings */
+    --bgColor-attention-muted: #bb800926; /** Subtle attention background for warnings and caution states */
+    --bgColor-danger-emphasis: #da3633; /** Emphasized danger background for critical errors and delete confirmations */
+    --bgColor-danger-muted: #f851491a; /** Muted danger background for error states and destructive action contexts */
+    --bgColor-default: #0d1117; /** Default background color for pages and main content areas */
+    --bgColor-disabled: #212830; /** Background for disabled interactive elements */
+    --bgColor-done-emphasis: #8957e5; /** Strong background for completed/done state badges and labels */
+    --bgColor-done-muted: #ab7df826; /** Subtle background for completed/done state indicators */
+    --bgColor-emphasis: #3d444d; /** High-emphasis dark background for strong visual contrast */
+    --bgColor-muted: #151b23; /** Muted background for secondary content areas and subtle grouping */
+    --bgColor-neutral-emphasis: #656c76; /** Strong neutral background for prominent neutral elements */
+    --bgColor-neutral-muted: #656c7633; /** Subtle neutral background for tags, labels, and secondary UI elements */
+    --bgColor-severe-emphasis: #bd561d; /** Strong severe background for prominent high-priority warnings */
+    --bgColor-severe-muted: #db6d281a; /** Subtle severe background for high-priority warnings */
+    --bgColor-sponsors-emphasis: #bf4b8a; /** Strong background for prominent GitHub Sponsors elements */
+    --bgColor-sponsors-muted: #db61a21a; /** Subtle background for GitHub Sponsors content */
+    --bgColor-success-emphasis: #238636; /** Strong success background for prominent positive actions */
+    --bgColor-success-muted: #2ea04326; /** Subtle success background for positive feedback and completed states */
+    --bgColor-transparent: #00000000; /** Fully transparent background */
+    --borderColor-accent-emphasis: #1f6feb; /** Strong accent border for selected or focused elements */
+    --borderColor-accent-muted: #388bfd66; /** Subtle accent border for selected or focused elements */
+    --borderColor-attention-emphasis: #9e6a03; /** Strong attention border for prominent warnings */
+    --borderColor-attention-muted: #bb800966; /** Subtle attention border for warnings and caution states */
+    --borderColor-danger-emphasis: #da3633; /** Strong danger border for destructive actions and errors */
+    --borderColor-danger-muted: #f8514966; /** Subtle danger border for errors and destructive contexts */
+    --borderColor-default: #3d444d; /** Default border color for most UI elements */
+    --borderColor-disabled: #656c761a; /** Border color for disabled interactive elements */
+    --borderColor-done-emphasis: #8957e5; /** Strong border for completed/done state badges */
+    --borderColor-done-muted: #ab7df866; /** Subtle border for completed/done state indicators */
+    --borderColor-emphasis: #656c76; /** Strong border for emphasis and visual weight */
+    --borderColor-severe-emphasis: #bd561d; /** Strong severe border for prominent high-priority warnings */
+    --borderColor-severe-muted: #db6d2866; /** Subtle severe border for high-priority warnings */
+    --borderColor-sponsors-emphasis: #bf4b8a; /** Strong border for prominent GitHub Sponsors elements */
+    --borderColor-sponsors-muted: #db61a266; /** Subtle border for GitHub Sponsors content */
+    --borderColor-success-emphasis: #238636; /** Strong success border for prominent positive elements */
+    --borderColor-success-muted: #2ea04366; /** Subtle success border for positive feedback elements */
+    --borderColor-transparent: #00000000; /** Fully transparent border */
+    --button-danger-bgColor-hover: #b62324;
+    --button-danger-iconColor-rest: var(--button-danger-fgColor-rest);
+    --button-danger-shadow-selected: 0 0 0 0 #00000000;
+    --button-default-shadow-resting: 0 0 0 0 #00000000;
+    --button-inactive-bgColor: #262c36;
+    --button-inactive-fgColor: #9198a1;
+    --button-invisible-bgColor-disabled: #00000000;
+    --button-invisible-borderColor-disabled: #00000000;
+    --button-outline-bgColor-active: #0d419d;
+    --button-outline-bgColor-rest: #f0f6fc;
+    --button-outline-fgColor-disabled: #4493f880;
+    --button-outline-fgColor-hover: #58a6ff;
+    --button-outline-fgColor-rest: #388bfd;
+    --button-outline-shadow-selected: 0 0 0 0 #00000000;
+    --button-primary-shadow-selected: 0 0 0 0 #00000000;
+    --button-star-iconColor: #e3b341;
+    --buttonCounter-danger-bgColor-rest: #49020233;
+    --buttonCounter-default-bgColor-rest: #2f3742;
+    --buttonCounter-outline-bgColor-hover: #051d4d33;
+    --buttonCounter-outline-bgColor-rest: #051d4d33;
+    --buttonCounter-outline-fgColor-disabled: #4493f880;
+    --buttonCounter-outline-fgColor-hover: #58a6ff;
+    --buttonCounter-outline-fgColor-rest: #388bfd;
+    --buttonCounter-primary-bgColor-rest: #04260f33;
+    --buttonKeybindingHint-danger-bgColor-active: #01040966;
+    --buttonKeybindingHint-danger-bgColor-hover: #01040933;
+    --buttonKeybindingHint-danger-borderColor-hover: #0104091a;
+    --buttonKeybindingHint-default-bgColor-rest: #2a313c;
+    --buttonKeybindingHint-inactive-bgColor: #2a313c;
+    --buttonKeybindingHint-invisible-borderColor-rest: #00000000;
+    --codeMirror-syntax-fgColor-comment: #656c76;
+    --codeMirror-syntax-fgColor-constant: #79c0ff;
+    --codeMirror-syntax-fgColor-entity: #d2a8ff;
+    --codeMirror-syntax-fgColor-keyword: #ff7b72;
+    --codeMirror-syntax-fgColor-storage: #ff7b72;
+    --codeMirror-syntax-fgColor-string: #a5d6ff;
+    --codeMirror-syntax-fgColor-support: #79c0ff;
+    --codeMirror-syntax-fgColor-variable: #ffa657;
+    --color-ansi-black: #2f3742;
+    --color-ansi-black-bright: #656c76;
+    --color-ansi-blue: #58a6ff;
+    --color-ansi-blue-bright: #79c0ff;
+    --color-ansi-gray: #656c76;
+    --color-ansi-green: #3fb950;
+    --color-ansi-green-bright: #56d364;
+    --color-ansi-magenta: #be8fff;
+    --color-ansi-magenta-bright: #d2a8ff;
+    --color-ansi-red: #ff7b72;
+    --color-ansi-red-bright: #ffa198;
+    --color-ansi-white: #f0f6fc;
+    --color-ansi-yellow: #d29922;
+    --color-ansi-yellow-bright: #e3b341;
+    --color-prettylights-syntax-brackethighlighter-angle: #9198a1;
+    --color-prettylights-syntax-brackethighlighter-unmatched: #f85149;
+    --color-prettylights-syntax-carriage-return-bg: #b62324;
+    --color-prettylights-syntax-carriage-return-text: #f0f6fc;
+    --color-prettylights-syntax-comment: #9198a1;
+    --color-prettylights-syntax-constant: #79c0ff;
+    --color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
+    --color-prettylights-syntax-entity: #d2a8ff;
+    --color-prettylights-syntax-entity-tag: #7ee787;
+    --color-prettylights-syntax-keyword: #ff7b72;
+    --color-prettylights-syntax-markup-bold: #f0f6fc;
+    --color-prettylights-syntax-markup-changed-bg: #5a1e02;
+    --color-prettylights-syntax-markup-changed-text: #ffdfb6;
+    --color-prettylights-syntax-markup-deleted-bg: #67060c;
+    --color-prettylights-syntax-markup-deleted-text: #ffdcd7;
+    --color-prettylights-syntax-markup-heading: #1f6feb;
+    --color-prettylights-syntax-markup-ignored-bg: #1158c7;
+    --color-prettylights-syntax-markup-ignored-text: #f0f6fc;
+    --color-prettylights-syntax-markup-inserted-bg: #033a16;
+    --color-prettylights-syntax-markup-inserted-text: #aff5b4;
+    --color-prettylights-syntax-markup-italic: #f0f6fc;
+    --color-prettylights-syntax-markup-list: #f2cc60;
+    --color-prettylights-syntax-meta-diff-range: #d2a8ff;
+    --color-prettylights-syntax-storage-modifier-import: #f0f6fc;
+    --color-prettylights-syntax-string: #a5d6ff;
+    --color-prettylights-syntax-string-regexp: #7ee787;
+    --color-prettylights-syntax-sublimelinter-gutter-mark: #3d444d;
+    --color-prettylights-syntax-variable: #ffa657;
+    --contribution-default-bgColor-0: #151b23;
+    --contribution-default-bgColor-1: #033a16;
+    --contribution-default-bgColor-2: #196c2e;
+    --contribution-default-bgColor-3: #2ea043;
+    --contribution-default-bgColor-4: #56d364;
+    --contribution-default-borderColor-0: #0104090d;
+    --contribution-halloween-bgColor-1: #fac68f;
+    --contribution-halloween-bgColor-2: #c46212;
+    --contribution-halloween-bgColor-3: #984b10;
+    --contribution-halloween-bgColor-4: #e3d04f;
+    --contribution-winter-bgColor-1: #0c2d6b;
+    --contribution-winter-bgColor-2: #1158c7;
+    --contribution-winter-bgColor-3: #58a6ff;
+    --contribution-winter-bgColor-4: #cae8ff;
+    --control-bgColor-active: #2a313c;
+    --control-bgColor-hover: #262c36;
+    --control-bgColor-rest: #212830;
+    --control-borderColor-selected: #f0f6fc;
+    --control-checked-borderColor-active: var(--control-checked-bgColor-active);
+    --control-checked-borderColor-hover: var(--control-checked-bgColor-hover);
+    --control-danger-fgColor-hover: #ff7b72;
+    --control-transparent-bgColor-active: #656c7640;
+    --control-transparent-bgColor-hover: #656c7633;
+    --control-transparent-bgColor-rest: #00000000;
+    --control-transparent-bgColor-selected: #656c7633;
+    --control-transparent-borderColor-active: #00000000;
+    --control-transparent-borderColor-hover: #00000000;
+    --control-transparent-borderColor-rest: #00000000;
+    --controlKnob-bgColor-rest: #262c36;
+    --controlTrack-bgColor-active: #2f3742;
+    --controlTrack-bgColor-hover: #2a313c;
+    --counter-borderColor: #00000000;
+    --data-auburn-color-emphasis: #a86f6b;
+    --data-auburn-color-muted: #271817;
+    --data-blue-color-emphasis: #0576ff;
+    --data-blue-color-muted: #001a47;
+    --data-brown-color-emphasis: #94774c;
+    --data-brown-color-muted: #241c14;
+    --data-coral-color-emphasis: #e1430e;
+    --data-coral-color-muted: #351008;
+    --data-gray-color-emphasis: #576270;
+    --data-gray-color-muted: #1c1c1c;
+    --data-green-color-emphasis: #2f6f37;
+    --data-green-color-muted: #122117;
+    --data-lemon-color-emphasis: #977b0c;
+    --data-lemon-color-muted: #291d00;
+    --data-lime-color-emphasis: #5f892f;
+    --data-lime-color-muted: #141f0f;
+    --data-olive-color-emphasis: #7a8321;
+    --data-olive-color-muted: #171e0b;
+    --data-orange-color-emphasis: #984b10;
+    --data-orange-color-muted: #311708;
+    --data-pine-color-emphasis: #18915e;
+    --data-pine-color-muted: #082119;
+    --data-pink-color-emphasis: #d34591;
+    --data-pink-color-muted: #2d1524;
+    --data-plum-color-emphasis: #b643ef;
+    --data-plum-color-muted: #2a0e3f;
+    --data-purple-color-emphasis: #975bf1;
+    --data-purple-color-muted: #211047;
+    --data-red-color-emphasis: #eb3342;
+    --data-red-color-muted: #3c0614;
+    --data-teal-color-emphasis: #106c70;
+    --data-teal-color-muted: #041f25;
+    --data-yellow-color-emphasis: #895906;
+    --data-yellow-color-muted: #2e1a00;
+    --diffBlob-additionNum-bgColor: #3fb9504d;
+    --diffBlob-additionWord-bgColor: #2ea04366;
+    --diffBlob-deletionNum-bgColor: #f851494d;
+    --diffBlob-deletionWord-bgColor: #f8514966;
+    --diffBlob-hunkNum-bgColor-rest: #0c2d6b;
+    --display-auburn-bgColor-emphasis: #87534f;
+    --display-auburn-bgColor-muted: #271817;
+    --display-auburn-borderColor-emphasis: #a86f6b;
+    --display-auburn-borderColor-muted: #3a2422;
+    --display-auburn-fgColor: #bf9592;
+    --display-auburn-scale-0: #271817;
+    --display-auburn-scale-1: #3a2422;
+    --display-auburn-scale-2: #543331;
+    --display-auburn-scale-3: #6d4340;
+    --display-auburn-scale-4: #87534f;
+    --display-auburn-scale-5: #a86f6b;
+    --display-auburn-scale-6: #bf9592;
+    --display-auburn-scale-7: #c6a19f;
+    --display-auburn-scale-8: #d4b7b5;
+    --display-auburn-scale-9: #dfcac8;
+    --display-blue-bgColor-emphasis: #005bd1;
+    --display-blue-bgColor-muted: #001a47;
+    --display-blue-borderColor-emphasis: #0576ff;
+    --display-blue-borderColor-muted: #002766;
+    --display-blue-fgColor: #4da0ff;
+    --display-blue-scale-0: #001a47;
+    --display-blue-scale-1: #002766;
+    --display-blue-scale-2: #00378a;
+    --display-blue-scale-3: #0046a8;
+    --display-blue-scale-4: #005bd1;
+    --display-blue-scale-5: #0576ff;
+    --display-blue-scale-6: #4da0ff;
+    --display-blue-scale-7: #61adff;
+    --display-blue-scale-8: #85c2ff;
+    --display-blue-scale-9: #a3d3ff;
+    --display-brown-bgColor-emphasis: #755e3e;
+    --display-brown-bgColor-muted: #241c14;
+    --display-brown-borderColor-emphasis: #94774c;
+    --display-brown-borderColor-muted: #342a1d;
+    --display-brown-fgColor: #b69a6d;
+    --display-brown-scale-0: #241c14;
+    --display-brown-scale-1: #342a1d;
+    --display-brown-scale-2: #483a28;
+    --display-brown-scale-3: #5d4a32;
+    --display-brown-scale-4: #755e3e;
+    --display-brown-scale-5: #94774c;
+    --display-brown-scale-6: #b69a6d;
+    --display-brown-scale-7: #bfa77d;
+    --display-brown-scale-8: #cdbb98;
+    --display-brown-scale-9: #dbceb3;
+    --display-coral-bgColor-emphasis: #c31328;
+    --display-coral-bgColor-muted: #3c0614;
+    --display-coral-borderColor-emphasis: #eb3342;
+    --display-coral-borderColor-muted: #58091a;
+    --display-coral-fgColor: #f27d83;
+    --display-coral-scale-0: #351008;
+    --display-coral-scale-1: #51180b;
+    --display-coral-scale-2: #72220d;
+    --display-coral-scale-3: #902a0e;
+    --display-coral-scale-4: #b3350f;
+    --display-coral-scale-5: #e1430e;
+    --display-coral-scale-6: #f7794b;
+    --display-coral-scale-7: #fa8c61;
+    --display-coral-scale-8: #fdaa86;
+    --display-coral-scale-9: #ffc0a3;
+    --display-cyan-bgColor-emphasis: #036a8c;
+    --display-cyan-bgColor-muted: #001f29;
+    --display-cyan-borderColor-emphasis: #0587b3;
+    --display-cyan-borderColor-muted: #002e3d;
+    --display-cyan-fgColor: #07ace4;
+    --display-cyan-scale-0: #001f29;
+    --display-cyan-scale-1: #002e3d;
+    --display-cyan-scale-2: #014156;
+    --display-cyan-scale-3: #02536f;
+    --display-cyan-scale-4: #036a8c;
+    --display-cyan-scale-5: #0587b3;
+    --display-cyan-scale-6: #07ace4;
+    --display-cyan-scale-7: #09b7f1;
+    --display-cyan-scale-8: #45cbf7;
+    --display-cyan-scale-9: #80dbf9;
+    --display-gray-bgColor-emphasis: #576270;
+    --display-gray-bgColor-muted: #1c1c1c;
+    --display-gray-borderColor-emphasis: #6e7f96;
+    --display-gray-borderColor-muted: #2a2b2d;
+    --display-gray-fgColor: #92a1b5;
+    --display-gray-scale-0: #1c1c1c;
+    --display-gray-scale-1: #2a2b2d;
+    --display-gray-scale-2: #393d41;
+    --display-gray-scale-3: #474e57;
+    --display-gray-scale-4: #576270;
+    --display-gray-scale-5: #6e7f96;
+    --display-gray-scale-6: #92a1b5;
+    --display-gray-scale-7: #9babbf;
+    --display-gray-scale-8: #b3c0d1;
+    --display-gray-scale-9: #c4cfde;
+    --display-green-bgColor-emphasis: #2f6f37;
+    --display-green-bgColor-muted: #122117;
+    --display-green-borderColor-emphasis: #388f3f;
+    --display-green-borderColor-muted: #182f1f;
+    --display-green-fgColor: #41b445;
+    --display-green-scale-0: #122117;
+    --display-green-scale-1: #182f1f;
+    --display-green-scale-2: #214529;
+    --display-green-scale-3: #285830;
+    --display-green-scale-4: #2f6f37;
+    --display-green-scale-5: #388f3f;
+    --display-green-scale-6: #41b445;
+    --display-green-scale-7: #46c144;
+    --display-green-scale-8: #75d36f;
+    --display-green-scale-9: #99e090;
+    --display-indigo-bgColor-emphasis: #514ed4;
+    --display-indigo-bgColor-muted: #1b183f;
+    --display-indigo-borderColor-emphasis: #7070e1;
+    --display-indigo-borderColor-muted: #25215f;
+    --display-indigo-fgColor: #9899ec;
+    --display-indigo-scale-0: #1b183f;
+    --display-indigo-scale-1: #25215f;
+    --display-indigo-scale-2: #312c90;
+    --display-indigo-scale-3: #3935c0;
+    --display-indigo-scale-4: #514ed4;
+    --display-indigo-scale-5: #7070e1;
+    --display-indigo-scale-6: #9899ec;
+    --display-indigo-scale-7: #a2a5f1;
+    --display-indigo-scale-8: #b7baf6;
+    --display-indigo-scale-9: #c8cbf9;
+    --display-lemon-bgColor-emphasis: #786008;
+    --display-lemon-bgColor-muted: #291d00;
+    --display-lemon-borderColor-emphasis: #977b0c;
+    --display-lemon-borderColor-muted: #372901;
+    --display-lemon-fgColor: #ba9b12;
+    --display-lemon-scale-0: #291d00;
+    --display-lemon-scale-1: #372901;
+    --display-lemon-scale-2: #4f3c02;
+    --display-lemon-scale-3: #614c05;
+    --display-lemon-scale-4: #786008;
+    --display-lemon-scale-5: #977b0c;
+    --display-lemon-scale-6: #ba9b12;
+    --display-lemon-scale-7: #c4a717;
+    --display-lemon-scale-8: #d7bc1d;
+    --display-lemon-scale-9: #e3d04f;
+    --display-lime-bgColor-emphasis: #496c28;
+    --display-lime-bgColor-muted: #141f0f;
+    --display-lime-borderColor-emphasis: #5f892f;
+    --display-lime-borderColor-muted: #1f3116;
+    --display-lime-fgColor: #7dae37;
+    --display-lime-scale-0: #141f0f;
+    --display-lime-scale-1: #1f3116;
+    --display-lime-scale-2: #2c441d;
+    --display-lime-scale-3: #375421;
+    --display-lime-scale-4: #496c28;
+    --display-lime-scale-5: #5f892f;
+    --display-lime-scale-6: #7dae37;
+    --display-lime-scale-7: #89ba36;
+    --display-lime-scale-8: #9fcc3e;
+    --display-lime-scale-9: #bcda67;
+    --display-olive-bgColor-emphasis: #5e681d;
+    --display-olive-bgColor-muted: #171e0b;
+    --display-olive-borderColor-emphasis: #7a8321;
+    --display-olive-borderColor-muted: #252d10;
+    --display-olive-fgColor: #a2a626;
+    --display-olive-scale-0: #171e0b;
+    --display-olive-scale-1: #252d10;
+    --display-olive-scale-2: #374115;
+    --display-olive-scale-3: #485219;
+    --display-olive-scale-4: #5e681d;
+    --display-olive-scale-5: #7a8321;
+    --display-olive-scale-6: #a2a626;
+    --display-olive-scale-7: #b2af24;
+    --display-olive-scale-8: #cbc025;
+    --display-olive-scale-9: #e2d04b;
+    --display-orange-bgColor-emphasis: #984b10;
+    --display-orange-bgColor-muted: #311708;
+    --display-orange-borderColor-emphasis: #c46212;
+    --display-orange-borderColor-muted: #43200a;
+    --display-orange-fgColor: #ed8326;
+    --display-orange-scale-0: #311708;
+    --display-orange-scale-1: #43200a;
+    --display-orange-scale-2: #632f0d;
+    --display-orange-scale-3: #7b3c0e;
+    --display-orange-scale-4: #984b10;
+    --display-orange-scale-5: #c46212;
+    --display-orange-scale-6: #ed8326;
+    --display-orange-scale-7: #f1933b;
+    --display-orange-scale-8: #f6b06a;
+    --display-orange-scale-9: #fac68f;
+    --display-pine-bgColor-emphasis: #14714c;
+    --display-pine-bgColor-muted: #082119;
+    --display-pine-borderColor-emphasis: #18915e;
+    --display-pine-borderColor-muted: #0b3224;
+    --display-pine-fgColor: #1bb673;
+    --display-pine-scale-0: #082119;
+    --display-pine-scale-1: #0b3224;
+    --display-pine-scale-2: #0e4430;
+    --display-pine-scale-3: #115a3e;
+    --display-pine-scale-4: #14714c;
+    --display-pine-scale-5: #18915e;
+    --display-pine-scale-6: #1bb673;
+    --display-pine-scale-7: #1ac176;
+    --display-pine-scale-8: #1bda81;
+    --display-pine-scale-9: #3eea97;
+    --display-pink-bgColor-emphasis: #ac2f74;
+    --display-pink-bgColor-muted: #2d1524;
+    --display-pink-borderColor-emphasis: #d34591;
+    --display-pink-borderColor-muted: #451c35;
+    --display-pink-fgColor: #e57bb2;
+    --display-pink-scale-0: #2d1524;
+    --display-pink-scale-1: #451c35;
+    --display-pink-scale-2: #65244a;
+    --display-pink-scale-3: #842a5d;
+    --display-pink-scale-4: #ac2f74;
+    --display-pink-scale-5: #d34591;
+    --display-pink-scale-6: #e57bb2;
+    --display-pink-scale-7: #ec8dbd;
+    --display-pink-scale-8: #f4a9cd;
+    --display-pink-scale-9: #f9bed9;
+    --display-plum-bgColor-emphasis: #9518d8;
+    --display-plum-bgColor-muted: #2a0e3f;
+    --display-plum-borderColor-emphasis: #b643ef;
+    --display-plum-borderColor-muted: #40125e;
+    --display-plum-fgColor: #d07ef7;
+    --display-plum-scale-0: #2a0e3f;
+    --display-plum-scale-1: #40125e;
+    --display-plum-scale-2: #5c1688;
+    --display-plum-scale-3: #7517ab;
+    --display-plum-scale-4: #9518d8;
+    --display-plum-scale-5: #b643ef;
+    --display-plum-scale-6: #d07ef7;
+    --display-plum-scale-7: #d889fa;
+    --display-plum-scale-8: #e4a5fd;
+    --display-plum-scale-9: #edbdff;
+    --display-purple-bgColor-emphasis: #7730e8;
+    --display-purple-bgColor-muted: #211047;
+    --display-purple-borderColor-emphasis: #975bf1;
+    --display-purple-borderColor-muted: #31146b;
+    --display-purple-fgColor: #b687f7;
+    --display-purple-scale-0: #211047;
+    --display-purple-scale-1: #31146b;
+    --display-purple-scale-2: #481a9e;
+    --display-purple-scale-3: #5b1cca;
+    --display-purple-scale-4: #7730e8;
+    --display-purple-scale-5: #975bf1;
+    --display-purple-scale-6: #b687f7;
+    --display-purple-scale-7: #c398fb;
+    --display-purple-scale-8: #d2affd;
+    --display-purple-scale-9: #e1c7ff;
+    --display-red-bgColor-emphasis: #c31328;
+    --display-red-bgColor-muted: #3c0614;
+    --display-red-borderColor-emphasis: #eb3342;
+    --display-red-borderColor-muted: #58091a;
+    --display-red-fgColor: #f27d83;
+    --display-red-scale-0: #3c0614;
+    --display-red-scale-1: #58091a;
+    --display-red-scale-2: #790c20;
+    --display-red-scale-3: #990f24;
+    --display-red-scale-4: #c31328;
+    --display-red-scale-5: #eb3342;
+    --display-red-scale-6: #f27d83;
+    --display-red-scale-7: #f48b8d;
+    --display-red-scale-8: #f7adab;
+    --display-red-scale-9: #f9c1be;
+    --display-teal-bgColor-emphasis: #106c70;
+    --display-teal-bgColor-muted: #041f25;
+    --display-teal-borderColor-emphasis: #158a8a;
+    --display-teal-borderColor-muted: #073036;
+    --display-teal-fgColor: #1cb0ab;
+    --display-teal-scale-0: #041f25;
+    --display-teal-scale-1: #073036;
+    --display-teal-scale-2: #0a464d;
+    --display-teal-scale-3: #0c555a;
+    --display-teal-scale-4: #106c70;
+    --display-teal-scale-5: #158a8a;
+    --display-teal-scale-6: #1cb0ab;
+    --display-teal-scale-7: #1fbdb2;
+    --display-teal-scale-8: #24d6c4;
+    --display-teal-scale-9: #5fe3d1;
+    --display-yellow-bgColor-emphasis: #895906;
+    --display-yellow-bgColor-muted: #2e1a00;
+    --display-yellow-borderColor-emphasis: #aa7109;
+    --display-yellow-borderColor-muted: #3d2401;
+    --display-yellow-fgColor: #d3910d;
+    --display-yellow-scale-0: #2e1a00;
+    --display-yellow-scale-1: #3d2401;
+    --display-yellow-scale-2: #5a3702;
+    --display-yellow-scale-3: #6d4403;
+    --display-yellow-scale-4: #895906;
+    --display-yellow-scale-5: #aa7109;
+    --display-yellow-scale-6: #d3910d;
+    --display-yellow-scale-7: #df9e11;
+    --display-yellow-scale-8: #edb431;
+    --display-yellow-scale-9: #f0ca6a;
+    --fgColor-attention: #d29922; /** Attention text for warnings and caution states */
+    --fgColor-danger: #f85149; /** Danger text for errors and destructive actions */
+    --fgColor-default: #f0f6fc; /** Default text color for primary content and headings */
+    --fgColor-disabled: #656c76; /** Text color for disabled interactive elements */
+    --fgColor-done: #ab7df8; /** Text color for completed/done state indicators */
+    --fgColor-link: var(--fgColor-accent); /** Text color for hyperlinks */
+    --fgColor-muted: #9198a1; /** Muted text for secondary content and less important information */
+    --fgColor-neutral: #9198a1; /** Neutral semantic text for icons and secondary elements */
+    --fgColor-severe: #db6d28; /** Severe text for high-priority warnings */
+    --fgColor-sponsors: #db61a2; /** Text color for GitHub Sponsors content */
+    --fgColor-success: #3fb950; /** Success text for positive feedback and completed states */
+    --header-bgColor: #151b23f2;
+    --header-borderColor-divider: #656c76;
+    --header-fgColor-logo: #f0f6fc;
+    --headerSearch-bgColor: #0d1117;
+    --headerSearch-borderColor: #2a313c;
+    --highlight-neutral-bgColor: #d2992266;
+    --label-auburn-bgColor-active: #543331;
+    --label-auburn-bgColor-hover: #3a2422;
+    --label-auburn-bgColor-rest: #271817;
+    --label-auburn-borderColor: #00000000;
+    --label-auburn-fgColor-active: #d4b7b5;
+    --label-auburn-fgColor-hover: #c6a19f;
+    --label-auburn-fgColor-rest: #bf9592;
+    --label-blue-bgColor-active: #00378a;
+    --label-blue-bgColor-hover: #002766;
+    --label-blue-bgColor-rest: #001a47;
+    --label-blue-borderColor: #00000000;
+    --label-blue-fgColor-active: #85c2ff;
+    --label-blue-fgColor-hover: #61adff;
+    --label-blue-fgColor-rest: #4da0ff;
+    --label-brown-bgColor-active: #483a28;
+    --label-brown-bgColor-hover: #342a1d;
+    --label-brown-bgColor-rest: #241c14;
+    --label-brown-borderColor: #00000000;
+    --label-brown-fgColor-active: #cdbb98;
+    --label-brown-fgColor-hover: #bfa77d;
+    --label-brown-fgColor-rest: #b69a6d;
+    --label-coral-bgColor-active: #72220d;
+    --label-coral-bgColor-hover: #51180b;
+    --label-coral-bgColor-rest: #351008;
+    --label-coral-borderColor: #00000000;
+    --label-coral-fgColor-active: #fdaa86;
+    --label-coral-fgColor-hover: #fa8c61;
+    --label-coral-fgColor-rest: #f7794b;
+    --label-cyan-bgColor-active: #014156;
+    --label-cyan-bgColor-hover: #002e3d;
+    --label-cyan-bgColor-rest: #001f29;
+    --label-cyan-borderColor: #00000000;
+    --label-cyan-fgColor-active: #45cbf7;
+    --label-cyan-fgColor-hover: #09b7f1;
+    --label-cyan-fgColor-rest: #07ace4;
+    --label-gray-bgColor-active: #393d41;
+    --label-gray-bgColor-hover: #2a2b2d;
+    --label-gray-bgColor-rest: #1c1c1c;
+    --label-gray-borderColor: #00000000;
+    --label-gray-fgColor-active: #b3c0d1;
+    --label-gray-fgColor-hover: #9babbf;
+    --label-gray-fgColor-rest: #92a1b5;
+    --label-green-bgColor-active: #214529;
+    --label-green-bgColor-hover: #182f1f;
+    --label-green-bgColor-rest: #122117;
+    --label-green-borderColor: #00000000;
+    --label-green-fgColor-active: #75d36f;
+    --label-green-fgColor-hover: #46c144;
+    --label-green-fgColor-rest: #41b445;
+    --label-indigo-bgColor-active: #312c90;
+    --label-indigo-bgColor-hover: #25215f;
+    --label-indigo-bgColor-rest: #1b183f;
+    --label-indigo-borderColor: #00000000;
+    --label-indigo-fgColor-active: #b7baf6;
+    --label-indigo-fgColor-hover: #a2a5f1;
+    --label-indigo-fgColor-rest: #9899ec;
+    --label-lemon-bgColor-active: #4f3c02;
+    --label-lemon-bgColor-hover: #372901;
+    --label-lemon-bgColor-rest: #291d00;
+    --label-lemon-borderColor: #00000000;
+    --label-lemon-fgColor-active: #d7bc1d;
+    --label-lemon-fgColor-hover: #c4a717;
+    --label-lemon-fgColor-rest: #ba9b12;
+    --label-lime-bgColor-active: #2c441d;
+    --label-lime-bgColor-hover: #1f3116;
+    --label-lime-bgColor-rest: #141f0f;
+    --label-lime-borderColor: #00000000;
+    --label-lime-fgColor-active: #9fcc3e;
+    --label-lime-fgColor-hover: #89ba36;
+    --label-lime-fgColor-rest: #7dae37;
+    --label-olive-bgColor-active: #374115;
+    --label-olive-bgColor-hover: #252d10;
+    --label-olive-bgColor-rest: #171e0b;
+    --label-olive-borderColor: #00000000;
+    --label-olive-fgColor-active: #cbc025;
+    --label-olive-fgColor-hover: #b2af24;
+    --label-olive-fgColor-rest: #a2a626;
+    --label-orange-bgColor-active: #632f0d;
+    --label-orange-bgColor-hover: #43200a;
+    --label-orange-bgColor-rest: #311708;
+    --label-orange-borderColor: #00000000;
+    --label-orange-fgColor-active: #f6b06a;
+    --label-orange-fgColor-hover: #f1933b;
+    --label-orange-fgColor-rest: #ed8326;
+    --label-pine-bgColor-active: #0e4430;
+    --label-pine-bgColor-hover: #0b3224;
+    --label-pine-bgColor-rest: #082119;
+    --label-pine-borderColor: #00000000;
+    --label-pine-fgColor-active: #1bda81;
+    --label-pine-fgColor-hover: #1ac176;
+    --label-pine-fgColor-rest: #1bb673;
+    --label-pink-bgColor-active: #65244a;
+    --label-pink-bgColor-hover: #451c35;
+    --label-pink-bgColor-rest: #2d1524;
+    --label-pink-borderColor: #00000000;
+    --label-pink-fgColor-active: #f4a9cd;
+    --label-pink-fgColor-hover: #ec8dbd;
+    --label-pink-fgColor-rest: #e57bb2;
+    --label-plum-bgColor-active: #5c1688;
+    --label-plum-bgColor-hover: #40125e;
+    --label-plum-bgColor-rest: #2a0e3f;
+    --label-plum-borderColor: #00000000;
+    --label-plum-fgColor-active: #e4a5fd;
+    --label-plum-fgColor-hover: #d889fa;
+    --label-plum-fgColor-rest: #d07ef7;
+    --label-purple-bgColor-active: #481a9e;
+    --label-purple-bgColor-hover: #31146b;
+    --label-purple-bgColor-rest: #211047;
+    --label-purple-borderColor: #00000000;
+    --label-purple-fgColor-active: #d2affd;
+    --label-purple-fgColor-hover: #c398fb;
+    --label-purple-fgColor-rest: #b687f7;
+    --label-red-bgColor-active: #790c20;
+    --label-red-bgColor-hover: #58091a;
+    --label-red-bgColor-rest: #3c0614;
+    --label-red-borderColor: #00000000;
+    --label-red-fgColor-active: #f7adab;
+    --label-red-fgColor-hover: #f48b8d;
+    --label-red-fgColor-rest: #f27d83;
+    --label-teal-bgColor-active: #0a464d;
+    --label-teal-bgColor-hover: #073036;
+    --label-teal-bgColor-rest: #041f25;
+    --label-teal-borderColor: #00000000;
+    --label-teal-fgColor-active: #24d6c4;
+    --label-teal-fgColor-hover: #1fbdb2;
+    --label-teal-fgColor-rest: #1cb0ab;
+    --label-yellow-bgColor-active: #5a3702;
+    --label-yellow-bgColor-hover: #3d2401;
+    --label-yellow-bgColor-rest: #2e1a00;
+    --label-yellow-borderColor: #00000000;
+    --label-yellow-fgColor-active: #edb431;
+    --label-yellow-fgColor-hover: #df9e11;
+    --label-yellow-fgColor-rest: #d3910d;
+    --menu-bgColor-active: #151b23;
+    --overlay-backdrop-bgColor: #21283066;
+    --progressBar-track-borderColor: #00000000;
+    --reactionButton-selected-bgColor-rest: #388bfd33;
+    --reactionButton-selected-fgColor-hover: #79c0ff;
+    --selectMenu-bgColor-active: #0c2d6b;
+    --sideNav-bgColor-selected: #212830;
+    --skeletonLoader-bgColor: #656c7633;
+    --timelineBadge-bgColor: #212830;
+    --topicTag-borderColor: #00000000;
+    --underlineNav-borderColor-active: #f78166;
+    --avatar-bgColor: #ffffff1a;
+    --bgColor-black: #010409; /** Pure black background */
+    --bgColor-closed-emphasis: var(--bgColor-danger-emphasis); /** Strong background for closed state badges and labels */
+    --bgColor-closed-muted: var(--bgColor-danger-muted); /** Subtle background for closed state indicators (issues, PRs) */
+    --bgColor-draft-emphasis: var(--bgColor-neutral-emphasis); /** Strong background for draft state badges and labels */
+    --bgColor-draft-muted: var(--bgColor-neutral-muted); /** Subtle background for draft state indicators */
+    --bgColor-inset: #010409; /** Inset background for recessed content areas like wells or sunken panels */
+    --bgColor-inverse: #ffffff; /** Inverse background that flips between light and dark modes */
+    --bgColor-open-emphasis: var(--bgColor-success-emphasis); /** Strong background for open state badges and labels */
+    --bgColor-open-muted: var(--bgColor-success-muted); /** Subtle background for open state indicators (issues, PRs) */
+    --bgColor-upsell-emphasis: var(--bgColor-done-emphasis); /** Strong background for prominent upsell elements */
+    --bgColor-upsell-muted: var(--bgColor-done-muted); /** Subtle background for upsell and promotional content */
+    --bgColor-white: #ffffff; /** Pure white background */
+    --border-accent-emphasis: 0.0625rem solid #1f6feb;
+    --border-accent-muted: 0.0625rem solid #388bfd66;
+    --border-attention-emphasis: 0.0625rem solid #9e6a03;
+    --border-attention-muted: 0.0625rem solid #bb800966;
+    --border-danger-emphasis: 0.0625rem solid #da3633;
+    --border-danger-muted: 0.0625rem solid #f8514966;
+    --border-default: 0.0625rem solid #3d444d;
+    --border-disabled: 0.0625rem solid #656c761a;
+    --border-done-emphasis: 0.0625rem solid #8957e5;
+    --border-done-muted: 0.0625rem solid #ab7df866;
+    --border-emphasis: 0.0625rem solid #656c76;
+    --border-severe-emphasis: 0.0625rem solid #bd561d;
+    --border-severe-muted: 0.0625rem solid #db6d2866;
+    --border-sponsors-emphasis: 0.0625rem solid #bf4b8a;
+    --border-sponsors-muted: 0.0625rem solid #db61a266;
+    --border-success-emphasis: 0.0625rem solid #238636;
+    --border-success-muted: 0.0625rem solid #2ea04366;
+    --border-transparent: 0.0625rem solid #00000000;
+    --borderColor-closed-emphasis: var(--borderColor-danger-emphasis); /** Strong border for closed state badges */
+    --borderColor-closed-muted: var(--borderColor-danger-muted); /** Subtle border for closed state indicators */
+    --borderColor-muted: #3d444db3; /** Subtle border for secondary elements and light separators */
+    --borderColor-neutral-emphasis: var(--borderColor-emphasis); /** Strong neutral semantic border */
+    --borderColor-open-emphasis: var(--borderColor-success-emphasis); /** Strong border for open state badges */
+    --borderColor-open-muted: var(--borderColor-success-muted); /** Subtle border for open state indicators */
+    --borderColor-translucent: #ffffff26; /** Semi-transparent border for overlays and layered elements. Border-specific token — no bgColor-translucent counterpart exists by design. */
+    --borderColor-upsell-emphasis: var(--borderColor-done-emphasis); /** Strong border for prominent upsell elements */
+    --borderColor-upsell-muted: var(--borderColor-done-muted); /** Subtle border for upsell and promotional content */
+    --button-danger-bgColor-active: var(--bgColor-danger-emphasis);
+    --button-danger-bgColor-rest: var(--control-bgColor-rest);
+    --button-danger-fgColor-active: #ffffff;
+    --button-danger-fgColor-disabled: #f8514980;
+    --button-danger-fgColor-hover: #ffffff;
+    --button-danger-iconColor-hover: #ffffff;
+    --button-default-bgColor-active: var(--control-bgColor-active);
+    --button-default-bgColor-hover: var(--control-bgColor-hover);
+    --button-default-bgColor-rest: var(--control-bgColor-rest);
+    --button-default-bgColor-selected: var(--control-bgColor-active);
+    --button-invisible-bgColor-active: var(--control-transparent-bgColor-active);
+    --button-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
+    --button-invisible-bgColor-rest: var(--control-transparent-bgColor-rest);
+    --button-invisible-borderColor-hover: var(--control-transparent-borderColor-hover);
+    --button-invisible-borderColor-rest: var(--control-transparent-borderColor-rest);
+    --button-invisible-iconColor-hover: var(--fgColor-muted);
+    --button-invisible-iconColor-rest: var(--fgColor-muted);
+    --button-outline-bgColor-hover: var(--control-bgColor-hover);
+    --button-outline-fgColor-active: #ffffff;
+    --button-primary-bgColor-rest: var(--bgColor-success-emphasis);
+    --button-primary-fgColor-disabled: #ffffff66;
+    --buttonCounter-danger-bgColor-disabled: #da36330d;
+    --buttonCounter-danger-bgColor-hover: #ffffff33;
+    --buttonCounter-danger-fgColor-disabled: #f8514980;
+    --buttonCounter-danger-fgColor-hover: #ffffff;
+    --buttonCounter-danger-fgColor-rest: var(--fgColor-danger);
+    --buttonCounter-invisible-bgColor-rest: var(--bgColor-neutral-muted);
+    --buttonCounter-outline-bgColor-disabled: #1f6feb0d;
+    --buttonKeybindingHint-danger-bgColor-rest: var(--buttonKeybindingHint-default-bgColor-rest);
+    --buttonKeybindingHint-danger-borderColor-active: var(--buttonKeybindingHint-danger-borderColor-hover);
+    --buttonKeybindingHint-default-bgColor-disabled: var(--buttonKeybindingHint-default-bgColor-rest);
+    --buttonKeybindingHint-default-fgColor-rest: var(--fgColor-muted);
+    --buttonKeybindingHint-inactive-fgColor: var(--button-inactive-fgColor);
+    --buttonKeybindingHint-invisible-bgColor-active: var(--control-transparent-bgColor-active);
+    --buttonKeybindingHint-invisible-bgColor-disabled: var(--button-invisible-bgColor-disabled);
+    --buttonKeybindingHint-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
+    --buttonKeybindingHint-invisible-bgColor-rest: var(--buttonKeybindingHint-default-bgColor-rest);
+    --buttonKeybindingHint-invisible-fgColor-rest: var(--fgColor-muted);
+    --buttonKeybindingHint-primary-bgColor-disabled: #04260f1a;
+    --buttonKeybindingHint-primary-bgColor-rest: var(--buttonCounter-primary-bgColor-rest);
+    --buttonKeybindingHint-primary-borderColor-rest: #04260f1a;
+    --card-bgColor: var(--bgColor-muted);
+    --codeMirror-activeline-bgColor: var(--bgColor-neutral-muted);
+    --codeMirror-bgColor: var(--bgColor-default);
+    --codeMirror-cursor-fgColor: var(--fgColor-default);
+    --codeMirror-fgColor: var(--fgColor-default);
+    --codeMirror-gutterMarker-fgColor-default: var(--bgColor-default);
+    --codeMirror-gutterMarker-fgColor-muted: var(--fgColor-muted);
+    --codeMirror-gutters-bgColor: var(--bgColor-default);
+    --codeMirror-lineNumber-fgColor: var(--fgColor-muted);
+    --codeMirror-lines-bgColor: var(--bgColor-default);
+    --codeMirror-matchingBracket-fgColor: var(--fgColor-default);
+    --codeMirror-selection-bgColor: var(--borderColor-accent-muted);
+    --color-ansi-white-bright: #ffffff;
+    --color-prettylights-syntax-invalid-illegal-bg: var(--bgColor-danger-muted);
+    --color-prettylights-syntax-invalid-illegal-text: var(--fgColor-danger);
+    --contribution-default-borderColor-1: var(--contribution-default-borderColor-0);
+    --contribution-default-borderColor-2: var(--contribution-default-borderColor-0);
+    --contribution-default-borderColor-3: var(--contribution-default-borderColor-0);
+    --contribution-default-borderColor-4: var(--contribution-default-borderColor-0);
+    --control-bgColor-disabled: var(--bgColor-disabled);
+    --control-bgColor-selected: var(--control-bgColor-rest);
+    --control-borderColor-danger: var(--borderColor-danger-emphasis);
+    --control-borderColor-disabled: var(--borderColor-disabled);
+    --control-borderColor-emphasis: var(--borderColor-emphasis);
+    --control-borderColor-rest: var(--borderColor-default);
+    --control-borderColor-success: var(--borderColor-success-emphasis);
+    --control-borderColor-warning: var(--borderColor-attention-emphasis);
+    --control-checked-bgColor-disabled: var(--fgColor-disabled);
+    --control-checked-bgColor-rest: var(--bgColor-accent-emphasis);
+    --control-checked-fgColor-disabled: #010409;
+    --control-danger-bgColor-active: #f8514966;
+    --control-danger-bgColor-hover: var(--bgColor-danger-muted);
+    --control-danger-fgColor-rest: var(--fgColor-danger);
+    --control-fgColor-disabled: var(--fgColor-disabled);
+    --control-fgColor-placeholder: var(--fgColor-muted);
+    --control-fgColor-rest: var(--fgColor-default);
+    --control-iconColor-rest: var(--fgColor-muted);
+    --control-transparent-bgColor-disabled: var(--bgColor-disabled);
+    --controlKnob-bgColor-checked: #ffffff;
+    --controlTrack-bgColor-disabled: var(--fgColor-disabled);
+    --controlTrack-bgColor-rest: #010409;
+    --controlTrack-borderColor-disabled: var(--fgColor-disabled);
+    --controlTrack-borderColor-rest: var(--borderColor-default);
+    --controlTrack-fgColor-rest: var(--fgColor-muted);
+    --counter-bgColor-emphasis: var(--bgColor-neutral-emphasis);
+    --counter-bgColor-muted: var(--bgColor-neutral-muted);
+    --diffBlob-additionLine-bgColor: var(--bgColor-success-muted);
+    --diffBlob-additionLine-fgColor: var(--fgColor-default);
+    --diffBlob-additionNum-fgColor: var(--fgColor-default);
+    --diffBlob-additionWord-fgColor: var(--fgColor-default);
+    --diffBlob-deletionLine-bgColor: var(--bgColor-danger-muted);
+    --diffBlob-deletionLine-fgColor: var(--fgColor-default);
+    --diffBlob-deletionNum-fgColor: var(--fgColor-default);
+    --diffBlob-deletionWord-fgColor: var(--fgColor-default);
+    --diffBlob-emptyLine-bgColor: var(--bgColor-muted);
+    --diffBlob-emptyNum-bgColor: var(--bgColor-muted);
+    --diffBlob-expander-iconColor: var(--fgColor-muted);
+    --diffBlob-hunkLine-bgColor: var(--bgColor-accent-muted);
+    --diffBlob-hunkLine-fgColor: var(--fgColor-muted);
+    --diffBlob-hunkNum-bgColor-hover: var(--bgColor-accent-emphasis);
+    --diffBlob-hunkNum-fgColor-rest: var(--fgColor-default);
+    --fgColor-black: #010409; /** Pure black text */
+    --fgColor-closed: var(--fgColor-danger); /** Text color for closed state indicators (issues, PRs) */
+    --fgColor-draft: var(--fgColor-neutral); /** Text color for draft state indicators */
+    --fgColor-onEmphasis: #ffffff; /** Text color for use on emphasis backgrounds */
+    --fgColor-onInverse: #010409; /** Text color for use on inverse backgrounds */
+    --fgColor-open: var(--fgColor-success); /** Text color for open state indicators (issues, PRs) */
+    --fgColor-upsell: var(--fgColor-done); /** Text color for upsell and promotional content */
+    --fgColor-white: #ffffff; /** Pure white text */
+    --focus-outline-color: var(--borderColor-accent-emphasis); /** Outline color for focus states on interactive elements */
+    --header-fgColor-default: #ffffffb3;
+    --overlay-bgColor: #010409;
+    --page-header-bgColor: var(--bgColor-default);
+    --progressBar-bgColor-accent: var(--bgColor-accent-emphasis);
+    --progressBar-bgColor-attention: var(--bgColor-attention-emphasis);
+    --progressBar-bgColor-danger: var(--bgColor-danger-emphasis);
+    --progressBar-bgColor-done: var(--bgColor-done-emphasis);
+    --progressBar-bgColor-neutral: var(--bgColor-neutral-emphasis);
+    --progressBar-bgColor-severe: var(--bgColor-severe-emphasis);
+    --progressBar-bgColor-sponsors: var(--bgColor-sponsors-emphasis);
+    --progressBar-bgColor-success: var(--bgColor-success-emphasis);
+    --progressBar-track-bgColor: var(--borderColor-default);
+    --reactionButton-selected-fgColor-rest: var(--fgColor-link);
+    --selectMenu-borderColor: var(--borderColor-default);
+    --selection-bgColor: #1f6febb3; /** Background color for text selection highlights */
+    --shadow-inset: inset 0 1px 0 0 #0104093d; /** Inset shadow for recessed elements */
+    --shadow-resting-medium: 0 1px 1px 0 #01040966, 0 3px 6px 0 #010409cc; /** Medium resting shadow for cards and elevated surfaces */
+    --shadow-resting-small: 0 1px 1px 0 #01040999, 0 1px 3px 0 #01040999; /** Small resting shadow for buttons and interactive elements */
+    --shadow-resting-xsmall: 0 1px 1px 0 #010409cc; /** Extra small resting shadow for minimal elevation */
+    --tooltip-bgColor: var(--bgColor-emphasis);
+    --treeViewItem-leadingVisual-iconColor-rest: var(--fgColor-muted);
+    --underlineNav-iconColor-rest: var(--fgColor-muted);
+    --avatar-borderColor: var(--borderColor-translucent);
+    --border-closed-emphasis: var(--border-danger-emphasis);
+    --border-closed-muted: var(--border-danger-muted);
+    --border-muted: 0.0625rem solid #3d444db3;
+    --border-neutral-emphasis: 0.0625rem solid #656c76;
+    --border-open-emphasis: var(--border-success-emphasis);
+    --border-open-muted: var(--border-success-muted);
+    --border-translucent: 0.0625rem solid #ffffff26; /** Semi-transparent border shorthand for overlays and layered elements. Border-specific token — no bgColor-translucent counterpart exists by design. */
+    --border-upsell-emphasis: 0.0625rem solid #8957e5;
+    --border-upsell-muted: 0.0625rem solid #ab7df866;
+    --borderColor-draft-emphasis: var(--borderColor-neutral-emphasis); /** Strong border for draft state badges */
+    --borderColor-neutral-muted: var(--borderColor-muted); /** Subtle neutral semantic border */
+    --button-danger-bgColor-disabled: var(--control-bgColor-disabled);
+    --button-danger-borderColor-rest: var(--control-borderColor-rest);
+    --button-danger-iconColor-disabled: var(--button-danger-fgColor-disabled);
+    --button-default-bgColor-disabled: var(--control-bgColor-disabled);
+    --button-default-borderColor-disabled: var(--control-borderColor-disabled);
+    --button-default-borderColor-rest: var(--control-borderColor-rest);
+    --button-default-fgColor-disabled: var(--control-fgColor-disabled);
+    --button-default-fgColor-rest: var(--control-fgColor-rest);
+    --button-invisible-fgColor-active: var(--control-fgColor-rest);
+    --button-invisible-fgColor-disabled: var(--control-fgColor-disabled);
+    --button-invisible-fgColor-hover: var(--control-fgColor-rest);
+    --button-invisible-fgColor-rest: var(--control-fgColor-rest);
+    --button-invisible-iconColor-disabled: var(--control-fgColor-disabled);
+    --button-outline-bgColor-disabled: var(--control-bgColor-disabled);
+    --button-primary-borderColor-rest: var(--borderColor-translucent);
+    --button-primary-fgColor-rest: var(--fgColor-white);
+    --button-primary-iconColor-disabled: var(--button-primary-fgColor-disabled);
+    --button-primary-iconColor-rest: var(--fgColor-white);
+    --buttonKeybindingHint-danger-bgColor-disabled: var(--buttonKeybindingHint-default-bgColor-disabled);
+    --buttonKeybindingHint-danger-fgColor-active: var(--fgColor-onEmphasis);
+    --buttonKeybindingHint-danger-fgColor-hover: var(--fgColor-onEmphasis);
+    --buttonKeybindingHint-danger-fgColor-rest: var(--buttonKeybindingHint-default-fgColor-rest);
+    --buttonKeybindingHint-default-borderColor-disabled: var(--control-borderColor-disabled);
+    --buttonKeybindingHint-default-borderColor-rest: var(--borderColor-muted);
+    --buttonKeybindingHint-default-fgColor-disabled: var(--control-fgColor-disabled);
+    --buttonKeybindingHint-inactive-borderColor: var(--borderColor-muted);
+    --buttonKeybindingHint-invisible-borderColor-disabled: var(--control-borderColor-disabled);
+    --buttonKeybindingHint-invisible-fgColor-disabled: var(--control-fgColor-disabled);
+    --buttonKeybindingHint-primary-borderColor-disabled: var(--control-borderColor-disabled);
+    --buttonKeybindingHint-primary-fgColor-disabled: var(--button-primary-fgColor-disabled);
+    --buttonKeybindingHint-primary-fgColor-rest: var(--fgColor-onEmphasis);
+    --control-checked-borderColor-disabled: var(--control-checked-bgColor-disabled);
+    --control-checked-borderColor-rest: var(--control-checked-bgColor-rest);
+    --control-checked-fgColor-rest: var(--fgColor-onEmphasis);
+    --controlKnob-bgColor-disabled: var(--control-bgColor-disabled);
+    --controlKnob-borderColor-checked: var(--control-checked-bgColor-rest);
+    --controlKnob-borderColor-disabled: var(--control-bgColor-disabled);
+    --controlKnob-borderColor-rest: var(--control-borderColor-rest);
+    --controlTrack-fgColor-disabled: var(--fgColor-onEmphasis);
+    --dashboard-bgColor: var(--bgColor-inset);
+    --diffBlob-hunkNum-fgColor-hover: var(--fgColor-onEmphasis);
+    --focus-outline: 0.125rem solid #1f6feb; /** Focus ring outline for keyboard navigation and accessibility. */
+    --focus-outlineColor: var(--focus-outline-color); /** Deprecated. Use focus.outline-color instead. */
+    --overlay-borderColor: var(--borderColor-muted);
+    --tooltip-fgColor: var(--fgColor-onEmphasis);
+    --border-draft-emphasis: 0.0625rem solid #656c76;
+    --border-neutral-muted: 0.0625rem solid #3d444db3;
+    --borderColor-draft-muted: var(--borderColor-neutral-muted); /** Subtle border for draft state indicators */
+    --button-danger-borderColor-hover: var(--button-primary-borderColor-rest);
+    --button-default-borderColor-active: var(--button-default-borderColor-rest);
+    --button-default-borderColor-hover: var(--button-default-borderColor-rest);
+    --button-primary-borderColor-active: var(--button-primary-borderColor-rest);
+    --button-primary-borderColor-hover: var(--button-primary-borderColor-rest);
+    --buttonKeybindingHint-danger-borderColor-disabled: var(--buttonKeybindingHint-default-borderColor-disabled);
+    --buttonKeybindingHint-danger-borderColor-rest: var(--buttonKeybindingHint-default-borderColor-rest);
+    --buttonKeybindingHint-danger-fgColor-disabled: var(--buttonKeybindingHint-default-fgColor-disabled);
+    --shadow-floating-large: 0 0 0 1px #3d444d, 0 24px 48px 0 #010409; /** Large floating shadow for modals and dialogs */
+    --shadow-floating-medium: 0 0 0 1px #3d444d, 0 8px 16px -4px #01040966, 0 4px 32px -4px #01040966, 0 24px 48px -12px #01040966, 0 48px 96px -24px #01040966; /** Medium floating shadow for popovers and action menus */
+    --shadow-floating-small: 0 0 0 1px #3d444d, 0 6px 12px -3px #01040966, 0 6px 18px 0 #01040966; /** Small floating shadow for dropdowns, tooltips, and small overlays */
+    --shadow-floating-xlarge: 0 0 0 1px #3d444d, 0 32px 64px 0 #010409; /** Extra large floating shadow for full-screen overlays and sheets */
+    --underlineNav-borderColor-hover: var(--borderColor-neutral-muted);
+    --border-draft-muted: 0.0625rem solid #3d444db3;
+    --button-danger-borderColor-active: var(--button-danger-borderColor-hover);
+    --button-outline-borderColor-hover: var(--button-default-borderColor-hover);
+    --button-outline-borderColor-active: var(--button-outline-borderColor-hover);
+  }
+}
+
+body:has(#root > div[data-color-mode="light"]),
+body.vscode-light:has(#root > div[data-color-mode="auto"]) {
+  .markdown-body, [data-theme="light"], [data-tippy-root] {
+    /* light */
+    color-scheme: light;
+    --bgColor-success-emphasis: #1f883d; /** Strong success background for prominent positive actions */
+    --button-outline-bgColor-active: #0757ba;
+    --button-primary-bgColor-active: #197935;
+    --button-primary-bgColor-disabled: #95d8a6;
+    --button-primary-bgColor-hover: #1c8139;
+    --buttonCounter-danger-fgColor-rest: #c21c2c;
+    --color-ansi-cyan: #1b7c83;
+    --color-ansi-cyan-bright: #3192aa;
+    --control-checked-bgColor-active: #0757ba;
+    --control-checked-bgColor-hover: #0860ca;
+    --fgColor-danger: #d1242f; /** Danger text for errors and destructive actions */
+    --reactionButton-selected-bgColor-hover: #caecff;
+    --avatarStack-fade-bgColor-default: #c8d1da;
+    --avatarStack-fade-bgColor-muted: #dae0e7;
+    --bgColor-accent-emphasis: #0969da; /** Strong accent background for active states and focused states */
+    --bgColor-accent-muted: #ddf4ff; /** Subtle accent background for informational or selected elements */
+    --bgColor-attention-emphasis: #9a6700; /** Strong attention background for prominent warnings */
+    --bgColor-attention-muted: #fff8c5; /** Subtle attention background for warnings and caution states */
+    --bgColor-danger-emphasis: #cf222e; /** Emphasized danger background for critical errors and delete confirmations */
+    --bgColor-danger-muted: #ffebe9; /** Muted danger background for error states and destructive action contexts */
+    --bgColor-disabled: #eff2f5; /** Background for disabled interactive elements */
+    --bgColor-done-emphasis: #8250df; /** Strong background for completed/done state badges and labels */
+    --bgColor-done-muted: #fbefff; /** Subtle background for completed/done state indicators */
+    --bgColor-emphasis: #25292e; /** High-emphasis dark background for strong visual contrast */
+    --bgColor-inverse: #25292e; /** Inverse background that flips between light and dark modes */
+    --bgColor-muted: #f6f8fa; /** Muted background for secondary content areas and subtle grouping */
+    --bgColor-neutral-emphasis: #59636e; /** Strong neutral background for prominent neutral elements */
+    --bgColor-neutral-muted: #818b981f; /** Subtle neutral background for tags, labels, and secondary UI elements */
+    --bgColor-open-emphasis: var(--bgColor-success-emphasis); /** Strong background for open state badges and labels */
+    --bgColor-severe-emphasis: #bc4c00; /** Strong severe background for prominent high-priority warnings */
+    --bgColor-severe-muted: #fff1e5; /** Subtle severe background for high-priority warnings */
+    --bgColor-sponsors-emphasis: #bf3989; /** Strong background for prominent GitHub Sponsors elements */
+    --bgColor-sponsors-muted: #ffeff7; /** Subtle background for GitHub Sponsors content */
+    --bgColor-success-muted: #dafbe1; /** Subtle success background for positive feedback and completed states */
+    --bgColor-transparent: #ffffff00; /** Fully transparent background */
+    --borderColor-accent-emphasis: #0969da; /** Strong accent border for selected or focused elements */
+    --borderColor-accent-muted: #54aeff66; /** Subtle accent border for selected or focused elements */
+    --borderColor-attention-emphasis: #9a6700; /** Strong attention border for prominent warnings */
+    --borderColor-attention-muted: #d4a72c66; /** Subtle attention border for warnings and caution states */
+    --borderColor-danger-emphasis: #cf222e; /** Strong danger border for destructive actions and errors */
+    --borderColor-danger-muted: #ff818266; /** Subtle danger border for errors and destructive contexts */
+    --borderColor-default: #d1d9e0; /** Default border color for most UI elements */
+    --borderColor-disabled: #818b981a; /** Border color for disabled interactive elements */
+    --borderColor-done-emphasis: #8250df; /** Strong border for completed/done state badges */
+    --borderColor-done-muted: #c297ff66; /** Subtle border for completed/done state indicators */
+    --borderColor-emphasis: #818b98; /** Strong border for emphasis and visual weight */
+    --borderColor-neutral-emphasis: #59636e; /** Strong neutral semantic border */
+    --borderColor-severe-emphasis: #bc4c00; /** Strong severe border for prominent high-priority warnings */
+    --borderColor-severe-muted: #fb8f4466; /** Subtle severe border for high-priority warnings */
+    --borderColor-sponsors-emphasis: #bf3989; /** Strong border for prominent GitHub Sponsors elements */
+    --borderColor-sponsors-muted: #ff80c866; /** Subtle border for GitHub Sponsors content */
+    --borderColor-success-emphasis: #1a7f37; /** Strong success border for prominent positive elements */
+    --borderColor-success-muted: #4ac26b66; /** Subtle success border for positive feedback elements */
+    --borderColor-transparent: #ffffff00; /** Fully transparent border */
+    --button-danger-bgColor-active: #a40e26;
+    --button-danger-fgColor-disabled: #d1242f80;
+    --button-danger-fgColor-rest: var(--fgColor-danger);
+    --button-danger-shadow-selected: inset 0 1px 0 0 #4c001433;
+    --button-inactive-bgColor: #e6eaef;
+    --button-inactive-fgColor: #59636e;
+    --button-invisible-bgColor-disabled: #ffffff00;
+    --button-invisible-borderColor-disabled: #ffffff00;
+    --button-outline-shadow-selected: inset 0 1px 0 0 #00215533;
+    --button-primary-bgColor-rest: var(--bgColor-success-emphasis);
+    --button-primary-borderColor-disabled: var(--button-primary-bgColor-disabled);
+    --button-primary-shadow-selected: inset 0 1px 0 0 #002d114d;
+    --button-star-iconColor: #eac54f;
+    --buttonCounter-danger-fgColor-disabled: #d1242f80;
+    --buttonCounter-outline-fgColor-rest: #0550ae;
+    --buttonCounter-primary-bgColor-rest: #002d1133;
+    --buttonKeybindingHint-danger-bgColor-active: #1f232866;
+    --buttonKeybindingHint-danger-bgColor-hover: #1f232833;
+    --buttonKeybindingHint-default-bgColor-rest: #eff2f5;
+    --buttonKeybindingHint-inactive-bgColor: #eff2f5;
+    --buttonKeybindingHint-invisible-borderColor-rest: #ffffff00;
+    --codeMirror-syntax-fgColor-constant: #0550ae;
+    --codeMirror-syntax-fgColor-entity: #8250df;
+    --codeMirror-syntax-fgColor-keyword: #cf222e;
+    --codeMirror-syntax-fgColor-storage: #cf222e;
+    --codeMirror-syntax-fgColor-string: #0a3069;
+    --codeMirror-syntax-fgColor-support: #0550ae;
+    --codeMirror-syntax-fgColor-variable: #953800;
+    --color-ansi-black-bright: #393f46;
+    --color-ansi-blue: #0969da;
+    --color-ansi-blue-bright: #218bff;
+    --color-ansi-gray: #59636e;
+    --color-ansi-green: #116329;
+    --color-ansi-green-bright: #1a7f37;
+    --color-ansi-magenta: #8250df;
+    --color-ansi-magenta-bright: #a475f9;
+    --color-ansi-red: #cf222e;
+    --color-ansi-red-bright: #a40e26;
+    --color-ansi-white: #59636e;
+    --color-ansi-white-bright: #818b98;
+    --color-ansi-yellow: #4d2d00;
+    --color-ansi-yellow-bright: #633c01;
+    --color-prettylights-syntax-brackethighlighter-angle: #59636e;
+    --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+    --color-prettylights-syntax-carriage-return-bg: #cf222e;
+    --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+    --color-prettylights-syntax-comment: #59636e;
+    --color-prettylights-syntax-constant: #0550ae;
+    --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+    --color-prettylights-syntax-entity: #6639ba;
+    --color-prettylights-syntax-entity-tag: #0550ae;
+    --color-prettylights-syntax-invalid-illegal-text: var(--fgColor-danger);
+    --color-prettylights-syntax-keyword: #cf222e;
+    --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+    --color-prettylights-syntax-markup-changed-text: #953800;
+    --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+    --color-prettylights-syntax-markup-deleted-text: #82071e;
+    --color-prettylights-syntax-markup-heading: #0550ae;
+    --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+    --color-prettylights-syntax-markup-ignored-text: #d1d9e0;
+    --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+    --color-prettylights-syntax-markup-inserted-text: #116329;
+    --color-prettylights-syntax-markup-list: #3b2300;
+    --color-prettylights-syntax-meta-diff-range: #8250df;
+    --color-prettylights-syntax-string: #0a3069;
+    --color-prettylights-syntax-string-regexp: #116329;
+    --color-prettylights-syntax-sublimelinter-gutter-mark: #818b98;
+    --color-prettylights-syntax-variable: #953800;
+    --contribution-default-bgColor-0: #eff2f5;
+    --contribution-default-bgColor-1: #aceebb;
+    --contribution-default-bgColor-2: #4ac26b;
+    --contribution-default-bgColor-3: #2da44e;
+    --contribution-default-bgColor-4: #116329;
+    --contribution-default-borderColor-0: #1f23280d;
+    --contribution-halloween-bgColor-1: #f0db3d;
+    --contribution-halloween-bgColor-2: #ffd642;
+    --contribution-halloween-bgColor-3: #f68c41;
+    --contribution-halloween-bgColor-4: #1f2328;
+    --contribution-winter-bgColor-1: #b6e3ff;
+    --contribution-winter-bgColor-2: #54aeff;
+    --contribution-winter-bgColor-3: #0969da;
+    --contribution-winter-bgColor-4: #0a3069;
+    --control-bgColor-active: #e6eaef;
+    --control-bgColor-hover: #eff2f5;
+    --control-bgColor-rest: #f6f8fa;
+    --control-checked-borderColor-active: var(--control-checked-bgColor-active);
+    --control-checked-borderColor-hover: var(--control-checked-bgColor-hover);
+    --control-danger-fgColor-hover: var(--fgColor-danger);
+    --control-danger-fgColor-rest: var(--fgColor-danger);
+    --control-fgColor-rest: #25292e;
+    --control-transparent-bgColor-active: #818b9826;
+    --control-transparent-bgColor-hover: #818b981a;
+    --control-transparent-bgColor-rest: #ffffff00;
+    --control-transparent-bgColor-selected: #818b9826;
+    --control-transparent-borderColor-active: #ffffff00;
+    --control-transparent-borderColor-hover: #ffffff00;
+    --control-transparent-borderColor-rest: #ffffff00;
+    --controlTrack-bgColor-active: #dae0e7;
+    --controlTrack-bgColor-hover: #e0e6eb;
+    --controlTrack-bgColor-rest: #e6eaef;
+    --controlTrack-fgColor-rest: #59636e;
+    --counter-borderColor: #ffffff00;
+    --data-auburn-color-emphasis: #9d615c;
+    --data-auburn-color-muted: #f2e9e9;
+    --data-blue-color-emphasis: #006edb;
+    --data-blue-color-muted: #d1f0ff;
+    --data-brown-color-emphasis: #856d4c;
+    --data-brown-color-muted: #eeeae2;
+    --data-coral-color-emphasis: #d43511;
+    --data-coral-color-muted: #ffe5db;
+    --data-gray-color-emphasis: #808fa3;
+    --data-gray-color-muted: #e8ecf2;
+    --data-green-color-emphasis: #30a147;
+    --data-green-color-muted: #caf7ca;
+    --data-lemon-color-emphasis: #866e04;
+    --data-lemon-color-muted: #f7eea1;
+    --data-lime-color-emphasis: #527a29;
+    --data-lime-color-muted: #e3f2b5;
+    --data-olive-color-emphasis: #64762d;
+    --data-olive-color-muted: #f0f0ad;
+    --data-orange-color-emphasis: #eb670f;
+    --data-orange-color-muted: #ffe7d1;
+    --data-pine-color-emphasis: #167e53;
+    --data-pine-color-muted: #bff8db;
+    --data-pink-color-emphasis: #ce2c85;
+    --data-pink-color-muted: #ffe5f1;
+    --data-plum-color-emphasis: #a830e8;
+    --data-plum-color-muted: #f8e5ff;
+    --data-purple-color-emphasis: #894ceb;
+    --data-purple-color-muted: #f1e5ff;
+    --data-red-color-emphasis: #df0c24;
+    --data-red-color-muted: #ffe2e0;
+    --data-teal-color-emphasis: #179b9b;
+    --data-teal-color-muted: #c7f5ef;
+    --data-yellow-color-emphasis: #b88700;
+    --data-yellow-color-muted: #ffec9e;
+    --diffBlob-additionNum-bgColor: #aceebb;
+    --diffBlob-additionWord-bgColor: #aceebb;
+    --diffBlob-deletionNum-bgColor: #ffcecb;
+    --diffBlob-deletionWord-bgColor: #ffcecb;
+    --diffBlob-hunkNum-bgColor-rest: #b6e3ff;
+    --display-auburn-bgColor-emphasis: #9d615c;
+    --display-auburn-bgColor-muted: #f2e9e9;
+    --display-auburn-borderColor-emphasis: #9d615c;
+    --display-auburn-borderColor-muted: #e6d6d5;
+    --display-auburn-fgColor: #8a5551;
+    --display-auburn-scale-0: #f2e9e9;
+    --display-auburn-scale-1: #e6d6d5;
+    --display-auburn-scale-2: #d4b7b5;
+    --display-auburn-scale-3: #c59e9b;
+    --display-auburn-scale-4: #b4827e;
+    --display-auburn-scale-5: #9d615c;
+    --display-auburn-scale-6: #8a5551;
+    --display-auburn-scale-7: #744744;
+    --display-auburn-scale-8: #5d3937;
+    --display-auburn-scale-9: #432928;
+    --display-blue-bgColor-emphasis: #006edb;
+    --display-blue-bgColor-muted: #d1f0ff;
+    --display-blue-borderColor-emphasis: #006edb;
+    --display-blue-borderColor-muted: #ade1ff;
+    --display-blue-fgColor: #005fcc;
+    --display-blue-scale-0: #d1f0ff;
+    --display-blue-scale-1: #ade1ff;
+    --display-blue-scale-2: #75c8ff;
+    --display-blue-scale-3: #47afff;
+    --display-blue-scale-4: #0f8fff;
+    --display-blue-scale-5: #006edb;
+    --display-blue-scale-6: #005fcc;
+    --display-blue-scale-7: #004db3;
+    --display-blue-scale-8: #003d99;
+    --display-blue-scale-9: #002b75;
+    --display-brown-bgColor-emphasis: #856d4c;
+    --display-brown-bgColor-muted: #eeeae2;
+    --display-brown-borderColor-emphasis: #856d4c;
+    --display-brown-borderColor-muted: #dfd7c8;
+    --display-brown-fgColor: #755f43;
+    --display-brown-scale-0: #eeeae2;
+    --display-brown-scale-1: #dfd7c8;
+    --display-brown-scale-2: #cbbda4;
+    --display-brown-scale-3: #b8a484;
+    --display-brown-scale-4: #a68b64;
+    --display-brown-scale-5: #856d4c;
+    --display-brown-scale-6: #755f43;
+    --display-brown-scale-7: #64513a;
+    --display-brown-scale-8: #51412f;
+    --display-brown-scale-9: #3a2e22;
+    --display-coral-bgColor-emphasis: #d43511;
+    --display-coral-bgColor-muted: #ffe5db;
+    --display-coral-borderColor-emphasis: #d43511;
+    --display-coral-borderColor-muted: #fecebe;
+    --display-coral-fgColor: #ba2e12;
+    --display-coral-scale-0: #ffe5db;
+    --display-coral-scale-1: #fecebe;
+    --display-coral-scale-2: #fcab92;
+    --display-coral-scale-3: #f88768;
+    --display-coral-scale-4: #f25f3a;
+    --display-coral-scale-5: #d43511;
+    --display-coral-scale-6: #ba2e12;
+    --display-coral-scale-7: #9b2712;
+    --display-coral-scale-8: #7e2011;
+    --display-coral-scale-9: #5d180e;
+    --display-cyan-bgColor-emphasis: #007b94;
+    --display-cyan-bgColor-muted: #bdf4ff;
+    --display-cyan-borderColor-emphasis: #007b94;
+    --display-cyan-borderColor-muted: #7ae9ff;
+    --display-cyan-fgColor: #006a80;
+    --display-cyan-scale-0: #bdf4ff;
+    --display-cyan-scale-1: #7ae9ff;
+    --display-cyan-scale-2: #00d0fa;
+    --display-cyan-scale-3: #00b7db;
+    --display-cyan-scale-4: #0099b8;
+    --display-cyan-scale-5: #007b94;
+    --display-cyan-scale-6: #006a80;
+    --display-cyan-scale-7: #00596b;
+    --display-cyan-scale-8: #004857;
+    --display-cyan-scale-9: #003742;
+    --display-gray-bgColor-emphasis: #647182;
+    --display-gray-bgColor-muted: #e8ecf2;
+    --display-gray-borderColor-emphasis: #647182;
+    --display-gray-borderColor-muted: #d2dae4;
+    --display-gray-fgColor: #5c6570;
+    --display-gray-scale-0: #e8ecf2;
+    --display-gray-scale-1: #d2dae4;
+    --display-gray-scale-2: #b4c0cf;
+    --display-gray-scale-3: #9ba9bb;
+    --display-gray-scale-4: #808fa3;
+    --display-gray-scale-5: #647182;
+    --display-gray-scale-6: #5c6570;
+    --display-gray-scale-7: #4e535a;
+    --display-gray-scale-8: #424448;
+    --display-gray-scale-9: #303031;
+    --display-green-bgColor-emphasis: #2c8141;
+    --display-green-bgColor-muted: #caf7ca;
+    --display-green-borderColor-emphasis: #2c8141;
+    --display-green-borderColor-muted: #9ceda0;
+    --display-green-fgColor: #2b6e3f;
+    --display-green-scale-0: #caf7ca;
+    --display-green-scale-1: #9ceda0;
+    --display-green-scale-2: #54d961;
+    --display-green-scale-3: #31bf46;
+    --display-green-scale-4: #30a147;
+    --display-green-scale-5: #2c8141;
+    --display-green-scale-6: #2b6e3f;
+    --display-green-scale-7: #285c3b;
+    --display-green-scale-8: #254b34;
+    --display-green-scale-9: #1d3528;
+    --display-indigo-bgColor-emphasis: #5a61e7;
+    --display-indigo-bgColor-muted: #e5e9ff;
+    --display-indigo-borderColor-emphasis: #5a61e7;
+    --display-indigo-borderColor-muted: #d2d7fe;
+    --display-indigo-fgColor: #494edf;
+    --display-indigo-scale-0: #e5e9ff;
+    --display-indigo-scale-1: #d2d7fe;
+    --display-indigo-scale-2: #b1b9fb;
+    --display-indigo-scale-3: #979ff7;
+    --display-indigo-scale-4: #7a82f0;
+    --display-indigo-scale-5: #5a61e7;
+    --display-indigo-scale-6: #494edf;
+    --display-indigo-scale-7: #393cd5;
+    --display-indigo-scale-8: #2d2db4;
+    --display-indigo-scale-9: #25247b;
+    --display-lemon-bgColor-emphasis: #866e04;
+    --display-lemon-bgColor-muted: #f7eea1;
+    --display-lemon-borderColor-emphasis: #866e04;
+    --display-lemon-borderColor-muted: #f0db3d;
+    --display-lemon-fgColor: #786002;
+    --display-lemon-scale-0: #f7eea1;
+    --display-lemon-scale-1: #f0db3d;
+    --display-lemon-scale-2: #d8bd0e;
+    --display-lemon-scale-3: #c2a60a;
+    --display-lemon-scale-4: #a68c07;
+    --display-lemon-scale-5: #866e04;
+    --display-lemon-scale-6: #786002;
+    --display-lemon-scale-7: #654f01;
+    --display-lemon-scale-8: #523f00;
+    --display-lemon-scale-9: #3d2e00;
+    --display-lime-bgColor-emphasis: #527a29;
+    --display-lime-bgColor-muted: #e3f2b5;
+    --display-lime-borderColor-emphasis: #527a29;
+    --display-lime-borderColor-muted: #c7e580;
+    --display-lime-fgColor: #476c28;
+    --display-lime-scale-0: #e3f2b5;
+    --display-lime-scale-1: #c7e580;
+    --display-lime-scale-2: #9bd039;
+    --display-lime-scale-3: #80b530;
+    --display-lime-scale-4: #6c9d2f;
+    --display-lime-scale-5: #527a29;
+    --display-lime-scale-6: #476c28;
+    --display-lime-scale-7: #3a5b25;
+    --display-lime-scale-8: #2f4a21;
+    --display-lime-scale-9: #213319;
+    --display-olive-bgColor-emphasis: #64762d;
+    --display-olive-bgColor-muted: #f0f0ad;
+    --display-olive-borderColor-emphasis: #64762d;
+    --display-olive-borderColor-muted: #dbe170;
+    --display-olive-fgColor: #56682c;
+    --display-olive-scale-0: #f0f0ad;
+    --display-olive-scale-1: #dbe170;
+    --display-olive-scale-2: #b9c832;
+    --display-olive-scale-3: #9bae32;
+    --display-olive-scale-4: #819532;
+    --display-olive-scale-5: #64762d;
+    --display-olive-scale-6: #56682c;
+    --display-olive-scale-7: #495a2b;
+    --display-olive-scale-8: #3b4927;
+    --display-olive-scale-9: #2a331f;
+    --display-orange-bgColor-emphasis: #b8500f;
+    --display-orange-bgColor-muted: #ffe7d1;
+    --display-orange-borderColor-emphasis: #b8500f;
+    --display-orange-borderColor-muted: #fecfaa;
+    --display-orange-fgColor: #a24610;
+    --display-orange-scale-0: #ffe7d1;
+    --display-orange-scale-1: #fecfaa;
+    --display-orange-scale-2: #fbaf74;
+    --display-orange-scale-3: #f68c41;
+    --display-orange-scale-4: #eb670f;
+    --display-orange-scale-5: #b8500f;
+    --display-orange-scale-6: #a24610;
+    --display-orange-scale-7: #8d3c11;
+    --display-orange-scale-8: #70300f;
+    --display-orange-scale-9: #54230d;
+    --display-pine-bgColor-emphasis: #167e53;
+    --display-pine-bgColor-muted: #bff8db;
+    --display-pine-borderColor-emphasis: #167e53;
+    --display-pine-borderColor-muted: #80efb9;
+    --display-pine-fgColor: #156f4b;
+    --display-pine-scale-0: #bff8db;
+    --display-pine-scale-1: #80efb9;
+    --display-pine-scale-2: #1dd781;
+    --display-pine-scale-3: #1dbf76;
+    --display-pine-scale-4: #1aa267;
+    --display-pine-scale-5: #167e53;
+    --display-pine-scale-6: #156f4b;
+    --display-pine-scale-7: #135d41;
+    --display-pine-scale-8: #114b36;
+    --display-pine-scale-9: #0d3627;
+    --display-pink-bgColor-emphasis: #ce2c85;
+    --display-pink-bgColor-muted: #ffe5f1;
+    --display-pink-borderColor-emphasis: #ce2c85;
+    --display-pink-borderColor-muted: #fdc9e2;
+    --display-pink-fgColor: #b12f79;
+    --display-pink-scale-0: #ffe5f1;
+    --display-pink-scale-1: #fdc9e2;
+    --display-pink-scale-2: #f8a5cf;
+    --display-pink-scale-3: #f184bc;
+    --display-pink-scale-4: #e55da5;
+    --display-pink-scale-5: #ce2c85;
+    --display-pink-scale-6: #b12f79;
+    --display-pink-scale-7: #8e2e66;
+    --display-pink-scale-8: #6e2b53;
+    --display-pink-scale-9: #4d233d;
+    --display-plum-bgColor-emphasis: #a830e8;
+    --display-plum-bgColor-muted: #f8e5ff;
+    --display-plum-borderColor-emphasis: #a830e8;
+    --display-plum-borderColor-muted: #f0cdfe;
+    --display-plum-fgColor: #961edc;
+    --display-plum-scale-0: #f8e5ff;
+    --display-plum-scale-1: #f0cdfe;
+    --display-plum-scale-2: #e2a7fb;
+    --display-plum-scale-3: #d487f7;
+    --display-plum-scale-4: #c264f2;
+    --display-plum-scale-5: #a830e8;
+    --display-plum-scale-6: #961edc;
+    --display-plum-scale-7: #7d1eb8;
+    --display-plum-scale-8: #651d96;
+    --display-plum-scale-9: #471769;
+    --display-purple-bgColor-emphasis: #894ceb;
+    --display-purple-bgColor-muted: #f1e5ff;
+    --display-purple-borderColor-emphasis: #894ceb;
+    --display-purple-borderColor-muted: #e6d2fe;
+    --display-purple-fgColor: #783ae4;
+    --display-purple-scale-0: #f1e5ff;
+    --display-purple-scale-1: #e6d2fe;
+    --display-purple-scale-2: #d1b1fc;
+    --display-purple-scale-3: #bc91f8;
+    --display-purple-scale-4: #a672f3;
+    --display-purple-scale-5: #894ceb;
+    --display-purple-scale-6: #783ae4;
+    --display-purple-scale-7: #6223d7;
+    --display-purple-scale-8: #4f21ab;
+    --display-purple-scale-9: #391b79;
+    --display-red-bgColor-emphasis: #df0c24;
+    --display-red-bgColor-muted: #ffe2e0;
+    --display-red-borderColor-emphasis: #df0c24;
+    --display-red-borderColor-muted: #fecdcd;
+    --display-red-fgColor: #c50d28;
+    --display-red-scale-0: #ffe2e0;
+    --display-red-scale-1: #fecdcd;
+    --display-red-scale-2: #fda5a7;
+    --display-red-scale-3: #fb8389;
+    --display-red-scale-4: #f85461;
+    --display-red-scale-5: #df0c24;
+    --display-red-scale-6: #c50d28;
+    --display-red-scale-7: #a60c29;
+    --display-red-scale-8: #880c27;
+    --display-red-scale-9: #610a20;
+    --display-teal-bgColor-emphasis: #127e81;
+    --display-teal-bgColor-muted: #c7f5ef;
+    --display-teal-borderColor-emphasis: #127e81;
+    --display-teal-borderColor-muted: #89ebe1;
+    --display-teal-fgColor: #106e75;
+    --display-teal-scale-0: #c7f5ef;
+    --display-teal-scale-1: #89ebe1;
+    --display-teal-scale-2: #22d3c7;
+    --display-teal-scale-3: #1db9b4;
+    --display-teal-scale-4: #179b9b;
+    --display-teal-scale-5: #127e81;
+    --display-teal-scale-6: #106e75;
+    --display-teal-scale-7: #0d5b63;
+    --display-teal-scale-8: #0a4852;
+    --display-teal-scale-9: #073740;
+    --display-yellow-bgColor-emphasis: #946a00;
+    --display-yellow-bgColor-muted: #ffec9e;
+    --display-yellow-borderColor-emphasis: #946a00;
+    --display-yellow-borderColor-muted: #ffd642;
+    --display-yellow-fgColor: #805900;
+    --display-yellow-scale-0: #ffec9e;
+    --display-yellow-scale-1: #ffd642;
+    --display-yellow-scale-2: #ebb400;
+    --display-yellow-scale-3: #d19d00;
+    --display-yellow-scale-4: #b88700;
+    --display-yellow-scale-5: #946a00;
+    --display-yellow-scale-6: #805900;
+    --display-yellow-scale-7: #704d00;
+    --display-yellow-scale-8: #5c3d00;
+    --display-yellow-scale-9: #422b00;
+    --fgColor-accent: #0969da; /** Accent text for links and interactive elements */
+    --fgColor-attention: #9a6700; /** Attention text for warnings and caution states */
+    --fgColor-closed: var(--fgColor-danger); /** Text color for closed state indicators (issues, PRs) */
+    --fgColor-disabled: #818b98; /** Text color for disabled interactive elements */
+    --fgColor-done: #8250df; /** Text color for completed/done state indicators */
+    --fgColor-muted: #59636e; /** Muted text for secondary content and less important information */
+    --fgColor-neutral: #59636e; /** Neutral semantic text for icons and secondary elements */
+    --fgColor-severe: #bc4c00; /** Severe text for high-priority warnings */
+    --fgColor-sponsors: #bf3989; /** Text color for GitHub Sponsors content */
+    --fgColor-success: #1a7f37; /** Success text for positive feedback and completed states */
+    --header-bgColor: #25292e;
+    --header-borderColor-divider: #818b98;
+    --headerSearch-bgColor: #25292e;
+    --headerSearch-borderColor: #818b98;
+    --highlight-neutral-bgColor: #fff8c5;
+    --label-auburn-bgColor-active: #d4b7b5;
+    --label-auburn-bgColor-hover: #e6d6d5;
+    --label-auburn-bgColor-rest: #f2e9e9;
+    --label-auburn-borderColor: #ffffff00;
+    --label-auburn-fgColor-active: #5d3937;
+    --label-auburn-fgColor-hover: #744744;
+    --label-auburn-fgColor-rest: #8a5551;
+    --label-blue-bgColor-active: #75c8ff;
+    --label-blue-bgColor-hover: #ade1ff;
+    --label-blue-bgColor-rest: #d1f0ff;
+    --label-blue-borderColor: #ffffff00;
+    --label-blue-fgColor-active: #003d99;
+    --label-blue-fgColor-hover: #004db3;
+    --label-blue-fgColor-rest: #005fcc;
+    --label-brown-bgColor-active: #cbbda4;
+    --label-brown-bgColor-hover: #dfd7c8;
+    --label-brown-bgColor-rest: #eeeae2;
+    --label-brown-borderColor: #ffffff00;
+    --label-brown-fgColor-active: #51412f;
+    --label-brown-fgColor-hover: #64513a;
+    --label-brown-fgColor-rest: #755f43;
+    --label-coral-bgColor-active: #fcab92;
+    --label-coral-bgColor-hover: #fecebe;
+    --label-coral-bgColor-rest: #ffe5db;
+    --label-coral-borderColor: #ffffff00;
+    --label-coral-fgColor-active: #7e2011;
+    --label-coral-fgColor-hover: #9b2712;
+    --label-coral-fgColor-rest: #ba2e12;
+    --label-cyan-bgColor-active: #00d0fa;
+    --label-cyan-bgColor-hover: #7ae9ff;
+    --label-cyan-bgColor-rest: #bdf4ff;
+    --label-cyan-borderColor: #ffffff00;
+    --label-cyan-fgColor-active: #004857;
+    --label-cyan-fgColor-hover: #00596b;
+    --label-cyan-fgColor-rest: #006a80;
+    --label-gray-bgColor-active: #b4c0cf;
+    --label-gray-bgColor-hover: #d2dae4;
+    --label-gray-bgColor-rest: #e8ecf2;
+    --label-gray-borderColor: #ffffff00;
+    --label-gray-fgColor-active: #424448;
+    --label-gray-fgColor-hover: #4e535a;
+    --label-gray-fgColor-rest: #5c6570;
+    --label-green-bgColor-active: #54d961;
+    --label-green-bgColor-hover: #9ceda0;
+    --label-green-bgColor-rest: #caf7ca;
+    --label-green-borderColor: #ffffff00;
+    --label-green-fgColor-active: #254b34;
+    --label-green-fgColor-hover: #285c3b;
+    --label-green-fgColor-rest: #2b6e3f;
+    --label-indigo-bgColor-active: #b1b9fb;
+    --label-indigo-bgColor-hover: #d2d7fe;
+    --label-indigo-bgColor-rest: #e5e9ff;
+    --label-indigo-borderColor: #ffffff00;
+    --label-indigo-fgColor-active: #2d2db4;
+    --label-indigo-fgColor-hover: #393cd5;
+    --label-indigo-fgColor-rest: #494edf;
+    --label-lemon-bgColor-active: #d8bd0e;
+    --label-lemon-bgColor-hover: #f0db3d;
+    --label-lemon-bgColor-rest: #f7eea1;
+    --label-lemon-borderColor: #ffffff00;
+    --label-lemon-fgColor-active: #523f00;
+    --label-lemon-fgColor-hover: #654f01;
+    --label-lemon-fgColor-rest: #786002;
+    --label-lime-bgColor-active: #9bd039;
+    --label-lime-bgColor-hover: #c7e580;
+    --label-lime-bgColor-rest: #e3f2b5;
+    --label-lime-borderColor: #ffffff00;
+    --label-lime-fgColor-active: #2f4a21;
+    --label-lime-fgColor-hover: #3a5b25;
+    --label-lime-fgColor-rest: #476c28;
+    --label-olive-bgColor-active: #b9c832;
+    --label-olive-bgColor-hover: #dbe170;
+    --label-olive-bgColor-rest: #f0f0ad;
+    --label-olive-borderColor: #ffffff00;
+    --label-olive-fgColor-active: #3b4927;
+    --label-olive-fgColor-hover: #495a2b;
+    --label-olive-fgColor-rest: #56682c;
+    --label-orange-bgColor-active: #fbaf74;
+    --label-orange-bgColor-hover: #fecfaa;
+    --label-orange-bgColor-rest: #ffe7d1;
+    --label-orange-borderColor: #ffffff00;
+    --label-orange-fgColor-active: #70300f;
+    --label-orange-fgColor-hover: #8d3c11;
+    --label-orange-fgColor-rest: #a24610;
+    --label-pine-bgColor-active: #1dd781;
+    --label-pine-bgColor-hover: #80efb9;
+    --label-pine-bgColor-rest: #bff8db;
+    --label-pine-borderColor: #ffffff00;
+    --label-pine-fgColor-active: #114b36;
+    --label-pine-fgColor-hover: #135d41;
+    --label-pine-fgColor-rest: #156f4b;
+    --label-pink-bgColor-active: #f8a5cf;
+    --label-pink-bgColor-hover: #fdc9e2;
+    --label-pink-bgColor-rest: #ffe5f1;
+    --label-pink-borderColor: #ffffff00;
+    --label-pink-fgColor-active: #6e2b53;
+    --label-pink-fgColor-hover: #8e2e66;
+    --label-pink-fgColor-rest: #b12f79;
+    --label-plum-bgColor-active: #e2a7fb;
+    --label-plum-bgColor-hover: #f0cdfe;
+    --label-plum-bgColor-rest: #f8e5ff;
+    --label-plum-borderColor: #ffffff00;
+    --label-plum-fgColor-active: #651d96;
+    --label-plum-fgColor-hover: #7d1eb8;
+    --label-plum-fgColor-rest: #961edc;
+    --label-purple-bgColor-active: #d1b1fc;
+    --label-purple-bgColor-hover: #e6d2fe;
+    --label-purple-bgColor-rest: #f1e5ff;
+    --label-purple-borderColor: #ffffff00;
+    --label-purple-fgColor-active: #4f21ab;
+    --label-purple-fgColor-hover: #6223d7;
+    --label-purple-fgColor-rest: #783ae4;
+    --label-red-bgColor-active: #fda5a7;
+    --label-red-bgColor-hover: #fecdcd;
+    --label-red-bgColor-rest: #ffe2e0;
+    --label-red-borderColor: #ffffff00;
+    --label-red-fgColor-active: #880c27;
+    --label-red-fgColor-hover: #a60c29;
+    --label-red-fgColor-rest: #c50d28;
+    --label-teal-bgColor-active: #22d3c7;
+    --label-teal-bgColor-hover: #89ebe1;
+    --label-teal-bgColor-rest: #c7f5ef;
+    --label-teal-borderColor: #ffffff00;
+    --label-teal-fgColor-active: #0a4852;
+    --label-teal-fgColor-hover: #0d5b63;
+    --label-teal-fgColor-rest: #106e75;
+    --label-yellow-bgColor-active: #ebb400;
+    --label-yellow-bgColor-hover: #ffd642;
+    --label-yellow-bgColor-rest: #ffec9e;
+    --label-yellow-borderColor: #ffffff00;
+    --label-yellow-fgColor-active: #5c3d00;
+    --label-yellow-fgColor-hover: #704d00;
+    --label-yellow-fgColor-rest: #805900;
+    --menu-bgColor-active: #ffffff00;
+    --overlay-backdrop-bgColor: #c8d1da66;
+    --progressBar-bgColor-success: var(--bgColor-success-emphasis);
+    --progressBar-track-borderColor: #ffffff00;
+    --reactionButton-selected-bgColor-rest: #ddf4ff;
+    --reactionButton-selected-fgColor-hover: #0550ae;
+    --selectMenu-bgColor-active: #b6e3ff;
+    --selectMenu-borderColor: #ffffff00;
+    --shadow-resting-medium: 0 1px 1px 0 #25292e1a, 0 3px 6px 0 #25292e1f; /** Medium resting shadow for cards and elevated surfaces */
+    --skeletonLoader-bgColor: #818b981a;
+    --topicTag-borderColor: #ffffff00;
+    --treeViewItem-leadingVisual-iconColor-rest: #54aeff;
+    --underlineNav-borderColor-active: #fd8c73;
+    --avatar-bgColor: #ffffff;
+    --avatar-shadow: 0 0 0 2px #ffffffcc;
+    --bgColor-black: #1f2328; /** Pure black background */
+    --bgColor-closed-emphasis: var(--bgColor-danger-emphasis); /** Strong background for closed state badges and labels */
+    --bgColor-closed-muted: var(--bgColor-danger-muted); /** Subtle background for closed state indicators (issues, PRs) */
+    --bgColor-default: #ffffff; /** Default background color for pages and main content areas */
+    --bgColor-draft-emphasis: var(--bgColor-neutral-emphasis); /** Strong background for draft state badges and labels */
+    --bgColor-draft-muted: var(--bgColor-neutral-muted); /** Subtle background for draft state indicators */
+    --bgColor-inset: var(--bgColor-muted); /** Inset background for recessed content areas like wells or sunken panels */
+    --bgColor-open-muted: var(--bgColor-success-muted); /** Subtle background for open state indicators (issues, PRs) */
+    --bgColor-upsell-emphasis: var(--bgColor-done-emphasis); /** Strong background for prominent upsell elements */
+    --bgColor-upsell-muted: var(--bgColor-done-muted); /** Subtle background for upsell and promotional content */
+    --bgColor-white: #ffffff; /** Pure white background */
+    --border-accent-emphasis: 0.0625rem solid #0969da;
+    --border-accent-muted: 0.0625rem solid #54aeff66;
+    --border-attention-emphasis: 0.0625rem solid #9a6700;
+    --border-attention-muted: 0.0625rem solid #d4a72c66;
+    --border-danger-emphasis: 0.0625rem solid #cf222e;
+    --border-danger-muted: 0.0625rem solid #ff818266;
+    --border-default: 0.0625rem solid #d1d9e0;
+    --border-disabled: 0.0625rem solid #818b981a;
+    --border-done-emphasis: 0.0625rem solid #8250df;
+    --border-done-muted: 0.0625rem solid #c297ff66;
+    --border-emphasis: 0.0625rem solid #818b98;
+    --border-neutral-emphasis: 0.0625rem solid #59636e;
+    --border-severe-emphasis: 0.0625rem solid #bc4c00;
+    --border-severe-muted: 0.0625rem solid #fb8f4466;
+    --border-sponsors-emphasis: 0.0625rem solid #bf3989;
+    --border-sponsors-muted: 0.0625rem solid #ff80c866;
+    --border-success-emphasis: 0.0625rem solid #1a7f37;
+    --border-success-muted: 0.0625rem solid #4ac26b66;
+    --border-transparent: 0.0625rem solid #ffffff00;
+    --borderColor-closed-emphasis: var(--borderColor-danger-emphasis); /** Strong border for closed state badges */
+    --borderColor-closed-muted: var(--borderColor-danger-muted); /** Subtle border for closed state indicators */
+    --borderColor-draft-emphasis: var(--borderColor-neutral-emphasis); /** Strong border for draft state badges */
+    --borderColor-muted: #d1d9e0b3; /** Subtle border for secondary elements and light separators */
+    --borderColor-open-emphasis: var(--borderColor-success-emphasis); /** Strong border for open state badges */
+    --borderColor-open-muted: var(--borderColor-success-muted); /** Subtle border for open state indicators */
+    --borderColor-translucent: #1f232826; /** Semi-transparent border for overlays and layered elements. Border-specific token — no bgColor-translucent counterpart exists by design. */
+    --borderColor-upsell-emphasis: var(--borderColor-done-emphasis); /** Strong border for prominent upsell elements */
+    --borderColor-upsell-muted: var(--borderColor-done-muted); /** Subtle border for upsell and promotional content */
+    --button-danger-bgColor-hover: var(--bgColor-danger-emphasis);
+    --button-danger-bgColor-rest: var(--control-bgColor-rest);
+    --button-danger-fgColor-active: #ffffff;
+    --button-danger-fgColor-hover: #ffffff;
+    --button-danger-iconColor-disabled: var(--button-danger-fgColor-disabled);
+    --button-danger-iconColor-hover: #ffffff;
+    --button-danger-iconColor-rest: var(--button-danger-fgColor-rest);
+    --button-default-bgColor-active: var(--control-bgColor-active);
+    --button-default-bgColor-hover: var(--control-bgColor-hover);
+    --button-default-bgColor-rest: var(--control-bgColor-rest);
+    --button-default-bgColor-selected: var(--control-bgColor-active);
+    --button-default-fgColor-rest: var(--control-fgColor-rest);
+    --button-default-shadow-resting: 0 1px 0 0 #1f23280a;
+    --button-invisible-bgColor-active: var(--control-transparent-bgColor-active);
+    --button-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
+    --button-invisible-bgColor-rest: var(--control-transparent-bgColor-rest);
+    --button-invisible-borderColor-hover: var(--control-transparent-borderColor-hover);
+    --button-invisible-borderColor-rest: var(--control-transparent-borderColor-rest);
+    --button-invisible-fgColor-active: var(--control-fgColor-rest);
+    --button-invisible-fgColor-hover: var(--control-fgColor-rest);
+    --button-invisible-fgColor-rest: var(--control-fgColor-rest);
+    --button-invisible-iconColor-hover: var(--fgColor-muted);
+    --button-invisible-iconColor-rest: var(--fgColor-muted);
+    --button-outline-bgColor-hover: var(--bgColor-accent-emphasis);
+    --button-outline-bgColor-rest: var(--control-bgColor-rest);
+    --button-outline-fgColor-active: #ffffff;
+    --button-outline-fgColor-disabled: #0969da80;
+    --button-outline-fgColor-hover: #ffffff;
+    --button-outline-fgColor-rest: var(--fgColor-accent);
+    --button-primary-fgColor-disabled: #ffffffcc;
+    --buttonCounter-danger-bgColor-disabled: #cf222e0d;
+    --buttonCounter-danger-bgColor-hover: #ffffff33;
+    --buttonCounter-danger-bgColor-rest: #cf222e1a;
+    --buttonCounter-danger-fgColor-hover: #ffffff;
+    --buttonCounter-default-bgColor-rest: var(--bgColor-neutral-muted);
+    --buttonCounter-invisible-bgColor-rest: var(--bgColor-neutral-muted);
+    --buttonCounter-outline-bgColor-disabled: #0969da0d;
+    --buttonCounter-outline-bgColor-hover: #ffffff33;
+    --buttonCounter-outline-bgColor-rest: #0969da1a;
+    --buttonCounter-outline-fgColor-disabled: #0969da80;
+    --buttonCounter-outline-fgColor-hover: #ffffff;
+    --buttonKeybindingHint-danger-bgColor-rest: var(--buttonKeybindingHint-default-bgColor-rest);
+    --buttonKeybindingHint-default-bgColor-disabled: var(--buttonKeybindingHint-default-bgColor-rest);
+    --buttonKeybindingHint-default-fgColor-rest: var(--fgColor-muted);
+    --buttonKeybindingHint-inactive-fgColor: var(--button-inactive-fgColor);
+    --buttonKeybindingHint-invisible-bgColor-active: var(--control-transparent-bgColor-active);
+    --buttonKeybindingHint-invisible-bgColor-disabled: var(--button-invisible-bgColor-disabled);
+    --buttonKeybindingHint-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
+    --buttonKeybindingHint-invisible-bgColor-rest: var(--buttonKeybindingHint-default-bgColor-rest);
+    --buttonKeybindingHint-invisible-fgColor-rest: var(--fgColor-muted);
+    --buttonKeybindingHint-primary-bgColor-disabled: #002d111a;
+    --buttonKeybindingHint-primary-bgColor-rest: var(--buttonCounter-primary-bgColor-rest);
+    --codeMirror-activeline-bgColor: var(--bgColor-neutral-muted);
+    --codeMirror-gutterMarker-fgColor-muted: var(--fgColor-muted);
+    --codeMirror-lineNumber-fgColor: var(--fgColor-muted);
+    --codeMirror-selection-bgColor: var(--borderColor-accent-muted);
+    --codeMirror-syntax-fgColor-comment: #1f2328;
+    --color-ansi-black: #1f2328;
+    --color-prettylights-syntax-invalid-illegal-bg: var(--bgColor-danger-muted);
+    --color-prettylights-syntax-markup-bold: #1f2328;
+    --color-prettylights-syntax-markup-italic: #1f2328;
+    --color-prettylights-syntax-storage-modifier-import: #1f2328;
+    --contribution-default-borderColor-1: var(--contribution-default-borderColor-0);
+    --contribution-default-borderColor-2: var(--contribution-default-borderColor-0);
+    --contribution-default-borderColor-3: var(--contribution-default-borderColor-0);
+    --contribution-default-borderColor-4: var(--contribution-default-borderColor-0);
+    --control-bgColor-disabled: var(--bgColor-disabled);
+    --control-bgColor-selected: var(--control-bgColor-rest);
+    --control-borderColor-danger: var(--borderColor-danger-emphasis);
+    --control-borderColor-disabled: var(--borderColor-disabled);
+    --control-borderColor-emphasis: var(--borderColor-emphasis);
+    --control-borderColor-rest: var(--borderColor-default);
+    --control-borderColor-success: var(--borderColor-success-emphasis);
+    --control-borderColor-warning: var(--borderColor-attention-emphasis);
+    --control-checked-bgColor-disabled: var(--fgColor-disabled);
+    --control-checked-bgColor-rest: var(--bgColor-accent-emphasis);
+    --control-danger-bgColor-active: #ffebe966;
+    --control-danger-bgColor-hover: var(--bgColor-danger-muted);
+    --control-fgColor-disabled: var(--fgColor-disabled);
+    --control-fgColor-placeholder: var(--fgColor-muted);
+    --control-iconColor-rest: var(--fgColor-muted);
+    --control-transparent-bgColor-disabled: var(--bgColor-disabled);
+    --controlKnob-bgColor-checked: #ffffff;
+    --controlKnob-bgColor-rest: #ffffff;
+    --controlTrack-bgColor-disabled: var(--fgColor-disabled);
+    --controlTrack-borderColor-disabled: var(--fgColor-disabled);
+    --controlTrack-borderColor-rest: var(--borderColor-default);
+    --counter-bgColor-emphasis: var(--bgColor-neutral-emphasis);
+    --counter-bgColor-muted: var(--bgColor-neutral-muted);
+    --diffBlob-additionLine-bgColor: var(--bgColor-success-muted);
+    --diffBlob-deletionLine-bgColor: var(--bgColor-danger-muted);
+    --diffBlob-emptyLine-bgColor: var(--bgColor-muted);
+    --diffBlob-emptyNum-bgColor: var(--bgColor-muted);
+    --diffBlob-expander-iconColor: var(--fgColor-muted);
+    --diffBlob-hunkLine-bgColor: var(--bgColor-accent-muted);
+    --diffBlob-hunkLine-fgColor: var(--fgColor-muted);
+    --diffBlob-hunkNum-bgColor-hover: var(--bgColor-accent-emphasis);
+    --fgColor-black: #1f2328; /** Pure black text */
+    --fgColor-default: #1f2328; /** Default text color for primary content and headings */
+    --fgColor-draft: var(--fgColor-neutral); /** Text color for draft state indicators */
+    --fgColor-link: var(--fgColor-accent); /** Text color for hyperlinks */
+    --fgColor-onEmphasis: #ffffff; /** Text color for use on emphasis backgrounds */
+    --fgColor-onInverse: #ffffff; /** Text color for use on inverse backgrounds */
+    --fgColor-open: var(--fgColor-success); /** Text color for open state indicators (issues, PRs) */
+    --fgColor-upsell: var(--fgColor-done); /** Text color for upsell and promotional content */
+    --fgColor-white: #ffffff; /** Pure white text */
+    --focus-outline-color: var(--borderColor-accent-emphasis); /** Outline color for focus states on interactive elements */
+    --header-fgColor-default: #ffffffb3;
+    --header-fgColor-logo: #ffffff;
+    --overlay-bgColor: #ffffff;
+    --page-header-bgColor: var(--bgColor-muted);
+    --progressBar-bgColor-accent: var(--bgColor-accent-emphasis);
+    --progressBar-bgColor-attention: var(--bgColor-attention-emphasis);
+    --progressBar-bgColor-danger: var(--bgColor-danger-emphasis);
+    --progressBar-bgColor-done: var(--bgColor-done-emphasis);
+    --progressBar-bgColor-neutral: var(--bgColor-neutral-emphasis);
+    --progressBar-bgColor-severe: var(--bgColor-severe-emphasis);
+    --progressBar-bgColor-sponsors: var(--bgColor-sponsors-emphasis);
+    --progressBar-track-bgColor: var(--borderColor-default);
+    --selection-bgColor: #0969da33; /** Background color for text selection highlights */
+    --shadow-inset: inset 0 1px 0 0 #1f23280a; /** Inset shadow for recessed elements */
+    --shadow-resting-small: 0 1px 1px 0 #1f23280a, 0 1px 2px 0 #1f232808; /** Small resting shadow for buttons and interactive elements */
+    --shadow-resting-xsmall: 0 1px 1px 0 #1f23280d; /** Extra small resting shadow for minimal elevation */
+    --sideNav-bgColor-selected: #ffffff;
+    --timelineBadge-bgColor: var(--bgColor-muted);
+    --tooltip-bgColor: var(--bgColor-emphasis);
+    --underlineNav-iconColor-rest: var(--fgColor-muted);
+    --avatar-borderColor: var(--borderColor-translucent);
+    --border-closed-emphasis: var(--border-danger-emphasis);
+    --border-closed-muted: var(--border-danger-muted);
+    --border-draft-emphasis: 0.0625rem solid #59636e;
+    --border-muted: 0.0625rem solid #d1d9e0b3;
+    --border-open-emphasis: var(--border-success-emphasis);
+    --border-open-muted: var(--border-success-muted);
+    --border-translucent: 0.0625rem solid #1f232826; /** Semi-transparent border shorthand for overlays and layered elements. Border-specific token — no bgColor-translucent counterpart exists by design. */
+    --border-upsell-emphasis: 0.0625rem solid #8250df;
+    --border-upsell-muted: 0.0625rem solid #c297ff66;
+    --borderColor-neutral-muted: var(--borderColor-muted); /** Subtle neutral semantic border */
+    --button-danger-bgColor-disabled: var(--control-bgColor-disabled);
+    --button-danger-borderColor-rest: var(--control-borderColor-rest);
+    --button-default-bgColor-disabled: var(--control-bgColor-disabled);
+    --button-default-borderColor-active: var(--control-borderColor-rest);
+    --button-default-borderColor-disabled: var(--control-borderColor-disabled);
+    --button-default-borderColor-rest: var(--control-borderColor-rest);
+    --button-default-fgColor-disabled: var(--control-fgColor-disabled);
+    --button-invisible-fgColor-disabled: var(--control-fgColor-disabled);
+    --button-invisible-iconColor-disabled: var(--control-fgColor-disabled);
+    --button-outline-bgColor-disabled: var(--control-bgColor-disabled);
+    --button-primary-borderColor-rest: var(--borderColor-translucent);
+    --button-primary-fgColor-rest: var(--fgColor-white);
+    --button-primary-iconColor-disabled: var(--button-primary-fgColor-disabled);
+    --button-primary-iconColor-rest: #ffffffcc;
+    --buttonKeybindingHint-danger-bgColor-disabled: var(--buttonKeybindingHint-default-bgColor-disabled);
+    --buttonKeybindingHint-danger-borderColor-hover: var(--borderColor-translucent);
+    --buttonKeybindingHint-danger-fgColor-active: var(--fgColor-onEmphasis);
+    --buttonKeybindingHint-danger-fgColor-hover: var(--fgColor-onEmphasis);
+    --buttonKeybindingHint-danger-fgColor-rest: var(--buttonKeybindingHint-default-fgColor-rest);
+    --buttonKeybindingHint-default-borderColor-disabled: var(--control-borderColor-disabled);
+    --buttonKeybindingHint-default-borderColor-rest: var(--borderColor-muted);
+    --buttonKeybindingHint-default-fgColor-disabled: var(--control-fgColor-disabled);
+    --buttonKeybindingHint-inactive-borderColor: var(--borderColor-muted);
+    --buttonKeybindingHint-invisible-borderColor-disabled: var(--control-borderColor-disabled);
+    --buttonKeybindingHint-invisible-fgColor-disabled: var(--control-fgColor-disabled);
+    --buttonKeybindingHint-primary-borderColor-disabled: var(--control-borderColor-disabled);
+    --buttonKeybindingHint-primary-borderColor-rest: var(--borderColor-translucent);
+    --buttonKeybindingHint-primary-fgColor-disabled: var(--button-primary-fgColor-disabled);
+    --buttonKeybindingHint-primary-fgColor-rest: var(--fgColor-onEmphasis);
+    --card-bgColor: var(--bgColor-default);
+    --codeMirror-bgColor: var(--bgColor-default);
+    --codeMirror-cursor-fgColor: var(--fgColor-default);
+    --codeMirror-fgColor: var(--fgColor-default);
+    --codeMirror-gutterMarker-fgColor-default: var(--bgColor-default);
+    --codeMirror-gutters-bgColor: var(--bgColor-default);
+    --codeMirror-lines-bgColor: var(--bgColor-default);
+    --codeMirror-matchingBracket-fgColor: var(--fgColor-default);
+    --control-borderColor-selected: var(--control-bgColor-selected);
+    --control-checked-borderColor-disabled: var(--control-checked-bgColor-disabled);
+    --control-checked-borderColor-rest: var(--control-checked-bgColor-rest);
+    --control-checked-fgColor-disabled: var(--fgColor-onEmphasis);
+    --control-checked-fgColor-rest: var(--fgColor-onEmphasis);
+    --controlKnob-bgColor-disabled: var(--control-bgColor-disabled);
+    --controlKnob-borderColor-checked: var(--control-checked-bgColor-rest);
+    --controlKnob-borderColor-disabled: var(--control-bgColor-disabled);
+    --controlKnob-borderColor-rest: var(--control-borderColor-rest);
+    --controlTrack-fgColor-disabled: var(--fgColor-onEmphasis);
+    --dashboard-bgColor: var(--bgColor-default);
+    --diffBlob-additionLine-fgColor: var(--fgColor-default);
+    --diffBlob-additionNum-fgColor: var(--fgColor-default);
+    --diffBlob-additionWord-fgColor: var(--fgColor-default);
+    --diffBlob-deletionLine-fgColor: var(--fgColor-default);
+    --diffBlob-deletionNum-fgColor: var(--fgColor-default);
+    --diffBlob-deletionWord-fgColor: var(--fgColor-default);
+    --diffBlob-hunkNum-fgColor-hover: var(--fgColor-onEmphasis);
+    --diffBlob-hunkNum-fgColor-rest: var(--fgColor-default);
+    --focus-outline: 0.125rem solid #0969da; /** Focus ring outline for keyboard navigation and accessibility. */
+    --focus-outlineColor: var(--focus-outline-color); /** Deprecated. Use focus.outline-color instead. */
+    --overlay-borderColor: #d1d9e080;
+    --reactionButton-selected-fgColor-rest: var(--fgColor-link);
+    --tooltip-fgColor: var(--fgColor-onEmphasis);
+    --underlineNav-borderColor-hover: var(--borderColor-muted);
+    --border-neutral-muted: 0.0625rem solid #d1d9e0b3;
+    --borderColor-draft-muted: var(--borderColor-neutral-muted); /** Subtle border for draft state indicators */
+    --button-danger-borderColor-hover: var(--button-primary-borderColor-rest);
+    --button-default-borderColor-hover: var(--button-default-borderColor-rest);
+    --button-primary-borderColor-active: var(--button-primary-borderColor-rest);
+    --button-primary-borderColor-hover: var(--button-primary-borderColor-rest);
+    --buttonKeybindingHint-danger-borderColor-active: var(--buttonKeybindingHint-danger-borderColor-hover);
+    --buttonKeybindingHint-danger-borderColor-disabled: var(--buttonKeybindingHint-default-borderColor-disabled);
+    --buttonKeybindingHint-danger-borderColor-rest: var(--buttonKeybindingHint-default-borderColor-rest);
+    --buttonKeybindingHint-danger-fgColor-disabled: var(--buttonKeybindingHint-default-fgColor-disabled);
+    --shadow-floating-large: 0 0 0 1px #d1d9e000, 0 40px 80px 0 #25292e3d; /** Large floating shadow for modals and dialogs */
+    --shadow-floating-medium: 0 0 0 1px #d1d9e000, 0 8px 16px -4px #25292e14, 0 4px 32px -4px #25292e14, 0 24px 48px -12px #25292e14, 0 48px 96px -24px #25292e14; /** Medium floating shadow for popovers and action menus */
+    --shadow-floating-small: 0 0 0 1px #d1d9e040, 0 6px 12px -3px #25292e0a, 0 6px 18px 0 #25292e1f; /** Small floating shadow for dropdowns, tooltips, and small overlays */
+    --shadow-floating-xlarge: 0 0 0 1px #d1d9e000, 0 56px 112px 0 #25292e52; /** Extra large floating shadow for full-screen overlays and sheets */
+    --border-draft-muted: 0.0625rem solid #d1d9e0b3;
+    --button-danger-borderColor-active: var(--button-danger-borderColor-hover);
+    --button-outline-borderColor-hover: var(--button-primary-borderColor-hover);
+    --button-outline-borderColor-active: var(--button-outline-borderColor-hover);
+  }
+}
+
+.markdown-body {
+  /** CSS default easing. Use for hover state changes and micro-interactions. */
+  /** Accelerating motion. Use for elements exiting the viewport (moving off-screen). */
+  /** Smooth acceleration and deceleration. Use for elements moving or morphing within the viewport. */
+  /** Decelerating motion. Use for elements entering the viewport or appearing on screen. */
+  /** Constant motion with no acceleration. Use for continuous animations like progress bars or loaders. */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  font-weight: var(--base-text-weight-normal, 400);
+  color: var(--fgColor-default);
+  background-color: var(--bgColor-default);
+  font-family: var(--fontStack-sansSerif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji");
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  text-decoration: underline;
+  text-underline-offset: .2rem;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");
+  mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' aria-hidden='true'><path fill-rule='evenodd' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'></path></svg>");
+}
+
+.markdown-body details,
+.markdown-body figcaption,
+.markdown-body figure {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body [hidden] {
+  display: none !important;
+}
+
+.markdown-body a {
+  background-color: rgba(0,0,0,0);
+  color: var(--fgColor-accent);
+  text-decoration: none;
+}
+
+.markdown-body abbr[title] {
+  border-bottom: none;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: var(--base-text-weight-semibold, 600);
+}
+
+.markdown-body dfn {
+  font-style: italic;
+}
+
+.markdown-body h1 {
+  margin: .67em 0;
+  font-weight: var(--base-text-weight-semibold, 600);
+  padding-bottom: .3em;
+  font-size: 2em;
+  border-bottom: 1px solid var(--borderColor-muted);
+}
+
+.markdown-body mark {
+  background-color: var(--bgColor-attention-muted);
+  color: var(--fgColor-default);
+}
+
+.markdown-body small {
+  font-size: 90%;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body sup {
+  top: -0.5em;
+}
+
+.markdown-body img {
+  border-style: none;
+  max-width: 100%;
+  box-sizing: content-box;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+.markdown-body figure {
+  margin: 1em var(--base-size-40);
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  overflow: hidden;
+  background: rgba(0,0,0,0);
+  border-bottom: 1px solid var(--borderColor-muted);
+  height: .25em;
+  padding: 0;
+  margin: var(--base-size-24) 0;
+  background-color: var(--borderColor-default);
+  border: 0;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body [type=button],
+.markdown-body [type=reset],
+.markdown-body [type=submit] {
+  -webkit-appearance: button;
+  appearance: button;
+}
+
+.markdown-body [type=checkbox],
+.markdown-body [type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body [type=number]::-webkit-inner-spin-button,
+.markdown-body [type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.markdown-body [type=search]::-webkit-search-cancel-button,
+.markdown-body [type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body ::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .54;
+}
+
+.markdown-body ::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  appearance: button;
+  font: inherit;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body ::placeholder {
+  color: var(--fgColor-muted);
+  opacity: 1;
+}
+
+.markdown-body hr::before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  font-variant: tabular-nums;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body a:focus,
+.markdown-body [role=button]:focus,
+.markdown-body input[type=radio]:focus,
+.markdown-body input[type=checkbox]:focus {
+  outline: 2px solid var(--focus-outlineColor);
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+.markdown-body a:focus:not(:focus-visible),
+.markdown-body [role=button]:focus:not(:focus-visible),
+.markdown-body input[type=radio]:focus:not(:focus-visible),
+.markdown-body input[type=checkbox]:focus:not(:focus-visible) {
+  outline: solid 1px rgba(0,0,0,0);
+}
+
+.markdown-body a:focus-visible,
+.markdown-body [role=button]:focus-visible,
+.markdown-body input[type=radio]:focus-visible,
+.markdown-body input[type=checkbox]:focus-visible {
+  outline: 2px solid var(--focus-outlineColor);
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+.markdown-body a:not([class]):focus,
+.markdown-body a:not([class]):focus-visible,
+.markdown-body input[type=radio]:focus,
+.markdown-body input[type=radio]:focus-visible,
+.markdown-body input[type=checkbox]:focus,
+.markdown-body input[type=checkbox]:focus-visible {
+  outline-offset: 0;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: var(--base-size-4);
+  font: 11px var(--fontStack-monospace, ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace);
+  line-height: 10px;
+  color: var(--fgColor-default);
+  vertical-align: middle;
+  background-color: var(--bgColor-muted);
+  border: solid 1px var(--borderColor-neutral-muted);
+  border-bottom-color: var(--borderColor-neutral-muted);
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 var(--borderColor-neutral-muted);
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: var(--base-size-24);
+  margin-bottom: var(--base-size-16);
+  font-weight: var(--base-text-weight-semibold, 600);
+  line-height: 1.25;
+}
+
+.markdown-body h2 {
+  font-weight: var(--base-text-weight-semibold, 600);
+  padding-bottom: .3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid var(--borderColor-muted);
+}
+
+.markdown-body h3 {
+  font-weight: var(--base-text-weight-semibold, 600);
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-weight: var(--base-text-weight-semibold, 600);
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-weight: var(--base-text-weight-semibold, 600);
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  font-weight: var(--base-text-weight-semibold, 600);
+  font-size: .85em;
+  color: var(--fgColor-muted);
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+  padding: 0 1em;
+  color: var(--fgColor-muted);
+  border-left: .25em solid var(--borderColor-default);
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body tt,
+.markdown-body code,
+.markdown-body samp {
+  font-family: var(--fontStack-monospace, ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace);
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--fontStack-monospace, ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace);
+  font-size: 12px;
+  word-wrap: normal;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-body input::-webkit-outer-spin-button,
+.markdown-body input::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.markdown-body .mr-2 {
+  margin-right: var(--base-size-8, 8px) !important;
+}
+
+.markdown-body::before {
+  display: table;
+  content: "";
+}
+
+.markdown-body::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .absent {
+  color: var(--fgColor-danger);
+}
+
+.markdown-body .anchor {
+  float: left;
+  padding-right: var(--base-size-4);
+  margin-left: -20px;
+  line-height: 1;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body details {
+  margin-top: 0;
+  margin-bottom: var(--base-size-16);
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: var(--fgColor-default);
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 tt,
+.markdown-body h1 code,
+.markdown-body h2 tt,
+.markdown-body h2 code,
+.markdown-body h3 tt,
+.markdown-body h3 code,
+.markdown-body h4 tt,
+.markdown-body h4 code,
+.markdown-body h5 tt,
+.markdown-body h5 code,
+.markdown-body h6 tt,
+.markdown-body h6 code {
+  padding: 0 .2em;
+  font-size: inherit;
+}
+
+.markdown-body summary h1,
+.markdown-body summary h2,
+.markdown-body summary h3,
+.markdown-body summary h4,
+.markdown-body summary h5,
+.markdown-body summary h6 {
+  display: inline-block;
+}
+
+.markdown-body summary h1 .anchor,
+.markdown-body summary h2 .anchor,
+.markdown-body summary h3 .anchor,
+.markdown-body summary h4 .anchor,
+.markdown-body summary h5 .anchor,
+.markdown-body summary h6 .anchor {
+  margin-left: -40px;
+}
+
+.markdown-body summary h1,
+.markdown-body summary h2 {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.markdown-body ul.no-list,
+.markdown-body ol.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.markdown-body ol[type="a s"] {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body ol[type="A s"] {
+  list-style-type: upper-alpha;
+}
+
+.markdown-body ol[type="i s"] {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol[type="I s"] {
+  list-style-type: upper-roman;
+}
+
+.markdown-body ol[type="1"] {
+  list-style-type: decimal;
+}
+
+.markdown-body div>ol:not([type]) {
+  list-style-type: decimal;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: var(--base-size-16);
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: var(--base-size-16);
+  font-size: 1em;
+  font-style: italic;
+  font-weight: var(--base-text-weight-semibold, 600);
+}
+
+.markdown-body dl dd {
+  padding: 0 var(--base-size-16);
+  margin-bottom: var(--base-size-16);
+}
+
+.markdown-body table th {
+  font-weight: var(--base-text-weight-semibold, 600);
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid var(--borderColor-default);
+}
+
+.markdown-body table td>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table tr {
+  background-color: var(--bgColor-default);
+  border-top: 1px solid var(--borderColor-muted);
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: var(--bgColor-muted);
+}
+
+.markdown-body table img {
+  background-color: rgba(0,0,0,0);
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body .emoji {
+  max-width: none;
+  vertical-align: text-top;
+  background-color: rgba(0,0,0,0);
+}
+
+.markdown-body span.frame {
+  display: block;
+  overflow: hidden;
+}
+
+.markdown-body span.frame>span {
+  display: block;
+  float: left;
+  width: auto;
+  padding: 7px;
+  margin: 13px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--borderColor-default);
+}
+
+.markdown-body span.frame span img {
+  display: block;
+  float: left;
+}
+
+.markdown-body span.frame span span {
+  display: block;
+  padding: 5px 0 0;
+  clear: both;
+  color: var(--fgColor-default);
+}
+
+.markdown-body span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+.markdown-body span.align-center>span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.markdown-body span.align-center span img {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.markdown-body span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+.markdown-body span.align-right>span {
+  display: block;
+  margin: 13px 0 0;
+  overflow: hidden;
+  text-align: right;
+}
+
+.markdown-body span.align-right span img {
+  margin: 0;
+  text-align: right;
+}
+
+.markdown-body span.float-left {
+  display: block;
+  float: left;
+  margin-right: 13px;
+  overflow: hidden;
+}
+
+.markdown-body span.float-left span {
+  margin: 13px 0 0;
+}
+
+.markdown-body span.float-right {
+  display: block;
+  float: right;
+  margin-left: 13px;
+  overflow: hidden;
+}
+
+.markdown-body span.float-right>span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: right;
+}
+
+.markdown-body code,
+.markdown-body tt {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  white-space: break-spaces;
+  background-color: var(--bgColor-neutral-muted);
+  border-radius: 6px;
+}
+
+.markdown-body code br,
+.markdown-body tt br {
+  display: none;
+}
+
+.markdown-body del code {
+  text-decoration: inherit;
+}
+
+.markdown-body samp {
+  font-size: 85%;
+}
+
+.markdown-body pre code {
+  font-size: 100%;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  word-break: normal;
+  white-space: pre;
+  background: rgba(0,0,0,0);
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: var(--base-size-16);
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: var(--base-size-16);
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  color: var(--fgColor-default);
+  background-color: var(--bgColor-muted);
+  border-radius: 6px;
+}
+
+.markdown-body pre code,
+.markdown-body pre tt {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: rgba(0,0,0,0);
+  border: 0;
+}
+
+.markdown-body .csv-data td,
+.markdown-body .csv-data th {
+  padding: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.markdown-body .csv-data .blob-num {
+  padding: 10px var(--base-size-8) 9px;
+  text-align: right;
+  background: var(--bgColor-default);
+  border: 0;
+}
+
+.markdown-body .csv-data tr {
+  border-top: 0;
+}
+
+.markdown-body .csv-data th {
+  font-weight: var(--base-text-weight-semibold, 600);
+  background: var(--bgColor-muted);
+  border-top: 0;
+}
+
+.markdown-body [data-footnote-ref]::before {
+  content: "[";
+}
+
+.markdown-body [data-footnote-ref]::after {
+  content: "]";
+}
+
+.markdown-body .footnotes {
+  font-size: 12px;
+  color: var(--fgColor-muted);
+  border-top: 1px solid var(--borderColor-default);
+}
+
+.markdown-body .footnotes ol {
+  padding-left: var(--base-size-16);
+}
+
+.markdown-body .footnotes ol ul {
+  display: inline-block;
+  padding-left: var(--base-size-16);
+  margin-top: var(--base-size-16);
+}
+
+.markdown-body .footnotes li {
+  position: relative;
+}
+
+.markdown-body .footnotes li:target::before {
+  position: absolute;
+  top: calc(var(--base-size-8)*-1);
+  right: calc(var(--base-size-8)*-1);
+  bottom: calc(var(--base-size-8)*-1);
+  left: calc(var(--base-size-24)*-1);
+  pointer-events: none;
+  content: "";
+  border: 2px solid var(--borderColor-accent-emphasis);
+  border-radius: 6px;
+}
+
+.markdown-body .footnotes li:target {
+  color: var(--fgColor-default);
+}
+
+.markdown-body .footnotes .data-footnote-backref g-emoji {
+  font-family: monospace;
+}
+
+.markdown-body .pl-c {
+  color: var(--color-prettylights-syntax-comment);
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: var(--color-prettylights-syntax-constant);
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: var(--color-prettylights-syntax-entity);
+}
+
+.markdown-body .pl-smi,
+.markdown-body .pl-s .pl-s1 {
+  color: var(--color-prettylights-syntax-storage-modifier-import);
+}
+
+.markdown-body .pl-ent {
+  color: var(--color-prettylights-syntax-entity-tag);
+}
+
+.markdown-body .pl-k {
+  color: var(--color-prettylights-syntax-keyword);
+}
+
+.markdown-body .pl-s,
+.markdown-body .pl-pds,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sre,
+.markdown-body .pl-sr .pl-sra {
+  color: var(--color-prettylights-syntax-string);
+}
+
+.markdown-body .pl-v,
+.markdown-body .pl-smw {
+  color: var(--color-prettylights-syntax-variable);
+}
+
+.markdown-body .pl-bu {
+  color: var(--color-prettylights-syntax-brackethighlighter-unmatched);
+}
+
+.markdown-body .pl-ii {
+  color: var(--color-prettylights-syntax-invalid-illegal-text);
+  background-color: var(--color-prettylights-syntax-invalid-illegal-bg);
+}
+
+.markdown-body .pl-c2 {
+  color: var(--color-prettylights-syntax-carriage-return-text);
+  background-color: var(--color-prettylights-syntax-carriage-return-bg);
+}
+
+.markdown-body .pl-sr .pl-cce {
+  font-weight: bold;
+  color: var(--color-prettylights-syntax-string-regexp);
+}
+
+.markdown-body .pl-ml {
+  color: var(--color-prettylights-syntax-markup-list);
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  font-weight: bold;
+  color: var(--color-prettylights-syntax-markup-heading);
+}
+
+.markdown-body .pl-mi {
+  font-style: italic;
+  color: var(--color-prettylights-syntax-markup-italic);
+}
+
+.markdown-body .pl-mb {
+  font-weight: bold;
+  color: var(--color-prettylights-syntax-markup-bold);
+}
+
+.markdown-body .pl-md {
+  color: var(--color-prettylights-syntax-markup-deleted-text);
+  background-color: var(--color-prettylights-syntax-markup-deleted-bg);
+}
+
+.markdown-body .pl-mi1 {
+  color: var(--color-prettylights-syntax-markup-inserted-text);
+  background-color: var(--color-prettylights-syntax-markup-inserted-bg);
+}
+
+.markdown-body .pl-mc {
+  color: var(--color-prettylights-syntax-markup-changed-text);
+  background-color: var(--color-prettylights-syntax-markup-changed-bg);
+}
+
+.markdown-body .pl-mi2 {
+  color: var(--color-prettylights-syntax-markup-ignored-text);
+  background-color: var(--color-prettylights-syntax-markup-ignored-bg);
+}
+
+.markdown-body .pl-mdr {
+  font-weight: bold;
+  color: var(--color-prettylights-syntax-meta-diff-range);
+}
+
+.markdown-body .pl-ba {
+  color: var(--color-prettylights-syntax-brackethighlighter-angle);
+}
+
+.markdown-body .pl-sg {
+  color: var(--color-prettylights-syntax-sublimelinter-gutter-mark);
+}
+
+.markdown-body .pl-corl {
+  text-decoration: underline;
+  color: var(--color-prettylights-syntax-constant-other-reference-link);
+}
+
+.markdown-body [role=button]:focus:not(:focus-visible),
+.markdown-body [role=tabpanel][tabindex="0"]:focus:not(:focus-visible),
+.markdown-body button:focus:not(:focus-visible),
+.markdown-body summary:focus:not(:focus-visible),
+.markdown-body a:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.markdown-body [tabindex="0"]:focus:not(:focus-visible),
+.markdown-body details-dialog:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.markdown-body g-emoji {
+  display: inline-block;
+  min-width: 1ch;
+  font-family: "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 1em;
+  font-style: normal !important;
+  font-weight: var(--base-text-weight-normal, 400);
+  line-height: 1;
+  vertical-align: -0.075em;
+}
+
+.markdown-body g-emoji img {
+  width: 1em;
+  height: 1em;
+}
+
+.markdown-body a:has(>p,>div,>pre,>blockquote) {
+  display: block;
+}
+
+.markdown-body a:has(>p,>div,>pre,>blockquote):not(:has(.snippet-clipboard-content,>pre)) {
+  width: fit-content;
+}
+
+.markdown-body a:has(>p,>div,>pre,>blockquote):has(.snippet-clipboard-content,>pre):focus-visible {
+  outline: 2px solid var(--focus-outlineColor);
+  outline-offset: 2px;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item label {
+  font-weight: var(--base-text-weight-normal, 400);
+}
+
+.markdown-body .task-list-item.enabled label {
+  cursor: pointer;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: var(--base-size-4);
+}
+
+.markdown-body .task-list-item .handle {
+  display: none;
+}
+
+.markdown-body .task-list-item-checkbox {
+  margin: 0 .2em .25em -1.4em;
+  vertical-align: middle;
+}
+
+.markdown-body ul:dir(rtl) .task-list-item-checkbox {
+  margin: 0 -1.6em .25em .2em;
+}
+
+.markdown-body ol:dir(rtl) .task-list-item-checkbox {
+  margin: 0 -1.6em .25em .2em;
+}
+
+.markdown-body .contains-task-list:hover .task-list-item-convert-container,
+.markdown-body .contains-task-list:focus-within .task-list-item-convert-container {
+  display: block;
+  width: auto;
+  height: 24px;
+  overflow: visible;
+  clip-path: none;
+}
+
+.markdown-body ::-webkit-calendar-picker-indicator {
+  filter: invert(50%);
+}
+
+.markdown-body .markdown-alert {
+  padding: var(--base-size-8) var(--base-size-16);
+  margin-bottom: var(--base-size-16);
+  color: inherit;
+  border-left: .25em solid var(--borderColor-default);
+}
+
+.markdown-body .markdown-alert>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body .markdown-alert>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body .markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: var(--base-text-weight-medium, 500);
+  align-items: center;
+  line-height: 1;
+}
+
+.markdown-body .markdown-alert.markdown-alert-note {
+  border-left-color: var(--borderColor-accent-emphasis);
+}
+
+.markdown-body .markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--fgColor-accent);
+}
+
+.markdown-body .markdown-alert.markdown-alert-important {
+  border-left-color: var(--borderColor-done-emphasis);
+}
+
+.markdown-body .markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--fgColor-done);
+}
+
+.markdown-body .markdown-alert.markdown-alert-warning {
+  border-left-color: var(--borderColor-attention-emphasis);
+}
+
+.markdown-body .markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--fgColor-attention);
+}
+
+.markdown-body .markdown-alert.markdown-alert-tip {
+  border-left-color: var(--borderColor-success-emphasis);
+}
+
+.markdown-body .markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--fgColor-success);
+}
+
+.markdown-body .markdown-alert.markdown-alert-caution {
+  border-left-color: var(--borderColor-danger-emphasis);
+}
+
+.markdown-body .markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--fgColor-danger);
+}
+
+.markdown-body>*:first-child>.heading-element:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .highlight pre:has(+.zeroclipboard-container) {
+  min-height: 52px;
+}

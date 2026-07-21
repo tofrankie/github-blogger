@@ -1,3 +1,7 @@
+@import url('@/styles/lib/github.css');
+@import url('@/styles/lib/github-markdown.css');
+@import url('@/styles/editor.css');
+@import url('@/styles/preview.css');
 @import url('@/styles/bytemd.css');
 @import url('@/styles/primer.css');
 @import url('@/styles/toast.css');

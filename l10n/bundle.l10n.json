@@ -3,6 +3,7 @@
   "Enter your GitHub Personal Access Token (classic)": "Enter your GitHub Personal Access Token (classic)",
   "Enter your GitHub username": "Enter your GitHub username",
   "Enter your blog repository branch name. Used for post/image storage, usually the default branch": "Enter your blog repository branch name. Used for post/image storage, usually the default branch",
+  "Select your preferred color mode": "Select your preferred color mode",
   "Enter your blog repository name. It will be created automatically if it does not exist.": "Enter your blog repository name. It will be created automatically if it does not exist.",
   "Cannot be empty": "Cannot be empty",
   "Initializing GitHub Blogger": "Initializing GitHub Blogger",

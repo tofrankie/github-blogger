@@ -1,7 +1,19 @@
-export type SettingKey = 'token' | 'user' | 'repo' | 'branch'
+export const COLOR_MODE = {
+  SYSTEM: 'system',
+  LIGHT: 'light',
+  DARK: 'dark',
+} as const
 
-export type Settings = {
-  [K in SettingKey]: string
+export type ColorMode = (typeof COLOR_MODE)[keyof typeof COLOR_MODE]
+
+export type SettingKey = 'token' | 'user' | 'repo' | 'branch' | 'color-mode'
+
+export interface Settings {
+  token: string
+  user: string
+  repo: string
+  branch: string
+  'color-mode': ColorMode
 }
 
 export type GitHubNodeId = string

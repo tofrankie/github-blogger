@@ -55,6 +55,16 @@
           "type": "string",
           "description": "%github-blogger.configuration.branch.description%",
           "default": "main"
+        },
+        "github-blogger.color-mode": {
+          "type": "string",
+          "description": "%github-blogger.configuration.color-mode.description%",
+          "enum": [
+            "system",
+            "light",
+            "dark"
+          ],
+          "default": "light"
         }
       }
     },

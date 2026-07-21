@@ -13,6 +13,8 @@
 
 - 通过 GitHub issue 管理和发布博客文章
 - 原生 GitHub 交互体验
+- 支持 GFM 渲染，如 GitHub Alerts
+- 支持深色和浅色模式
 - 支持实时预览和插件的 Markdown 编辑器（数学公式、Mermaid 图表等）
 - 支持免费图床功能，图片存储在你的博客仓库里，通过 jsDelivr CDN 提供显示服务
 - 所有文章以及编辑记录（以 Git Commit 形式）存储在你的博客仓库中
@@ -40,7 +42,8 @@
   "github-blogger.token": "your-github-token",
   "github-blogger.user": "your-github-username",
   "github-blogger.repo": "your-github-repo",
-  "github-blogger.branch": "main"
+  "github-blogger.branch": "main",
+  "github-blogger.color-mode": "light"
 }
 ```
 

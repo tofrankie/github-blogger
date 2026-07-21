@@ -1,8 +1,9 @@
 import type { Uri as UriType, Webview } from 'vscode'
-import type { ResultTuple, SettingKey, Settings } from '~/types'
+import type { ColorMode, ResultTuple, SettingKey, Settings } from '~/types'
 
 import { Uri, workspace } from 'vscode'
 import { EXTENSION_NAME } from '@/constants'
+import { COLOR_MODE } from '~/types'
 
 /**
  * A helper function that returns a unique alphanumeric identifier called a nonce.
@@ -46,14 +47,20 @@ export function checkSettings(): boolean {
 let settings: Settings | null = null
 
 const DEFAULT_BRANCH = 'main'
+const DEFAULT_COLOR_MODE = COLOR_MODE.LIGHT
+
+function normalizeColorMode(value: ColorMode | string | undefined): ColorMode {
+  return value === COLOR_MODE.LIGHT || value === COLOR_MODE.DARK ? value : DEFAULT_COLOR_MODE
+}
 
 function readSettings(): Settings {
   const token = getSettingValue('token')
   const user = getSettingValue('user')
   const repo = getSettingValue('repo')
   const branch = getSettingValue('branch') || DEFAULT_BRANCH
+  const colorMode = normalizeColorMode(getSettingValue('color-mode'))
 
-  return { token, user, repo, branch }
+  return { token, user, repo, branch, 'color-mode': colorMode }
 }
 
 export function invalidateSettingsCache(): void {

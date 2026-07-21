@@ -13,6 +13,8 @@ In principle, it works with all VSCodium-based editors, such as Cursor, TRAE, Ki
 
 - Manage and publish blog posts via GitHub issue
 - GitHub-native interaction experience
+- GFM render support, such as Alerts
+- Light and dark mode support
 - Markdown editing with live preview and plugin support (Math, Mermaid, etc.)
 - Free image hosting support: images are stored in your blog repository and served via jsDelivr CDN
 - All posts and edit history (as Git commits) are stored in your blog repository
@@ -40,7 +42,8 @@ Example:
   "github-blogger.token": "your-github-token",
   "github-blogger.user": "your-github-username",
   "github-blogger.repo": "your-github-repo",
-  "github-blogger.branch": "main"
+  "github-blogger.branch": "main",
+  "github-blogger.color-mode": "light"
 }
 ```
 

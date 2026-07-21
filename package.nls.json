@@ -3,6 +3,7 @@
   "github-blogger.configuration.user.description": "Your GitHub Username",
   "github-blogger.configuration.repo.description": "Your Blog Repository Name",
   "github-blogger.configuration.branch.description": "Your Blog Repository Branch Name",
+  "github-blogger.configuration.color-mode.description": "Color mode for the editor: system follows the current Editor color mode, light uses light mode, dark uses dark mode",
   "github-blogger.command.open": "Open GitHub Blogger",
   "github-blogger.command.configure": "Configure GitHub Blogger"
 }
