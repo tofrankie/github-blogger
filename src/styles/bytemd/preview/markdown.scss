@@ -1,5 +1,18 @@
 /* stylelint-disable */
 
+.bytemd-body > .bytemd-preview code {
+  color: var(--fgColor-default);
+}
+
+.bytemd-body > .bytemd-preview a code {
+  color: var(--fgColor-accent);
+}
+
+.bytemd-body > .bytemd-preview blockquote {
+  background: none !important;
+  border-color: var(--borderColor-default);
+}
+
 .markdown-body code {
   color: var(--fgColor-default);
 }
@@ -56,7 +69,7 @@
 }
 
 .markdown-body .markdown-alert .markdown-alert-title {
-  gap: var(--base-size-8, 8px);
+  gap: var(--base-size-8);
 }
 
 pre code.hljs {
@@ -66,9 +79,6 @@ pre code.hljs {
 
 code.hljs {
   padding: 3px 5px;
-}
-
-.markdown-body {
 }
 
 /*!

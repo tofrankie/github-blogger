@@ -91,7 +91,7 @@
     "lint": "run-s lint:eslint lint:prettier lint:stylelint typecheck",
     "lint:eslint": "eslint . --cache --fix",
     "lint:prettier": "prettier . --cache --write --log-level silent",
-    "lint:stylelint": "stylelint './**/*.{css,html}' --cache --fix",
+    "lint:stylelint": "stylelint './**/*.{css,scss,html}' --cache --fix",
     "typecheck": "tsc --noEmit",
     "check": "run-s typecheck lint",
     "prepare": "simple-git-hooks"
@@ -152,6 +152,7 @@
     "lint-staged": "17.0.8",
     "npm-run-all2": "9.0.2",
     "prettier": "3.9.5",
+    "sass": "1.101.3",
     "simple-git-hooks": "2.13.1",
     "stylelint": "17.14.0",
     "typescript": "5.9.3",

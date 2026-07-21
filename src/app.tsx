@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ActionBar, Editor, Issues, Labels } from '@/components'
 
-import '@/app.css'
+import '@/styles/app.scss'
 
 export default function App() {
   const [issuesVisible, setIssuesVisible] = useState(true)

@@ -1,0 +1,30 @@
+.markdown-body [id^='bytemd-mermaid-'] {
+  .actor {
+    fill: var(--mermaid-node-bg) !important;
+    stroke: var(--mermaid-node-border) !important;
+    stroke-width: 1 !important;
+  }
+
+  text.actor > tspan,
+  .messageText {
+    fill: var(--mermaid-text-muted) !important;
+    stroke: none !important;
+  }
+
+  #arrowhead path {
+    fill: var(--mermaid-marker) !important;
+    stroke: var(--mermaid-marker) !important;
+  }
+
+  .messageLine0 {
+    stroke: var(--mermaid-line) !important;
+    stroke-width: 1.5 !important;
+    stroke-dasharray: none !important;
+  }
+
+  .messageLine1 {
+    stroke: var(--mermaid-line) !important;
+    stroke-width: 1.5 !important;
+    stroke-dasharray: 2, 2;
+  }
+}

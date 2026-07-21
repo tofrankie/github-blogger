@@ -1,0 +1,108 @@
+.markdown-body [id^='bytemd-mermaid-'] {
+  --mermaid-ref-surface: var(--bgColor-default);
+  --mermaid-ref-surface-muted: var(--bgColor-muted);
+  --mermaid-ref-text: var(--fgColor-default);
+  --mermaid-ref-text-muted: var(--fgColor-muted);
+  --mermaid-ref-border: var(--borderColor-default);
+  --mermaid-ref-border-muted: var(--borderColor-muted);
+  --mermaid-ref-text-on-emphasis: var(--fgColor-onEmphasis);
+  --mermaid-ref-accent-muted: var(--bgColor-accent-muted);
+  --mermaid-ref-neutral-muted: var(--bgColor-neutral-muted);
+  --mermaid-ref-done-muted: var(--bgColor-done-muted);
+  --mermaid-ref-attention-muted: var(--bgColor-attention-muted);
+  --mermaid-ref-danger-muted: var(--bgColor-danger-muted);
+  --mermaid-ref-danger-emphasis: var(--bgColor-danger-emphasis);
+  --mermaid-ref-accent-emphasis: var(--bgColor-accent-emphasis);
+  --mermaid-surface: var(--mermaid-ref-surface);
+  --mermaid-surface-muted: var(--mermaid-ref-surface-muted);
+  --mermaid-node-bg: var(--mermaid-ref-surface-muted);
+  --mermaid-node-border: var(--mermaid-ref-border);
+  --mermaid-text: var(--mermaid-ref-text);
+  --mermaid-text-muted: var(--mermaid-ref-text-muted);
+  --mermaid-text-inverse: var(--mermaid-ref-text-on-emphasis);
+  --mermaid-line: var(--mermaid-ref-border-muted);
+  --mermaid-marker: var(--mermaid-line);
+  --mermaid-label-bg: var(--mermaid-ref-surface);
+  --mermaid-cluster-bg: var(--mermaid-ref-surface-muted);
+  --mermaid-cluster-border: var(--mermaid-ref-border-muted);
+  --mermaid-section-0: var(--mermaid-ref-accent-muted);
+  --mermaid-section-1: var(--mermaid-ref-neutral-muted);
+  --mermaid-section-2: var(--mermaid-ref-done-muted);
+  --mermaid-section-3: var(--mermaid-ref-attention-muted);
+  --mermaid-task-bg: var(--mermaid-ref-surface-muted);
+  --mermaid-task-border: var(--mermaid-ref-border);
+  --mermaid-task-active-bg: var(--mermaid-ref-accent-muted);
+  --mermaid-task-done-bg: var(--mermaid-ref-neutral-muted);
+  --mermaid-task-critical-bg: var(--mermaid-ref-danger-muted);
+  --mermaid-today-line: var(--mermaid-ref-danger-emphasis);
+
+  color: var(--mermaid-text);
+  fill: var(--mermaid-text);
+
+  p {
+    margin: 0;
+  }
+
+  span,
+  p,
+  .label text {
+    color: var(--mermaid-text) !important;
+    fill: var(--mermaid-text) !important;
+  }
+
+  .marker,
+  .marker.cross {
+    fill: var(--mermaid-marker) !important;
+    stroke: var(--mermaid-marker) !important;
+  }
+
+  .edge-thickness-normal {
+    stroke-width: 1px;
+  }
+
+  .edge-thickness-thick {
+    stroke-width: 3.5px;
+  }
+
+  .edge-thickness-invisible {
+    fill: none;
+    stroke-width: 0;
+  }
+
+  .edge-pattern-solid {
+    stroke-dasharray: 0;
+  }
+
+  .edge-pattern-dashed {
+    stroke-dasharray: 3;
+  }
+
+  .edge-pattern-dotted {
+    stroke-dasharray: 2;
+  }
+}
+
+body:has(#root > div[data-color-mode='dark']),
+body.vscode-dark:has(#root > div[data-color-mode='auto']) {
+  .markdown-body [id^='bytemd-mermaid-'] {
+    --mermaid-node-bg: #1f2020;
+    --mermaid-node-border: #ccc;
+    --mermaid-text: #ccc;
+    --mermaid-text-muted: lightgrey;
+    --mermaid-line: lightgrey;
+    --mermaid-marker: lightgrey;
+    --mermaid-label-bg: hsl(0deg 0% 34.4117647059%);
+    --mermaid-cluster-bg: hsl(180deg 1.5873015873% 28.3529411765%);
+    --mermaid-cluster-border: rgb(255 255 255 / 25%);
+    --mermaid-section-0: hsl(52.9411764706deg 28.813559322% 58.431372549%);
+    --mermaid-section-1: #333;
+    --mermaid-section-2: #eae8d9;
+    --mermaid-section-3: #333;
+    --mermaid-task-bg: hsl(180deg 1.5873015873% 35.3529411765%);
+    --mermaid-task-border: #fff;
+    --mermaid-task-active-bg: #81b1db;
+    --mermaid-task-done-bg: lightgrey;
+    --mermaid-task-critical-bg: #e83737;
+    --mermaid-today-line: #db5757;
+  }
+}

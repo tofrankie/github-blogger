@@ -1,0 +1,30 @@
+.markdown-body [id^='bytemd-mermaid-'] {
+  .node rect,
+  .node circle,
+  .node polygon,
+  .node path {
+    fill: var(--mermaid-node-bg) !important;
+    stroke: var(--mermaid-node-border) !important;
+    stroke-width: 1px !important;
+  }
+
+  .cluster rect {
+    fill: var(--mermaid-cluster-bg) !important;
+    stroke: var(--mermaid-cluster-border) !important;
+    stroke-width: 1px !important;
+  }
+
+  .cluster-label .nodeLabel {
+    color: var(--mermaid-text) !important;
+  }
+
+  .flowchart-link {
+    fill: none;
+    stroke: var(--mermaid-line) !important;
+  }
+
+  .edgeLabel {
+    color: var(--mermaid-text) !important;
+    background-color: var(--mermaid-label-bg) !important;
+  }
+}

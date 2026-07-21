@@ -1,0 +1,155 @@
+.app-bytemd {
+  position: relative;
+  /* 占满高度，且避免整个编辑器容器滚动 */
+  > div {
+    height: 100%;
+  }
+
+  /* 编辑器内容有变化时，添加高亮 */
+  .bytemd {
+    min-height: 100%;
+    max-height: 100%;
+    color: var(--fgColor-default);
+    background-color: var(--bgColor-default);
+    border-color: var(--borderColor-default);
+    border-radius: var(--borderRadius-medium);
+
+    .bytemd-toolbar {
+      color: var(--fgColor-default);
+      background-color: var(--bgColor-muted);
+      border-color: var(--borderColor-default);
+      border-top-left-radius: var(--borderRadius-medium);
+      border-top-right-radius: var(--borderRadius-medium);
+
+      .bytemd-toolbar-icon {
+        color: var(--fgColor-muted);
+
+        &:hover {
+          background-color: var(--button-invisible-bgColor-hover);
+          border-color: var(--button-invisible-borderColor-hover);
+        }
+      }
+
+      .bytemd-toolbar-icon-active {
+        color: var(--fgColor-accent);
+      }
+    }
+
+    .bytemd-status,
+    .bytemd-sidebar,
+    .bytemd-preview {
+      border-color: var(--borderColor-default);
+    }
+
+    .bytemd-status {
+      height: 25px;
+      color: var(--fgColor-muted);
+      background-color: var(--bgColor-muted);
+      border-bottom-right-radius: var(--borderRadius-medium);
+      border-bottom-left-radius: var(--borderRadius-medium);
+
+      .bytemd-status-right {
+        display: flex;
+        align-items: center;
+
+        label {
+          display: flex;
+          align-items: center;
+        }
+
+        input[type='checkbox'] {
+          accent-color: var(--fgColor-accent);
+        }
+
+        span:hover {
+          color: var(--fgColor-accent);
+        }
+      }
+    }
+
+    .bytemd-sidebar {
+      ul {
+        color: var(--fgColor-muted);
+      }
+
+      .bytemd-sidebar-close,
+      h2 {
+        color: var(--fgColor-default);
+      }
+
+      .bytemd-sidebar-close:hover {
+        color: var(--fgColor-accent);
+      }
+
+      .bytemd-toc-active {
+        color: var(--fgColor-default);
+        background-color: var(--control-transparent-bgColor-selected);
+        border-radius: var(--borderRadius-medium);
+      }
+
+      .bytemd-help code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        white-space: break-spaces;
+        background-color: var(--bgColor-neutral-muted);
+        border-radius: var(--borderRadius-medium);
+      }
+
+      .bytemd-help kbd {
+        display: inline-block;
+        padding: var(--base-size-4);
+        font: 11px
+          var(
+            --fontStack-monospace,
+            ui-monospace,
+            SFMono-Regular,
+            SF Mono,
+            Menlo,
+            Consolas,
+            Liberation Mono,
+            monospace
+          );
+        line-height: 10px;
+        vertical-align: middle;
+        color: var(--fgColor-default);
+        background-color: var(--bgColor-muted);
+        border: solid 1px var(--borderColor-neutral-muted);
+        border-bottom-color: var(--borderColor-neutral-muted);
+        border-radius: 6px;
+        box-shadow: inset 0 -1px 0 var(--borderColor-neutral-muted);
+      }
+    }
+  }
+}
+
+/* 编辑器内容有变化时，添加高亮 */
+.app-bytemd-changed {
+  .bytemd {
+    border-color: var(--borderColor-accent-muted);
+
+    .bytemd-toolbar {
+      background-color: var(--bgColor-accent-muted);
+      border-color: var(--borderColor-accent-muted);
+
+      .bytemd-toolbar-icon:hover {
+        background-color: var(--button-invisible-bgColor-hover);
+        border-color: var(--button-invisible-borderColor-hover);
+        border-radius: var(--borderRadius-medium);
+      }
+    }
+
+    .bytemd-status {
+      border-color: var(--borderColor-accent-muted);
+    }
+  }
+}
+
+/* 编辑器全屏时，去掉圆角 */
+.app-bytemd .bytemd-fullscreen {
+  border-radius: 0;
+
+  .bytemd-toolbar {
+    border-radius: 0;
+  }
+}

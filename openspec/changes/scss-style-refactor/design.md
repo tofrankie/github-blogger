@@ -40,8 +40,8 @@ src/styles/
 │   └── github-mermaid.css
 └── bytemd/
     ├── index.scss
-    ├── tokens.scss
     ├── layout.scss
+    ├── toolbar.scss
     ├── editor.scss
     └── preview/
         ├── index.scss
@@ -61,8 +61,8 @@ src/styles/
 - `base.scss` 承接全局基础样式，包括应用布局变量、通用滚动条等跨模块规则
 - `primer.scss`、`toast.scss` 承接现有非 Bytemd 专属样式
 - `bytemd/index.scss` 是 Bytemd 覆盖层入口，只暴露一个导入点给 `app.scss`
-- `bytemd/tokens.scss` 放置本地主题 token、选择器变量和 Mermaid 共用颜色，不放具体组件选择器
-- `bytemd/layout.scss` 放置 `.app-bytemd`、`.bytemd`、toolbar、body、status、sidebar、fullscreen 等编辑器容器和布局规则
+- `bytemd/layout.scss` 放置 `.app-bytemd`、`.bytemd`、body、status、sidebar、fullscreen 等编辑器容器和布局规则，直接消费 Primer / GitHub 变量
+- `bytemd/toolbar.scss` 放置 Bytemd toolbar、tooltip、dropdown 相关覆盖，例如 `.tippy-box`、`.bytemd-dropdown-title`、`.bytemd-dropdown-item`
 - `bytemd/editor.scss` 放置 CodeMirror 编辑区、Markdown 语法 token 和编辑态主题覆盖
 - `bytemd/preview/index.scss` 是预览区入口，负责组合 GitHub Markdown 覆盖和 Mermaid 覆盖
 - `bytemd/preview/markdown.scss` 承接原 `github.custom.css` 的 GitHub Markdown 预览覆盖
@@ -83,12 +83,12 @@ src/styles/
 
 ### 2. 以少量职责文件组织 Bytemd 覆盖，而不是按 DOM 区域过度拆分
 
-新的 SCSS 结构把 Bytemd 样式收敛为 `layout`、`editor`、`preview` 三类主要职责，再配合 `tokens` 放置公共 token、选择器变量和暗色覆盖。这样既能让后续改动直接落到具体职责，也能避免因为 toolbar、body、status、sidebar 等区域拆得太细导致文件跳转成本上升。
+新的 SCSS 结构把 Bytemd 样式收敛为 `layout`、`toolbar`、`editor`、`preview` 几类主要职责，并直接消费 Primer / GitHub 变量。这样既能让后续改动直接落到具体职责，也能避免因为 body、status、sidebar 等区域拆得太细导致文件跳转成本上升。
 
 备选方案：
 
 - 按现有 `bytemd.css`、`editor.css`、`preview.css` 原样迁移为 `.scss`。放弃原因是目录结构仍然表达旧问题，难以体现区域职责。
-- 按 toolbar、body、editor、preview、status、sidebar、scrollbar 等 DOM 区域逐个拆文件。放弃原因是文件数量偏多，很多规则需要一起理解，拆开后维护体验反而变差。
+- 按 body、status、sidebar、scrollbar 等 DOM 区域逐个拆文件。放弃原因是文件数量偏多，很多规则需要一起理解，拆开后维护体验反而变差。
 
 ### 3. 将 `src/styles/lib/**` 视为只读基线，通过本地覆盖层扩展
 

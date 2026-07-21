@@ -1,0 +1,138 @@
+html {
+  --app-scrollbar-size: 10px;
+  --app-scrollbar-thumb-color: var(--vscode-scrollbarSlider-background);
+  --app-scrollbar-thumb-hover-color: var(
+    --vscode-scrollbarSlider-hoverBackground,
+    var(--fgColor-muted)
+  );
+  --app-scrollbar-thumb-active-color: var(
+    --vscode-scrollbarSlider-activeBackground,
+    var(--fgColor-muted)
+  );
+
+  scrollbar-color: var(--app-scrollbar-thumb-color) transparent !important;
+}
+
+body {
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+}
+
+body,
+body * {
+  scrollbar-color: var(--app-scrollbar-thumb-color) transparent !important;
+  scrollbar-width: thin !important;
+}
+
+body::-webkit-scrollbar,
+body *::-webkit-scrollbar {
+  width: var(--app-scrollbar-size) !important;
+  height: var(--app-scrollbar-size) !important;
+  background-color: transparent !important;
+}
+
+body::-webkit-scrollbar-thumb,
+body *::-webkit-scrollbar-thumb {
+  background-color: var(--app-scrollbar-thumb-color) !important;
+  border-radius: 999px !important;
+}
+
+body::-webkit-scrollbar-thumb:hover,
+body *::-webkit-scrollbar-thumb:hover {
+  background-color: var(--app-scrollbar-thumb-hover-color) !important;
+}
+
+body::-webkit-scrollbar-thumb:active,
+body *::-webkit-scrollbar-thumb:active {
+  background-color: var(--app-scrollbar-thumb-active-color) !important;
+}
+
+body::-webkit-scrollbar-track,
+body *::-webkit-scrollbar-track,
+body::-webkit-scrollbar-corner,
+body *::-webkit-scrollbar-corner {
+  background-color: transparent !important;
+}
+
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bgColor-default);
+}
+
+.app code {
+  font-family: var(
+    --fontStack-monospace,
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace
+  );
+  color: var(--fgColor-default);
+}
+
+.app-action-bar {
+  position: fixed;
+  right: 17px;
+  bottom: 42px;
+  z-index: 50;
+}
+
+.app-editor {
+  height: 100%;
+}
+
+.app-editor .labels-skeleton {
+  height: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background-color: var(--bgColor-neutral-muted);
+}
+
+.app-labels .label-skeleton {
+  border-radius: 12px;
+}
+
+/* Issues: sx → CSS Variables (hover / descendant selectors) */
+.issues-header-link {
+  color: var(--fgColor-default);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.issues-header-link:hover {
+  color: var(--fgColor-default);
+  text-decoration: underline;
+}
+
+.issues-nav-list {
+  margin-right: calc(var(--base-size-8) * -1);
+  margin-left: calc(var(--base-size-8) * -1);
+}
+
+.issues-nav-list > ul {
+  padding-top: 0;
+}
+
+/* Flash retry: icon margin + svg color (descendant) */
+.flash-retry svg {
+  margin-right: 0;
+}
+
+.flash-retry-icon svg {
+  color: var(--fgColor-muted);
+}
+
+.flash-retry-detail {
+  font-size: var(--text-body-size-small);
+  line-height: 1.5;
+  color: var(--fgColor-muted);
+  overflow-wrap: anywhere;
+}

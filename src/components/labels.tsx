@@ -115,7 +115,7 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
               <Stack.Item onClick={openCreateDialog}>
                 <CounterLabel
                   style={{
-                    color: 'var(--color-fg-on-emphasis)',
+                    color: 'var(--fgColor-onEmphasis)',
                     backgroundColor: 'var(--bgColor-success-emphasis)',
                     cursor: 'pointer',
                   }}

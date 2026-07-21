@@ -1,0 +1,120 @@
+.markdown-body [id^='bytemd-mermaid-'] {
+  .section {
+    opacity: 0.2;
+    stroke: none;
+  }
+
+  .section0 {
+    fill: var(--mermaid-section-0) !important;
+  }
+
+  .section1,
+  .section3 {
+    opacity: 0.2 !important;
+    fill: var(--mermaid-section-1) !important;
+  }
+
+  .section2 {
+    fill: var(--mermaid-section-2) !important;
+  }
+
+  .sectionTitle,
+  .sectionTitle0,
+  .sectionTitle1,
+  .sectionTitle2,
+  .sectionTitle3,
+  .grid .tick text,
+  .titleText {
+    fill: var(--mermaid-text) !important;
+  }
+
+  .grid .tick {
+    opacity: 0.8;
+    stroke: var(--mermaid-line);
+    shape-rendering: crispedges;
+  }
+
+  .grid path {
+    stroke-width: 0;
+  }
+
+  .today {
+    fill: none;
+    stroke: var(--mermaid-today-line);
+    stroke-width: 2px;
+  }
+
+  .task {
+    stroke-width: 2;
+  }
+
+  .task0,
+  .task1,
+  .task2,
+  .task3 {
+    fill: var(--mermaid-task-bg);
+    stroke: var(--mermaid-task-border);
+  }
+
+  .taskText0,
+  .taskText1,
+  .taskText2,
+  .taskText3,
+  .taskTextOutside0,
+  .taskTextOutside1,
+  .taskTextOutside2,
+  .taskTextOutside3 {
+    fill: var(--mermaid-text-muted) !important;
+  }
+
+  .active0,
+  .active1,
+  .active2,
+  .active3 {
+    fill: var(--mermaid-task-active-bg);
+    stroke: var(--mermaid-task-border);
+  }
+
+  .done0,
+  .done1,
+  .done2,
+  .done3 {
+    fill: var(--mermaid-task-done-bg);
+    stroke: var(--mermaid-line);
+    stroke-width: 2;
+  }
+
+  .crit0,
+  .crit1,
+  .crit2,
+  .crit3,
+  .activeCrit0,
+  .activeCrit1,
+  .activeCrit2,
+  .activeCrit3,
+  .doneCrit0,
+  .doneCrit1,
+  .doneCrit2,
+  .doneCrit3 {
+    stroke: var(--mermaid-task-critical-bg);
+    stroke-width: 2;
+  }
+
+  .crit0,
+  .crit1,
+  .crit2,
+  .crit3,
+  .doneCrit0,
+  .doneCrit1,
+  .doneCrit2,
+  .doneCrit3 {
+    fill: var(--mermaid-task-critical-bg);
+  }
+
+  .activeCrit0,
+  .activeCrit1,
+  .activeCrit2,
+  .activeCrit3 {
+    fill: var(--mermaid-task-active-bg);
+  }
+}

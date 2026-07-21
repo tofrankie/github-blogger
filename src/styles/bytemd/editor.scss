@@ -1,0 +1,65 @@
+.bytemd-body > .bytemd-editor {
+  background-color: var(--bgColor-default);
+
+  .CodeMirror {
+    color: var(--fgColor-default);
+    background-color: var(--bgColor-default);
+  }
+
+  .CodeMirror-cursor,
+  div.CodeMirror-secondarycursor {
+    border-left-color: var(--fgColor-default);
+  }
+
+  .CodeMirror-gutters,
+  .CodeMirror-scrollbar-filler,
+  .CodeMirror-gutter-filler {
+    background-color: var(--bgColor-muted);
+    border-color: var(--borderColor-default);
+  }
+
+  .CodeMirror-linenumber,
+  .CodeMirror-guttermarker-subtle,
+  .CodeMirror pre.CodeMirror-placeholder {
+    color: var(--fgColor-muted);
+  }
+
+  .CodeMirror-guttermarker {
+    color: var(--fgColor-default);
+  }
+
+  .CodeMirror-selected,
+  .CodeMirror-focused .CodeMirror-selected,
+  .CodeMirror-line::selection,
+  .CodeMirror-line > span::selection,
+  .CodeMirror-line > span > span::selection {
+    background: var(--bgColor-neutral-muted);
+  }
+
+  .CodeMirror-activeline-background {
+    background: var(--bgColor-muted);
+  }
+}
+
+.bytemd-editor {
+  .cm-s-default .cm-header {
+    color: var(--fgColor-default);
+  }
+
+  .cm-s-default .cm-link,
+  .cm-s-default .cm-builtin,
+  .cm-s-default .cm-variable-2 {
+    color: var(--fgColor-accent);
+  }
+
+  /* 命中链接地址 */
+  .cm-s-default .cm-string,
+  .cm-s-default .cm-quote {
+    color: var(--fgColor-muted);
+  }
+
+  /* 命中代码块 */
+  .cm-s-default .cm-comment {
+    color: var(--fgColor-muted);
+  }
+}
