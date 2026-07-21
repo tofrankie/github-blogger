@@ -39,10 +39,11 @@ export default function Editor() {
 
   const { mutateAsync: handleUploadImages, isPending: isUploadingImages } = useUploadImages()
 
-  const { isError: isErrorRepo, refetch: refetchRepo } = useRepo()
+  const { error: repoError, isError: isErrorRepo, refetch: refetchRepo } = useRepo()
 
   const {
     data: labels,
+    error: labelsError,
     isLoading: isLoadingLabels,
     isError: isErrorLabels,
     refetch: refetchLabels,
@@ -52,7 +53,11 @@ export default function Editor() {
     <Stack className="app-editor" gap="condensed" padding="condensed">
       {isErrorRepo && (
         <Stack.Item>
-          <FlashWithRetry message="Failed to load repository" onRetry={async () => refetchRepo()} />
+          <FlashWithRetry
+            title="Failed to load repository"
+            error={repoError}
+            onRetry={async () => refetchRepo()}
+          />
         </Stack.Item>
       )}
       <Stack.Item style={{ flexShrink: 0 }}>
@@ -79,7 +84,11 @@ export default function Editor() {
       <Stack.Item style={{ flexShrink: 0 }}>
         <>
           {isErrorLabels ? (
-            <FlashWithRetry message="Failed to load labels" onRetry={async () => refetchLabels()} />
+            <FlashWithRetry
+              title="Failed to load labels"
+              error={labelsError}
+              onRetry={async () => refetchLabels()}
+            />
           ) : isLoadingLabels ? (
             <SkeletonText className="labels-skeleton" />
           ) : (

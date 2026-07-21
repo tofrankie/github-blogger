@@ -100,9 +100,19 @@ async function rpcEmit<T>(type: RpcMessageType, args: unknown[] = []): Promise<T
   const response = rawResponse
   if (!response.success) {
     console.log('🚀 ~ client ~ rpcEmit ~ error ~ detail:', response.error?.detail)
-    throw new Error(`${ERROR_TYPE_MAP[response.error.type]}: ${response.error.message}`)
+    throw new RpcError(response.error)
   }
   return response.data
+}
+
+export class RpcError extends Error {
+  readonly apiError: ApiError
+
+  constructor(apiError: ApiError) {
+    super(`${ERROR_TYPE_MAP[apiError.type]}: ${apiError.message}`)
+    this.name = 'RpcError'
+    this.apiError = apiError
+  }
 }
 
 export async function getRepo(): Promise<RestRepo> {

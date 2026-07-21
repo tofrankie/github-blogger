@@ -20,6 +20,7 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
 
   const {
     data: labels = [],
+    error: labelsError,
     isLoading: isLoadingLabels,
     isError: isErrorLabels,
     refetch: refetchLabels,
@@ -76,7 +77,11 @@ export default function Labels({ visible, onLabelsVisible }: LabelsProps) {
             ))}
           </Stack>
         ) : isErrorLabels ? (
-          <FlashWithRetry message="Failed to load labels" onRetry={async () => refetchLabels()} />
+          <FlashWithRetry
+            title="Failed to load labels"
+            error={labelsError}
+            onRetry={async () => refetchLabels()}
+          />
         ) : (
           <Stack gap="condensed" direction="horizontal" wrap="wrap">
             {labels.map(label => (

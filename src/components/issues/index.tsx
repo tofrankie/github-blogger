@@ -75,6 +75,7 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
 
   const {
     data: repo,
+    error: repoError,
     isLoading: isLoadingRepo,
     isError: isErrorRepo,
     refetch: refetchRepo,
@@ -84,6 +85,7 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
 
   const {
     data: issues,
+    error: issuesError,
     isLoading: isLoadingIssues,
     isPending: isPendingIssues,
     isError: isErrorIssues,
@@ -209,7 +211,8 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
           return (
             <Stack padding="normal">
               <FlashWithRetry
-                message="Failed to load repository"
+                title="Failed to load repository"
+                error={repoError}
                 onRetry={async () => refetchRepo()}
               />
             </Stack>
@@ -302,7 +305,8 @@ export default function Issues({ visible, onIssuesVisible }: IssuesProps) {
                     <ListSkeleton />
                   ) : isErrorIssues ? (
                     <FlashWithRetry
-                      message="Failed to load issues"
+                      title="Failed to load issues"
+                      error={issuesError}
                       onRetry={async () => refetchIssues()}
                     />
                   ) : withoutIssue ? (

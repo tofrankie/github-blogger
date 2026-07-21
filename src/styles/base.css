@@ -146,3 +146,10 @@ code {
 .flash-retry-icon svg {
   color: var(--fgColor-muted);
 }
+
+.flash-retry-detail {
+  font-size: var(--text-body-size-small);
+  line-height: 1.5;
+  color: var(--fgColor-muted);
+  overflow-wrap: anywhere;
+}
