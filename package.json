@@ -131,6 +131,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.1",
+    "@fission-ai/openspec": "1.6.0",
     "@octokit/request-error": "7.1.0",
     "@octokit/types": "16.0.0",
     "@tanstack/eslint-plugin-query": "5.101.2",
