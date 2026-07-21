@@ -1,15 +1,18 @@
 # Dependency
 node_modules/
 dist/
-.pnpm-store
+.pnpm-store/
 
 # Logs
-logs
 *.log
 
 # OS
 .DS_Store
 desktop.ini
+
+# Editor
+.vscode/
+.idea/
 
 # Cache
 *.tsbuildinfo
@@ -22,6 +25,7 @@ coverage/
 # Agents
 .agents/
 .codex/
+.claude/
 .cursor/
 
 # Local
