@@ -1,13 +1,19 @@
-## ADDED Requirements
+# editor-theme-styles Specification
+
+## Purpose
+
+TBD - created by archiving change scss-style-refactor. Update Purpose after archive.
+
+## Requirements
 
 ### Requirement: 编辑器主题样式必须按可编辑区域组织
 
-系统 SHALL（必须）将编辑器主题覆盖维护在按 Bytemd 职责拆分的 SCSS 模块中，包括 layout、editor、preview，以及相关共享主题基础。
+系统 SHALL（必须）将编辑器主题覆盖维护在按 Bytemd 职责拆分的 SCSS 模块中，包括 layout、toolbar、editor、preview，以及 Mermaid 相关共享主题基础。
 
 #### Scenario: 编辑器样式完成重组
 
 - **WHEN** 维护者查看 GitHub Blogger 的编辑器样式入口
-- **THEN** 可以看到按 layout、editor、preview 等职责组织的 SCSS 模块，而不是一组扁平且边界不清的覆盖文件
+- **THEN** 可以看到按 layout、toolbar、editor、preview 等职责组织的 SCSS 模块，而不是一组扁平且边界不清的覆盖文件
 
 ### Requirement: SCSS 入口必须接入现有构建和检查流程
 
