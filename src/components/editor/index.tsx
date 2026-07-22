@@ -5,11 +5,12 @@ import gfm from '@bytemd/plugin-gfm'
 import highlight from '@bytemd/plugin-highlight'
 import math from '@bytemd/plugin-math'
 import mediumZoom from '@bytemd/plugin-medium-zoom'
-import mermaid from '@bytemd/plugin-mermaid'
 import { Editor as BytemdEditor } from '@bytemd/react'
-import { Button, Label, LabelGroup, Stack, TextInput, Tooltip } from '@primer/react'
+import { Button, Label, LabelGroup, Stack, TextInput, Tooltip, useTheme } from '@primer/react'
 import { SkeletonText } from '@primer/react/experimental'
 import alerts from 'bytemd-plugin-github-alerts'
+import mermaid from 'bytemd-plugin-mermaid'
+import { useMemo } from 'react'
 import { useLabels, useRepo, useUploadImages } from '@/hooks'
 import { useEditorStore } from '@/stores/use-editor-store'
 import { FlashWithRetry } from '../flash-with-retry'
@@ -17,19 +18,8 @@ import Info from './info'
 
 import 'bytemd/dist/index.min.css'
 
-const plugins = [
-  frontmatter(),
-  alerts(), // must be placed before breaks
-  breaks(),
-  gfm(),
-  highlight(),
-  gemoji(),
-  math(),
-  mediumZoom(),
-  mermaid(),
-]
-
 export default function Editor() {
+  const { colorMode } = useTheme()
   const issue = useEditorStore(state => state.issue)
   const setTitle = useEditorStore(state => state.setTitle)
   const setBody = useEditorStore(state => state.setBody)
@@ -48,6 +38,23 @@ export default function Editor() {
     isError: isErrorLabels,
     refetch: refetchLabels,
   } = useLabels()
+
+  const plugins = useMemo(
+    () => [
+      frontmatter(),
+      alerts(), // must be placed before breaks
+      breaks(),
+      gfm(),
+      highlight(),
+      gemoji(),
+      math(),
+      mediumZoom(),
+      mermaid({
+        theme: colorMode === 'dark' ? 'dark' : 'default',
+      }),
+    ],
+    [colorMode]
+  )
 
   return (
     <Stack className="app-editor" gap="condensed" padding="condensed">

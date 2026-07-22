@@ -1,8 +1,8 @@
-@import url('@/styles/lib/github.css');
-@import url('@/styles/lib/github-markdown.css');
-@import url('@/styles/bytemd/index.scss');
-@import url('@/styles/primer.scss');
-@import url('@/styles/toast.scss');
+@import '@/styles/lib/github.css';
+@import '@/styles/lib/github-markdown.css';
+@import '@/styles/bytemd/index';
+@import '@/styles/primer';
+@import '@/styles/toast';
 
 /* 放在最后 */
-@import url('@/styles/base.scss');
+@import '@/styles/base';

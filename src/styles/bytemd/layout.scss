@@ -1,5 +1,6 @@
 .app-bytemd {
   position: relative;
+
   /* 占满高度，且避免整个编辑器容器滚动 */
   > div {
     height: 100%;

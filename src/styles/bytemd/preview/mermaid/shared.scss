@@ -18,17 +18,6 @@ body.vscode-dark:has(#root > div[data-color-mode='auto']) {
     --mermaid-surface: var(--mermaid-ref-surface);
     --mermaid-surface-muted: var(--mermaid-ref-surface-muted);
     --mermaid-text-inverse: var(--mermaid-ref-text-on-emphasis);
-    --mermaid-line: var(--mermaid-ref-border-muted);
-    --mermaid-marker: var(--mermaid-line);
-    --mermaid-label-bg: var(--mermaid-ref-surface);
-    --mermaid-cluster-bg: var(--mermaid-ref-surface-muted);
-    --mermaid-cluster-border: var(--mermaid-ref-border-muted);
-    --mermaid-task-bg: var(--mermaid-ref-surface-muted);
-    --mermaid-task-border: var(--mermaid-ref-border);
-    --mermaid-task-active-bg: var(--mermaid-ref-accent-muted);
-    --mermaid-task-done-bg: var(--mermaid-ref-neutral-muted);
-    --mermaid-task-critical-bg: var(--mermaid-ref-danger-muted);
-    --mermaid-today-line: var(--mermaid-ref-danger-emphasis);
     --mermaid-label-bg: hsl(0deg 0% 34.4117647059%);
     --mermaid-cluster-bg: hsl(180deg 1.5873015873% 28.3529411765%);
     --mermaid-cluster-border: rgb(255 255 255 / 25%);
@@ -44,7 +33,7 @@ body.vscode-dark:has(#root > div[data-color-mode='auto']) {
     --mermaid-text-muted: lightgrey;
     --mermaid-node-bg: #1f2020;
     --mermaid-node-border: #ccc;
-    --mermaid-edge-label-bg: hsl(0, 0%, 34.4117647059%);
+    --mermaid-edge-label-bg: hsl(0deg 0% 34.4117647059%);
     --mermaid-cluster-label-text: #f9fffe;
     --mermaid-line: lightgrey;
     --mermaid-line-message: lightgrey;
@@ -79,12 +68,10 @@ body.vscode-light:has(#root > div[data-color-mode='auto']) {
     --mermaid-ref-accent-emphasis: var(--bgColor-accent-emphasis);
     --mermaid-surface: var(--mermaid-ref-surface);
     --mermaid-surface-muted: var(--mermaid-ref-surface-muted);
-
     --mermaid-text-inverse: var(--mermaid-ref-text-on-emphasis);
     --mermaid-label-bg: var(--mermaid-ref-surface);
     --mermaid-cluster-bg: var(--mermaid-ref-surface-muted);
     --mermaid-cluster-border: var(--mermaid-ref-border-muted);
-
     --mermaid-task-bg: var(--mermaid-ref-surface-muted);
     --mermaid-task-border: var(--mermaid-ref-border);
     --mermaid-task-active-bg: var(--mermaid-ref-accent-muted);
@@ -101,8 +88,8 @@ body.vscode-light:has(#root > div[data-color-mode='auto']) {
     --mermaid-cluster-label-text: #333;
     --mermaid-line: #333; // TODO:
     --mermaid-line-message: #333;
-    --mermaid-marker: #333333;
-    --mermaid-section-0: rgba(102, 102, 255, 0.49);
+    --mermaid-marker: #333;
+    --mermaid-section-0: rgb(102 102 255 / 49%);
     --mermaid-section-1: white;
     --mermaid-section-2: #fff400;
     --mermaid-section-3: white;
@@ -189,8 +176,8 @@ body.vscode-light:has(#root > div[data-color-mode='auto']) {
 
   .actor-man circle,
   line {
-    stroke: var(--mermaid-node-border) !important;
     fill: var(--mermaid-node-bg) !important;
+    stroke: var(--mermaid-node-border) !important;
   }
 
   .messageLine0,
@@ -208,6 +195,7 @@ body.vscode-light:has(#root > div[data-color-mode='auto']) {
     fill: var(--mermaid-text-muted) !important;
     stroke: none !important;
   }
+
   // #endregion
 
   // #region-start 甘特图
@@ -234,14 +222,14 @@ body.vscode-light:has(#root > div[data-color-mode='auto']) {
   .done1,
   .done2,
   .done3 {
-    stroke: var(--mermaid-done-0-border) !important;
     fill: var(--mermaid-done-0-bg) !important;
+    stroke: var(--mermaid-done-0-border) !important;
     stroke-width: 2;
   }
 
   .sectionTitle {
-    text-anchor: start;
     font-family: 'trebuchet ms', verdana, arial, sans-serif !important;
+    text-anchor: start;
   }
 
   .sectionTitle,
@@ -342,5 +330,6 @@ body.vscode-light:has(#root > div[data-color-mode='auto']) {
   .activeCrit3 {
     fill: var(--mermaid-task-active-bg);
   }
+
   // #endregion
 }
