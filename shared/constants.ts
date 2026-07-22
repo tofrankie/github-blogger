@@ -30,3 +30,17 @@ export const ERROR_TYPE = {
   GRAPHQL: 'GRAPHQL',
   UNKNOWN: 'UNKNOWN',
 } as const
+
+export const SETTING_KEY = {
+  TOKEN: 'token',
+  USER: 'user',
+  REPO: 'repo',
+  BRANCH: 'branch',
+  COLOR_MODE: 'color-mode',
+} as const
+
+export const COLOR_MODE = {
+  SYSTEM: 'system',
+  LIGHT: 'light',
+  DARK: 'dark',
+} as const

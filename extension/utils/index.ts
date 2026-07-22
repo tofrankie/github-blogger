@@ -3,7 +3,7 @@ import type { ColorMode, ResultTuple, SettingKey, Settings } from '~/types'
 
 import { Uri, workspace } from 'vscode'
 import { EXTENSION_NAME } from '@/constants'
-import { COLOR_MODE } from '~/types'
+import { COLOR_MODE, SETTING_KEY } from '~/constants'
 
 /**
  * A helper function that returns a unique alphanumeric identifier called a nonce.
@@ -33,14 +33,14 @@ export function getUri(webview: Webview, extensionUri: UriType, pathList: string
   return webview.asWebviewUri(Uri.joinPath(extensionUri, ...pathList))
 }
 
-function getSettingValue<K extends SettingKey>(key: K): Settings[K] {
-  return workspace.getConfiguration(EXTENSION_NAME).get<Settings[K]>(key) ?? ''
+function getSettingValue<K extends SettingKey>(key: K): Settings[K] | undefined {
+  return workspace.getConfiguration(EXTENSION_NAME).get<Settings[K]>(key)
 }
 
 export function checkSettings(): boolean {
-  const token = getSettingValue('token')
-  const user = getSettingValue('user')
-  const repo = getSettingValue('repo')
+  const token = getSettingValue(SETTING_KEY.TOKEN)
+  const user = getSettingValue(SETTING_KEY.USER)
+  const repo = getSettingValue(SETTING_KEY.REPO)
   return Boolean(token && user && repo)
 }
 
@@ -50,17 +50,25 @@ const DEFAULT_BRANCH = 'main'
 const DEFAULT_COLOR_MODE = COLOR_MODE.LIGHT
 
 function normalizeColorMode(value: ColorMode | string | undefined): ColorMode {
-  return value === COLOR_MODE.LIGHT || value === COLOR_MODE.DARK ? value : DEFAULT_COLOR_MODE
+  return value === COLOR_MODE.SYSTEM || value === COLOR_MODE.LIGHT || value === COLOR_MODE.DARK
+    ? value
+    : DEFAULT_COLOR_MODE
 }
 
 function readSettings(): Settings {
-  const token = getSettingValue('token')
-  const user = getSettingValue('user')
-  const repo = getSettingValue('repo')
-  const branch = getSettingValue('branch') || DEFAULT_BRANCH
-  const colorMode = normalizeColorMode(getSettingValue('color-mode'))
+  const token = getSettingValue(SETTING_KEY.TOKEN) ?? ''
+  const user = getSettingValue(SETTING_KEY.USER) ?? ''
+  const repo = getSettingValue(SETTING_KEY.REPO) ?? ''
+  const branch = getSettingValue(SETTING_KEY.BRANCH) || DEFAULT_BRANCH
+  const colorMode = normalizeColorMode(getSettingValue(SETTING_KEY.COLOR_MODE))
 
-  return { token, user, repo, branch, 'color-mode': colorMode }
+  return {
+    [SETTING_KEY.TOKEN]: token,
+    [SETTING_KEY.USER]: user,
+    [SETTING_KEY.REPO]: repo,
+    [SETTING_KEY.BRANCH]: branch,
+    [SETTING_KEY.COLOR_MODE]: colorMode,
+  }
 }
 
 export function invalidateSettingsCache(): void {

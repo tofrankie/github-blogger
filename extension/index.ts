@@ -3,20 +3,20 @@ import { commands, window } from 'vscode'
 
 import { EXTENSION_COMMAND } from './constants'
 import EditPanel, { getWebviewOptions } from './panels/edit-panel'
-import MultiSelectInput from './panels/multi-select-input'
+import setupFlow from './panels/setup-flow'
 import { checkSettings } from './utils'
 
 export function activate(context: ExtensionContext) {
   const disposableOpen = commands.registerCommand(EXTENSION_COMMAND.OPEN, async () => {
     if (!checkSettings()) {
-      return MultiSelectInput(context)
+      return setupFlow(context)
     }
 
     EditPanel.render(context)
   })
 
   const disposableConfig = commands.registerCommand(EXTENSION_COMMAND.CONFIGURE, () => {
-    MultiSelectInput(context)
+    setupFlow(context)
   })
 
   context.subscriptions.push(disposableOpen, disposableConfig)

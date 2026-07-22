@@ -1,19 +1,15 @@
-export const COLOR_MODE = {
-  SYSTEM: 'system',
-  LIGHT: 'light',
-  DARK: 'dark',
-} as const
+import type { COLOR_MODE, SETTING_KEY } from '~/constants'
 
 export type ColorMode = (typeof COLOR_MODE)[keyof typeof COLOR_MODE]
 
-export type SettingKey = 'token' | 'user' | 'repo' | 'branch' | 'color-mode'
+export type SettingKey = (typeof SETTING_KEY)[keyof typeof SETTING_KEY]
 
 export interface Settings {
-  token: string
-  user: string
-  repo: string
-  branch: string
-  'color-mode': ColorMode
+  [SETTING_KEY.TOKEN]: string
+  [SETTING_KEY.USER]: string
+  [SETTING_KEY.REPO]: string
+  [SETTING_KEY.BRANCH]: string
+  [SETTING_KEY.COLOR_MODE]: ColorMode
 }
 
 export type GitHubNodeId = string

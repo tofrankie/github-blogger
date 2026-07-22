@@ -1,3 +1,4 @@
+import type { ColorMode } from '~/types'
 import { BaseStyles, ThemeProvider } from '@primer/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 // import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
@@ -5,7 +6,7 @@ import { useEffect, useState } from 'react'
 import App from '@/app'
 import { ToastProvider } from '@/providers/toast-provider'
 import { getSettings } from '@/utils'
-import { COLOR_MODE } from '~/types'
+import { COLOR_MODE, SETTING_KEY } from '~/constants'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,30 +23,17 @@ const queryClient = new QueryClient({
   },
 })
 
-type ThemeKind = 'vscode-light' | 'vscode-dark'
-
-function getSystemColorMode(): typeof COLOR_MODE.LIGHT | typeof COLOR_MODE.DARK {
-  const themeKind = (document.body?.dataset?.vscodeThemeKind ?? 'vscode-light') as ThemeKind
-
-  if (themeKind === 'vscode-dark') {
-    return COLOR_MODE.DARK
-  }
-
-  return COLOR_MODE.LIGHT
-}
-
 export default function AppProvider() {
-  const [colorMode, setColorMode] = useState(COLOR_MODE.SYSTEM)
+  const [colorMode, setColorMode] = useState<ColorMode>(COLOR_MODE.SYSTEM)
   const [systemColorMode, setSystemColorMode] = useState(getSystemColorMode)
   const resolvedColorMode = colorMode === COLOR_MODE.SYSTEM ? systemColorMode : colorMode
-  const primerColorMode = colorMode === COLOR_MODE.SYSTEM ? 'auto' : colorMode
 
   useEffect(() => {
     let mounted = true
 
     void getSettings().then(settings => {
       if (!mounted) return
-      setColorMode(settings['color-mode'])
+      setColorMode(settings[SETTING_KEY.COLOR_MODE])
     })
 
     const observer = new MutationObserver(() => {
@@ -55,7 +43,7 @@ export default function AppProvider() {
     if (document.body) {
       observer.observe(document.body, {
         attributes: true,
-        attributeFilter: ['data-vscode-theme-kind'],
+        attributeFilter: ['class', 'data-vscode-theme-kind'],
       })
     }
 
@@ -75,7 +63,7 @@ export default function AppProvider() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider colorMode={primerColorMode} dayScheme="light" nightScheme="dark">
+      <ThemeProvider colorMode={resolvedColorMode} dayScheme="light" nightScheme="dark">
         <BaseStyles>
           <ToastProvider>
             <App />
@@ -85,4 +73,20 @@ export default function AppProvider() {
       {/* <ReactQueryDevtools /> */}
     </QueryClientProvider>
   )
+}
+
+type ThemeKind = 'vscode-light' | 'vscode-dark'
+
+function getSystemColorMode(): typeof COLOR_MODE.LIGHT | typeof COLOR_MODE.DARK {
+  if (document.body?.classList.contains('vscode-dark')) {
+    return COLOR_MODE.DARK
+  }
+
+  const themeKind = document.body?.dataset?.vscodeThemeKind as ThemeKind | undefined
+
+  if (themeKind === 'vscode-dark') {
+    return COLOR_MODE.DARK
+  }
+
+  return COLOR_MODE.LIGHT
 }
