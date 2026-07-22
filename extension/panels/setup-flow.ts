@@ -159,7 +159,6 @@ async function collectSetupStep({
   totalSteps: number
 }) {
   if (setupStep.type === SETUP_STEP_TYPE.INPUT) {
-    console.log('🚀 ~ collectSetupStep ~ setupStep.key:', setupStep.key)
     setupState[setupStep.key] = await input.showInputBox({
       title: SETUP_TITLE,
       step: currentStep,
