@@ -1,5 +1,3 @@
-/* stylelint-disable */
-
 .bytemd-body > .bytemd-preview code {
   color: var(--fgColor-default);
 }
@@ -34,11 +32,11 @@
   vertical-align: middle;
 }
 
-.markdown-body a[aria-describedby='footnote-label']:before {
+.markdown-body a[aria-describedby='footnote-label']::before {
   content: '[';
 }
 
-.markdown-body a[aria-describedby='footnote-label']:after {
+.markdown-body a[aria-describedby='footnote-label']::after {
   content: ']';
 }
 
@@ -51,6 +49,7 @@
   margin: 0 !important;
   overflow: visible !important;
   border: none !important;
+  // stylelint-disable property-no-deprecated
   clip: auto !important;
   clip-path: none !important;
 }
@@ -168,6 +167,7 @@ code.hljs {
 
 .hljs-section {
   font-weight: bold;
+
   /* prettylights-syntax-markup-heading */
   color: var(--color-prettylights-syntax-markup-heading);
 }
@@ -179,12 +179,14 @@ code.hljs {
 
 .hljs-emphasis {
   font-style: italic;
+
   /* prettylights-syntax-markup-italic */
   color: var(--color-prettylights-syntax-markup-italic);
 }
 
 .hljs-strong {
   font-weight: bold;
+
   /* prettylights-syntax-markup-bold */
   color: var(--color-prettylights-syntax-markup-bold);
 }
