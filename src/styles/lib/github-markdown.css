@@ -2017,6 +2017,7 @@ body.vscode-light:has(#root > div[data-color-mode="auto"]) {
 }
 
 .markdown-body a:hover {
+  color: var(--fgColor-accent);
   text-decoration: underline;
 }
 

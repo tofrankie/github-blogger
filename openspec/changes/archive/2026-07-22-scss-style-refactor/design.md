@@ -35,7 +35,7 @@ src/styles/
 ├── primer.scss
 ├── toast.scss
 ├── lib/
-│   ├── github.css
+│   ├── github-base.css
 │   ├── github-markdown.css
 │   └── github-mermaid.css
 └── bytemd/

@@ -111,6 +111,15 @@ export function setupExternalLinkInterceptor(): void {
     document.addEventListener('click', event => {
       const anchor = (event.target as HTMLElement).closest('a[href]')
       if (anchor instanceof HTMLAnchorElement && httpRegex.test(anchor.href)) {
+        // 20260723 最近更新编辑器发现，点击分页按钮会触发打开外部链接
+        const paginationComponentNames = [
+          'Pagination.PreviousPage',
+          'Pagination.Page',
+          'Pagination.NextPage',
+        ]
+        const isClickPagination = paginationComponentNames.includes(anchor.dataset.component ?? '')
+        if (isClickPagination) return
+
         event.preventDefault()
         openExternalLink(anchor.href)
       }

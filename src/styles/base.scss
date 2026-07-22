@@ -78,6 +78,15 @@ body *::-webkit-scrollbar-corner {
   color: var(--fgColor-default);
 }
 
+// 20260723 似乎是 Cursor 引入了某些默认样式，带有 a:hover 故而影响全局
+a:hover {
+  color: var(--fgColor-accent);
+}
+
+a[data-component='Pagination.Page']:hover {
+  color: var(--fgColor-default);
+}
+
 .app-action-bar {
   position: fixed;
   right: 17px;
