@@ -1,6 +1,12 @@
 export default {
   ignoreFiles: ['node_modules/**', 'dist/**', './src/styles/lib/**'],
-  extends: ['@tofrankie/stylelint', '@tofrankie/stylelint/scss'],
+  extends: ['@tofrankie/stylelint'],
+  overrides: [
+    {
+      files: ['**/*.scss'],
+      extends: ['@tofrankie/stylelint/scss'],
+    },
+  ],
   rules: {
     'custom-property-pattern': null,
     'selector-class-pattern': null,
