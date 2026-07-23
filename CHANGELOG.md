@@ -2,6 +2,19 @@
 
 All notable changes will be documented in this file.
 
+## v3.0.0
+
+> Jul 23, 2026
+
+### Added
+
+- Support light and dark modes, configurable from the `Configure GitHub Blogger` command
+- Upgrade Mermaid to support more features
+
+### Fixed
+
+- Fix several issues in Cursor
+
 ## v2.8.2
 
 > Jul 21, 2026

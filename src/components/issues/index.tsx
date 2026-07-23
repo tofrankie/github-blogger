@@ -481,7 +481,9 @@ function WithoutIssue({ onActionClick }: { onActionClick: () => void }) {
         <SparkleFillIcon size="medium" />
       </Blankslate.Visual>
       <Blankslate.Heading>Welcome to GitHub Blogger</Blankslate.Heading>
-      <Blankslate.Description>Create and manage blog posts via GitHub issue</Blankslate.Description>
+      <Blankslate.Description>
+        Create and manage blog posts via GitHub Issues
+      </Blankslate.Description>
       <Blankslate.PrimaryAction onClick={onActionClick}>
         Create your first issue
       </Blankslate.PrimaryAction>

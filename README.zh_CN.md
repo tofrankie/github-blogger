@@ -5,19 +5,15 @@
 
 [English](README.md) | 中文
 
-**GitHub Blogger** 是一款基于 VS Code 的扩展，通过 GitHub issue 编写和管理博客文章。支持 Markdown 编辑、实时预览和无缝发布，这一切都由 GitHub 驱动。
-
-理论上支持所有基于 VSCodium 的编辑器，如 Cursor、TRAE、Kiro、Google Antigravity 等。
+**GitHub Blogger** 是一个 VS Code WebView 扩展，用于将 GitHub Issues 管理为博客文章。它支持丰富的 Markdown 渲染、实时预览，以及便捷的文章编辑与发布。本扩展支持所有基于 VSCodium 的编辑器，如 Cursor、TRAE、Kiro、Google Antigravity 等。
 
 ## 功能特性
 
-- 通过 GitHub issue 管理和发布博客文章
-- 原生 GitHub 交互体验
-- 支持 GFM 渲染，如 GitHub Alerts
-- 支持深色和浅色模式
-- 支持实时预览和插件的 Markdown 编辑器（数学公式、Mermaid 图表等）
-- 支持免费图床功能，图片存储在你的博客仓库里，通过 jsDelivr CDN 提供显示服务
-- 所有文章以及编辑记录（以 Git Commit 形式）存储在你的博客仓库中
+- 通过 GitHub API 管理和发布博客文章，文本、图片和编辑记录（Git Commit）都保存在你的博客仓库中
+- 提供贴近 GitHub 的写作体验，支持 Issue、Label 等常用工作流
+- 支持深色、浅色模式，可按需切换编辑器外观
+- 支持实时预览和丰富的 Markdown 渲染，包括 GitHub Flavored Markdown、数学公式、Mermaid Diagram、GitHub Alerts 等
+- 内置免费图床能力，图片保存在你的博客仓库中，并通过 jsDelivr CDN 加速访问
 
 > [!IMPORTANT]
 > **你的博客仓库必须是公开仓库**，jsDelivr CDN 才能正常工作（[原因](https://github.com/jsdelivr/jsdelivr/issues/18243#issuecomment-857512289)，[设置仓库可见性](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)）

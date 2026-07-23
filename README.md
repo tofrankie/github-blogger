@@ -5,19 +5,15 @@
 
 English | [中文](README.zh_CN.md)
 
-**GitHub Blogger** is a VS Code extension for writing and managing blog posts via GitHub issue. It supports Markdown editing, live preview, and seamless publishing — all powered by GitHub.
-
-In principle, it works with all VSCodium-based editors, such as Cursor, TRAE, Kiro and Google Antigravity.
+**GitHub Blogger** is a VS Code WebView extension for managing GitHub Issues as blog posts. It supports rich Markdown rendering, live preview, and convenient post editing and publishing. This extension works with all VSCodium-based editors, such as Cursor, TRAE, Kiro, Google Antigravity, and more.
 
 ## Features
 
-- Manage and publish blog posts via GitHub issue
-- GitHub-native interaction experience
-- GFM render support, such as Alerts
-- Light and dark mode support
-- Markdown editing with live preview and plugin support (Math, Mermaid, etc.)
-- Free image hosting support: images are stored in your blog repository and served via jsDelivr CDN
-- All posts and edit history (as Git commits) are stored in your blog repository
+- Manage and publish blog posts via the GitHub API, with text, images, and edit history (Git commits) stored in your blog repository
+- A GitHub-native writing experience with support for common workflows such as Issues and Labels
+- Light and dark modes, with editor appearance you can switch as needed
+- Live preview and rich Markdown rendering, including GitHub Flavored Markdown, math formulas, Mermaid Diagram, GitHub Alerts, and more
+- Built-in free image hosting: images are stored in your blog repository and accelerated via jsDelivr CDN
 
 > [!IMPORTANT]
 > **Your blog repository must be public** for jsDelivr CDN to work ([why](https://github.com/jsdelivr/jsdelivr/issues/18243#issuecomment-857512289), [set visibility](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility))
@@ -65,6 +61,15 @@ This extension requires a [GitHub Personal Access Token (classic)](https://githu
 ![](./images/screenshot-2.png)
 ![](./images/screenshot-3.png)
 
+<details>
+<summary>Dark Mode</summary>
+
+![](./images/screenshot-dark-1.png)
+![](./images/screenshot-dark-2.png)
+![](./images/screenshot-dark-3.png)
+
+</details>
+
 ## Acknowledgements
 
 This project is built upon and inspired by the open-source community, including:
@@ -78,7 +83,7 @@ This project is built upon and inspired by the open-source community, including:
 
 ## Related Projects
 
-- [github-issue-toc](https://github.com/tofrankie/github-issue-toc) Generate a table of contents for GitHub issue
+- [github-issue-toc](https://github.com/tofrankie/github-issue-toc) Generate a table of contents for GitHub Issues
 
 ## License
 
