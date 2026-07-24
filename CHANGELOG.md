@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file.
 
+## v3.1.0
+
+> Jul 25, 2026
+
+- Refactor communication between Extension and WebView
+
 ## v3.0.0
 
 > Jul 23, 2026
