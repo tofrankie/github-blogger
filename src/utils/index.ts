@@ -2,14 +2,9 @@ import type { MinimalIssue, Settings } from '~/types'
 import dayjs from 'dayjs'
 import matter from 'gray-matter'
 import { VITE_DEV } from '@/constants'
-import { MESSAGE_TYPE } from '~/constants'
+import { getRpc, notifyOpenExternalLink } from './rpc'
 
 type VSCodeApi = ReturnType<typeof acquireVsCodeApi>
-
-interface GetSettingsMessage {
-  type?: string
-  payload?: Settings
-}
 
 export function cdnURL({
   user,
@@ -37,23 +32,8 @@ let settings: Settings
 export async function getSettings(): Promise<Settings> {
   if (settings) return settings
 
-  const vscode = getVscode()
-
-  return new Promise<Settings>(resolve => {
-    const onMessage = (event: MessageEvent<GetSettingsMessage>) => {
-      const message = event.data
-
-      if (message.type === MESSAGE_TYPE.GET_SETTINGS && message.payload) {
-        window.removeEventListener('message', onMessage)
-        settings = message.payload
-        resolve(settings)
-      }
-    }
-
-    window.addEventListener('message', onMessage)
-
-    vscode.postMessage({ type: MESSAGE_TYPE.GET_SETTINGS })
-  })
+  settings = await getRpc().call('settings.get')
+  return settings
 }
 
 export function getVscode(): VSCodeApi {
@@ -83,11 +63,7 @@ export function checkFileSize(file: File): boolean {
 }
 
 export function openExternalLink(url: string): void {
-  const vscode = getVscode()
-  vscode.postMessage({
-    type: MESSAGE_TYPE.OPEN_EXTERNAL_LINK,
-    externalLink: url,
-  })
+  notifyOpenExternalLink(url)
 }
 
 export function setupExternalLinkInterceptor(): void {

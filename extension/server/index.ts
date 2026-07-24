@@ -1,37 +1,32 @@
+import type { RPCClient } from '@tofrankie/vscode-webview-rpc'
 import type { Webview } from 'vscode'
 import type {
   GraphqlIssueCountResponse,
   GraphqlIssueCountWithFilterResponse,
   GraphqlIssuesResponse,
 } from '@/types'
-import type {
-  CreateBlobParams,
-  CreateBlobRpcArgs,
-  CreateCommitParams,
-  CreateCommitRpcArgs,
-  CreateIssueParams,
-  CreateIssueRpcArgs,
-  CreateLabelRpcArgs,
-  CreateTreeParams,
-  CreateTreeRpcArgs,
-  DeleteLabelRpcArgs,
-  GetCommitParams,
-  GetCommitRpcArgs,
-  GetIssueCountWithFilterRpcArgs,
-  GetIssuesRpcArgs,
-  GetIssuesWithFilterRpcArgs,
-  Settings,
-  UpdateIssueParams,
-  UpdateIssueRpcArgs,
-  UpdateLabelParams,
-  UpdateLabelRpcArgs,
-  UpdateRefParams,
-  UpdateRefRpcArgs,
-} from '~/types'
 
+import type {
+  AppRPC,
+  CreateBlobCallParams,
+  CreateCommitCallParams,
+  CreateIssueCallParams,
+  CreateLabelCallParams,
+  CreateTreeCallParams,
+  DeleteLabelCallParams,
+  GetCommitCallParams,
+  GetIssueCountWithFilterCallParams,
+  GetIssuesCallParams,
+  GetIssuesWithFilterCallParams,
+  Settings,
+  UpdateIssueCallParams,
+  UpdateLabelCallParams,
+  UpdateRefCallParams,
+} from '~/types'
 import { Octokit } from '@octokit/core'
+import { createExtensionRPC } from '@tofrankie/vscode-webview-rpc'
 import { isEmpty } from 'licia'
-import { ExtensionRPC } from 'vscode-webview-rpc'
+import { env, Uri } from 'vscode'
 import { APIS } from '@/constants'
 import * as graphqlQuery from '@/server/graphql'
 import { cdnURL, getSettings, to } from '@/utils'
@@ -41,26 +36,46 @@ import {
   normalizeLabelFromRest,
 } from '@/utils/normalize'
 import { createResponse } from '@/utils/response'
-import { DEFAULT_PAGINATION_SIZE, MESSAGE_TYPE } from '~/constants'
+import { DEFAULT_PAGINATION_SIZE } from '~/constants'
 
 export default class Service {
   public config: Settings
   public octokit: Octokit
   public webview: Webview
-  public rpc: ExtensionRPC
+  public rpc: RPCClient<AppRPC>
 
   constructor(webview: Webview) {
     this.webview = webview
-    this.config = {} as Settings
-    this.octokit = {} as Octokit
-    this.rpc = new ExtensionRPC(this.webview)
-    this.init()
-  }
-
-  private async init() {
     this.config = getSettings({ fresh: true })
     this.octokit = new Octokit({ auth: this.config.token })
-    this.registerRpcListener()
+    this.rpc = createExtensionRPC<AppRPC>(this.webview, {
+      calls: {
+        'settings.get': () => getSettings({ fresh: true }),
+        'repo.get': async () => this.getRepo(),
+        'labels.list': async () => this.getLabels(),
+        'labels.create': async params => this.createLabel(params),
+        'labels.delete': async params => this.deleteLabel(params),
+        'labels.update': async params => this.updateLabel(params),
+        'issues.count': async () => this.getIssueCount(),
+        'issues.count-with-filter': async params => this.getIssueCountWithFilter(params),
+        'issues.list': async params => this.getIssues(params),
+        'issues.list-with-filter': async params => this.getIssuesWithFilter(params),
+        'issues.create': async params => this.createIssue(params),
+        'issues.update': async params => this.updateIssue(params),
+        'git.ref.get': async () => this.getRef(),
+        'git.ref.update': async params => this.updateRef(params),
+        'git.commit.get': async params => this.getCommit(params),
+        'git.commit.create': async params => this.createCommit(params),
+        'git.blob.create': async params => this.createBlob(params),
+        'git.tree.create': async params => this.createTree(params),
+        'images.upload': async params => this.uploadImage(params),
+      },
+      notifications: {
+        'external-link.open': ({ url }) => {
+          void env.openExternal(Uri.parse(url))
+        },
+      },
+    })
   }
 
   private async getLabels() {
@@ -78,9 +93,7 @@ export default class Service {
     )
   }
 
-  private async createLabel(...args: CreateLabelRpcArgs) {
-    const [name, color, description] = args
-
+  private async createLabel({ name, color, description }: CreateLabelCallParams) {
     const res = await to(
       this.octokit.request(APIS.CREATE_LABEL, {
         owner: this.config.user,
@@ -94,9 +107,7 @@ export default class Service {
     return createResponse(res, octokitRes => normalizeLabelFromRest(octokitRes.data))
   }
 
-  private async deleteLabel(...args: DeleteLabelRpcArgs) {
-    const [name] = args
-
+  private async deleteLabel({ name }: DeleteLabelCallParams) {
     const res = await to(
       this.octokit.request(APIS.DELETE_LABEL, {
         owner: this.config.user,
@@ -108,10 +119,8 @@ export default class Service {
     return createResponse(res)
   }
 
-  private async updateLabel(...args: UpdateLabelRpcArgs) {
-    const [newName, name, color, description] = args
-
-    const params: UpdateLabelParams = {
+  private async updateLabel({ newName, name, color, description }: UpdateLabelCallParams) {
+    const params = {
       new_name: newName,
       name,
       color,
@@ -128,9 +137,7 @@ export default class Service {
     return createResponse(res, octokitRes => normalizeLabelFromRest(octokitRes.data))
   }
 
-  private async getIssues(...args: GetIssuesRpcArgs) {
-    const [page, labels] = args
-
+  private async getIssues({ page, labels }: GetIssuesCallParams) {
     const res = await to(
       this.octokit.request(APIS.GET_ISSUES, {
         owner: this.config.user,
@@ -146,9 +153,7 @@ export default class Service {
     )
   }
 
-  private async getIssuesWithFilter(...args: GetIssuesWithFilterRpcArgs) {
-    const [after, labels, title] = args
-
+  private async getIssuesWithFilter({ after, labels, title }: GetIssuesWithFilterCallParams) {
     const queryParts = {
       sort: 'sort:created-desc',
       user: `user:${this.config.user}`,
@@ -177,14 +182,12 @@ export default class Service {
     )
   }
 
-  private async updateIssue(...args: UpdateIssueRpcArgs) {
-    const [issueNumber, title, body, labelsJson] = args
-
-    const params: UpdateIssueParams = {
+  private async updateIssue({ issueNumber, title, body, labelNames }: UpdateIssueCallParams) {
+    const params = {
       issue_number: issueNumber,
       title,
       body,
-      labels: parseLabelNames(labelsJson),
+      labels: labelNames,
     }
     const res = await to(
       this.octokit.request(APIS.UPDATE_ISSUE, {
@@ -197,13 +200,11 @@ export default class Service {
     return createResponse(res, octokitRes => normalizeIssueFromRest(octokitRes.data))
   }
 
-  private async createIssue(...args: CreateIssueRpcArgs) {
-    const [title, body, labelsJson] = args
-
-    const params: CreateIssueParams = {
+  private async createIssue({ title, body, labelNames }: CreateIssueCallParams) {
+    const params = {
       title,
       body,
-      labels: parseLabelNames(labelsJson),
+      labels: labelNames,
     }
     const res = await to(
       this.octokit.request(APIS.CREATE_ISSUE, {
@@ -216,7 +217,7 @@ export default class Service {
     return createResponse(res, octokitRes => normalizeIssueFromRest(octokitRes.data))
   }
 
-  private async uploadImage(content: string, path: string) {
+  private async uploadImage({ content, path }: { content: string; path: string }) {
     const res = await to(
       this.octokit.request(APIS.UPLOAD_IMAGE, {
         owner: this.config.user,
@@ -251,9 +252,7 @@ export default class Service {
     return createResponse(res, octokitRes => octokitRes.repository.issues.totalCount)
   }
 
-  private async getIssueCountWithFilter(...args: GetIssueCountWithFilterRpcArgs) {
-    const [title, labels] = args
-
+  private async getIssueCountWithFilter({ title, labels }: GetIssueCountWithFilterCallParams) {
     const queryParts = {
       sort: 'sort:created-desc',
       user: `user:${this.config.user}`,
@@ -286,10 +285,8 @@ export default class Service {
     return createResponse(res, octokitRes => octokitRes.data)
   }
 
-  private async getCommit(...args: GetCommitRpcArgs) {
-    const [commitSha] = args
-
-    const params: GetCommitParams = {
+  private async getCommit({ commitSha }: GetCommitCallParams) {
+    const params = {
       commit_sha: commitSha,
     }
     const res = await to(
@@ -303,10 +300,8 @@ export default class Service {
     return createResponse(res, octokitRes => octokitRes.data)
   }
 
-  private async createBlob(...args: CreateBlobRpcArgs) {
-    const [content] = args
-
-    const params: CreateBlobParams = {
+  private async createBlob({ content }: CreateBlobCallParams) {
+    const params = {
       content,
     }
     const res = await to(
@@ -320,10 +315,8 @@ export default class Service {
     return createResponse(res, octokitRes => octokitRes.data)
   }
 
-  private async createTree(...args: CreateTreeRpcArgs) {
-    const [baseTree, treePath, treeSha] = args
-
-    const params: CreateTreeParams = {
+  private async createTree({ baseTree, treePath, treeSha }: CreateTreeCallParams) {
+    const params = {
       base_tree: baseTree,
       tree: [{ path: treePath, mode: '100644', type: 'blob', sha: treeSha }],
     }
@@ -338,10 +331,8 @@ export default class Service {
     return createResponse(res, octokitRes => octokitRes.data)
   }
 
-  private async createCommit(...args: CreateCommitRpcArgs) {
-    const [parentCommitSha, treeSha, message] = args
-
-    const params: CreateCommitParams = {
+  private async createCommit({ parentCommitSha, treeSha, message }: CreateCommitCallParams) {
+    const params = {
       parents: [parentCommitSha],
       tree: treeSha,
       message,
@@ -357,10 +348,8 @@ export default class Service {
     return createResponse(res, octokitRes => octokitRes.data)
   }
 
-  private async updateRef(...args: UpdateRefRpcArgs) {
-    const [sha] = args
-
-    const params: UpdateRefParams = {
+  private async updateRef({ sha }: UpdateRefCallParams) {
+    const params = {
       sha,
     }
     const res = await to(
@@ -386,53 +375,7 @@ export default class Service {
     return createResponse(res, octokitRes => octokitRes.data)
   }
 
-  private registerRpcListener() {
-    const labelHandlers = {
-      [MESSAGE_TYPE.GET_LABELS]: this.getLabels,
-      [MESSAGE_TYPE.DELETE_LABEL]: this.deleteLabel,
-      [MESSAGE_TYPE.CREATE_LABEL]: this.createLabel,
-      [MESSAGE_TYPE.UPDATE_LABEL]: this.updateLabel,
-    }
-
-    const issueHandlers = {
-      [MESSAGE_TYPE.GET_ISSUES]: this.getIssues,
-      [MESSAGE_TYPE.GET_ISSUES_WITH_FILTER]: this.getIssuesWithFilter,
-      [MESSAGE_TYPE.UPDATE_ISSUE]: this.updateIssue,
-      [MESSAGE_TYPE.CREATE_ISSUE]: this.createIssue,
-      [MESSAGE_TYPE.GET_ISSUE_COUNT]: this.getIssueCount,
-      [MESSAGE_TYPE.GET_ISSUE_COUNT_WITH_FILTER]: this.getIssueCountWithFilter,
-    }
-
-    const gitHandlers = {
-      [MESSAGE_TYPE.GET_REF]: this.getRef,
-      [MESSAGE_TYPE.UPDATE_REF]: this.updateRef,
-      [MESSAGE_TYPE.GET_COMMIT]: this.getCommit,
-      [MESSAGE_TYPE.CREATE_COMMIT]: this.createCommit,
-      [MESSAGE_TYPE.CREATE_BLOB]: this.createBlob,
-      [MESSAGE_TYPE.CREATE_TREE]: this.createTree,
-    }
-
-    const otherHandlers = {
-      [MESSAGE_TYPE.GET_REPO]: this.getRepo,
-      [MESSAGE_TYPE.UPLOAD_IMAGE]: this.uploadImage,
-    }
-
-    Object.entries({
-      ...labelHandlers,
-      ...issueHandlers,
-      ...gitHandlers,
-      ...otherHandlers,
-    }).forEach(([type, handler]) => {
-      this.rpc.on(type, handler.bind(this))
-    })
+  public dispose(): void {
+    this.rpc.dispose()
   }
-}
-
-function parseLabelNames(raw: string): string[] {
-  const parsed: unknown = JSON.parse(raw)
-  if (!Array.isArray(parsed)) {
-    return []
-  }
-
-  return parsed.filter((item): item is string => typeof item === 'string')
 }

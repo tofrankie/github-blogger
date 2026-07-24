@@ -39,20 +39,23 @@ importers:
         specifier: 22.3.0
         version: 22.3.0(@primer/primitives@11.9.0)
       '@primer/octicons-react':
-        specifier: 19.29.2
-        version: 19.29.2(react@19.2.8)
+        specifier: 19.30.0
+        version: 19.30.0(react@19.2.8)
       '@primer/primitives':
         specifier: 11.9.0
         version: 11.9.0
       '@primer/react':
-        specifier: 38.33.0
-        version: 38.33.0(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react-is@18.3.1)(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react-is@18.3.1)(react@19.2.8)
+        specifier: 38.34.0
+        version: 38.34.0(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react-is@18.3.1)(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react-is@18.3.1)(react@19.2.8)
       '@tanstack/react-query':
         specifier: 5.101.4
         version: 5.101.4(react@19.2.8)
       '@tanstack/react-query-devtools':
         specifier: 5.101.4
         version: 5.101.4(@tanstack/react-query@5.101.4(react@19.2.8))(react@19.2.8)
+      '@tofrankie/vscode-webview-rpc':
+        specifier: 0.0.2
+        version: 0.0.2
       buffer:
         specifier: 6.0.3
         version: 6.0.3
@@ -95,9 +98,6 @@ importers:
       react-dom:
         specifier: 19.2.8
         version: 19.2.8(react@19.2.8)
-      vscode-webview-rpc:
-        specifier: 0.0.4
-        version: 0.0.4
       zustand:
         specifier: 5.0.14
         version: 5.0.14(@types/react@19.2.17)(react@19.2.8)
@@ -134,7 +134,7 @@ importers:
         version: 0.2.1(typescript@5.9.3)
       '@tomjs/vite-plugin-vscode':
         specifier: 7.1.1
-        version: 7.1.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/vscode@1.88.0)(synckit@0.11.13)(typescript@5.9.3)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.6)(yaml@2.9.0))
+        version: 7.1.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/vscode@1.88.0)(synckit@0.11.13)(typescript@5.9.3)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.7)(yaml@2.9.0))
       '@types/node':
         specifier: 26.1.1
         version: 26.1.1
@@ -152,7 +152,7 @@ importers:
         version: 1.57.5
       '@vitejs/plugin-react-swc':
         specifier: 4.3.2
-        version: 4.3.2(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.6)(yaml@2.9.0))
+        version: 4.3.2(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.7)(yaml@2.9.0))
       '@vscode/vsce':
         specifier: 3.9.2
         version: 3.9.2
@@ -160,8 +160,8 @@ importers:
         specifier: 10.7.0
         version: 10.7.0(jiti@2.6.1)
       lint-staged:
-        specifier: 17.1.1
-        version: 17.1.1
+        specifier: 17.2.0
+        version: 17.2.0
       npm-run-all2:
         specifier: 9.0.2
         version: 9.0.2
@@ -169,8 +169,8 @@ importers:
         specifier: 3.9.6
         version: 3.9.6
       sass:
-        specifier: 1.101.6
-        version: 1.101.6
+        specifier: 1.101.7
+        version: 1.101.7
       simple-git-hooks:
         specifier: 2.13.1
         version: 2.13.1
@@ -182,7 +182,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: 8.1.5
-        version: 8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.6)(yaml@2.9.0)
+        version: 8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.7)(yaml@2.9.0)
       vsxpub:
         specifier: 0.1.4
         version: 0.1.4
@@ -901,9 +901,6 @@ packages:
   '@github/relative-time-element@5.3.0':
     resolution: {integrity: sha512-Kz50+pULwLLaVuVkWmROvoYATF5LEA8WNaNOEedisEpORGOodXcxyFDPW0ji5b4b+f3D17rl1nrtksnSiVCbcw==}
 
-  '@github/tab-container-element@4.8.2':
-    resolution: {integrity: sha512-WkaM4mfs8x7dXRWEaDb5deC0OhH6sGQ5cw8i/sVw25gikl4f8C7mHj0kihL5k3eKIIqmGT1Fdswdoi+9ZLDpRA==}
-
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
     engines: {node: '>=18.18.0'}
@@ -1396,8 +1393,8 @@ packages:
   '@primer/live-region-element@0.8.0':
     resolution: {integrity: sha512-DIp04IeZvZ+gwCUcBchIvRwJA2PikP/6hnFhcLKgwttcg5OYjBH9t0cZjLnv10Aq1jN0rAFFG+WPMd3bw4hXcA==}
 
-  '@primer/octicons-react@19.29.2':
-    resolution: {integrity: sha512-5hK0z/FLvxbYX/Sj7JDUUwYMWMfKN1Sb4FL/stp3hCLnU9pBUXvcKaoQ/9epf80Gvsad4hBkvi2/gPQy9EQN/w==}
+  '@primer/octicons-react@19.30.0':
+    resolution: {integrity: sha512-6CwZQwWlWZ0se98JwBI/dxTQ5lNKaMV8FK8iG/iCSthyrXmmbbH68ggLyzB82jyvzDb5jLVxWH5hTpmvv7JjFQ==}
     engines: {node: '>=8'}
     peerDependencies:
       react: '>=16.3'
@@ -1405,8 +1402,8 @@ packages:
   '@primer/primitives@11.9.0':
     resolution: {integrity: sha512-yESOalhd7s7S3unV1V32v3Z0RszXiiz6pzy6hVI9xpdTh1q1Gt8vyDFxRlqIvuwc5ZaO1+gYQTDbjxb4nWBzMw==}
 
-  '@primer/react@38.33.0':
-    resolution: {integrity: sha512-8IyBtJDRTwQP6S0m8JNWjvAKZqIAfZyWw7J3aDYNDyMFVGSVSnWfQPsDxBHheHwCQs7ExsZnJpdvy+WCqF44PQ==}
+  '@primer/react@38.34.0':
+    resolution: {integrity: sha512-YBJAsMFZJk0YvSKGIduBkwr961GBTmq3kIBVI63WaDmuOczvhq7ox13F+CwMT/fAoyp9emYYw1YtfganLc+APQ==}
     engines: {node: '>=12', npm: '>=7'}
     peerDependencies:
       '@types/react': 18.x || 19.x
@@ -1966,6 +1963,10 @@ packages:
       typescript:
         optional: true
 
+  '@tofrankie/vscode-webview-rpc@0.0.2':
+    resolution: {integrity: sha512-04QsIQspoB2ZSTpE0jCbshrW2MzVdNorL2APN+khfa/TQysvI4cHq8fuDwJ/tm3D2GT2HWCfx2AvZit49iL2dw==}
+    engines: {node: '>=18'}
+
   '@tomjs/node@2.2.3':
     resolution: {integrity: sha512-objFTMXbLKoHbN8WIPz25gy/H16VewH5qcdEu2wrbAYtNid4d3s3C/F1PfXUiSYpzd7YoKh2yRUkTFl03btgRw==}
     engines: {node: '>=16'}
@@ -2170,9 +2171,6 @@ packages:
 
   '@types/vscode-webview@1.57.5':
     resolution: {integrity: sha512-iBAUYNYkz+uk1kdsq05fEcoh8gJmwT3lqqFPN7MGyjQ3HVloViMdo7ZJ8DFIP8WOK74PjOEilosqAyxV2iUFUw==}
-
-  '@types/vscode@1.100.0':
-    resolution: {integrity: sha512-4uNyvzHoraXEeCamR3+fzcBlh7Afs4Ifjs4epINyUX/jvdk0uzLnwiDY35UKDKnkCHP5Nu3dljl2H8lR6s+rQw==}
 
   '@types/vscode@1.88.0':
     resolution: {integrity: sha512-rWY+Bs6j/f1lvr8jqZTyp5arRMfovdxolcqGi+//+cPDOh8SBvzXH90e7BiSXct5HJ9HGW6jATchbRTpTJpEkw==}
@@ -4454,8 +4452,8 @@ packages:
   linkify-it@5.0.2:
     resolution: {integrity: sha512-ONTm2jCMAVZjgQa/Fy1kScXsuOoF5NPTsoFBdE1KVIZ2vAh/r9+Bqo+0jINCBYnavTPQZz38QzFTme79ENoN3Q==}
 
-  lint-staged@17.1.1:
-    resolution: {integrity: sha512-FnHWpSe5cPRtrDG+soOuNdBxb4XQb2gN5EqpEWKdweyqyOfpl4QSjbrz3ilcIf0WXmkiNQGZZRQ23R5YtB3TEw==}
+  lint-staged@17.2.0:
+    resolution: {integrity: sha512-FchGnFe4i4B1C/a35SPU9bNGPEHSC1+1iV0plLjzBmKVe9klZrlRfSgK6Cw4VeHyqOXbJUXP0vON61uRftNQ0A==}
     engines: {node: '>=22.22.1'}
     hasBin: true
 
@@ -4505,9 +4503,6 @@ packages:
 
   lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
-
-  lodash@4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
   lodash@4.18.1:
     resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
@@ -5511,8 +5506,8 @@ packages:
   sass-formatter@0.7.9:
     resolution: {integrity: sha512-CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==}
 
-  sass@1.101.6:
-    resolution: {integrity: sha512-j8qYug9WuX19eU5sxJWQlbR8RYhKgXiOYgGjkJRkcW35c3neWtxPdcUW0saN6Od2L0aqEp0AmH9R/QeAxrffMQ==}
+  sass@1.101.7:
+    resolution: {integrity: sha512-cDeUYU0dhwKVbpYg/ppsjyuoddxYhWlJOkRoI7+/iZsaSp7iowWDfm+tL2HcUafedWBDvbf/+hx0QRgKG4JSHA==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -6194,10 +6189,6 @@ packages:
         optional: true
       yaml:
         optional: true
-
-  vscode-webview-rpc@0.0.4:
-    resolution: {integrity: sha512-acAUMQTzPLsjKPCZyWqEku6VJwFKDGJyZKYsp+qA8pdA4396ZvPwMYO0pqW8UU43bt3Tugd3zIrcbo8QilRnrQ==}
-    engines: {node: '>=10'}
 
   vsxpub@0.1.4:
     resolution: {integrity: sha512-MbZMdDqsqUL2NBeCuMvOWyYVcOXUn/vz2TbHXHYeY/sTdNz4KwAjprx+wBvn4mKBooVVO+iqL7vf/9FtUE513A==}
@@ -7143,8 +7134,6 @@ snapshots:
 
   '@github/relative-time-element@5.3.0': {}
 
-  '@github/tab-container-element@4.8.2': {}
-
   '@humanfs/core@0.19.2':
     dependencies:
       '@humanfs/types': 0.15.0
@@ -7538,22 +7527,21 @@ snapshots:
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.6.0
 
-  '@primer/octicons-react@19.29.2(react@19.2.8)':
+  '@primer/octicons-react@19.30.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
   '@primer/primitives@11.9.0': {}
 
-  '@primer/react@38.33.0(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react-is@18.3.1)(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react-is@18.3.1)(react@19.2.8)':
+  '@primer/react@38.34.0(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react-is@18.3.1)(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react-is@18.3.1)(react@19.2.8)':
     dependencies:
       '@github/mini-throttle': 2.1.1
       '@github/relative-time-element': 5.3.0
-      '@github/tab-container-element': 4.8.2
       '@lit-labs/react': 1.2.1
       '@oddbird/popover-polyfill': 0.5.2
       '@primer/behaviors': 1.10.3
       '@primer/live-region-element': 0.8.0
-      '@primer/octicons-react': 19.29.2(react@19.2.8)
+      '@primer/octicons-react': 19.30.0(react@19.2.8)
       '@primer/primitives': 11.9.0
       '@tanstack/react-virtual': 3.14.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       clsx: 2.1.1
@@ -8055,9 +8043,11 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
+  '@tofrankie/vscode-webview-rpc@0.0.2': {}
+
   '@tomjs/node@2.2.3': {}
 
-  '@tomjs/vite-plugin-vscode@7.1.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/vscode@1.88.0)(synckit@0.11.13)(typescript@5.9.3)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.6)(yaml@2.9.0))':
+  '@tomjs/vite-plugin-vscode@7.1.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/vscode@1.88.0)(synckit@0.11.13)(typescript@5.9.3)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.7)(yaml@2.9.0))':
     dependencies:
       '@tomjs/node': 2.2.3
       '@types/vscode': 1.88.0
@@ -8066,7 +8056,7 @@ snapshots:
       node-html-parser: 7.0.2
       picocolors: 1.1.1
       tsdown: 0.19.0(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(synckit@0.11.13)(typescript@5.9.3)
-      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.6)(yaml@2.9.0)
+      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.7)(yaml@2.9.0)
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
       - '@emnapi/core'
@@ -8299,8 +8289,6 @@ snapshots:
 
   '@types/vscode-webview@1.57.5': {}
 
-  '@types/vscode@1.100.0': {}
-
   '@types/vscode@1.88.0': {}
 
   '@typescript-eslint/eslint-plugin@8.64.0(@typescript-eslint/parser@8.64.0(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3))(eslint@10.7.0(jiti@2.6.1))(typescript@5.9.3)':
@@ -8485,11 +8473,11 @@ snapshots:
       d3-selection: 3.0.0
       d3-transition: 3.0.1(d3-selection@3.0.0)
 
-  '@vitejs/plugin-react-swc@4.3.2(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.6)(yaml@2.9.0))':
+  '@vitejs/plugin-react-swc@4.3.2(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.7)(yaml@2.9.0))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
       '@swc/core': 1.15.46
-      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.6)(yaml@2.9.0)
+      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.7)(yaml@2.9.0)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -10924,7 +10912,7 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  lint-staged@17.1.1:
+  lint-staged@17.2.0:
     dependencies:
       picomatch: 4.0.5
       string-argv: 0.3.2
@@ -10967,8 +10955,6 @@ snapshots:
   lodash.once@4.1.1: {}
 
   lodash.truncate@4.4.2: {}
-
-  lodash@4.17.21: {}
 
   lodash@4.18.1: {}
 
@@ -12492,7 +12478,7 @@ snapshots:
     dependencies:
       suf-log: 2.5.3
 
-  sass@1.101.6:
+  sass@1.101.7:
     dependencies:
       chokidar: 5.0.0
       immutable: 5.1.9
@@ -13242,7 +13228,7 @@ snapshots:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.6)(yaml@2.9.0):
+  vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.3)(jiti@2.6.1)(sass@1.101.7)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.5
@@ -13254,13 +13240,8 @@ snapshots:
       esbuild: 0.27.3
       fsevents: 2.3.3
       jiti: 2.6.1
-      sass: 1.101.6
+      sass: 1.101.7
       yaml: 2.9.0
-
-  vscode-webview-rpc@0.0.4:
-    dependencies:
-      '@types/vscode': 1.100.0
-      lodash: 4.17.21
 
   vsxpub@0.1.4:
     dependencies:

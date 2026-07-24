@@ -3,6 +3,9 @@ import { defineConfig } from '@tofrankie/eslint'
 export default defineConfig({
   typescript: {
     tsconfigPath: './tsconfig.json',
+    overrides: {
+      'ts/consistent-type-definitions': 'off',
+    },
     overridesTypeAware: {
       'ts/strict-boolean-expressions': 'off',
       'ts/unbound-method': 'off',

@@ -1,38 +1,53 @@
-import type { Webview as VSCodeWebview } from 'vscode'
+import type { RPCCallMethodArgs, RPCCallParams, RPCClient } from '@tofrankie/vscode-webview-rpc'
 import type { ClientUploadImagesResult } from '@/types'
 import type {
   ApiError,
   ApiRequestErrorDetail,
-  ApiResponse,
-  CreateIssueRpcArgs,
-  CreateLabelRpcArgs,
-  GetIssuesRpcArgs,
-  GetIssuesWithFilterRpcArgs,
+  AppRPC,
+  CreateBlobCallParams,
+  CreateCommitCallParams,
+  CreateIssueCallParams,
+  CreateLabelCallParams,
+  CreateTreeCallParams,
+  DeleteLabelCallParams,
+  GetCommitCallParams,
+  GetIssueCountWithFilterCallParams,
+  GetIssuesCallParams,
+  GetIssuesWithFilterCallParams,
   MinimalIssue,
   MinimalIssues,
   MinimalLabel,
   MinimalLabels,
-  RestBlob,
-  RestCommit,
-  RestRef,
   RestRepo,
-  RestTree,
-  UpdateIssueRpcArgs,
-  UpdateLabelRpcArgs,
-  ValueOf,
+  UpdateIssueCallParams,
+  UpdateLabelCallParams,
+  UpdateRefCallParams,
 } from '~/types'
+import { createWebviewRPC, RPCRemoteError } from '@tofrankie/vscode-webview-rpc'
 import dayjs from 'dayjs'
 import { encode } from 'js-base64'
-import { WebviewRPC } from 'vscode-webview-rpc'
 import { ERROR_TYPE_MAP, SUBMIT_TYPE } from '@/constants'
 import { checkFileSize, generateMarkdown, getVscode } from '@/utils'
-import { DEFAULT_PAGINATION_SIZE, ERROR_TYPE, MESSAGE_TYPE } from '~/constants'
+import { DEFAULT_PAGINATION_SIZE, ERROR_TYPE } from '~/constants'
 
-const vscode = getVscode()
+let rpc: RPCClient<AppRPC> | null = null
 
-export const rpc = new WebviewRPC(window, vscode as unknown as VSCodeWebview)
+export function initRpc(): RPCClient<AppRPC> {
+  const instance = createWebviewRPC<AppRPC>(getVscode(), {
+    timeout: 10_000,
+  })
 
-type RpcMessageType = ValueOf<typeof MESSAGE_TYPE>
+  rpc = instance
+  return instance
+}
+
+export function getRpc(): RPCClient<AppRPC> {
+  if (!rpc) {
+    throw new Error('RPC has not been initialized')
+  }
+
+  return rpc
+}
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null
@@ -66,7 +81,7 @@ function isApiError(value: unknown): value is ApiError {
     return false
   }
 
-  if (!Object.values(ERROR_TYPE).includes(value.type as ValueOf<typeof ERROR_TYPE>)) {
+  if (!Object.values(ERROR_TYPE).includes(value.type as ApiError['type'])) {
     return false
   }
 
@@ -75,34 +90,6 @@ function isApiError(value: unknown): value is ApiError {
   }
 
   return isApiRequestErrorDetail(value.detail)
-}
-
-function isApiResponse<T>(value: unknown): value is ApiResponse<T> {
-  if (!isObject(value) || typeof value.success !== 'boolean') {
-    return false
-  }
-
-  if (value.success) {
-    return 'data' in value && value.error === null
-  }
-
-  return value.data === null && isApiError(value.error)
-}
-
-async function rpcEmit<T>(type: RpcMessageType, args: unknown[] = []): Promise<T> {
-  const payload: unknown[] = args
-  const rawResponse: unknown = await rpc.emit(type, payload)
-
-  if (!isApiResponse<T>(rawResponse)) {
-    throw new Error('Invalid RPC response')
-  }
-
-  const response = rawResponse
-  if (!response.success) {
-    console.log('🚀 ~ client ~ rpcEmit ~ error ~ detail:', response.error?.detail)
-    throw new RpcError(response.error)
-  }
-  return response.data
 }
 
 export class RpcError extends Error {
@@ -115,39 +102,82 @@ export class RpcError extends Error {
   }
 }
 
+function toRpcError(error: unknown): Error {
+  if (!(error instanceof RPCRemoteError)) {
+    return error instanceof Error ? error : new Error(String(error))
+  }
+
+  const payload = error.data
+  if (!isObject(payload)) {
+    return error
+  }
+
+  const apiError = (payload as { apiError?: unknown }).apiError
+  if (isApiError(apiError)) {
+    return new RpcError(apiError)
+  }
+
+  return error
+}
+
+async function rpcCall<TMethod extends keyof AppRPC['calls']>(
+  method: TMethod,
+  ...args: RPCCallMethodArgs<RPCCallParams<AppRPC['calls'], TMethod>>
+): Promise<AppRPC['calls'][TMethod]['result']> {
+  try {
+    return await getRpc().call(method, ...args)
+  } catch (error) {
+    throw toRpcError(error)
+  }
+}
+
+export function notifyOpenExternalLink(url: string): void {
+  getRpc().notify('external-link.open', { url })
+}
+
+export async function getSettings() {
+  return rpcCall('settings.get')
+}
+
 export async function getRepo(): Promise<RestRepo> {
-  return rpcEmit<RestRepo>(MESSAGE_TYPE.GET_REPO)
+  return rpcCall('repo.get')
 }
 
 export async function getLabels(): Promise<MinimalLabels> {
-  return rpcEmit<MinimalLabels>(MESSAGE_TYPE.GET_LABELS)
+  return rpcCall('labels.list')
 }
 
 export async function createLabel(label: Omit<MinimalLabel, 'id'>): Promise<MinimalLabel> {
-  const args: CreateLabelRpcArgs = [label.name, label.color, label.description ?? undefined]
-  return rpcEmit<MinimalLabel>(MESSAGE_TYPE.CREATE_LABEL, args)
+  const params: CreateLabelCallParams = {
+    name: label.name,
+    color: label.color,
+    description: label.description ?? undefined,
+  }
+
+  return rpcCall('labels.create', params)
 }
 
 export async function deleteLabel(name: string): Promise<void> {
-  await rpcEmit<null>(MESSAGE_TYPE.DELETE_LABEL, [name])
+  const params: DeleteLabelCallParams = { name }
+  await rpcCall('labels.delete', params)
 }
 
 export async function updateLabel(
   newLabel: Omit<MinimalLabel, 'id'>,
   oldLabel: MinimalLabel
 ): Promise<MinimalLabel> {
-  const newLabelName = newLabel.name !== oldLabel.name ? newLabel.name : undefined
-  const args: UpdateLabelRpcArgs = [
-    newLabelName,
-    oldLabel.name,
-    newLabel.color,
-    newLabel.description ?? undefined,
-  ]
-  return rpcEmit<MinimalLabel>(MESSAGE_TYPE.UPDATE_LABEL, args)
+  const params: UpdateLabelCallParams = {
+    newName: newLabel.name !== oldLabel.name ? newLabel.name : undefined,
+    name: oldLabel.name,
+    color: newLabel.color,
+    description: newLabel.description ?? undefined,
+  }
+
+  return rpcCall('labels.update', params)
 }
 
 export async function getIssueCount(): Promise<number> {
-  return rpcEmit<number>(MESSAGE_TYPE.GET_ISSUE_COUNT)
+  return rpcCall('issues.count')
 }
 
 export async function getIssueCountWithFilter(
@@ -158,7 +188,12 @@ export async function getIssueCountWithFilter(
     return getIssueCount()
   }
 
-  return rpcEmit<number>(MESSAGE_TYPE.GET_ISSUE_COUNT_WITH_FILTER, [filterTitle, filterLabelNames])
+  const params: GetIssueCountWithFilterCallParams = {
+    title: filterTitle,
+    labels: filterLabelNames,
+  }
+
+  return rpcCall('issues.count-with-filter', params)
 }
 
 export async function getIssues(
@@ -168,81 +203,87 @@ export async function getIssues(
 ): Promise<MinimalIssues> {
   const useRest = !title && labels.length <= 1
 
-  let res: MinimalIssues = []
   if (useRest) {
-    const args: GetIssuesRpcArgs = [page, labels]
-    res = await rpcEmit<MinimalIssues>(MESSAGE_TYPE.GET_ISSUES, args)
-  } else {
-    const offset = (page - 1) * DEFAULT_PAGINATION_SIZE
-    const after = page > 1 ? encode(`cursor:${offset}`) : null
-    const args: GetIssuesWithFilterRpcArgs = [after, labels, title]
-    res = await rpcEmit<MinimalIssues>(MESSAGE_TYPE.GET_ISSUES_WITH_FILTER, args)
+    const params: GetIssuesCallParams = { page, labels }
+    return rpcCall('issues.list', params)
   }
 
-  return res
+  const offset = (page - 1) * DEFAULT_PAGINATION_SIZE
+  const after = page > 1 ? encode(`cursor:${offset}`) : null
+  const params: GetIssuesWithFilterCallParams = {
+    after,
+    labels,
+    title,
+  }
+
+  return rpcCall('issues.list-with-filter', params)
 }
 
 export async function createIssue(params: MinimalIssue): Promise<MinimalIssue> {
-  const labelNames = params.labels.map(label => label.name)
-  const args: CreateIssueRpcArgs = [params.title, params.body, JSON.stringify(labelNames)]
-  return rpcEmit<MinimalIssue>(MESSAGE_TYPE.CREATE_ISSUE, args)
+  const payload: CreateIssueCallParams = {
+    title: params.title,
+    body: params.body,
+    labelNames: params.labels.map(label => label.name),
+  }
+
+  return rpcCall('issues.create', payload)
 }
 
 export async function updateIssue(params: MinimalIssue): Promise<MinimalIssue> {
-  const labelNames = params.labels.map(label => label.name)
-  const args: UpdateIssueRpcArgs = [
-    params.number,
-    params.title,
-    params.body,
-    JSON.stringify(labelNames),
-  ]
-  return rpcEmit<MinimalIssue>(MESSAGE_TYPE.UPDATE_ISSUE, args)
+  const payload: UpdateIssueCallParams = {
+    issueNumber: params.number,
+    title: params.title,
+    body: params.body,
+    labelNames: params.labels.map(label => label.name),
+  }
+
+  return rpcCall('issues.update', payload)
 }
 
-type SubmitType = ValueOf<typeof SUBMIT_TYPE>
+type SubmitType = (typeof SUBMIT_TYPE)[keyof typeof SUBMIT_TYPE]
 
 export async function archiveIssue(issue: MinimalIssue, type: SubmitType): Promise<void> {
   const { number: issueNumber, createdAt } = issue
 
   if (!Number.isInteger(issueNumber)) return
 
-  // 1. 获取 Ref
-  const refResult = await rpcEmit<RestRef>(MESSAGE_TYPE.GET_REF)
+  const refResult = await rpcCall('git.ref.get')
   const commitSha = refResult.object.sha
 
-  // 2. 获取当前 Commit 的 Tree SHA
-  const commitResult = await rpcEmit<RestCommit>(MESSAGE_TYPE.GET_COMMIT, [commitSha])
+  const commitParams: GetCommitCallParams = { commitSha }
+  const commitResult = await rpcCall('git.commit.get', commitParams)
   const treeSha = commitResult.tree.sha
 
-  // 3. 生成 Blob
   const markdown = generateMarkdown(issue)
-  const blobResult = await rpcEmit<RestBlob>(MESSAGE_TYPE.CREATE_BLOB, [markdown])
+  const blobParams: CreateBlobCallParams = { content: markdown }
+  const blobResult = await rpcCall('git.blob.create', blobParams)
   const blobSha = blobResult.sha
 
-  // 4. 生成 Tree
   const year = dayjs(createdAt).year()
   const filePath = `archives/${year}/${issueNumber}.md`
-  const newTreeResult = await rpcEmit<RestTree>(MESSAGE_TYPE.CREATE_TREE, [
-    treeSha,
-    filePath,
-    blobSha,
-  ])
+  const treeParams: CreateTreeCallParams = {
+    baseTree: treeSha,
+    treePath: filePath,
+    treeSha: blobSha,
+  }
+  const newTreeResult = await rpcCall('git.tree.create', treeParams)
   const newTreeSha = newTreeResult.sha
 
-  // 5. 生成 Commit
   const commitMessage =
     type === SUBMIT_TYPE.CREATE
       ? `docs: create issue ${issueNumber}`
       : `docs: update issue ${issueNumber}`
-  const newCommitResult = await rpcEmit<RestCommit>(MESSAGE_TYPE.CREATE_COMMIT, [
-    commitSha,
-    newTreeSha,
-    commitMessage,
-  ])
-  const newCommitSha = newCommitResult.sha
+  const createCommitParams: CreateCommitCallParams = {
+    parentCommitSha: commitSha,
+    treeSha: newTreeSha,
+    message: commitMessage,
+  }
+  const newCommitResult = await rpcCall('git.commit.create', createCommitParams)
 
-  // 6. 更新 Ref
-  await rpcEmit<RestRef>(MESSAGE_TYPE.UPDATE_REF, [newCommitSha])
+  const updateRefParams: UpdateRefCallParams = {
+    sha: newCommitResult.sha,
+  }
+  await rpcCall('git.ref.update', updateRefParams)
 }
 
 export async function uploadImages(files: File[]): Promise<ClientUploadImagesResult> {
@@ -252,7 +293,6 @@ export async function uploadImages(files: File[]): Promise<ClientUploadImagesRes
 
   const results: ClientUploadImagesResult = []
 
-  // 并行上传可能会发生冲突，详见：https://docs.github.com/zh/rest/repos/contents#create-or-update-file-contents
   for (const img of files) {
     const isLt2M = checkFileSize(img)
     if (!isLt2M) {
@@ -277,9 +317,11 @@ export async function uploadImages(files: File[]): Promise<ClientUploadImagesRes
             reject(new Error(`Failed to read ${img.name}`))
             return
           }
-          rpcEmit<string>(MESSAGE_TYPE.UPLOAD_IMAGE, [content, path])
+
+          getRpc()
+            .call('images.upload', { content, path })
             .then(url => resolve({ url }))
-            .catch(reject)
+            .catch(error => reject(toRpcError(error)))
         }
       })
       results.push(result)

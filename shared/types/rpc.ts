@@ -1,56 +1,184 @@
+import type { RPCDefinition } from '@tofrankie/vscode-webview-rpc'
+import type { MinimalIssue, MinimalIssues, MinimalLabel, MinimalLabels, Settings } from './domain'
 import type {
+  CreateBlobParams,
+  CreateCommitParams,
   CreateIssueParams,
   CreateLabelParams,
+  DeleteLabelParams,
+  GetCommitParams,
+  RestBlob,
+  RestCommit,
+  RestRef,
+  RestRepo,
+  RestTree,
   UpdateIssueParams,
   UpdateLabelParams,
+  UpdateRefParams,
 } from './rest'
 
-export type LabelNamesJsonString = string
+export type GetIssuesCallParams = {
+  page: number
+  labels: string[]
+}
 
-export type GetIssuesRpcArgs = [page: number, labels: string[]]
+export type GetIssuesWithFilterCallParams = {
+  after: string | null
+  labels: string[]
+  title: string
+}
 
-export type GetIssuesWithFilterRpcArgs = [after: string | null, labels: string[], title: string]
+export type GetIssueCountWithFilterCallParams = {
+  title: string
+  labels: string[]
+}
 
-export type GetIssueCountWithFilterRpcArgs = [title: string, labels: string[]]
+export type CreateIssueCallParams = {
+  title: CreateIssueParams['title']
+  body: CreateIssueParams['body']
+  labelNames: string[]
+}
 
-export type CreateIssueRpcArgs = [
-  title: CreateIssueParams['title'],
-  body: CreateIssueParams['body'],
-  labelsJson: LabelNamesJsonString,
-]
+export type UpdateIssueCallParams = {
+  issueNumber: UpdateIssueParams['issue_number']
+  title: UpdateIssueParams['title']
+  body: UpdateIssueParams['body']
+  labelNames: string[]
+}
 
-export type UpdateIssueRpcArgs = [
-  issueNumber: UpdateIssueParams['issue_number'],
-  title: UpdateIssueParams['title'],
-  body: UpdateIssueParams['body'],
-  labelsJson: LabelNamesJsonString,
-]
+export type CreateLabelCallParams = {
+  name: CreateLabelParams['name']
+  color: CreateLabelParams['color']
+  description?: CreateLabelParams['description']
+}
 
-export type UpdateLabelRpcArgs = [
-  newName: UpdateLabelParams['new_name'],
-  name: UpdateLabelParams['name'],
-  color: UpdateLabelParams['color'],
-  description: UpdateLabelParams['description'],
-]
+export type UpdateLabelCallParams = {
+  newName?: UpdateLabelParams['new_name']
+  name: UpdateLabelParams['name']
+  color: UpdateLabelParams['color']
+  description?: UpdateLabelParams['description']
+}
 
-export type CreateLabelRpcArgs = [
-  name: CreateLabelParams['name'],
-  color: CreateLabelParams['color'],
-  description: CreateLabelParams['description'],
-]
+export type DeleteLabelCallParams = {
+  name: DeleteLabelParams['name']
+}
 
-export type DeleteLabelRpcArgs = [name: string]
+export type GetCommitCallParams = {
+  commitSha: GetCommitParams['commit_sha']
+}
 
-export type GetLabelsRpcArgs = [page?: number, perPage?: number]
+export type UpdateRefCallParams = {
+  sha: UpdateRefParams['sha']
+}
 
-export type GetCommitRpcArgs = [commitSha: string]
+export type CreateBlobCallParams = {
+  content: CreateBlobParams['content']
+}
 
-export type UpdateRefRpcArgs = [sha: string]
+export type CreateTreeCallParams = {
+  baseTree: string
+  treePath: string
+  treeSha: string
+}
 
-export type CreateBlobRpcArgs = [content: string]
+export type CreateCommitCallParams = {
+  parentCommitSha: NonNullable<CreateCommitParams['parents']>[number]
+  treeSha: CreateCommitParams['tree']
+  message: CreateCommitParams['message']
+}
 
-export type CreateTreeRpcArgs = [baseTree: string, treePath: string, treeSha: string]
+export type UploadImageCallParams = {
+  content: string
+  path: string
+}
 
-export type CreateCommitRpcArgs = [parentsCommitSha: string, treeSha: string, message: string]
+type AppRPCCalls = {
+  'settings.get': {
+    params: void
+    result: Settings
+  }
+  'repo.get': {
+    params: void
+    result: RestRepo
+  }
+  'labels.list': {
+    params: void
+    result: MinimalLabels
+  }
+  'labels.create': {
+    params: CreateLabelCallParams
+    result: MinimalLabel
+  }
+  'labels.delete': {
+    params: DeleteLabelCallParams
+    result: void
+  }
+  'labels.update': {
+    params: UpdateLabelCallParams
+    result: MinimalLabel
+  }
+  'issues.count': {
+    params: void
+    result: number
+  }
+  'issues.count-with-filter': {
+    params: GetIssueCountWithFilterCallParams
+    result: number
+  }
+  'issues.list': {
+    params: GetIssuesCallParams
+    result: MinimalIssues
+  }
+  'issues.list-with-filter': {
+    params: GetIssuesWithFilterCallParams
+    result: MinimalIssues
+  }
+  'issues.create': {
+    params: CreateIssueCallParams
+    result: MinimalIssue
+  }
+  'issues.update': {
+    params: UpdateIssueCallParams
+    result: MinimalIssue
+  }
+  'git.ref.get': {
+    params: void
+    result: RestRef
+  }
+  'git.ref.update': {
+    params: UpdateRefCallParams
+    result: RestRef
+  }
+  'git.commit.get': {
+    params: GetCommitCallParams
+    result: RestCommit
+  }
+  'git.commit.create': {
+    params: CreateCommitCallParams
+    result: RestCommit
+  }
+  'git.blob.create': {
+    params: CreateBlobCallParams
+    result: RestBlob
+  }
+  'git.tree.create': {
+    params: CreateTreeCallParams
+    result: RestTree
+  }
+  'images.upload': {
+    params: UploadImageCallParams
+    result: string
+  }
+}
 
-export type UploadImageRpcArgs = [content: string, path: string]
+type AppRPCNotifications = {
+  'external-link.open': {
+    payload: {
+      url: string
+    }
+  }
+}
+
+type EmptyEvents = Record<string, never>
+
+export type AppRPC = RPCDefinition<AppRPCCalls, AppRPCNotifications, EmptyEvents>

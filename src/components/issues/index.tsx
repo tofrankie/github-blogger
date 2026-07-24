@@ -35,14 +35,12 @@ import { debounce, intersect, unique } from 'licia'
 import { useCallback, useMemo, useState } from 'react'
 import { useIssueCount, useIssueCountWithFilter, useIssues, useLabels, useRepo } from '@/hooks'
 import { useEditorStore } from '@/stores/use-editor-store'
-import { getVscode } from '@/utils'
-import { DEFAULT_PAGINATION_SIZE, MESSAGE_TYPE } from '~/constants'
+import { openExternalLink } from '@/utils'
+import { DEFAULT_PAGINATION_SIZE } from '~/constants'
 import { FlashWithRetry } from '../flash-with-retry'
 import { IssueSkeleton, ListSkeleton } from './skeleton'
 
 const SELECT_PANEL_PLACEHOLDER = 'Filter by labels'
-
-const vscode = getVscode()
 
 const LINK_TYPE = {
   REPO: 'repo',
@@ -397,7 +395,7 @@ interface HeaderIssuesProps {
 }
 
 function HeaderIssues({ repo }: HeaderIssuesProps) {
-  const openExternalLink = (type: LinkType) => {
+  const handleOpenExternalLink = (type: LinkType) => {
     if (!type) return
 
     const repoUrl = repo.html_url
@@ -411,10 +409,7 @@ function HeaderIssues({ repo }: HeaderIssuesProps) {
       [LINK_TYPE.SETTINGS]: `${repoUrl}/settings`,
     }
 
-    vscode.postMessage({
-      type: MESSAGE_TYPE.OPEN_EXTERNAL_LINK,
-      externalLink: links[type],
-    })
+    openExternalLink(links[type])
   }
 
   return (
@@ -426,13 +421,16 @@ function HeaderIssues({ repo }: HeaderIssuesProps) {
               <Avatar
                 size={32}
                 src={repo.owner.avatar_url}
-                onClick={() => openExternalLink(LINK_TYPE.PROFILE)}
+                onClick={() => handleOpenExternalLink(LINK_TYPE.PROFILE)}
                 style={{ cursor: 'pointer' }}
               />
             ) : (
               <MarkGithubIcon size={32} />
             )}
-            <Link className="issues-header-link" onClick={() => openExternalLink(LINK_TYPE.REPO)}>
+            <Link
+              className="issues-header-link"
+              onClick={() => handleOpenExternalLink(LINK_TYPE.REPO)}
+            >
               {repo.name}
             </Link>
           </Stack>
@@ -443,31 +441,31 @@ function HeaderIssues({ repo }: HeaderIssuesProps) {
           aria-label="Issues"
           icon={IssueOpenedIcon}
           tooltipDirection="n"
-          onClick={() => openExternalLink(LINK_TYPE.ISSUES)}
+          onClick={() => handleOpenExternalLink(LINK_TYPE.ISSUES)}
         />
         <IconButton
           aria-label="Labels"
           icon={TagIcon}
           tooltipDirection="n"
-          onClick={() => openExternalLink(LINK_TYPE.LABELS)}
+          onClick={() => handleOpenExternalLink(LINK_TYPE.LABELS)}
         />
         <IconButton
           aria-label="Actions"
           icon={PlayIcon}
           tooltipDirection="n"
-          onClick={() => openExternalLink(LINK_TYPE.ACTIONS)}
+          onClick={() => handleOpenExternalLink(LINK_TYPE.ACTIONS)}
         />
         <IconButton
           aria-label="Insights"
           icon={GraphIcon}
           tooltipDirection="n"
-          onClick={() => openExternalLink(LINK_TYPE.INSIGHTS)}
+          onClick={() => handleOpenExternalLink(LINK_TYPE.INSIGHTS)}
         />
         <IconButton
           aria-label="Settings"
           icon={GearIcon}
           tooltipDirection="n"
-          onClick={() => openExternalLink(LINK_TYPE.SETTINGS)}
+          onClick={() => handleOpenExternalLink(LINK_TYPE.SETTINGS)}
         />
       </PageHeader.Actions>
     </PageHeader>

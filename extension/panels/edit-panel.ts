@@ -62,9 +62,6 @@ export default class EditPanel {
 
     // Set the HTML content for the webview panel
     this._panel.webview.html = WebviewHelper.setupHtml(this._panel.webview, context)
-
-    // Set an event listener to listen for messages passed from the webview context
-    WebviewHelper.setupWebviewHooks(this._panel.webview, this._disposables)
   }
 
   /**
@@ -108,6 +105,8 @@ export default class EditPanel {
    */
   dispose() {
     EditPanel.currentPanel = undefined
+
+    this._server.dispose()
 
     // Dispose of the current webview panel
     this._panel.dispose()

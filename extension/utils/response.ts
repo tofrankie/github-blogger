@@ -1,35 +1,25 @@
-import type { ApiError, ApiRequestErrorDetail, ApiResponse, ResultTuple } from '~/types'
+import type { ApiError, ApiRequestErrorDetail, ResultTuple } from '~/types'
+import { RPCError } from '@tofrankie/vscode-webview-rpc'
 import { ERROR_TYPE } from '~/constants'
 
 type Transform<T, R> = (data: T) => R
 type RequestErrorLike = ApiRequestErrorDetail & { message: string }
 
-export function createResponse<T, R>(
-  result: ResultTuple<T>,
-  transform?: Transform<T, R>
-): ApiResponse<T | R> {
+export function createResponse<T, R>(result: ResultTuple<T>, transform?: Transform<T, R>): T | R {
   const [err, data] = result
   if (err) {
-    return {
-      success: false,
-      data: null,
-      error: createApiError(err),
-    }
+    const apiError = createApiError(err)
+    throw new RPCError(apiError.message, {
+      code: 'GITHUB_API_ERROR',
+      data: { apiError },
+    })
   }
 
   if (transform) {
-    return {
-      success: true,
-      data: transform(data),
-      error: null,
-    }
+    return transform(data)
   }
 
-  return {
-    success: true,
-    data,
-    error: null,
-  }
+  return data
 }
 
 function createApiError(error: unknown): ApiError {
