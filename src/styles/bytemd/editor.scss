@@ -50,6 +50,7 @@
   .cm-s-default .cm-builtin,
   .cm-s-default .cm-variable-2 {
     color: var(--fgColor-accent);
+    text-underline-offset: 0.2rem;
   }
 
   /* 命中链接地址 */
