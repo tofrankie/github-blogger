@@ -44,9 +44,6 @@ importers:
       '@tanstack/react-query-devtools':
         specifier: 5.101.4
         version: 5.101.4(@tanstack/react-query@5.101.4(react@19.2.8))(react@19.2.8)
-      '@tofrankie/bytemd-plugin-highlight':
-        specifier: 0.0.5
-        version: 0.0.5(bytemd@1.22.0)
       '@tofrankie/vscode-webview-rpc':
         specifier: 0.0.2
         version: 0.0.2
@@ -62,6 +59,9 @@ importers:
       bytemd-plugin-github-alerts:
         specifier: 0.0.4
         version: 0.0.4(bytemd@1.22.0)
+      bytemd-plugin-highlight-github:
+        specifier: 0.0.8
+        version: 0.0.8(bytemd@1.22.0)
       bytemd-plugin-math:
         specifier: 0.0.1
         version: 0.0.1(bytemd@1.22.0)
@@ -1894,11 +1894,6 @@ packages:
   '@textlint/types@15.7.1':
     resolution: {integrity: sha512-Vye/GmFNBTgVzZFtIFJTmLB+s2A7oIADxNG6r9UhfPuY+Czv0z5G3xeyFZZudPlfxURsKUyPIU5XsjOFqVp33A==}
 
-  '@tofrankie/bytemd-plugin-highlight@0.0.5':
-    resolution: {integrity: sha512-z/nTbJJQJxs0QHSiCzLrI9Og1S7H/CviOkYIcQIu3hMvGpfwi8Q6EBnfUMglTTRp445tGc2Tl147sRRkt6IV5g==}
-    peerDependencies:
-      bytemd: ^1.5.0
-
   '@tofrankie/commitlint@0.0.6':
     resolution: {integrity: sha512-vjufccMx5lHMOQD5bPBl4x9+MGSDsglWfT/hehyMyK61ypSSIt7vINQTCEufTLM7J6XQWYFKtPDnOQYzDozgmw==}
     engines: {node: '>=18'}
@@ -2586,6 +2581,11 @@ packages:
 
   bytemd-plugin-github-alerts@0.0.4:
     resolution: {integrity: sha512-1lx1EIxeiVL2B2PBAzoW9gyGNIRhuuItKz2+f4IGoeC1qKhwDdIgnubBe4LEeKbNqkCaHKlNE4RL9p2vIa0jCw==}
+    peerDependencies:
+      bytemd: ^1.5.0
+
+  bytemd-plugin-highlight-github@0.0.8:
+    resolution: {integrity: sha512-UAUjwIObKYgE6zyJnjx3BD/VjhA9SODJov9aj7oaapYt1X/cfC4fqRVyJKFrGC1rDnyljCfWNUE9h17XHbXZVA==}
     peerDependencies:
       bytemd: ^1.5.0
 
@@ -7952,11 +7952,6 @@ snapshots:
     dependencies:
       '@textlint/ast-node-types': 15.7.1
 
-  '@tofrankie/bytemd-plugin-highlight@0.0.5(bytemd@1.22.0)':
-    dependencies:
-      bytemd: 1.22.0
-      highlight.js: 11.11.1
-
   '@tofrankie/commitlint@0.0.6(@commitlint/cli@21.2.1(@types/node@26.1.1)(conventional-commits-parser@7.1.0)(typescript@5.9.3))':
     dependencies:
       '@commitlint/cli': 21.2.1(@types/node@26.1.1)(conventional-commits-parser@7.1.0)(typescript@5.9.3)
@@ -8846,6 +8841,11 @@ snapshots:
   bytemd-plugin-github-alerts@0.0.4(bytemd@1.22.0):
     dependencies:
       bytemd: 1.22.0
+
+  bytemd-plugin-highlight-github@0.0.8(bytemd@1.22.0):
+    dependencies:
+      bytemd: 1.22.0
+      highlight.js: 11.11.1
 
   bytemd-plugin-math@0.0.1(bytemd@1.22.0):
     dependencies:
