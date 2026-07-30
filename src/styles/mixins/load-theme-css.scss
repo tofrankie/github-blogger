@@ -1,0 +1,28 @@
+@use 'sass:meta';
+
+/// 根据 Primer 属性匹配规则加载浅色与深色主题 CSS 样式表
+/// @param {String} $light - 浅色样式文件路径
+/// @param {String} $dark - 深色样式文件路径
+@mixin load-theme-css($light, $dark) {
+  /* 1. 浅色模式 */
+  [data-color-mode='light'][data-light-theme='light'] {
+    @include meta.load-css($light);
+  }
+
+  [data-color-mode='auto'][data-light-theme='light'] {
+    @media (prefers-color-scheme: light) {
+      @include meta.load-css($light);
+    }
+  }
+
+  /* 2. 深色模式 */
+  [data-color-mode='dark'][data-dark-theme='dark'] {
+    @include meta.load-css($dark);
+  }
+
+  [data-color-mode='auto'][data-dark-theme='dark'] {
+    @media (prefers-color-scheme: dark) {
+      @include meta.load-css($dark);
+    }
+  }
+}

@@ -1,6 +1,8 @@
 @import 'bytemd/dist/index.min.css';
-@import 'katex/dist/katex.css';
+@import 'bytemd-plugin-math/styles/katex.css';
+@import '@tofrankie/bytemd-plugin-highlight/styles/pure.css';
+@import 'bytemd-theme-github/pure.css';
 @import '@/styles/bytemd/layout';
 @import '@/styles/bytemd/toolbar';
 @import '@/styles/bytemd/editor';
-@import '@/styles/bytemd/preview/index';
+@import '@/styles/bytemd/preview';

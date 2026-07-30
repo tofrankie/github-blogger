@@ -17,15 +17,6 @@ importers:
       '@bytemd/plugin-gemoji':
         specifier: 1.22.0
         version: 1.22.0(bytemd@1.22.0)
-      '@bytemd/plugin-gfm':
-        specifier: 1.22.0
-        version: 1.22.0(bytemd@1.22.0)
-      '@bytemd/plugin-highlight':
-        specifier: 1.22.0
-        version: 1.22.0(bytemd@1.22.0)
-      '@bytemd/plugin-math':
-        specifier: 1.22.0
-        version: 1.22.0(bytemd@1.22.0)
       '@bytemd/plugin-medium-zoom':
         specifier: 1.22.0
         version: 1.22.0(bytemd@1.22.0)
@@ -53,6 +44,9 @@ importers:
       '@tanstack/react-query-devtools':
         specifier: 5.101.4
         version: 5.101.4(@tanstack/react-query@5.101.4(react@19.2.8))(react@19.2.8)
+      '@tofrankie/bytemd-plugin-highlight':
+        specifier: 0.0.5
+        version: 0.0.5(bytemd@1.22.0)
       '@tofrankie/vscode-webview-rpc':
         specifier: 0.0.2
         version: 0.0.2
@@ -62,33 +56,33 @@ importers:
       bytemd:
         specifier: 1.22.0
         version: 1.22.0
+      bytemd-plugin-gfm:
+        specifier: 0.0.1
+        version: 0.0.1(bytemd@1.22.0)
       bytemd-plugin-github-alerts:
+        specifier: 0.0.4
+        version: 0.0.4(bytemd@1.22.0)
+      bytemd-plugin-math:
+        specifier: 0.0.1
+        version: 0.0.1(bytemd@1.22.0)
+      bytemd-plugin-mermaid:
         specifier: 0.0.3
         version: 0.0.3(bytemd@1.22.0)
-      bytemd-plugin-mermaid:
-        specifier: 0.0.2
-        version: 0.0.2(bytemd@1.22.0)
+      bytemd-theme-github:
+        specifier: 0.0.3
+        version: 0.0.3
       core-js:
         specifier: 3.49.0
         version: 3.49.0
       dayjs:
         specifier: 1.11.21
         version: 1.11.21
-      github-markdown-css:
-        specifier: 5.9.0
-        version: 5.9.0
       gray-matter:
         specifier: 4.0.3
         version: 4.0.3
-      highlight.js:
-        specifier: 11.11.1
-        version: 11.11.1
       js-base64:
         specifier: 3.9.1
         version: 3.9.1
-      katex:
-        specifier: 0.18.1
-        version: 0.18.1
       licia:
         specifier: 1.48.1
         version: 1.48.1
@@ -160,8 +154,8 @@ importers:
         specifier: 10.7.0
         version: 10.7.0(jiti@2.6.1)
       lint-staged:
-        specifier: 17.2.0
-        version: 17.2.0
+        specifier: 16.4.0
+        version: 16.4.0
       npm-run-all2:
         specifier: 9.0.2
         version: 9.0.2
@@ -407,21 +401,6 @@ packages:
 
   '@bytemd/plugin-gemoji@1.22.0':
     resolution: {integrity: sha512-jleWE3stK+tAr6kL4wBGTup85ShV2Mu85kKi9YQx1A/uwt5yqy/Uje6JuUs1DG6P/hl5TFkGyVekx5IpnOxbQA==}
-    peerDependencies:
-      bytemd: ^1.5.0
-
-  '@bytemd/plugin-gfm@1.22.0':
-    resolution: {integrity: sha512-ICmDwK5pCKrsoM2btNUo11R2Cpvaaz8dF/BAVrZ/w7mdY8985f7l8zIc7yX3tO5i3KYVvxBKhTCmerOS4xAcig==}
-    peerDependencies:
-      bytemd: ^1.5.0
-
-  '@bytemd/plugin-highlight@1.22.0':
-    resolution: {integrity: sha512-fMLEvsY8KQrVrtokIWeBFu8/JGGSX0V3Hf6Fhbdn9Q8vsz6u/WuI+wo78xRX7OWhUHpx99UxUcwEy/Hq4+NbpQ==}
-    peerDependencies:
-      bytemd: ^1.5.0
-
-  '@bytemd/plugin-math@1.22.0':
-    resolution: {integrity: sha512-eRzt83Tz1Xi2NCG9cXEXj3qP8YlTt5xnifZLNYW150RhDAelLmpiATfwdgp6IleaSY5rDIX8mVqvom1c7QSbbg==}
     peerDependencies:
       bytemd: ^1.5.0
 
@@ -1915,6 +1894,11 @@ packages:
   '@textlint/types@15.7.1':
     resolution: {integrity: sha512-Vye/GmFNBTgVzZFtIFJTmLB+s2A7oIADxNG6r9UhfPuY+Czv0z5G3xeyFZZudPlfxURsKUyPIU5XsjOFqVp33A==}
 
+  '@tofrankie/bytemd-plugin-highlight@0.0.5':
+    resolution: {integrity: sha512-z/nTbJJQJxs0QHSiCzLrI9Og1S7H/CviOkYIcQIu3hMvGpfwi8Q6EBnfUMglTTRp445tGc2Tl147sRRkt6IV5g==}
+    peerDependencies:
+      bytemd: ^1.5.0
+
   '@tofrankie/commitlint@0.0.6':
     resolution: {integrity: sha512-vjufccMx5lHMOQD5bPBl4x9+MGSDsglWfT/hehyMyK61ypSSIt7vINQTCEufTLM7J6XQWYFKtPDnOQYzDozgmw==}
     engines: {node: '>=18'}
@@ -2595,15 +2579,28 @@ packages:
     resolution: {integrity: sha512-tjwM5exMg6BGRI+kNmTntNsvdZS1X8BFYS6tnJ2hdH0kVxM6/eVZ2xy+FqStSWvYmtfFMDLIxurorHwDKfDz5Q==}
     engines: {node: '>=18'}
 
-  bytemd-plugin-github-alerts@0.0.3:
-    resolution: {integrity: sha512-/A7wrZkDyzwWP9zfI52dnsrq1fegbEVf6ilJNxiMY9n1oYWb1S6IREfIXM0Yet/zFzNN2y7DlI/OemEfXonlRw==}
+  bytemd-plugin-gfm@0.0.1:
+    resolution: {integrity: sha512-outTAQhkP+GvKnO7Y9wrkxM5f0uEgYxrHJWltm8h3p27AjOh7XSmfPBe9TK1Siv4fMo8W8rZFvVT+Vozi5ZXBg==}
     peerDependencies:
       bytemd: ^1.5.0
 
-  bytemd-plugin-mermaid@0.0.2:
-    resolution: {integrity: sha512-OItG7KIXolGTkMIZcl22byqJ2saIsTDSAGfdQDxE2s0XFdQ1kTrezE5Sjb6UaBEWraxxdnAJ1J2zt5d8OU78Rw==}
+  bytemd-plugin-github-alerts@0.0.4:
+    resolution: {integrity: sha512-1lx1EIxeiVL2B2PBAzoW9gyGNIRhuuItKz2+f4IGoeC1qKhwDdIgnubBe4LEeKbNqkCaHKlNE4RL9p2vIa0jCw==}
     peerDependencies:
       bytemd: ^1.5.0
+
+  bytemd-plugin-math@0.0.1:
+    resolution: {integrity: sha512-5kT/dkSJ9SO6AriP9Vdg6MC9SwNFH50QVJ05RRtA7APHn5p2sHwSXF2gK++1cReaS1xJQ9PIhJAvSqag7rYTAw==}
+    peerDependencies:
+      bytemd: ^1.5.0
+
+  bytemd-plugin-mermaid@0.0.3:
+    resolution: {integrity: sha512-Mm1W6qE78ufO1v3FW3jqD4gmrsHS5AbTQO3JIoeZc5Jj1GJZw2WH10Fn8mtkJW0IIBPRmi8Pfu6d+A1y0X/bAg==}
+    peerDependencies:
+      bytemd: ^1.5.0
+
+  bytemd-theme-github@0.0.3:
+    resolution: {integrity: sha512-odHgnzLfZrTBKwvvDf8p3koiEjfOASAsMuzCLeX0waw46qSEUpSSEPga8C1ZIGRmGpsWlEA9Tl/BADj1aN/UsA==}
 
   bytemd@1.22.0:
     resolution: {integrity: sha512-2vmegXnnsOxNufRrrQGHYKwgTmx6H+h40ZZs3DAw/SS5O4mBzO9evc1HD39CqW9wglGNBJxMg257pv9pgAGl+A==}
@@ -2692,6 +2689,10 @@ packages:
   cli-spinners@2.9.2:
     resolution: {integrity: sha512-ywqV+5MmyL4E7ybXgKys4DugZbX0FC6LnwrhjuykIjnK9k8OQacQ7axGKnjDXWNhns0xot3bZI5h55H8yo9cJg==}
     engines: {node: '>=6'}
+
+  cli-truncate@5.2.0:
+    resolution: {integrity: sha512-xRwvIOMGrfOAnM1JYtqQImuaNtDEv9v6oIYAs4LIHwTiKee8uwvIi363igssOC0O5U04i4AlENs79LQLu9tEMw==}
+    engines: {node: '>=20'}
 
   cli-width@4.1.0:
     resolution: {integrity: sha512-ouuZd4/dm2Sw5Gmqy6bGyNNNe1qt9RpmxveLSO7KcgsTnU7RXfsw+/bukWGo1abgBiMAic068rclZsO4IWmmxQ==}
@@ -3262,6 +3263,9 @@ packages:
   es-toolkit@1.49.0:
     resolution: {integrity: sha512-G5iZ6Pc/FNRY/soKZHC+TxGDD83rHUDXxzaWhGCX44vAv/tMs56WMusnm/KMNK+luUPsgA9U28cGr4RDlSzL2g==}
 
+  es-toolkit@1.50.0:
+    resolution: {integrity: sha512-OyZKhUVvEep9ITEiwHn8GKnMRQIVqoSIX7WnRbkWgJkllCujilqP2rD0u979tkl8wqyc8ICwlc1UBVv/Sl1G6w==}
+
   esbuild@0.27.3:
     resolution: {integrity: sha512-8VwMnyGCONIs6cWue2IdpHxHnAjzxnw2Zr7MkVxB2vjmQ2ivqGFb4LEG3SMnv0Gb2F/G/2yA8zUaiL1gywDCCg==}
     engines: {node: '>=18'}
@@ -3583,6 +3587,9 @@ packages:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
 
+  eventemitter3@5.0.4:
+    resolution: {integrity: sha512-mlsTRyGaPBjPedk6Bvw+aqbsXDtoAyAzm5MO7JgU+yVRyMQ5O8bD4Kcci7BS85f93veegeCPkL8R4GLClnjLFw==}
+
   execa@9.6.1:
     resolution: {integrity: sha512-9Be3ZoN4LmYR90tUoVu2te2BsbzHfhJyfEiAVfz7N5/zv+jduIfLrV2xdQXOHbaD6KgpGdO9PRPM1Y4Q9QkPkA==}
     engines: {node: ^18.19.0 || >=20.5.0}
@@ -3764,10 +3771,6 @@ packages:
 
   github-from-package@0.0.0:
     resolution: {integrity: sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw==}
-
-  github-markdown-css@5.9.0:
-    resolution: {integrity: sha512-tmT5sY+zvg2302XLYEfH2mtkViIM1SWf2nvYoF5N1ZsO0V6B2qZTiw3GOzw4vpjLygK/KG35qRlPFweHqfzz5w==}
-    engines: {node: '>=10'}
 
   github-slugger@2.0.0:
     resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
@@ -4098,6 +4101,10 @@ packages:
   is-fullwidth-code-point@3.0.0:
     resolution: {integrity: sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==}
     engines: {node: '>=8'}
+
+  is-fullwidth-code-point@5.1.0:
+    resolution: {integrity: sha512-5XHYaSyiqADb4RnZ1Bdad6cPp8Toise4TzEjcOYDHZkTCbKgiUl7WTUCpNWHuxmDt91wnsZBc9xinNzopv3JMQ==}
+    engines: {node: '>=18'}
 
   is-generator-function@1.1.2:
     resolution: {integrity: sha512-upqt1SkGkODW9tsGNG5mtXTXtECizwtS2kA161M+gJPc1xdb/Ax629af6YrTwcOeQHbewrPNlE5Dx7kzvXTizA==}
@@ -4452,10 +4459,14 @@ packages:
   linkify-it@5.0.2:
     resolution: {integrity: sha512-ONTm2jCMAVZjgQa/Fy1kScXsuOoF5NPTsoFBdE1KVIZ2vAh/r9+Bqo+0jINCBYnavTPQZz38QzFTme79ENoN3Q==}
 
-  lint-staged@17.2.0:
-    resolution: {integrity: sha512-FchGnFe4i4B1C/a35SPU9bNGPEHSC1+1iV0plLjzBmKVe9klZrlRfSgK6Cw4VeHyqOXbJUXP0vON61uRftNQ0A==}
-    engines: {node: '>=22.22.1'}
+  lint-staged@16.4.0:
+    resolution: {integrity: sha512-lBWt8hujh/Cjysw5GYVmZpFHXDCgZzhrOm8vbcUdobADZNOK/bRshr2kM3DfgrrtR1DQhfupW9gnIXOfiFi+bw==}
+    engines: {node: '>=20.17'}
     hasBin: true
+
+  listr2@9.0.5:
+    resolution: {integrity: sha512-ME4Fb83LgEgwNw96RKNvKV4VTLuXfoKudAmm2lP8Kk87KaMK0/Xrx/aAkMWmT8mDb+3MlFDspfbCs7adjRxA2g==}
+    engines: {node: '>=20.0.0'}
 
   local-pkg@1.2.1:
     resolution: {integrity: sha512-++gUqRDEvcnN6Zhqrr+y/CkVEHhlrR96vZn3nZZPYzMcBUyBtTKzB9NadClFIsIVSsu+3i9tfk/erqy9kAmt7Q==}
@@ -4509,6 +4520,10 @@ packages:
 
   log-symbols@6.0.0:
     resolution: {integrity: sha512-i24m8rpwhmPIS4zscNzK6MSEhk0DUWa/8iYQWxhffV8jkI4Phvs3F+quL5xvS0gdQR0FyTCMMH33Y78dDTzzIw==}
+    engines: {node: '>=18'}
+
+  log-update@6.1.0:
+    resolution: {integrity: sha512-9ie8ItPR6tjY5uYJh8K/Zrv/RMZ5VOlOWvtZdEHYSTFKZfIBPQa9tOAEeAWhd+AnIneLJ22w5fjOYtoutpWq5w==}
     engines: {node: '>=18'}
 
   longest-streak@3.1.0:
@@ -5222,6 +5237,10 @@ packages:
     resolution: {integrity: sha512-KBDEIpLrvpv16pp3K0Fw+UCoZfopFjjgeB+0tA/aaThfEE74kKDLrgg603YvOWJyg3+WYtyq3xYsQWsIyZlPqQ==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postcss@8.5.25:
+    resolution: {integrity: sha512-DTPx3RWSSnWyzLxQnlH0rJP+EW5ekl16ZU4/psbIhA0e53kJfdgaN5vKM+xP7yJtXVu+nfdVFmlgFDEKAe4Pyw==}
+    engines: {node: ^10 || ^12 || >=14}
+
   posthog-node@5.46.0:
     resolution: {integrity: sha512-Uzkth327Qxho9X55UygGUjVKCF9oaox90HQpa0o9YNjwLjbQmXttgHChzAtjAcsMw/ZKr3NnHC3xcAaS5dXwEQ==}
     engines: {node: ^20.20.0 || >=22.22.0}
@@ -5428,6 +5447,9 @@ packages:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
+  rfdc@1.4.1:
+    resolution: {integrity: sha512-q1b3N5QkRUWUl7iyylaaj3kOpIT0N2i9MqIEQXP73GVsN9cw3fdx8X63cEmWhJGi2PPCF23Ijp7ktmd39rawIA==}
+
   robust-predicates@3.0.3:
     resolution: {integrity: sha512-NS3levdsRIUOmiJ8FZWCP7LG3QpJyrs/TE0Zpf1yvZu8cAJJ6QMW92H1c7kWpdIHo8RvmLxN/o2JXTKHp74lUA==}
 
@@ -5607,6 +5629,14 @@ packages:
   slice-ansi@4.0.0:
     resolution: {integrity: sha512-qMCMfhY040cVHT43K9BFygqYbUPFZKHOg7K73mtTWJRb8pyP3fzf4Ixd5SzdEJQ6MRUg/WBnOLxghZtKKurENQ==}
     engines: {node: '>=10'}
+
+  slice-ansi@7.1.2:
+    resolution: {integrity: sha512-iOBWFgUX7caIZiuutICxVgX1SdxwAVFFKwt1EvMYYec/NWO5meOJ6K5uQxhrYBdQJne4KxiqZc+KptFOWFSI9w==}
+    engines: {node: '>=18'}
+
+  slice-ansi@8.0.0:
+    resolution: {integrity: sha512-stxByr12oeeOyY2BlviTNQlYV5xOj47GirPr4yA1hE9JCtxfQN0+tVbkxwCtYDQWhEKWFHsEK48ORg5jrouCAg==}
+    engines: {node: '>=20'}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -6627,25 +6657,6 @@ snapshots:
     dependencies:
       bytemd: 1.22.0
       remark-gemoji: 7.0.1
-
-  '@bytemd/plugin-gfm@1.22.0(bytemd@1.22.0)':
-    dependencies:
-      bytemd: 1.22.0
-      remark-gfm: 3.0.1
-    transitivePeerDependencies:
-      - supports-color
-
-  '@bytemd/plugin-highlight@1.22.0(bytemd@1.22.0)':
-    dependencies:
-      bytemd: 1.22.0
-      highlight.js: 11.11.1
-
-  '@bytemd/plugin-math@1.22.0(bytemd@1.22.0)':
-    dependencies:
-      '@types/katex': 0.16.7
-      bytemd: 1.22.0
-      katex: 0.16.47
-      remark-math: 5.1.1
 
   '@bytemd/plugin-medium-zoom@1.22.0(bytemd@1.22.0)':
     dependencies:
@@ -7941,6 +7952,11 @@ snapshots:
     dependencies:
       '@textlint/ast-node-types': 15.7.1
 
+  '@tofrankie/bytemd-plugin-highlight@0.0.5(bytemd@1.22.0)':
+    dependencies:
+      bytemd: 1.22.0
+      highlight.js: 11.11.1
+
   '@tofrankie/commitlint@0.0.6(@commitlint/cli@21.2.1(@types/node@26.1.1)(conventional-commits-parser@7.1.0)(typescript@5.9.3))':
     dependencies:
       '@commitlint/cli': 21.2.1(@types/node@26.1.1)(conventional-commits-parser@7.1.0)(typescript@5.9.3)
@@ -8589,7 +8605,7 @@ snapshots:
       '@vue/shared': 3.5.28
       estree-walker: 2.0.2
       magic-string: 0.30.21
-      postcss: 8.5.22
+      postcss: 8.5.25
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.28':
@@ -8820,14 +8836,29 @@ snapshots:
     dependencies:
       run-applescript: 7.1.0
 
-  bytemd-plugin-github-alerts@0.0.3(bytemd@1.22.0):
+  bytemd-plugin-gfm@0.0.1(bytemd@1.22.0):
+    dependencies:
+      bytemd: 1.22.0
+      remark-gfm: 3.0.1
+    transitivePeerDependencies:
+      - supports-color
+
+  bytemd-plugin-github-alerts@0.0.4(bytemd@1.22.0):
     dependencies:
       bytemd: 1.22.0
 
-  bytemd-plugin-mermaid@0.0.2(bytemd@1.22.0):
+  bytemd-plugin-math@0.0.1(bytemd@1.22.0):
+    dependencies:
+      bytemd: 1.22.0
+      katex: 0.18.1
+      remark-math: 5.1.1
+
+  bytemd-plugin-mermaid@0.0.3(bytemd@1.22.0):
     dependencies:
       bytemd: 1.22.0
       mermaid: 11.16.0
+
+  bytemd-theme-github@0.0.3: {}
 
   bytemd@1.22.0:
     dependencies:
@@ -8946,6 +8977,11 @@ snapshots:
       restore-cursor: 5.1.0
 
   cli-spinners@2.9.2: {}
+
+  cli-truncate@5.2.0:
+    dependencies:
+      slice-ansi: 8.0.0
+      string-width: 8.2.2
 
   cli-width@4.1.0: {}
 
@@ -9557,6 +9593,8 @@ snapshots:
 
   es-toolkit@1.49.0: {}
 
+  es-toolkit@1.50.0: {}
+
   esbuild@0.27.3:
     optionalDependencies:
       '@esbuild/aix-ppc64': 0.27.3
@@ -10058,6 +10096,8 @@ snapshots:
 
   esutils@2.0.3: {}
 
+  eventemitter3@5.0.4: {}
+
   execa@9.6.1:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
@@ -10261,8 +10301,6 @@ snapshots:
 
   github-from-package@0.0.0:
     optional: true
-
-  github-markdown-css@5.9.0: {}
 
   github-slugger@2.0.0: {}
 
@@ -10612,6 +10650,10 @@ snapshots:
 
   is-fullwidth-code-point@3.0.0: {}
 
+  is-fullwidth-code-point@5.1.0:
+    dependencies:
+      get-east-asian-width: 1.6.0
+
   is-generator-function@1.1.2:
     dependencies:
       call-bound: 1.0.4
@@ -10912,13 +10954,23 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  lint-staged@17.2.0:
+  lint-staged@16.4.0:
     dependencies:
+      commander: 14.0.3
+      listr2: 9.0.5
       picomatch: 4.0.5
       string-argv: 0.3.2
       tinyexec: 1.2.4
-    optionalDependencies:
       yaml: 2.9.0
+
+  listr2@9.0.5:
+    dependencies:
+      cli-truncate: 5.2.0
+      colorette: 2.0.20
+      eventemitter3: 5.0.4
+      log-update: 6.1.0
+      rfdc: 1.4.1
+      wrap-ansi: 9.0.2
 
   local-pkg@1.2.1:
     dependencies:
@@ -10962,6 +11014,14 @@ snapshots:
     dependencies:
       chalk: 5.6.2
       is-unicode-supported: 1.3.0
+
+  log-update@6.1.0:
+    dependencies:
+      ansi-escapes: 7.3.0
+      cli-cursor: 5.0.0
+      slice-ansi: 7.1.2
+      strip-ansi: 7.2.0
+      wrap-ansi: 9.0.2
 
   longest-streak@3.1.0: {}
 
@@ -11270,7 +11330,7 @@ snapshots:
       dagre-d3-es: 7.0.14
       dayjs: 1.11.21
       dompurify: 3.4.12
-      es-toolkit: 1.49.0
+      es-toolkit: 1.50.0
       katex: 0.16.47
       khroma: 2.1.0
       marked: 16.4.2
@@ -12095,6 +12155,12 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
+  postcss@8.5.25:
+    dependencies:
+      nanoid: 3.3.16
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
   posthog-node@5.46.0:
     dependencies:
       '@posthog/core': 1.44.0
@@ -12346,6 +12412,8 @@ snapshots:
       signal-exit: 4.1.0
 
   reusify@1.1.0: {}
+
+  rfdc@1.4.1: {}
 
   robust-predicates@3.0.3: {}
 
@@ -12600,6 +12668,16 @@ snapshots:
       ansi-styles: 4.3.0
       astral-regex: 2.0.0
       is-fullwidth-code-point: 3.0.0
+
+  slice-ansi@7.1.2:
+    dependencies:
+      ansi-styles: 6.2.3
+      is-fullwidth-code-point: 5.1.0
+
+  slice-ansi@8.0.0:
+    dependencies:
+      ansi-styles: 6.2.3
+      is-fullwidth-code-point: 5.1.0
 
   source-map-js@1.2.1: {}
 

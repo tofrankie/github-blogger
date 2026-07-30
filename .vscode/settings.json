@@ -13,7 +13,8 @@
   // https://github.com/microsoft/vscode/issues/143061
   // https://stackoverflow.com/questions/70837048/vscode-terminal-task-not-using-zsh-profile/71156819#71156819
   // https://code.visualstudio.com/docs/terminal/profiles#_common-questions
-  "typescript.tsc.autoDetect": "off",
+  "js/ts.tsc.autoDetect": "on",
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
   "terminal.integrated.automationProfile.osx": {
     "path": "/bin/zsh",
     "args": ["-l", "-i"]

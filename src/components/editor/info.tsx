@@ -5,8 +5,10 @@ import {
   IssueOpenedIcon,
   LinkExternalIcon,
   LinkIcon,
+  SyncIcon,
 } from '@primer/octicons-react'
-import { ActionList, ActionMenu, IconButton, RelativeTime } from '@primer/react'
+import { ActionList, ActionMenu, IconButton, RelativeTime, useTheme } from '@primer/react'
+import { VITE_DEV } from '@/constants'
 import { useToast } from '@/hooks'
 import { openExternalLink } from '@/utils'
 
@@ -16,10 +18,16 @@ interface InfoProps {
 
 export default function Info({ issue }: InfoProps) {
   const toast = useToast()
+  const { resolvedColorMode, setColorMode } = useTheme()
 
   const copyLink = () => {
     navigator.clipboard.writeText(issue.url)
     toast.success('Copied.')
+  }
+
+  const toggleColorMode = () => {
+    const nextColorMode = resolvedColorMode === 'light' ? 'dark' : 'light'
+    setColorMode(nextColorMode)
   }
 
   return (
@@ -29,6 +37,14 @@ export default function Info({ issue }: InfoProps) {
       </ActionMenu.Anchor>
       <ActionMenu.Overlay width="medium">
         <ActionList>
+          {VITE_DEV && (
+            <ActionList.Item onSelect={toggleColorMode}>
+              <ActionList.LeadingVisual>
+                <SyncIcon />
+              </ActionList.LeadingVisual>
+              Toggle color mode
+            </ActionList.Item>
+          )}
           <ActionList.Item onSelect={() => openExternalLink(issue.url)}>
             <ActionList.LeadingVisual>
               <LinkExternalIcon />

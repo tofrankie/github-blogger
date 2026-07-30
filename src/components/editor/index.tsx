@@ -1,22 +1,20 @@
 import breaks from '@bytemd/plugin-breaks'
 import frontmatter from '@bytemd/plugin-frontmatter'
 import gemoji from '@bytemd/plugin-gemoji'
-import gfm from '@bytemd/plugin-gfm'
-import highlight from '@bytemd/plugin-highlight'
-import math from '@bytemd/plugin-math'
 import mediumZoom from '@bytemd/plugin-medium-zoom'
 import { Editor as BytemdEditor } from '@bytemd/react'
 import { Button, Label, LabelGroup, Stack, TextInput, Tooltip, useTheme } from '@primer/react'
 import { SkeletonText } from '@primer/react/experimental'
+import highlight from '@tofrankie/bytemd-plugin-highlight'
+import gfm from 'bytemd-plugin-gfm'
 import alerts from 'bytemd-plugin-github-alerts'
+import math from 'bytemd-plugin-math'
 import mermaid from 'bytemd-plugin-mermaid'
 import { useMemo } from 'react'
 import { useLabels, useRepo, useUploadImages } from '@/hooks'
 import { useEditorStore } from '@/stores/use-editor-store'
 import { FlashWithRetry } from '../flash-with-retry'
 import Info from './info'
-
-import 'bytemd/dist/index.min.css'
 
 export default function Editor() {
   const { colorMode } = useTheme()
