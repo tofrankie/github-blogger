@@ -2,6 +2,14 @@
 
 All notable changes will be documented in this file.
 
+## v3.2.0
+
+> Aug 11, 2026
+
+- Add color mode button in Action Bar
+- Stabilize the order of front-matter labels
+- Update bytemd related dependencies
+
 ## v3.1.0
 
 > Jul 25, 2026
