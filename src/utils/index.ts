@@ -53,7 +53,7 @@ export function generateMarkdown(issue: MinimalIssue): string {
     link: issue.url,
     created_at: dayjs(issue.createdAt).format('YYYY-MM-DD HH:mm:ss'),
     updated_at: dayjs(issue.updatedAt).format('YYYY-MM-DD HH:mm:ss'),
-    labels: issue.labels.map(({ name }) => name),
+    labels: issue.labels.map(({ name }) => name).sort(),
   })
 }
 
