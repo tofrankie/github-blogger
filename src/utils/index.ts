@@ -1,8 +1,8 @@
-import type { MinimalIssue, Settings } from '~/types'
+import type { ColorMode, MinimalIssue, Settings } from '~/types'
 import dayjs from 'dayjs'
 import matter from 'gray-matter'
 import { VITE_DEV } from '@/constants'
-import { getRpc, notifyOpenExternalLink } from './rpc'
+import { getRpc, notifyOpenExternalLink, updateColorMode as persistColorMode } from './rpc'
 
 type VSCodeApi = ReturnType<typeof acquireVsCodeApi>
 
@@ -34,6 +34,16 @@ export async function getSettings(): Promise<Settings> {
 
   settings = await getRpc().call('settings.get')
   return settings
+}
+
+export async function updateColorMode(colorMode: ColorMode): Promise<void> {
+  await persistColorMode({ colorMode })
+  if (settings) {
+    settings = {
+      ...settings,
+      colorMode,
+    }
+  }
 }
 
 export function getVscode(): VSCodeApi {

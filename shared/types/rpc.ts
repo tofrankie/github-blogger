@@ -1,5 +1,12 @@
 import type { RPCDefinition } from '@tofrankie/vscode-webview-rpc'
-import type { MinimalIssue, MinimalIssues, MinimalLabel, MinimalLabels, Settings } from './domain'
+import type {
+  ColorMode,
+  MinimalIssue,
+  MinimalIssues,
+  MinimalLabel,
+  MinimalLabels,
+  Settings,
+} from './domain'
 import type {
   CreateBlobParams,
   CreateCommitParams,
@@ -92,10 +99,18 @@ export type UploadImageCallParams = {
   path: string
 }
 
+export type UpdateColorModeCallParams = {
+  colorMode: ColorMode
+}
+
 type AppRPCCalls = {
   'settings.get': {
     params: void
     result: Settings
+  }
+  'settings.color-mode.update': {
+    params: UpdateColorModeCallParams
+    result: void
   }
   'repo.get': {
     params: void

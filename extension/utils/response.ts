@@ -5,6 +5,8 @@ import { ERROR_TYPE } from '~/constants'
 type Transform<T, R> = (data: T) => R
 type RequestErrorLike = ApiRequestErrorDetail & { message: string }
 
+export function createResponse<T>(result: ResultTuple<T>): T
+export function createResponse<T, R>(result: ResultTuple<T>, transform: Transform<T, R>): R
 export function createResponse<T, R>(result: ResultTuple<T>, transform?: Transform<T, R>): T | R {
   const [err, data] = result
   if (err) {

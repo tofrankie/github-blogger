@@ -19,6 +19,7 @@ import type {
   MinimalLabel,
   MinimalLabels,
   RestRepo,
+  UpdateColorModeCallParams,
   UpdateIssueCallParams,
   UpdateLabelCallParams,
   UpdateRefCallParams,
@@ -137,6 +138,10 @@ export function notifyOpenExternalLink(url: string): void {
 
 export async function getSettings() {
   return rpcCall('settings.get')
+}
+
+export async function updateColorMode(params: UpdateColorModeCallParams): Promise<void> {
+  await rpcCall('settings.color-mode.update', params)
 }
 
 export async function getRepo(): Promise<RestRepo> {

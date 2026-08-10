@@ -1,7 +1,7 @@
 import type { Uri as UriType, Webview } from 'vscode'
 import type { ColorMode, ResultTuple, SettingKey, Settings } from '~/types'
 
-import { Uri, workspace } from 'vscode'
+import { ConfigurationTarget, Uri, workspace } from 'vscode'
 import { EXTENSION_NAME } from '@/constants'
 import { COLOR_MODE, SETTING_KEY } from '~/constants'
 
@@ -73,6 +73,14 @@ function readSettings(): Settings {
 
 export function invalidateSettingsCache(): void {
   settings = null
+}
+
+export async function updateColorMode(colorMode: ColorMode): Promise<void> {
+  await workspace
+    .getConfiguration(EXTENSION_NAME)
+    .update(SETTING_KEY.COLOR_MODE, colorMode, ConfigurationTarget.Global)
+
+  invalidateSettingsCache()
 }
 
 export function getSettings(options: { fresh?: boolean } = {}): Settings {

@@ -19,6 +19,7 @@ import type {
   GetIssuesCallParams,
   GetIssuesWithFilterCallParams,
   Settings,
+  UpdateColorModeCallParams,
   UpdateIssueCallParams,
   UpdateLabelCallParams,
   UpdateRefCallParams,
@@ -29,7 +30,7 @@ import { isEmpty } from 'licia'
 import { env, Uri } from 'vscode'
 import { APIS } from '@/constants'
 import * as graphqlQuery from '@/server/graphql'
-import { cdnURL, getSettings, to } from '@/utils'
+import { cdnURL, getSettings, to, updateColorMode } from '@/utils'
 import {
   normalizeIssueFromGraphql,
   normalizeIssueFromRest,
@@ -51,6 +52,7 @@ export default class Service {
     this.rpc = createExtensionRPC<AppRPC>(this.webview, {
       calls: {
         'settings.get': () => getSettings({ fresh: true }),
+        'settings.color-mode.update': async params => this.updateColorMode(params),
         'repo.get': async () => this.getRepo(),
         'labels.list': async () => this.getLabels(),
         'labels.create': async params => this.createLabel(params),
@@ -76,6 +78,11 @@ export default class Service {
         },
       },
     })
+  }
+
+  private async updateColorMode({ colorMode }: UpdateColorModeCallParams): Promise<void> {
+    await updateColorMode(colorMode)
+    this.config = getSettings({ fresh: true })
   }
 
   private async getLabels() {
@@ -116,7 +123,7 @@ export default class Service {
       })
     )
 
-    return createResponse(res)
+    createResponse(res)
   }
 
   private async updateLabel({ newName, name, color, description }: UpdateLabelCallParams) {
@@ -318,7 +325,7 @@ export default class Service {
   private async createTree({ baseTree, treePath, treeSha }: CreateTreeCallParams) {
     const params = {
       base_tree: baseTree,
-      tree: [{ path: treePath, mode: '100644', type: 'blob', sha: treeSha }],
+      tree: [{ path: treePath, mode: '100644' as const, type: 'blob' as const, sha: treeSha }],
     }
     const res = await to(
       this.octokit.request(APIS.CREATE_TREE, {

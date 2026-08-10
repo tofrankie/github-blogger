@@ -45,8 +45,8 @@ importers:
         specifier: 5.101.4
         version: 5.101.4(@tanstack/react-query@5.101.4(react@19.2.8))(react@19.2.8)
       '@tofrankie/vscode-webview-rpc':
-        specifier: 0.0.2
-        version: 0.0.2
+        specifier: 0.0.3
+        version: 0.0.3
       buffer:
         specifier: 6.0.3
         version: 6.0.3
@@ -1939,8 +1939,8 @@ packages:
       typescript:
         optional: true
 
-  '@tofrankie/vscode-webview-rpc@0.0.2':
-    resolution: {integrity: sha512-04QsIQspoB2ZSTpE0jCbshrW2MzVdNorL2APN+khfa/TQysvI4cHq8fuDwJ/tm3D2GT2HWCfx2AvZit49iL2dw==}
+  '@tofrankie/vscode-webview-rpc@0.0.3':
+    resolution: {integrity: sha512-fglPXwMuJu3ohHgwhJL57G4Pas/RsjqftRxoW+eDTs3we9a8uOf/SzdZdIalPNMJi0GPew2jZePbrne1eMAacg==}
     engines: {node: '>=18'}
 
   '@tomjs/node@2.2.3':
@@ -8069,7 +8069,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  '@tofrankie/vscode-webview-rpc@0.0.2': {}
+  '@tofrankie/vscode-webview-rpc@0.0.3': {}
 
   '@tomjs/node@2.2.3': {}
 

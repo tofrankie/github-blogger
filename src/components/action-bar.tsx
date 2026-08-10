@@ -2,16 +2,18 @@ import {
   CloudIcon,
   LinkExternalIcon,
   ListUnorderedIcon,
+  MoonIcon,
   PlusIcon,
+  SunIcon,
   TagIcon,
 } from '@primer/octicons-react'
-import { IconButton, Stack, useConfirm } from '@primer/react'
+import { IconButton, Stack, useConfirm, useTheme } from '@primer/react'
 import { cloneDeep } from 'licia'
 import { useMemo, useState } from 'react'
 import { EMPTY_ISSUE } from '@/constants'
-import { useCreateIssue, useUpdateIssue } from '@/hooks'
+import { useCreateIssue, useToast, useUpdateIssue } from '@/hooks'
 import { useEditorStore } from '@/stores/use-editor-store'
-import { openExternalLink } from '@/utils'
+import { openExternalLink, updateColorMode } from '@/utils'
 
 interface ActionBoxProps {
   onLabelsVisible: (visible: boolean) => void
@@ -26,10 +28,13 @@ export default function ActionBar({ onLabelsVisible, onIssuesVisible }: ActionBo
 
   const { mutateAsync: createIssue } = useCreateIssue()
   const { mutateAsync: updateIssue } = useUpdateIssue()
+  const { resolvedColorMode, setColorMode } = useTheme()
+  const toast = useToast()
 
   const confirm = useConfirm()
 
   const [isSaving, setIsSaving] = useState(false)
+  const [isSwitchingColorMode, setIsSwitchingColorMode] = useState(false)
 
   const saveBtnEnabled = useMemo(
     () => canSubmit && isChanged && !isSaving,
@@ -70,6 +75,22 @@ export default function ActionBar({ onLabelsVisible, onIssuesVisible }: ActionBo
     setIssue(cloneDeep(EMPTY_ISSUE))
   }
 
+  const nextColorMode = resolvedColorMode === 'light' ? 'dark' : 'light'
+  const colorModeToggleDescription = `Switch to ${nextColorMode} mode`
+
+  const toggleColorMode = async () => {
+    setIsSwitchingColorMode(true)
+
+    try {
+      await updateColorMode(nextColorMode)
+      setColorMode(nextColorMode)
+    } catch (error) {
+      toast.critical(error instanceof Error ? error.message : 'Failed to switch color mode.')
+    } finally {
+      setIsSwitchingColorMode(false)
+    }
+  }
+
   return (
     <Stack className="app-action-bar" gap="condensed">
       <IconButton
@@ -89,6 +110,15 @@ export default function ActionBar({ onLabelsVisible, onIssuesVisible }: ActionBo
         description="Create new issue"
         aria-label="Create new issue"
         tooltipDirection="w"
+      />
+      <IconButton
+        icon={resolvedColorMode === 'light' ? SunIcon : MoonIcon}
+        onClick={toggleColorMode}
+        disabled={isSwitchingColorMode}
+        description={colorModeToggleDescription}
+        aria-label={colorModeToggleDescription}
+        tooltipDirection="w"
+        loading={isSwitchingColorMode}
       />
       {issue.number > -1 && (
         <IconButton
