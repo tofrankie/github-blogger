@@ -1,7 +1,6 @@
 # GitHub Blogger
 
-[![Visual Studio Marketplace Version](https://vsmarketplacebadges.dev/version/frankie.github-blogger.svg?color=4d9375)](https://marketplace.visualstudio.com/items?itemName=frankie.github-blogger) [![Open VSX Version](https://img.shields.io/open-vsx/v/frankie/github-blogger.svg?label=Open%20VSX&color=a60ee5)
-](https://open-vsx.org/extension/frankie/github-blogger)
+[![Visual Studio Marketplace Version](https://vsmarketplacebadges.dev/version/frankie.github-blogger.svg?style=for-the-badge&color=4d9375)](https://marketplace.visualstudio.com/items?itemName=frankie.github-blogger) [![Open VSX Version](https://img.shields.io/open-vsx/v/frankie/github-blogger.svg?style=for-the-badge&color=a60ee5&label=Open%20VSX)](https://open-vsx.org/extension/frankie/github-blogger)
 
 English | [中文](README.zh_CN.md)
 
