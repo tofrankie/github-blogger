@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file.
 
+## v3.2.1
+
+> Aug 18, 2026
+
+- Fix code tag color
+
 ## v3.2.0
 
 > Aug 11, 2026
