@@ -94,7 +94,8 @@
     "lint:stylelint": "stylelint './**/*.{css,scss,html}' --cache --fix",
     "typecheck": "tsc --noEmit",
     "check": "run-s typecheck lint",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "github:release": "tfr"
   },
   "dependencies": {
     "@bytemd/plugin-breaks": "1.22.0",
@@ -134,6 +135,7 @@
     "@octokit/request-error": "7.1.1",
     "@octokit/types": "17.0.0",
     "@tanstack/eslint-plugin-query": "5.101.4",
+    "@tofrankie/action": "0.0.9",
     "@tofrankie/commitlint": "0.0.6",
     "@tofrankie/eslint": "0.5.0",
     "@tofrankie/prettier": "0.2.0",
