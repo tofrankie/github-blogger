@@ -2,6 +2,13 @@
 
 All notable changes will be documented in this file.
 
+## v3.2.2
+
+> Aug 23, 2026
+
+- Refactor scrollbar style
+- Update underline style in Editor
+
 ## v3.2.1
 
 > Aug 18, 2026
