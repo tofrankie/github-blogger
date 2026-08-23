@@ -2,5 +2,6 @@
 @import '@/styles/primer';
 @import '@/styles/toast';
 
-/* 放在最后 */
+/* 全局样式放在最后 */
 @import '@/styles/base';
+@import '@/styles/scrollbar';
