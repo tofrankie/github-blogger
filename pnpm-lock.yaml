@@ -124,8 +124,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/types@8.65.0)(@typescript-eslint/typescript-estree@8.65.0(typescript@5.9.3))(@typescript-eslint/utils@8.65.0(eslint@10.8.1(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-sfc@3.5.28)(astro-eslint-parser@1.4.0)(eslint@10.8.1(jiti@2.6.1))(prettier@3.9.6)(svelte-eslint-parser@1.8.0)(ts-declaration-location@1.0.7(typescript@5.9.3))(typescript@5.9.3)
       '@tofrankie/prettier':
-        specifier: 0.2.0
-        version: 0.2.0(prettier@3.9.6)
+        specifier: 0.3.0
+        version: 0.3.0(prettier@3.9.6)
       '@tofrankie/stylelint':
         specifier: 0.5.0
         version: 0.5.0(stylelint-config-recommended-scss@17.0.1(postcss@8.5.22)(stylelint@17.14.1(typescript@5.9.3)))(stylelint-config-recommended@18.0.0(stylelint@17.14.1(typescript@5.9.3)))(stylelint@17.14.1(typescript@5.9.3))
@@ -385,11 +385,6 @@ packages:
 
   '@babel/parser@7.29.0':
     resolution: {integrity: sha512-IyDgFV5GeDUVX4YdF/3CPULtVGSXXMLh1xVIgdCgxApktqnQV0r7/8Nqthg+8YLGaAtdyIlo2qIdZrbCv4+7ww==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-
-  '@babel/parser@7.29.2':
-    resolution: {integrity: sha512-4GgRzy/+fsBa72/RZVJmGKPmZu9Byn8o4MoLpmNe1m8ZfYnz5emHLQz3U4gLud6Zwl0RZIcgiLD7Uq7ySFuDLA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1974,14 +1969,19 @@ packages:
   '@tofrankie/postcss-wxml@0.0.6':
     resolution: {integrity: sha512-EEtizc9eamgX1FbER4Y69PgBMU0LFerXgk0FJ5/ZkLZc3PMNlE75Vk7VwU2A3HM5/UABwchHjxx/GSc7Bsw1RA==}
 
-  '@tofrankie/prettier-plugin-wxml@0.0.11':
-    resolution: {integrity: sha512-De58fa9+vLZf3jodA8tOzZ9+BHBdCH3mK477IDtyLyARjrVj4AVDpNkduG1J5UjMSvKIeHzt4rWMdUULIJ5+bQ==}
+  '@tofrankie/prettier-plugin-compact-markdown-table@0.0.2':
+    resolution: {integrity: sha512-vPrys8o0VdDCIxfppq0ocEEyqDUZYk+ieRkJxF8pbHHyGPdMPGr82qVVuQ3ao67yEo/UtkBNJ7xlo3SCvBW4HA==}
+    peerDependencies:
+      prettier: ^3.0.0
+
+  '@tofrankie/prettier-plugin-wxml@0.1.0':
+    resolution: {integrity: sha512-BQmvo2TZJcZXrZhFZ070vFNuREqjD9DEvWAG9F9aezSNtMoIdmtpXlcU4/ZtGs+a6haeVSdRn/oMXeXZwBM6Kg==}
     engines: {node: '>=18'}
     peerDependencies:
       prettier: '>=3.0.0'
 
-  '@tofrankie/prettier@0.2.0':
-    resolution: {integrity: sha512-EzWkTqyFAcygXYd0aW7Gm3DRHB9x0eUyEVxPvlXARhC8nMwvNKGvlcu/qm+zF8Iu3pkKsB8/bZdafOWVG82X3Q==}
+  '@tofrankie/prettier@0.3.0':
+    resolution: {integrity: sha512-FkOXMpdeYRC1vBe94/iVp3lAx2FQpL1fMYyNAvd0KzEo3T4beY5ffpFuzm/+17/ciLLQoz966/KDKt5lfP5PfA==}
     engines: {node: '>=18'}
     peerDependencies:
       prettier: '>=3.0.0'
@@ -2439,8 +2439,8 @@ packages:
   ajv@8.20.0:
     resolution: {integrity: sha512-Thbli+OlOj+iMPYFBVBfJ3OmCAnaSyNn4M1vz9T6Gka5Jt9ba/HIR56joy65tY6kx/FCF5VXNB819Y7/GUrBGA==}
 
-  angular-html-parser@10.4.0:
-    resolution: {integrity: sha512-++nLNyZwRfHqFh7akH5Gw/JYizoFlMRz0KRigfwfsLqV8ZqlcVRb1LkPEWdYvEKDnbktknM2J4BXaYUGrQZPww==}
+  angular-html-parser@10.11.0:
+    resolution: {integrity: sha512-3vERzJ65UFDr3C7uozLJwsNcQS3FS784dSh583oDgDTTZMgXe3/pdyXgKndxiP5R2lvYRfW6gSl145Hnyf2OFA==}
     engines: {node: '>= 14'}
 
   ansi-escapes@7.3.0:
@@ -5121,8 +5121,8 @@ packages:
     resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
     engines: {node: '>=10'}
 
-  p-limit@7.3.0:
-    resolution: {integrity: sha512-7cIXg/Z0M5WZRblrsOla88S4wAK+zOQQWeBYfV3qJuJXMr+LnbYjaadrFaS0JILfEDPVqHyKnZ1Z/1d6J9VVUw==}
+  p-limit@7.3.1:
+    resolution: {integrity: sha512-0trZaiG7Y7kN/Egy9a8j47t9osC0Tch4PaIWd9yGF6bvmlk7muExRvGNYb8sXBwEKMoNKsbNN9P8EefuQekE4Q==}
     engines: {node: '>=20'}
 
   p-locate@5.0.0:
@@ -5219,6 +5219,10 @@ packages:
 
   picomatch@4.0.5:
     resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
+    engines: {node: '>=12'}
+
+  picomatch@4.0.7:
+    resolution: {integrity: sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==}
     engines: {node: '>=12'}
 
   pidtree@1.0.0:
@@ -6740,10 +6744,6 @@ snapshots:
     dependencies:
       '@babel/types': 7.29.0
 
-  '@babel/parser@7.29.2':
-    dependencies:
-      '@babel/types': 7.29.0
-
   '@babel/parser@7.29.8':
     dependencies:
       '@babel/types': 7.29.8
@@ -8171,17 +8171,22 @@ snapshots:
       htmlparser2: 12.0.0
       postcss: 8.5.26
 
-  '@tofrankie/prettier-plugin-wxml@0.0.11(prettier@3.9.6)':
+  '@tofrankie/prettier-plugin-compact-markdown-table@0.0.2(prettier@3.9.6)':
     dependencies:
-      '@babel/parser': 7.29.2
-      angular-html-parser: 10.4.0
-      p-limit: 7.3.0
+      prettier: 3.9.6
+
+  '@tofrankie/prettier-plugin-wxml@0.1.0(prettier@3.9.6)':
+    dependencies:
+      '@babel/parser': 7.29.8
+      angular-html-parser: 10.11.0
+      p-limit: 7.3.1
       prettier: 3.9.6
       prettier-plugin-organize-attributes: 1.0.0(prettier@3.9.6)
 
-  '@tofrankie/prettier@0.2.0(prettier@3.9.6)':
+  '@tofrankie/prettier@0.3.0(prettier@3.9.6)':
     dependencies:
-      '@tofrankie/prettier-plugin-wxml': 0.0.11(prettier@3.9.6)
+      '@tofrankie/prettier-plugin-compact-markdown-table': 0.0.2(prettier@3.9.6)
+      '@tofrankie/prettier-plugin-wxml': 0.1.0(prettier@3.9.6)
       prettier: 3.9.6
       prettier-plugin-organize-attributes: 1.0.0(prettier@3.9.6)
 
@@ -8797,7 +8802,7 @@ snapshots:
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
-  angular-html-parser@10.4.0: {}
+  angular-html-parser@10.11.0: {}
 
   ansi-escapes@7.3.0:
     dependencies:
@@ -12161,7 +12166,7 @@ snapshots:
     dependencies:
       yocto-queue: 0.1.0
 
-  p-limit@7.3.0:
+  p-limit@7.3.1:
     dependencies:
       yocto-queue: 1.2.2
 
@@ -12247,6 +12252,9 @@ snapshots:
   picomatch@2.3.2: {}
 
   picomatch@4.0.5: {}
+
+  picomatch@4.0.7:
+    optional: true
 
   pidtree@1.0.0: {}
 
@@ -13266,7 +13274,7 @@ snapshots:
 
   ts-declaration-location@1.0.7(typescript@5.9.3):
     dependencies:
-      picomatch: 4.0.5
+      picomatch: 4.0.7
       typescript: 5.9.3
     optional: true
 

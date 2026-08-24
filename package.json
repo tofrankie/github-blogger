@@ -138,7 +138,7 @@
     "@tofrankie/action": "0.0.9",
     "@tofrankie/commitlint": "0.0.6",
     "@tofrankie/eslint": "0.5.0",
-    "@tofrankie/prettier": "0.2.0",
+    "@tofrankie/prettier": "0.3.0",
     "@tofrankie/stylelint": "0.5.0",
     "@tofrankie/tsconfig": "0.2.1",
     "@tomjs/vite-plugin-vscode": "7.1.1",
