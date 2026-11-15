@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file.
 
+## v3.2.3
+
+> Aug 15, 2026
+
+- Set `<hr>` thickness to `1px` ([#3157](https://github.com/primer/css/pull/3157))
+
 ## v3.2.2
 
 > Aug 23, 2026
